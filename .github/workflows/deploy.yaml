@@ -1,0 +1,73 @@
+name: Deploy to GitHub Pages
+
+on:
+  # Run workflow on every push to the main branch
+  push:
+    branches: [ main ]
+  
+  # Allow manual trigger of the workflow from GitHub interface
+  workflow_dispatch:
+
+# Set required permissions
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+# Only one deployment can be active at a time
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  # Build job
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Log in to the container registry
+      uses: docker/login-action@v3
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
+
+    - name: Build website
+      run: |
+        tree -up public
+        chmod -R a+rw public cache
+        docker run --rm -v ${{ github.workspace }}:/app -w /app -e swu.database=/app/database -e swu.cache=/app/cache ghcr.io/swumeta/swumeta-cli:latest generate-site -o /app/public
+
+    - name: Commit content
+      run: |
+        if [[ `git status --porcelain` ]]; then
+          git config --global user.name 'github-actions'
+          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public cache database
+          git commit -am "Generated site content"
+          git push
+        fi
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: public
+
+  # Deployment job
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
