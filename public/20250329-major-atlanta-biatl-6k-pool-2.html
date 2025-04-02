@@ -60,10 +60,10 @@
 
     <div class="row mt-4">
       <div class="col">
-        <div id="chart-leaders" style="width: 98%; height: 400px"></div>
+        <div id="chart-leaders" style="width: 100%; height: 400px"></div>
       </div>
       <div class="col">
-        <div id="chart-bases" style="width: 98%; height: 400px"></div>
+        <div id="chart-bases" style="width: 100%; height: 400px"></div>
       </div>
     </div>
 
@@ -2412,26 +2412,46 @@
     const leadersChart = echarts.init(document.getElementById('chart-leaders'));
     const leadersOption = {
       backgroundColor: '#121212',
-      title: {
-        text: 'Leaders',
-        left: 'center',
-      },
-      tooltip: {
-        trigger: 'item',
-        formatter(params) {
-          return `${params.marker}${params.name}<span style="float: right; margin-left: 20px"><b>${params.value}</b> (${params.percent}%)</span>`;
-        }
-      },
-      series: [
-        {
-          type: 'pie',
-          data: [
+      legend: {
+        data: [
+      'Sabine Wren (SOR)',
+      'Others',
+      'Quinlan Vos (TWI)',
+      'Jango Fett (TWI)',
+      'Admiral Piett (JTL)',
+    ],
+    icon: 'rect',
+    orient: 'vertical',
+    top: 'center',
+    right: 'right',
+    textStyle: {
+      color: '#fff',
+    },
+  },
+title: {
+  text: 'Leaders',
+  left: 'center',
+},
+  tooltip: {
+    trigger: 'item',
+    formatter(params) {
+      return `${params.marker}${params.name}<span style="float: right; margin-left: 20px"><b>${params.value}</b> (${params.percent}%)</span>`;
+    }
+  },
+  series: [
+    {
+      type: 'pie',
+      data: [
       { value: 18, name: 'Sabine Wren (SOR)' },
       { value: 47, name: 'Others' },
       { value: 12, name: 'Quinlan Vos (TWI)' },
       { value: 30, name: 'Jango Fett (TWI)' },
       { value: 9, name: 'Admiral Piett (JTL)' },
     ],
+    label: {
+        show: false,
+        position: 'center'
+      },
   }
 ]
 };
@@ -2440,6 +2460,22 @@ leadersChart.setOption(leadersOption);
 const basesChart = echarts.init(document.getElementById('chart-bases'));
 const basesOption = {
 backgroundColor: '#121212',
+      legend: {
+        data: [
+      'Energy Conversion Lab',
+      'Others',
+      'Green',
+      'Tarkintown',
+      'Yellow',
+    ],
+    icon: 'rect',
+    orient: 'vertical',
+    top: 'center',
+    right: 'right',
+    textStyle: {
+      color: '#fff',
+    },
+  },
 title: {
   text: 'Bases',
   left: 'center',
@@ -2460,6 +2496,10 @@ series: [
       { value: 43, name: 'Tarkintown' },
       { value: 12, name: 'Yellow' },
     ],
+    label: {
+        show: false,
+        position: 'center'
+      },
   }
 ]
 };
