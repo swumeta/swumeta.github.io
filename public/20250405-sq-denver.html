@@ -69,6 +69,27 @@
 
 
 
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="copy-toast" class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="2000">
+    <div class="d-flex">
+      <div class="toast-body">Copied deck to clipboard.</div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  function copyDeck(deckId) {
+    const text = document.getElementById(deckId).textContent;
+    navigator.clipboard.writeText(text)
+    .then(() => {
+      bootstrap.Toast.getOrCreateInstance(document.getElementById("copy-toast")).show();
+    }).catch(err => {
+      console.error('Error during copy: ', err);
+    });
+  }
+</script>
+
+
 </main>
 
 <footer>
@@ -102,5 +123,9 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+<script type="text/javascript">
+  const toastElList = document.querySelectorAll('.toast');
+  const toastList = [...toastElList].map(toastEl => new bootstrap.Toast(toastEl));
+</script>
 </body>
 </html>
