@@ -40,8 +40,8 @@
 
 <section class="container">
   <h2 class="section-title">
-    <a href="events.html" class="text-decoration-none">Events</a> &gt; Sector Qualifier Liverpool <i
-    class="ms-1 fi fi-gb"></i>
+    <span class="fs-6"><a href="events.html" class="text-decoration-none">Events</a> &gt;</span><br/>
+    Sector Qualifier Liverpool <i class="ms-1 fi fi-gb"></i>
   </h2>
 
   <div class="row">
@@ -50,7 +50,7 @@
       </p>
       <p class="m-0"><span class="text-secondary">Date:</span>&nbsp;<span class="fw-bold">2025-04-05</span></p>
       <p class="m-0"><span class="text-secondary">Type:</span>&nbsp;<span class="fw-bold">Sector Qualifier</span>
-        / 323
+        / 353
         players</p>
       <p class="m-0 mb-1"><span class="text-secondary">
     Source:</span>&nbsp;<i class="bi bi-card-list source mx-1"></i>
@@ -101,6 +101,29 @@
       console.error('Error during copy: ', err);
     });
   }
+
+  function showMoreDecks() {
+    const table = document.getElementById("decks");
+    const rows = table.querySelectorAll("tr");
+    let i = 0;
+    for (const row of rows) {
+      row.classList.remove("d-none");
+      i++;
+    }
+    const showMoreSection = document.getElementById("showMoreSection");
+    showMoreSection.classList.toggle("d-none", true);
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const table = document.getElementById("decks");
+    const rows = table.querySelectorAll("tr");
+    let i = 0;
+    for (const row of rows) {
+      if (i > 8) break;
+      row.classList.remove("d-none");
+      i++;
+    }
+  });
 </script>
 
 </main>

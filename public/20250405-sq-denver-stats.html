@@ -59,71 +59,40 @@
     </div>
   </div>
 
-
-  <div class="row">
-    <div class="col-12">
-        <p class="my-4"><i class="text-warning bi bi-exclamation-triangle-fill me-1"></i>
-          <strong>No deck found</strong>: please try again later</p>
+  <div class="row mt-4">
+    <div class="col">
+      <div id="chart-leaders" style="width: 100%; height: 100%; min-height: 600px"></div>
     </div>
   </div>
 </section>
-
-<section class="container">
-  <div class="row">
-      <div class="col-6 my-2" style="min-width: 400px">
-        <h3 class="text-secondary fs-6">Livestream</h3>
-        <div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;">
-          <iframe src="https://player.twitch.tv/?parent=swumeta.net&autoplay=false&channel=starcitygames" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;"
-                  allowfullscreen scrolling="no" allow="encrypted-media;"></iframe>
-        </div>
-      </div>
-  </div>
-</section>
-
-
-
-<div class="toast-container position-fixed bottom-0 end-0 p-3">
-  <div id="copy-toast" class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true"
-       data-bs-delay="2000">
-    <div class="d-flex">
-      <div class="toast-body">Copied deck to clipboard.</div>
-    </div>
-  </div>
-</div>
 
 <script type="text/javascript">
-  function copyDeck(deckId) {
-    const text = document.getElementById(deckId).textContent.trim();
-    navigator.clipboard.writeText(text)
-    .then(() => {
-      bootstrap.Toast.getOrCreateInstance(document.getElementById("copy-toast")).show();
-    }).catch(err => {
-      console.error('Error during copy: ', err);
-    });
+  const leadersChart = echarts.init(document.getElementById('chart-leaders'));
+  const leadersOption = {
+    backgroundColor: '#121212',
+title: {
+text: 'Leaders',
+left: 'center',
+},
+tooltip: {
+  trigger: 'item',
+  confine: true,
+  formatter(params) {
+    return `${params.marker}${params.name}<span style="float: right; margin-left: 20px"><b>${params.value}</b> (${params.percent}%)</span>`;
   }
-
-  function showMoreDecks() {
-    const table = document.getElementById("decks");
-    const rows = table.querySelectorAll("tr");
-    let i = 0;
-    for (const row of rows) {
-      row.classList.remove("d-none");
-      i++;
-    }
-    const showMoreSection = document.getElementById("showMoreSection");
-    showMoreSection.classList.toggle("d-none", true);
-  }
-
-  document.addEventListener('DOMContentLoaded', function() {
-    const table = document.getElementById("decks");
-    const rows = table.querySelectorAll("tr");
-    let i = 0;
-    for (const row of rows) {
-      if (i > 8) break;
-      row.classList.remove("d-none");
-      i++;
-    }
-  });
+},
+series: [
+  {
+    type: 'pie',
+    data: [
+  ],
+  label: {
+      show: true
+    },
+}
+]
+};
+leadersChart.setOption(leadersOption);
 </script>
 
 </main>
