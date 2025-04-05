@@ -13,6 +13,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+  <script src="/js/chart.js"></script>
   <link rel="stylesheet" href="/css/styles.css"/>
 </head>
 <body>
@@ -58,11 +59,11 @@
   </div>
 
     <div class="row mt-4">
-      <div class="col">
-        <div id="chart-leaders" style="width: 100%; min-height: 300px; max-height: 400px"></div>
+      <div class="col-lg-6">
+        <div id="chart-leaders" style="width: 100%; min-height: 400px"></div>
       </div>
-      <div class="col">
-        <div id="chart-bases" style="width: 100%; min-height: 300px; max-height: 400px"></div>
+      <div class="col-lg-6">
+        <div id="chart-bases" style="width: 100%; min-height: 400px"></div>
       </div>
     </div>
     <div class="row mb-4">
@@ -1803,105 +1804,26 @@
 </section>
 
   <script type="text/javascript">
-    const leadersChart = echarts.init(document.getElementById('chart-leaders'));
-    const leadersOption = {
-      backgroundColor: '#121212',
-      legend: {
-        data: [
-      'Sabine Wren (SOR)',
-      'Others',
-      'Quinlan Vos (TWI)',
-      'Jango Fett (TWI)',
-      'Cad Bane (SHD)',
-    ],
-    icon: 'rect',
-    orient: 'vertical',
-    top: 'center',
-    right: 'right',
-    selectedMode: false,
-    textStyle: {
-      color: '#fff',
-    },
-  },
-title: {
-  text: 'Leaders',
-  left: 'center',
-},
-  tooltip: {
-    trigger: 'item',
-    confine: true,
-    formatter(params) {
-      return `${params.marker}${params.name}<span style="float: right; margin-left: 20px"><b>${params.value}</b> (${params.percent}%)</span>`;
-    }
-  },
-  series: [
-    {
-      type: 'pie',
-      data: [
-      { value: 11, name: 'Sabine Wren (SOR)' },
-      { value: 26, name: 'Others' },
-      { value: 12, name: 'Quinlan Vos (TWI)' },
-      { value: 10, name: 'Jango Fett (TWI)' },
-      { value: 6, name: 'Cad Bane (SHD)' },
-    ],
-    label: {
-        show: false,
-        position: 'center'
-      },
-  }
-]
-};
-leadersChart.setOption(leadersOption);
-
-const basesChart = echarts.init(document.getElementById('chart-bases'));
-const basesOption = {
-backgroundColor: '#121212',
-      legend: {
-        data: [
-      'Energy Conversion Lab',
-      'Others',
-      'Green',
-      'Tarkintown',
-      'Yellow',
-    ],
-    icon: 'rect',
-    orient: 'vertical',
-    top: 'center',
-    right: 'right',
-    selectedMode: false,
-    textStyle: {
-      color: '#fff',
-    },
-  },
-title: {
-  text: 'Bases',
-  left: 'center',
-},
-tooltip: {
-  trigger: 'item',
-  confine: true,
-  formatter(params) {
-    return `${params.marker}${params.name}<span style="float: right; margin-left: 20px"><b>${params.value}</b> (${params.percent}%)</span>`;
-  }
-},
-series: [
-  {
-    type: 'pie',
-    data: [
-      { value: 11, name: 'Energy Conversion Lab' },
-      { value: 15, name: 'Others' },
-      { value: 7, name: 'Green' },
-      { value: 23, name: 'Tarkintown' },
-      { value: 9, name: 'Yellow' },
-    ],
-    label: {
-        show: false,
-        position: 'center'
-      },
-  }
-]
-};
-basesChart.setOption(basesOption);
+    const leaderData = [
+        { value: 11, name: 'Sabine Wren (SOR)' },
+        { value: 26, name: 'Others' },
+        { value: 12, name: 'Quinlan Vos (TWI)' },
+        { value: 10, name: 'Jango Fett (TWI)' },
+        { value: 6, name: 'Cad Bane (SHD)' },
+    ];
+    const baseData = [
+        { value: 11, name: 'Energy Conversion Lab' },
+        { value: 15, name: 'Others' },
+        { value: 7, name: 'Green' },
+        { value: 23, name: 'Tarkintown' },
+        { value: 9, name: 'Yellow' },
+    ];
+    createHorizontalBarChart('chart-leaders', leaderData, {
+        title: 'Leaders',
+    });
+    createHorizontalBarChart('chart-bases', baseData, {
+        title: 'Bases',
+    });
   </script>
 
   <pre class="d-none" id="swudb-deck-6850886a491ef598b1e4dd70413f79f1">
@@ -1919,92 +1841,92 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SHD_184",
-    "count" : 3
-  }, {
     "id" : "JTL_043",
-    "count" : 2
-  }, {
-    "id" : "SOR_040",
-    "count" : 1
-  }, {
-    "id" : "JTL_184",
-    "count" : 3
-  }, {
-    "id" : "SHD_075",
-    "count" : 1
-  }, {
-    "id" : "SHD_190",
-    "count" : 3
-  }, {
-    "id" : "SHD_232",
-    "count" : 2
-  }, {
-    "id" : "SHD_037",
     "count" : 2
   }, {
     "id" : "SHD_192",
     "count" : 1
   }, {
-    "id" : "SHD_174",
+    "id" : "SOR_207",
     "count" : 2
   }, {
-    "id" : "SOR_041",
-    "count" : 3
-  }, {
-    "id" : "TWI_187",
-    "count" : 3
-  }, {
-    "id" : "SOR_179",
-    "count" : 3
-  }, {
-    "id" : "JTL_213",
-    "count" : 2
-  }, {
-    "id" : "SHD_032",
-    "count" : 2
-  }, {
-    "id" : "SHD_210",
-    "count" : 2
-  }, {
-    "id" : "SHD_029",
-    "count" : 3
-  }, {
-    "id" : "SHD_215",
-    "count" : 3
-  }, {
-    "id" : "SHD_188",
+    "id" : "SHD_184",
     "count" : 3
   }, {
     "id" : "SHD_225",
     "count" : 1
   }, {
-    "id" : "SHD_229",
+    "id" : "SHD_032",
+    "count" : 2
+  }, {
+    "id" : "SHD_215",
     "count" : 3
   }, {
-    "id" : "SOR_207",
-    "count" : 2
-  } ],
-  "sideboard" : [ {
-    "id" : "SOR_186",
+    "id" : "JTL_213",
     "count" : 2
   }, {
-    "id" : "SOR_043",
+    "id" : "TWI_187",
+    "count" : 3
+  }, {
+    "id" : "SHD_188",
+    "count" : 3
+  }, {
+    "id" : "SHD_232",
+    "count" : 2
+  }, {
+    "id" : "SHD_075",
     "count" : 1
   }, {
-    "id" : "SHD_078",
-    "count" : 1
+    "id" : "SHD_037",
+    "count" : 2
+  }, {
+    "id" : "SHD_190",
+    "count" : 3
+  }, {
+    "id" : "SHD_210",
+    "count" : 2
+  }, {
+    "id" : "SOR_041",
+    "count" : 3
+  }, {
+    "id" : "SHD_174",
+    "count" : 2
+  }, {
+    "id" : "SOR_179",
+    "count" : 3
+  }, {
+    "id" : "SHD_029",
+    "count" : 3
   }, {
     "id" : "SOR_040",
     "count" : 1
   }, {
-    "id" : "JTL_041",
+    "id" : "SHD_229",
+    "count" : 3
+  }, {
+    "id" : "JTL_184",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
+    "id" : "SHD_078",
+    "count" : 1
+  }, {
+    "id" : "SOR_043",
     "count" : 1
   }, {
     "id" : "SOR_204",
     "count" : 2
   }, {
     "id" : "JTL_230",
+    "count" : 2
+  }, {
+    "id" : "JTL_041",
+    "count" : 1
+  }, {
+    "id" : "SOR_040",
+    "count" : 1
+  }, {
+    "id" : "SOR_186",
     "count" : 2
   } ]
 }
@@ -2024,77 +1946,77 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SHD_232",
-    "count" : 2
-  }, {
-    "id" : "JTL_184",
-    "count" : 3
-  }, {
     "id" : "SOR_207",
     "count" : 3
   }, {
     "id" : "SHD_184",
     "count" : 3
   }, {
-    "id" : "SHD_174",
-    "count" : 3
-  }, {
-    "id" : "TWI_225",
-    "count" : 3
-  }, {
-    "id" : "SOR_213",
+    "id" : "SHD_225",
     "count" : 1
+  }, {
+    "id" : "JTL_213",
+    "count" : 3
   }, {
     "id" : "TWI_187",
     "count" : 2
   }, {
-    "id" : "SHD_256",
+    "id" : "TWI_225",
     "count" : 3
   }, {
-    "id" : "SOR_179",
-    "count" : 3
+    "id" : "SHD_232",
+    "count" : 2
   }, {
-    "id" : "SHD_239",
-    "count" : 3
-  }, {
-    "id" : "JTL_213",
+    "id" : "SHD_190",
     "count" : 3
   }, {
     "id" : "SHD_229",
     "count" : 3
   }, {
-    "id" : "SOR_182",
-    "count" : 2
+    "id" : "SHD_188",
+    "count" : 3
   }, {
-    "id" : "SOR_092",
+    "id" : "JTL_184",
     "count" : 3
   }, {
     "id" : "SHD_090",
     "count" : 3
   }, {
-    "id" : "SHD_188",
+    "id" : "SHD_256",
     "count" : 3
   }, {
-    "id" : "SHD_225",
+    "id" : "SOR_182",
+    "count" : 2
+  }, {
+    "id" : "SOR_213",
     "count" : 1
   }, {
-    "id" : "SHD_190",
+    "id" : "SHD_174",
+    "count" : 3
+  }, {
+    "id" : "SOR_179",
+    "count" : 3
+  }, {
+    "id" : "SOR_092",
+    "count" : 3
+  }, {
+    "id" : "SHD_239",
     "count" : 3
   } ],
   "sideboard" : [ {
-    "id" : "JTL_235",
+    "id" : "SHD_094",
     "count" : 2
-  }, {
-    "id" : "SOR_119",
-    "count" : 2
-  }, {
-    "id" : "SHD_187",
-    "count" : 3
   }, {
     "id" : "TWI_187",
     "count" : 1
   }, {
-    "id" : "SHD_094",
+    "id" : "SHD_187",
+    "count" : 3
+  }, {
+    "id" : "SOR_119",
+    "count" : 2
+  }, {
+    "id" : "JTL_235",
     "count" : 2
   } ]
 }
@@ -2114,75 +2036,75 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SHD_178",
+    "id" : "JTL_140",
+    "count" : 3
+  }, {
+    "id" : "SOR_207",
+    "count" : 2
+  }, {
+    "id" : "SOR_180",
     "count" : 3
   }, {
     "id" : "TWI_181",
     "count" : 3
   }, {
-    "id" : "SHD_175",
-    "count" : 2
+    "id" : "JTL_170",
+    "count" : 3
   }, {
-    "id" : "SOR_207",
+    "id" : "SHD_178",
+    "count" : 3
+  }, {
+    "id" : "SHD_175",
     "count" : 2
   }, {
     "id" : "JTL_218",
     "count" : 2
   }, {
-    "id" : "JTL_143",
-    "count" : 2
-  }, {
-    "id" : "SOR_128",
+    "id" : "SOR_176",
     "count" : 3
   }, {
     "id" : "TWI_215",
     "count" : 3
   }, {
-    "id" : "SHD_135",
-    "count" : 2
-  }, {
-    "id" : "SOR_176",
-    "count" : 3
-  }, {
-    "id" : "SOR_134",
-    "count" : 3
-  }, {
-    "id" : "SOR_180",
-    "count" : 3
-  }, {
-    "id" : "JTL_140",
+    "id" : "SOR_128",
     "count" : 3
   }, {
     "id" : "SHD_134",
     "count" : 3
   }, {
+    "id" : "SOR_134",
+    "count" : 3
+  }, {
+    "id" : "JTL_143",
+    "count" : 2
+  }, {
     "id" : "SOR_220",
     "count" : 3
   }, {
-    "id" : "SOR_219",
-    "count" : 2
-  }, {
-    "id" : "SOR_204",
+    "id" : "SHD_135",
     "count" : 2
   }, {
     "id" : "SHD_194",
     "count" : 3
   }, {
-    "id" : "JTL_170",
-    "count" : 3
-  } ],
-  "sideboard" : [ {
-    "id" : "SOR_186",
+    "id" : "SOR_204",
     "count" : 2
   }, {
+    "id" : "SOR_219",
+    "count" : 2
+  } ],
+  "sideboard" : [ {
     "id" : "JTL_235",
     "count" : 2
+  }, {
+    "id" : "JTL_132",
+    "count" : 3
   }, {
     "id" : "JTL_164",
     "count" : 3
   }, {
-    "id" : "JTL_132",
-    "count" : 3
+    "id" : "SOR_186",
+    "count" : 2
   } ]
 }
   </pre>
@@ -2201,66 +2123,72 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SHD_188",
-    "count" : 3
-  }, {
-    "id" : "JTL_213",
-    "count" : 3
-  }, {
-    "id" : "SOR_213",
-    "count" : 3
-  }, {
     "id" : "SOR_207",
     "count" : 3
   }, {
     "id" : "SHD_184",
     "count" : 3
   }, {
-    "id" : "SOR_119",
-    "count" : 2
-  }, {
-    "id" : "SHD_174",
-    "count" : 3
-  }, {
-    "id" : "TWI_225",
-    "count" : 3
-  }, {
-    "id" : "SOR_182",
-    "count" : 2
-  }, {
-    "id" : "SHD_190",
-    "count" : 3
-  }, {
     "id" : "SOR_178",
     "count" : 2
   }, {
-    "id" : "SOR_092",
+    "id" : "TWI_187",
+    "count" : 3
+  }, {
+    "id" : "SOR_119",
+    "count" : 2
+  }, {
+    "id" : "SHD_188",
+    "count" : 3
+  }, {
+    "id" : "SHD_085",
+    "count" : 3
+  }, {
+    "id" : "SHD_190",
     "count" : 3
   }, {
     "id" : "SHD_229",
     "count" : 3
   }, {
-    "id" : "TWI_127",
-    "count" : 3
-  }, {
-    "id" : "SHD_090",
+    "id" : "TWI_225",
     "count" : 3
   }, {
     "id" : "JTL_184",
     "count" : 2
   }, {
-    "id" : "SHD_085",
+    "id" : "SHD_090",
     "count" : 3
   }, {
-    "id" : "TWI_187",
+    "id" : "SOR_182",
+    "count" : 2
+  }, {
+    "id" : "SOR_213",
+    "count" : 3
+  }, {
+    "id" : "SHD_174",
+    "count" : 3
+  }, {
+    "id" : "TWI_127",
+    "count" : 3
+  }, {
+    "id" : "SOR_092",
+    "count" : 3
+  }, {
+    "id" : "JTL_213",
     "count" : 3
   } ],
   "sideboard" : [ {
-    "id" : "SOR_186",
-    "count" : 1
+    "id" : "SOR_089",
+    "count" : 2
+  }, {
+    "id" : "SOR_090",
+    "count" : 2
   }, {
     "id" : "JTL_235",
     "count" : 2
+  }, {
+    "id" : "SHD_094",
+    "count" : 1
   }, {
     "id" : "SHD_132",
     "count" : 1
@@ -2268,13 +2196,7 @@ basesChart.setOption(basesOption);
     "id" : "JTL_184",
     "count" : 1
   }, {
-    "id" : "SOR_089",
-    "count" : 2
-  }, {
-    "id" : "SOR_090",
-    "count" : 2
-  }, {
-    "id" : "SHD_094",
+    "id" : "SOR_186",
     "count" : 1
   } ]
 }
@@ -2294,83 +2216,83 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "JTL_095",
-    "count" : 3
-  }, {
-    "id" : "TWI_096",
-    "count" : 3
-  }, {
     "id" : "SHD_202",
+    "count" : 2
+  }, {
+    "id" : "SOR_193",
+    "count" : 2
+  }, {
+    "id" : "TWI_193",
     "count" : 2
   }, {
     "id" : "JTL_230",
     "count" : 2
   }, {
-    "id" : "JTL_235",
-    "count" : 2
-  }, {
-    "id" : "SHD_174",
-    "count" : 3
-  }, {
-    "id" : "SOR_193",
-    "count" : 2
-  }, {
-    "id" : "TWI_210",
-    "count" : 2
-  }, {
-    "id" : "JTL_214",
-    "count" : 3
-  }, {
     "id" : "SHD_123",
     "count" : 3
   }, {
-    "id" : "SOR_098",
+    "id" : "JTL_095",
     "count" : 3
-  }, {
-    "id" : "TWI_193",
-    "count" : 2
   }, {
     "id" : "TWI_121",
-    "count" : 3
-  }, {
-    "id" : "TWI_196",
-    "count" : 2
-  }, {
-    "id" : "TWI_110",
     "count" : 3
   }, {
     "id" : "JTL_094",
     "count" : 3
   }, {
+    "id" : "JTL_235",
+    "count" : 2
+  }, {
+    "id" : "SHD_098",
+    "count" : 3
+  }, {
+    "id" : "TWI_210",
+    "count" : 2
+  }, {
+    "id" : "TWI_196",
+    "count" : 2
+  }, {
+    "id" : "TWI_096",
+    "count" : 3
+  }, {
     "id" : "SOR_220",
     "count" : 3
   }, {
-    "id" : "SHD_098",
+    "id" : "TWI_110",
+    "count" : 3
+  }, {
+    "id" : "SOR_098",
+    "count" : 3
+  }, {
+    "id" : "SHD_174",
+    "count" : 3
+  }, {
+    "id" : "JTL_214",
     "count" : 3
   }, {
     "id" : "JTL_250",
     "count" : 3
   } ],
   "sideboard" : [ {
-    "id" : "SHD_206",
-    "count" : 2
-  }, {
-    "id" : "JTL_235",
+    "id" : "SHD_202",
     "count" : 1
   }, {
-    "id" : "SOR_199",
+    "id" : "SHD_206",
     "count" : 2
   }, {
     "id" : "SOR_189",
     "count" : 1
   }, {
+    "id" : "TWI_196",
+    "count" : 1
+  }, {
     "id" : "SOR_198",
     "count" : 2
   }, {
-    "id" : "SHD_202",
-    "count" : 1
+    "id" : "SOR_199",
+    "count" : 2
   }, {
-    "id" : "TWI_196",
+    "id" : "JTL_235",
     "count" : 1
   } ]
 }
@@ -2390,23 +2312,20 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SHD_230",
-    "count" : 1
-  }, {
-    "id" : "TWI_181",
-    "count" : 3
-  }, {
     "id" : "JTL_140",
     "count" : 3
-  }, {
-    "id" : "TWI_226",
-    "count" : 2
   }, {
     "id" : "SOR_207",
     "count" : 3
   }, {
+    "id" : "TWI_181",
+    "count" : 3
+  }, {
     "id" : "JTL_133",
     "count" : 3
+  }, {
+    "id" : "TWI_226",
+    "count" : 2
   }, {
     "id" : "SHD_178",
     "count" : 2
@@ -2414,16 +2333,10 @@ basesChart.setOption(basesOption);
     "id" : "JTL_218",
     "count" : 3
   }, {
-    "id" : "JTL_143",
-    "count" : 3
-  }, {
-    "id" : "JTL_214",
+    "id" : "SHD_230",
     "count" : 1
   }, {
-    "id" : "JTL_224",
-    "count" : 2
-  }, {
-    "id" : "SHD_135",
+    "id" : "JTL_170",
     "count" : 3
   }, {
     "id" : "JTL_183",
@@ -2432,35 +2345,44 @@ basesChart.setOption(basesOption);
     "id" : "SOR_134",
     "count" : 3
   }, {
-    "id" : "SOR_220",
-    "count" : 3
+    "id" : "JTL_224",
+    "count" : 2
   }, {
-    "id" : "SOR_219",
+    "id" : "JTL_143",
     "count" : 3
   }, {
     "id" : "JTL_162",
     "count" : 3
   }, {
+    "id" : "SHD_135",
+    "count" : 3
+  }, {
     "id" : "SHD_194",
     "count" : 3
   }, {
-    "id" : "JTL_170",
+    "id" : "JTL_214",
+    "count" : 1
+  }, {
+    "id" : "SOR_219",
+    "count" : 3
+  }, {
+    "id" : "SOR_220",
     "count" : 3
   } ],
   "sideboard" : [ {
-    "id" : "SOR_186",
+    "id" : "JTL_142",
     "count" : 2
   }, {
     "id" : "SHD_230",
     "count" : 1
   }, {
-    "id" : "SHD_187",
-    "count" : 3
-  }, {
     "id" : "SHD_227",
     "count" : 2
   }, {
-    "id" : "JTL_142",
+    "id" : "SHD_187",
+    "count" : 3
+  }, {
+    "id" : "SOR_186",
     "count" : 2
   } ]
 }
@@ -2480,47 +2402,14 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SOR_142",
+    "id" : "SOR_207",
     "count" : 3
   }, {
     "id" : "SHD_178",
     "count" : 2
   }, {
-    "id" : "SOR_199",
-    "count" : 2
-  }, {
-    "id" : "TWI_226",
-    "count" : 2
-  }, {
-    "id" : "SOR_207",
-    "count" : 3
-  }, {
-    "id" : "SOR_224",
-    "count" : 1
-  }, {
-    "id" : "SHD_153",
-    "count" : 3
-  }, {
     "id" : "JTL_218",
     "count" : 3
-  }, {
-    "id" : "SHD_174",
-    "count" : 3
-  }, {
-    "id" : "SOR_193",
-    "count" : 3
-  }, {
-    "id" : "SOR_167",
-    "count" : 3
-  }, {
-    "id" : "JTL_214",
-    "count" : 3
-  }, {
-    "id" : "SOR_145",
-    "count" : 2
-  }, {
-    "id" : "SOR_189",
-    "count" : 2
   }, {
     "id" : "SHD_148",
     "count" : 3
@@ -2528,33 +2417,66 @@ basesChart.setOption(basesOption);
     "id" : "TWI_196",
     "count" : 3
   }, {
-    "id" : "SOR_220",
+    "id" : "SOR_145",
+    "count" : 2
+  }, {
+    "id" : "SOR_224",
+    "count" : 1
+  }, {
+    "id" : "SOR_167",
     "count" : 3
   }, {
     "id" : "SHD_197",
     "count" : 3
   }, {
+    "id" : "SOR_220",
+    "count" : 3
+  }, {
+    "id" : "SOR_193",
+    "count" : 3
+  }, {
+    "id" : "SOR_142",
+    "count" : 3
+  }, {
     "id" : "JTL_201",
     "count" : 3
+  }, {
+    "id" : "SHD_174",
+    "count" : 3
+  }, {
+    "id" : "SOR_189",
+    "count" : 2
+  }, {
+    "id" : "JTL_214",
+    "count" : 3
+  }, {
+    "id" : "SHD_153",
+    "count" : 3
+  }, {
+    "id" : "SOR_199",
+    "count" : 2
+  }, {
+    "id" : "TWI_226",
+    "count" : 2
   } ],
   "sideboard" : [ {
+    "id" : "JTL_230",
+    "count" : 2
+  }, {
     "id" : "SOR_224",
     "count" : 1
-  }, {
-    "id" : "SOR_200",
-    "count" : 2
   }, {
     "id" : "SOR_198",
     "count" : 2
   }, {
-    "id" : "SHD_172",
-    "count" : 1
-  }, {
-    "id" : "JTL_230",
+    "id" : "SOR_200",
     "count" : 2
   }, {
     "id" : "JTL_224",
     "count" : 2
+  }, {
+    "id" : "SHD_172",
+    "count" : 1
   } ]
 }
   </pre>
@@ -2573,56 +2495,47 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SOR_142",
-    "count" : 3
+    "id" : "SOR_150",
+    "count" : 1
   }, {
-    "id" : "SHD_178",
-    "count" : 2
-  }, {
-    "id" : "SOR_241",
-    "count" : 2
-  }, {
-    "id" : "SOR_095",
-    "count" : 3
-  }, {
-    "id" : "SHD_126",
+    "id" : "SOR_141",
     "count" : 2
   }, {
     "id" : "SHD_153",
     "count" : 3
   }, {
-    "id" : "SOR_150",
-    "count" : 1
+    "id" : "SHD_178",
+    "count" : 2
   }, {
     "id" : "JTL_096",
     "count" : 2
   }, {
-    "id" : "SOR_236",
-    "count" : 2
-  }, {
-    "id" : "SHD_129",
-    "count" : 1
-  }, {
-    "id" : "SOR_103",
-    "count" : 3
-  }, {
-    "id" : "SOR_145",
-    "count" : 3
-  }, {
-    "id" : "SOR_152",
-    "count" : 3
-  }, {
-    "id" : "SOR_141",
-    "count" : 2
-  }, {
-    "id" : "SOR_240",
+    "id" : "SOR_095",
     "count" : 3
   }, {
     "id" : "JTL_095",
     "count" : 3
   }, {
+    "id" : "SHD_154",
+    "count" : 3
+  }, {
     "id" : "SHD_148",
     "count" : 2
+  }, {
+    "id" : "SOR_236",
+    "count" : 2
+  }, {
+    "id" : "SOR_145",
+    "count" : 3
+  }, {
+    "id" : "SOR_103",
+    "count" : 3
+  }, {
+    "id" : "SHD_098",
+    "count" : 3
+  }, {
+    "id" : "SOR_240",
+    "count" : 3
   }, {
     "id" : "SOR_099",
     "count" : 2
@@ -2630,33 +2543,42 @@ basesChart.setOption(basesOption);
     "id" : "JTL_094",
     "count" : 2
   }, {
-    "id" : "SHD_098",
+    "id" : "SOR_241",
+    "count" : 2
+  }, {
+    "id" : "SOR_142",
     "count" : 3
   }, {
-    "id" : "SHD_154",
+    "id" : "SHD_126",
+    "count" : 2
+  }, {
+    "id" : "SHD_129",
+    "count" : 1
+  }, {
+    "id" : "SOR_152",
     "count" : 3
   } ],
   "sideboard" : [ {
-    "id" : "SOR_099",
+    "id" : "SHD_262",
     "count" : 1
   }, {
-    "id" : "SHD_262",
+    "id" : "SOR_150",
+    "count" : 1
+  }, {
+    "id" : "JTL_250",
+    "count" : 2
+  }, {
+    "id" : "SOR_099",
     "count" : 1
   }, {
     "id" : "JTL_164",
     "count" : 2
   }, {
-    "id" : "SOR_150",
-    "count" : 1
-  }, {
-    "id" : "SHD_129",
-    "count" : 1
-  }, {
     "id" : "JTL_103",
     "count" : 2
   }, {
-    "id" : "JTL_250",
-    "count" : 2
+    "id" : "SHD_129",
+    "count" : 1
   } ]
 }
   </pre>
@@ -2675,81 +2597,81 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SHD_178",
-    "count" : 2
-  }, {
-    "id" : "TWI_181",
-    "count" : 3
-  }, {
     "id" : "JTL_140",
     "count" : 3
   }, {
-    "id" : "TWI_226",
-    "count" : 2
-  }, {
     "id" : "SOR_207",
-    "count" : 3
-  }, {
-    "id" : "JTL_230",
-    "count" : 1
-  }, {
-    "id" : "JTL_133",
-    "count" : 3
-  }, {
-    "id" : "JTL_218",
-    "count" : 3
-  }, {
-    "id" : "SHD_174",
-    "count" : 1
-  }, {
-    "id" : "JTL_143",
-    "count" : 3
-  }, {
-    "id" : "SHD_135",
-    "count" : 3
-  }, {
-    "id" : "SOR_176",
-    "count" : 2
-  }, {
-    "id" : "SOR_134",
     "count" : 3
   }, {
     "id" : "SOR_180",
     "count" : 3
   }, {
-    "id" : "JTL_189",
-    "count" : 1
+    "id" : "TWI_181",
+    "count" : 3
   }, {
-    "id" : "SOR_220",
+    "id" : "JTL_133",
     "count" : 3
   }, {
     "id" : "SOR_219",
     "count" : 3
   }, {
+    "id" : "SHD_178",
+    "count" : 2
+  }, {
+    "id" : "JTL_230",
+    "count" : 1
+  }, {
+    "id" : "JTL_218",
+    "count" : 3
+  }, {
+    "id" : "SOR_176",
+    "count" : 2
+  }, {
+    "id" : "JTL_170",
+    "count" : 3
+  }, {
     "id" : "JTL_183",
     "count" : 2
+  }, {
+    "id" : "SOR_134",
+    "count" : 3
+  }, {
+    "id" : "JTL_143",
+    "count" : 3
+  }, {
+    "id" : "SOR_220",
+    "count" : 3
+  }, {
+    "id" : "SHD_135",
+    "count" : 3
   }, {
     "id" : "SHD_194",
     "count" : 3
   }, {
-    "id" : "JTL_170",
-    "count" : 3
+    "id" : "SHD_174",
+    "count" : 1
+  }, {
+    "id" : "JTL_189",
+    "count" : 1
+  }, {
+    "id" : "TWI_226",
+    "count" : 2
   } ],
   "sideboard" : [ {
-    "id" : "SOR_186",
-    "count" : 2
-  }, {
-    "id" : "JTL_164",
-    "count" : 2
-  }, {
     "id" : "SOR_204",
     "count" : 2
   }, {
     "id" : "JTL_230",
     "count" : 2
   }, {
+    "id" : "JTL_164",
+    "count" : 2
+  }, {
     "id" : "JTL_224",
     "count" : 1
+  }, {
+    "id" : "SOR_186",
+    "count" : 2
   } ]
 }
   </pre>
@@ -2768,37 +2690,7 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SOR_099",
-    "count" : 2
-  }, {
-    "id" : "SOR_051",
-    "count" : 1
-  }, {
-    "id" : "SHD_204",
-    "count" : 1
-  }, {
-    "id" : "SHD_213",
-    "count" : 2
-  }, {
     "id" : "SHD_202",
-    "count" : 3
-  }, {
-    "id" : "TWI_226",
-    "count" : 2
-  }, {
-    "id" : "SHD_174",
-    "count" : 2
-  }, {
-    "id" : "JTL_203",
-    "count" : 3
-  }, {
-    "id" : "SOR_193",
-    "count" : 3
-  }, {
-    "id" : "SOR_104",
-    "count" : 3
-  }, {
-    "id" : "JTL_096",
     "count" : 3
   }, {
     "id" : "SOR_198",
@@ -2807,39 +2699,72 @@ basesChart.setOption(basesOption);
     "id" : "JTL_103",
     "count" : 3
   }, {
+    "id" : "TWI_226",
+    "count" : 2
+  }, {
+    "id" : "TWI_198",
+    "count" : 3
+  }, {
+    "id" : "JTL_096",
+    "count" : 3
+  }, {
+    "id" : "SHD_204",
+    "count" : 1
+  }, {
+    "id" : "JTL_252",
+    "count" : 2
+  }, {
+    "id" : "TWI_193",
+    "count" : 3
+  }, {
     "id" : "JTL_249",
+    "count" : 3
+  }, {
+    "id" : "SOR_099",
+    "count" : 2
+  }, {
+    "id" : "JTL_203",
     "count" : 3
   }, {
     "id" : "SHD_102",
     "count" : 3
   }, {
-    "id" : "TWI_193",
+    "id" : "SOR_193",
     "count" : 3
   }, {
-    "id" : "JTL_252",
+    "id" : "SOR_051",
+    "count" : 1
+  }, {
+    "id" : "SHD_174",
     "count" : 2
   }, {
-    "id" : "TWI_127",
-    "count" : 3
+    "id" : "JTL_210",
+    "count" : 1
   }, {
-    "id" : "TWI_198",
+    "id" : "SOR_104",
     "count" : 3
   }, {
     "id" : "SHD_248",
     "count" : 3
   }, {
-    "id" : "JTL_210",
-    "count" : 1
+    "id" : "TWI_127",
+    "count" : 3
+  }, {
+    "id" : "SHD_213",
+    "count" : 2
   } ],
   "sideboard" : [ {
-    "id" : "SOR_200",
-    "count" : 2
-  }, {
-    "id" : "SOR_051",
+    "id" : "SOR_102",
     "count" : 1
   }, {
     "id" : "JTL_121",
     "count" : 2
+  }, {
+    "id" : "JTL_230",
+    "count" : 2
+  }, {
+    "id" : "SOR_051",
+    "count" : 1
   }, {
     "id" : "SOR_189",
     "count" : 1
@@ -2847,10 +2772,7 @@ basesChart.setOption(basesOption);
     "id" : "SOR_198",
     "count" : 1
   }, {
-    "id" : "SOR_102",
-    "count" : 1
-  }, {
-    "id" : "JTL_230",
+    "id" : "SOR_200",
     "count" : 2
   } ]
 }
@@ -2870,68 +2792,68 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SOR_142",
-    "count" : 3
-  }, {
-    "id" : "SOR_241",
-    "count" : 3
-  }, {
-    "id" : "SOR_095",
-    "count" : 3
-  }, {
-    "id" : "SHD_126",
-    "count" : 2
-  }, {
-    "id" : "SHD_153",
-    "count" : 3
-  }, {
     "id" : "SOR_150",
     "count" : 3
-  }, {
-    "id" : "SHD_129",
-    "count" : 2
-  }, {
-    "id" : "SOR_103",
-    "count" : 3
-  }, {
-    "id" : "SOR_145",
-    "count" : 3
-  }, {
-    "id" : "SOR_152",
-    "count" : 2
   }, {
     "id" : "SOR_141",
     "count" : 3
   }, {
-    "id" : "SOR_240",
-    "count" : 3
-  }, {
-    "id" : "SHD_148",
-    "count" : 2
-  }, {
-    "id" : "SOR_099",
-    "count" : 3
-  }, {
-    "id" : "JTL_094",
-    "count" : 3
-  }, {
-    "id" : "SHD_098",
+    "id" : "SHD_153",
     "count" : 3
   }, {
     "id" : "JTL_111",
     "count" : 3
   }, {
+    "id" : "SOR_095",
+    "count" : 3
+  }, {
     "id" : "SHD_154",
     "count" : 3
+  }, {
+    "id" : "SHD_148",
+    "count" : 2
+  }, {
+    "id" : "JTL_094",
+    "count" : 3
+  }, {
+    "id" : "SOR_145",
+    "count" : 3
+  }, {
+    "id" : "SOR_103",
+    "count" : 3
+  }, {
+    "id" : "SHD_098",
+    "count" : 3
+  }, {
+    "id" : "SOR_240",
+    "count" : 3
+  }, {
+    "id" : "SOR_099",
+    "count" : 3
+  }, {
+    "id" : "SOR_241",
+    "count" : 3
+  }, {
+    "id" : "SOR_142",
+    "count" : 3
+  }, {
+    "id" : "SHD_126",
+    "count" : 2
+  }, {
+    "id" : "SHD_129",
+    "count" : 2
+  }, {
+    "id" : "SOR_152",
+    "count" : 2
   } ],
   "sideboard" : [ {
     "id" : "SHD_262",
     "count" : 1
   }, {
-    "id" : "JTL_164",
+    "id" : "JTL_250",
     "count" : 3
   }, {
-    "id" : "JTL_250",
+    "id" : "JTL_164",
     "count" : 3
   }, {
     "id" : "TWI_123",
@@ -2954,86 +2876,86 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SOR_142",
-    "count" : 3
-  }, {
-    "id" : "SHD_178",
+    "id" : "SOR_150",
     "count" : 1
-  }, {
-    "id" : "SOR_241",
-    "count" : 3
-  }, {
-    "id" : "SOR_095",
-    "count" : 3
   }, {
     "id" : "SHD_126",
     "count" : 2
   }, {
-    "id" : "JTL_095",
-    "count" : 3
-  }, {
-    "id" : "SOR_150",
+    "id" : "SHD_178",
     "count" : 1
   }, {
     "id" : "JTL_096",
     "count" : 3
   }, {
-    "id" : "SOR_236",
+    "id" : "SOR_095",
     "count" : 3
   }, {
-    "id" : "SHD_129",
-    "count" : 1
-  }, {
-    "id" : "SOR_103",
+    "id" : "JTL_095",
     "count" : 3
   }, {
-    "id" : "SOR_145",
-    "count" : 3
-  }, {
-    "id" : "SHD_153",
-    "count" : 3
-  }, {
-    "id" : "SOR_152",
-    "count" : 3
-  }, {
-    "id" : "SOR_240",
+    "id" : "SHD_154",
     "count" : 3
   }, {
     "id" : "SHD_148",
     "count" : 3
   }, {
-    "id" : "SOR_099",
-    "count" : 2
-  }, {
     "id" : "JTL_094",
     "count" : 2
+  }, {
+    "id" : "SOR_145",
+    "count" : 3
+  }, {
+    "id" : "SOR_103",
+    "count" : 3
   }, {
     "id" : "SHD_098",
     "count" : 2
   }, {
-    "id" : "SHD_154",
+    "id" : "SOR_240",
+    "count" : 3
+  }, {
+    "id" : "SOR_099",
+    "count" : 2
+  }, {
+    "id" : "SOR_236",
+    "count" : 3
+  }, {
+    "id" : "SOR_241",
+    "count" : 3
+  }, {
+    "id" : "SOR_142",
+    "count" : 3
+  }, {
+    "id" : "SHD_153",
+    "count" : 3
+  }, {
+    "id" : "SHD_129",
+    "count" : 1
+  }, {
+    "id" : "SOR_152",
     "count" : 3
   } ],
   "sideboard" : [ {
-    "id" : "SOR_099",
+    "id" : "SHD_262",
     "count" : 1
   }, {
     "id" : "SHD_178",
     "count" : 1
   }, {
-    "id" : "SHD_262",
-    "count" : 1
-  }, {
-    "id" : "SHD_114",
+    "id" : "JTL_112",
     "count" : 2
-  }, {
-    "id" : "SOR_104",
-    "count" : 1
   }, {
     "id" : "SOR_150",
     "count" : 1
   }, {
-    "id" : "JTL_112",
+    "id" : "SOR_104",
+    "count" : 1
+  }, {
+    "id" : "SOR_099",
+    "count" : 1
+  }, {
+    "id" : "SHD_114",
     "count" : 2
   }, {
     "id" : "SHD_166",
@@ -3056,55 +2978,25 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
+    "id" : "JTL_043",
+    "count" : 2
+  }, {
     "id" : "SHD_184",
-    "count" : 3
-  }, {
-    "id" : "SHD_078",
-    "count" : 2
-  }, {
-    "id" : "SOR_040",
-    "count" : 2
-  }, {
-    "id" : "SOR_077",
-    "count" : 3
-  }, {
-    "id" : "JTL_078",
-    "count" : 2
-  }, {
-    "id" : "JTL_230",
-    "count" : 2
-  }, {
-    "id" : "SHD_193",
-    "count" : 3
-  }, {
-    "id" : "SHD_037",
-    "count" : 1
-  }, {
-    "id" : "SOR_041",
-    "count" : 3
-  }, {
-    "id" : "SOR_183",
-    "count" : 3
-  }, {
-    "id" : "SOR_043",
-    "count" : 3
-  }, {
-    "id" : "SOR_203",
-    "count" : 3
-  }, {
-    "id" : "SOR_058",
     "count" : 3
   }, {
     "id" : "SHD_222",
     "count" : 2
   }, {
-    "id" : "JTL_043",
-    "count" : 2
+    "id" : "SOR_058",
+    "count" : 3
+  }, {
+    "id" : "SOR_077",
+    "count" : 3
   }, {
     "id" : "JTL_041",
     "count" : 2
   }, {
-    "id" : "SOR_078",
+    "id" : "JTL_230",
     "count" : 2
   }, {
     "id" : "SHD_071",
@@ -3115,25 +3007,55 @@ basesChart.setOption(basesOption);
   }, {
     "id" : "SOR_072",
     "count" : 3
-  } ],
-  "sideboard" : [ {
-    "id" : "SOR_186",
+  }, {
+    "id" : "JTL_078",
     "count" : 2
   }, {
+    "id" : "SOR_043",
+    "count" : 3
+  }, {
+    "id" : "SHD_037",
+    "count" : 1
+  }, {
+    "id" : "SOR_203",
+    "count" : 3
+  }, {
+    "id" : "SOR_041",
+    "count" : 3
+  }, {
+    "id" : "SHD_193",
+    "count" : 3
+  }, {
+    "id" : "SOR_183",
+    "count" : 3
+  }, {
+    "id" : "SOR_040",
+    "count" : 2
+  }, {
+    "id" : "SOR_078",
+    "count" : 2
+  }, {
+    "id" : "SHD_078",
+    "count" : 2
+  } ],
+  "sideboard" : [ {
+    "id" : "SHD_028",
+    "count" : 3
+  }, {
     "id" : "JTL_213",
+    "count" : 1
+  }, {
+    "id" : "TWI_070",
+    "count" : 1
+  }, {
+    "id" : "SOR_062",
     "count" : 1
   }, {
     "id" : "SOR_252",
     "count" : 2
   }, {
-    "id" : "TWI_070",
-    "count" : 1
-  }, {
-    "id" : "SHD_028",
-    "count" : 3
-  }, {
-    "id" : "SOR_062",
-    "count" : 1
+    "id" : "SOR_186",
+    "count" : 2
   } ]
 }
   </pre>
@@ -3152,10 +3074,19 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
+    "id" : "JTL_142",
+    "count" : 1
+  }, {
+    "id" : "JTL_140",
+    "count" : 3
+  }, {
+    "id" : "SOR_180",
+    "count" : 3
+  }, {
     "id" : "TWI_181",
     "count" : 3
   }, {
-    "id" : "JTL_140",
+    "id" : "SHD_222",
     "count" : 3
   }, {
     "id" : "SOR_184",
@@ -3164,16 +3095,13 @@ basesChart.setOption(basesOption);
     "id" : "TWI_226",
     "count" : 1
   }, {
-    "id" : "JTL_143",
-    "count" : 3
-  }, {
     "id" : "SOR_176",
     "count" : 3
   }, {
-    "id" : "SOR_179",
-    "count" : 2
+    "id" : "JTL_170",
+    "count" : 3
   }, {
-    "id" : "SHD_135",
+    "id" : "SOR_204",
     "count" : 3
   }, {
     "id" : "JTL_183",
@@ -3182,34 +3110,31 @@ basesChart.setOption(basesOption);
     "id" : "SOR_134",
     "count" : 3
   }, {
-    "id" : "SOR_180",
-    "count" : 3
-  }, {
-    "id" : "JTL_189",
-    "count" : 2
-  }, {
-    "id" : "SHD_222",
+    "id" : "JTL_143",
     "count" : 3
   }, {
     "id" : "SOR_220",
     "count" : 3
   }, {
-    "id" : "SOR_219",
-    "count" : 3
-  }, {
-    "id" : "SOR_204",
+    "id" : "SHD_135",
     "count" : 3
   }, {
     "id" : "SHD_194",
     "count" : 3
   }, {
-    "id" : "JTL_170",
-    "count" : 3
+    "id" : "JTL_189",
+    "count" : 2
   }, {
-    "id" : "JTL_142",
-    "count" : 1
+    "id" : "SOR_179",
+    "count" : 2
+  }, {
+    "id" : "SOR_219",
+    "count" : 3
   } ],
   "sideboard" : [ {
+    "id" : "JTL_230",
+    "count" : 2
+  }, {
     "id" : "SHD_184",
     "count" : 2
   }, {
@@ -3217,9 +3142,6 @@ basesChart.setOption(basesOption);
     "count" : 2
   }, {
     "id" : "JTL_164",
-    "count" : 2
-  }, {
-    "id" : "JTL_230",
     "count" : 2
   }, {
     "id" : "JTL_224",
@@ -3242,46 +3164,52 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SHD_232",
-    "count" : 2
-  }, {
-    "id" : "SHD_210",
-    "count" : 3
-  }, {
-    "id" : "JTL_184",
-    "count" : 3
-  }, {
-    "id" : "SHD_075",
-    "count" : 2
-  }, {
-    "id" : "TWI_187",
-    "count" : 3
-  }, {
-    "id" : "SHD_184",
-    "count" : 3
-  }, {
-    "id" : "SHD_037",
+    "id" : "JTL_043",
     "count" : 2
   }, {
     "id" : "SHD_192",
     "count" : 1
   }, {
-    "id" : "SHD_174",
-    "count" : 3
-  }, {
-    "id" : "SOR_041",
-    "count" : 3
-  }, {
     "id" : "SOR_207",
     "count" : 3
   }, {
-    "id" : "SOR_179",
+    "id" : "SHD_184",
+    "count" : 3
+  }, {
+    "id" : "SHD_225",
+    "count" : 1
+  }, {
+    "id" : "SHD_032",
     "count" : 3
   }, {
     "id" : "JTL_213",
     "count" : 2
   }, {
+    "id" : "TWI_187",
+    "count" : 3
+  }, {
+    "id" : "SHD_232",
+    "count" : 2
+  }, {
+    "id" : "SHD_075",
+    "count" : 2
+  }, {
+    "id" : "SHD_037",
+    "count" : 2
+  }, {
     "id" : "SHD_229",
+    "count" : 3
+  }, {
+    "id" : "SOR_041",
+    "count" : 3
+  }, {
+    "id" : "SOR_186",
+    "count" : 2
+  }, {
+    "id" : "SHD_174",
+    "count" : 3
+  }, {
+    "id" : "SOR_179",
     "count" : 3
   }, {
     "id" : "SHD_029",
@@ -3290,32 +3218,26 @@ basesChart.setOption(basesOption);
     "id" : "SHD_215",
     "count" : 3
   }, {
-    "id" : "SOR_186",
-    "count" : 2
+    "id" : "SHD_210",
+    "count" : 3
   }, {
-    "id" : "JTL_043",
-    "count" : 2
-  }, {
-    "id" : "SHD_225",
-    "count" : 1
-  }, {
-    "id" : "SHD_032",
+    "id" : "JTL_184",
     "count" : 3
   } ],
   "sideboard" : [ {
-    "id" : "SOR_211",
+    "id" : "SOR_182",
     "count" : 2
   }, {
-    "id" : "SOR_182",
+    "id" : "JTL_230",
     "count" : 2
   }, {
     "id" : "SOR_204",
     "count" : 2
   }, {
-    "id" : "SOR_233",
+    "id" : "SOR_211",
     "count" : 2
   }, {
-    "id" : "JTL_230",
+    "id" : "SOR_233",
     "count" : 2
   } ]
 }
@@ -3335,87 +3257,87 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SOR_142",
-    "count" : 3
+    "id" : "SOR_150",
+    "count" : 2
   }, {
-    "id" : "JTL_095",
-    "count" : 1
-  }, {
-    "id" : "SOR_241",
-    "count" : 3
-  }, {
-    "id" : "SOR_095",
+    "id" : "SOR_141",
     "count" : 3
   }, {
     "id" : "SHD_178",
     "count" : 1
   }, {
-    "id" : "SOR_150",
-    "count" : 2
-  }, {
-    "id" : "SOR_236",
-    "count" : 2
-  }, {
-    "id" : "SHD_129",
-    "count" : 1
-  }, {
-    "id" : "SOR_103",
+    "id" : "SOR_095",
     "count" : 3
+  }, {
+    "id" : "JTL_095",
+    "count" : 1
   }, {
     "id" : "JTL_151",
     "count" : 2
   }, {
+    "id" : "SHD_148",
+    "count" : 3
+  }, {
+    "id" : "JTL_094",
+    "count" : 3
+  }, {
     "id" : "SOR_145",
     "count" : 3
   }, {
-    "id" : "SHD_153",
+    "id" : "SOR_103",
     "count" : 3
   }, {
-    "id" : "SOR_152",
-    "count" : 3
-  }, {
-    "id" : "SOR_141",
+    "id" : "JTL_250",
     "count" : 3
   }, {
     "id" : "SOR_240",
     "count" : 3
   }, {
-    "id" : "SHD_148",
-    "count" : 3
-  }, {
     "id" : "SOR_099",
     "count" : 2
-  }, {
-    "id" : "JTL_094",
-    "count" : 3
   }, {
     "id" : "SHD_154",
     "count" : 3
   }, {
-    "id" : "JTL_250",
+    "id" : "SOR_236",
+    "count" : 2
+  }, {
+    "id" : "SOR_241",
+    "count" : 3
+  }, {
+    "id" : "SOR_142",
+    "count" : 3
+  }, {
+    "id" : "SHD_153",
+    "count" : 3
+  }, {
+    "id" : "SHD_129",
+    "count" : 1
+  }, {
+    "id" : "SOR_152",
     "count" : 3
   } ],
   "sideboard" : [ {
-    "id" : "SOR_099",
-    "count" : 1
-  }, {
     "id" : "SHD_178",
     "count" : 1
   }, {
     "id" : "SHD_262",
     "count" : 1
   }, {
+    "id" : "SHD_098",
+    "count" : 2
+  }, {
+    "id" : "SOR_099",
+    "count" : 1
+  }, {
     "id" : "SHD_114",
     "count" : 2
   }, {
-    "id" : "SHD_098",
+    "id" : "SHD_126",
     "count" : 2
   }, {
     "id" : "SHD_129",
     "count" : 1
-  }, {
-    "id" : "SHD_126",
-    "count" : 2
   } ]
 }
   </pre>
@@ -3434,77 +3356,77 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SHD_178",
-    "count" : 2
-  }, {
-    "id" : "TWI_181",
-    "count" : 3
-  }, {
     "id" : "JTL_140",
     "count" : 3
   }, {
-    "id" : "TWI_226",
-    "count" : 2
-  }, {
     "id" : "SOR_207",
-    "count" : 3
-  }, {
-    "id" : "JTL_224",
-    "count" : 2
-  }, {
-    "id" : "JTL_218",
-    "count" : 2
-  }, {
-    "id" : "JTL_143",
-    "count" : 3
-  }, {
-    "id" : "SOR_178",
-    "count" : 2
-  }, {
-    "id" : "JTL_133",
-    "count" : 3
-  }, {
-    "id" : "SHD_135",
-    "count" : 3
-  }, {
-    "id" : "SOR_176",
-    "count" : 2
-  }, {
-    "id" : "SOR_134",
     "count" : 3
   }, {
     "id" : "SOR_180",
     "count" : 3
   }, {
-    "id" : "JTL_189",
+    "id" : "TWI_181",
+    "count" : 3
+  }, {
+    "id" : "JTL_133",
+    "count" : 3
+  }, {
+    "id" : "TWI_226",
     "count" : 2
+  }, {
+    "id" : "SHD_178",
+    "count" : 2
+  }, {
+    "id" : "SOR_178",
+    "count" : 2
+  }, {
+    "id" : "JTL_218",
+    "count" : 2
+  }, {
+    "id" : "SOR_176",
+    "count" : 2
+  }, {
+    "id" : "JTL_170",
+    "count" : 3
+  }, {
+    "id" : "SOR_134",
+    "count" : 3
+  }, {
+    "id" : "JTL_224",
+    "count" : 2
+  }, {
+    "id" : "JTL_143",
+    "count" : 3
   }, {
     "id" : "SOR_220",
     "count" : 3
   }, {
-    "id" : "SOR_219",
+    "id" : "SHD_135",
     "count" : 3
   }, {
     "id" : "SHD_194",
     "count" : 3
   }, {
-    "id" : "JTL_170",
+    "id" : "JTL_189",
+    "count" : 2
+  }, {
+    "id" : "SOR_219",
     "count" : 3
   } ],
   "sideboard" : [ {
+    "id" : "JTL_230",
+    "count" : 2
+  }, {
     "id" : "SHD_184",
     "count" : 2
   }, {
     "id" : "SHD_230",
     "count" : 2
   }, {
-    "id" : "JTL_164",
-    "count" : 2
-  }, {
-    "id" : "JTL_230",
-    "count" : 2
-  }, {
     "id" : "SHD_227",
+    "count" : 2
+  }, {
+    "id" : "JTL_164",
     "count" : 2
   } ]
 }
@@ -3524,38 +3446,29 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SHD_178",
+    "id" : "SHD_135",
+    "count" : 3
+  }, {
+    "id" : "JTL_140",
+    "count" : 3
+  }, {
+    "id" : "SOR_207",
     "count" : 3
   }, {
     "id" : "TWI_181",
     "count" : 3
   }, {
-    "id" : "JTL_226",
-    "count" : 2
-  }, {
-    "id" : "JTL_140",
+    "id" : "JTL_170",
     "count" : 3
   }, {
-    "id" : "TWI_226",
-    "count" : 2
-  }, {
-    "id" : "SOR_207",
+    "id" : "SHD_178",
     "count" : 3
-  }, {
-    "id" : "JTL_224",
-    "count" : 1
   }, {
     "id" : "JTL_218",
     "count" : 3
   }, {
-    "id" : "JTL_143",
-    "count" : 3
-  }, {
-    "id" : "JTL_214",
-    "count" : 3
-  }, {
-    "id" : "SHD_135",
-    "count" : 3
+    "id" : "SOR_139",
+    "count" : 2
   }, {
     "id" : "JTL_183",
     "count" : 3
@@ -3563,26 +3476,38 @@ basesChart.setOption(basesOption);
     "id" : "SOR_134",
     "count" : 3
   }, {
+    "id" : "JTL_224",
+    "count" : 1
+  }, {
+    "id" : "JTL_143",
+    "count" : 3
+  }, {
     "id" : "SOR_220",
     "count" : 2
   }, {
-    "id" : "SOR_219",
-    "count" : 3
-  }, {
-    "id" : "SOR_139",
+    "id" : "JTL_226",
     "count" : 2
   }, {
-    "id" : "JTL_162",
+    "id" : "TWI_226",
     "count" : 2
   }, {
     "id" : "SHD_194",
     "count" : 3
   }, {
-    "id" : "JTL_170",
+    "id" : "JTL_214",
     "count" : 3
+  }, {
+    "id" : "SOR_219",
+    "count" : 3
+  }, {
+    "id" : "JTL_162",
+    "count" : 2
   } ],
   "sideboard" : [ {
-    "id" : "SOR_186",
+    "id" : "JTL_230",
+    "count" : 3
+  }, {
+    "id" : "JTL_181",
     "count" : 2
   }, {
     "id" : "JTL_164",
@@ -3591,10 +3516,7 @@ basesChart.setOption(basesOption);
     "id" : "SOR_139",
     "count" : 1
   }, {
-    "id" : "JTL_230",
-    "count" : 3
-  }, {
-    "id" : "JTL_181",
+    "id" : "SOR_186",
     "count" : 2
   } ]
 }
@@ -3614,68 +3536,71 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SOR_142",
+    "id" : "SOR_150",
+    "count" : 2
+  }, {
+    "id" : "SOR_141",
+    "count" : 3
+  }, {
+    "id" : "SOR_143",
+    "count" : 2
+  }, {
+    "id" : "SOR_245",
+    "count" : 2
+  }, {
+    "id" : "JTL_096",
+    "count" : 1
+  }, {
+    "id" : "SOR_095",
     "count" : 3
   }, {
     "id" : "JTL_095",
     "count" : 2
   }, {
-    "id" : "SOR_095",
-    "count" : 3
-  }, {
-    "id" : "JTL_250",
-    "count" : 2
-  }, {
-    "id" : "SHD_153",
-    "count" : 3
-  }, {
-    "id" : "SOR_150",
-    "count" : 2
-  }, {
-    "id" : "SOR_143",
-    "count" : 2
-  }, {
-    "id" : "SHD_129",
-    "count" : 2
-  }, {
-    "id" : "JTL_103",
-    "count" : 1
-  }, {
-    "id" : "SOR_103",
-    "count" : 3
-  }, {
-    "id" : "SOR_145",
-    "count" : 3
-  }, {
-    "id" : "SOR_152",
-    "count" : 3
-  }, {
-    "id" : "SOR_141",
-    "count" : 3
-  }, {
-    "id" : "SOR_240",
+    "id" : "SHD_154",
     "count" : 3
   }, {
     "id" : "SHD_148",
     "count" : 3
   }, {
-    "id" : "JTL_096",
-    "count" : 1
+    "id" : "JTL_094",
+    "count" : 3
+  }, {
+    "id" : "SOR_145",
+    "count" : 3
+  }, {
+    "id" : "SOR_103",
+    "count" : 3
+  }, {
+    "id" : "JTL_250",
+    "count" : 2
+  }, {
+    "id" : "SOR_240",
+    "count" : 3
   }, {
     "id" : "SOR_099",
     "count" : 3
   }, {
-    "id" : "JTL_094",
+    "id" : "SOR_142",
     "count" : 3
   }, {
-    "id" : "SHD_154",
+    "id" : "SHD_153",
     "count" : 3
   }, {
-    "id" : "SOR_245",
+    "id" : "JTL_103",
+    "count" : 1
+  }, {
+    "id" : "SHD_129",
     "count" : 2
+  }, {
+    "id" : "SOR_152",
+    "count" : 3
   } ],
   "sideboard" : [ {
     "id" : "SHD_262",
+    "count" : 1
+  }, {
+    "id" : "JTL_096",
     "count" : 1
   }, {
     "id" : "SHD_098",
@@ -3684,17 +3609,14 @@ basesChart.setOption(basesOption);
     "id" : "JTL_164",
     "count" : 2
   }, {
-    "id" : "JTL_111",
-    "count" : 1
-  }, {
-    "id" : "JTL_096",
-    "count" : 1
-  }, {
     "id" : "JTL_103",
     "count" : 1
   }, {
     "id" : "SHD_126",
     "count" : 2
+  }, {
+    "id" : "JTL_111",
+    "count" : 1
   } ]
 }
   </pre>
@@ -3713,58 +3635,52 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SHD_184",
-    "count" : 2
-  }, {
-    "id" : "SHD_178",
-    "count" : 2
-  }, {
-    "id" : "TWI_181",
-    "count" : 3
-  }, {
-    "id" : "SOR_184",
-    "count" : 2
-  }, {
-    "id" : "TWI_226",
-    "count" : 2
-  }, {
-    "id" : "SOR_177",
-    "count" : 3
-  }, {
-    "id" : "JTL_218",
-    "count" : 2
-  }, {
-    "id" : "JTL_143",
-    "count" : 2
-  }, {
-    "id" : "JTL_183",
-    "count" : 2
-  }, {
     "id" : "SHD_135",
-    "count" : 3
-  }, {
-    "id" : "SOR_176",
-    "count" : 3
-  }, {
-    "id" : "SHD_187",
-    "count" : 3
-  }, {
-    "id" : "SOR_134",
     "count" : 3
   }, {
     "id" : "JTL_140",
     "count" : 3
   }, {
-    "id" : "SOR_186",
+    "id" : "SHD_184",
     "count" : 2
   }, {
-    "id" : "SOR_220",
+    "id" : "TWI_181",
     "count" : 3
   }, {
     "id" : "SOR_219",
     "count" : 3
   }, {
+    "id" : "SHD_178",
+    "count" : 2
+  }, {
+    "id" : "JTL_218",
+    "count" : 2
+  }, {
+    "id" : "SOR_177",
+    "count" : 3
+  }, {
+    "id" : "SHD_187",
+    "count" : 3
+  }, {
     "id" : "SOR_139",
+    "count" : 2
+  }, {
+    "id" : "JTL_183",
+    "count" : 2
+  }, {
+    "id" : "SOR_134",
+    "count" : 3
+  }, {
+    "id" : "SOR_176",
+    "count" : 3
+  }, {
+    "id" : "JTL_143",
+    "count" : 2
+  }, {
+    "id" : "SOR_220",
+    "count" : 3
+  }, {
+    "id" : "SOR_186",
     "count" : 2
   }, {
     "id" : "SHD_194",
@@ -3772,6 +3688,12 @@ basesChart.setOption(basesOption);
   }, {
     "id" : "JTL_170",
     "count" : 3
+  }, {
+    "id" : "SOR_184",
+    "count" : 2
+  }, {
+    "id" : "TWI_226",
+    "count" : 2
   } ],
   "sideboard" : [ {
     "id" : "SOR_224",
@@ -3780,13 +3702,13 @@ basesChart.setOption(basesOption);
     "id" : "JTL_164",
     "count" : 2
   }, {
-    "id" : "TWI_220",
+    "id" : "JTL_224",
     "count" : 2
   }, {
     "id" : "SHD_166",
     "count" : 2
   }, {
-    "id" : "JTL_224",
+    "id" : "TWI_220",
     "count" : 2
   } ]
 }
@@ -3806,46 +3728,25 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SOR_142",
+    "id" : "SOR_150",
+    "count" : 2
+  }, {
+    "id" : "SOR_141",
     "count" : 3
   }, {
-    "id" : "JTL_095",
+    "id" : "SHD_153",
+    "count" : 3
+  }, {
+    "id" : "JTL_096",
     "count" : 3
   }, {
     "id" : "SOR_095",
     "count" : 3
   }, {
-    "id" : "SHD_126",
-    "count" : 2
-  }, {
-    "id" : "SHD_153",
+    "id" : "JTL_095",
     "count" : 3
   }, {
-    "id" : "SOR_150",
-    "count" : 2
-  }, {
-    "id" : "JTL_096",
-    "count" : 3
-  }, {
-    "id" : "SHD_129",
-    "count" : 2
-  }, {
-    "id" : "JTL_103",
-    "count" : 3
-  }, {
-    "id" : "SOR_103",
-    "count" : 2
-  }, {
-    "id" : "SOR_145",
-    "count" : 3
-  }, {
-    "id" : "SOR_152",
-    "count" : 3
-  }, {
-    "id" : "SOR_141",
-    "count" : 3
-  }, {
-    "id" : "SOR_240",
+    "id" : "SHD_154",
     "count" : 3
   }, {
     "id" : "SHD_148",
@@ -3854,10 +3755,31 @@ basesChart.setOption(basesOption);
     "id" : "JTL_094",
     "count" : 3
   }, {
-    "id" : "SHD_154",
+    "id" : "SOR_145",
+    "count" : 3
+  }, {
+    "id" : "SOR_103",
+    "count" : 2
+  }, {
+    "id" : "SOR_240",
     "count" : 3
   }, {
     "id" : "TWI_121",
+    "count" : 3
+  }, {
+    "id" : "SOR_142",
+    "count" : 3
+  }, {
+    "id" : "SHD_126",
+    "count" : 2
+  }, {
+    "id" : "JTL_103",
+    "count" : 3
+  }, {
+    "id" : "SHD_129",
+    "count" : 2
+  }, {
+    "id" : "SOR_152",
     "count" : 3
   } ],
   "sideboard" : [ {
@@ -3890,86 +3812,86 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SOR_051",
+    "id" : "SOR_044",
+    "count" : 2
+  }, {
+    "id" : "SOR_045",
+    "count" : 2
+  }, {
+    "id" : "JTL_048",
+    "count" : 1
+  }, {
+    "id" : "SOR_058",
     "count" : 3
   }, {
-    "id" : "JTL_051",
-    "count" : 3
-  }, {
-    "id" : "TWI_070",
-    "count" : 3
-  }, {
-    "id" : "SOR_238",
+    "id" : "SOR_077",
     "count" : 2
   }, {
     "id" : "SOR_052",
     "count" : 2
   }, {
+    "id" : "SOR_078",
+    "count" : 3
+  }, {
+    "id" : "SOR_068",
+    "count" : 2
+  }, {
+    "id" : "JTL_051",
+    "count" : 3
+  }, {
     "id" : "SOR_049",
     "count" : 1
   }, {
-    "id" : "SOR_236",
-    "count" : 3
-  }, {
-    "id" : "SOR_058",
+    "id" : "TWI_070",
     "count" : 3
   }, {
     "id" : "TWI_048",
     "count" : 2
   }, {
-    "id" : "SHD_052",
-    "count" : 2
-  }, {
-    "id" : "TWI_064",
-    "count" : 1
-  }, {
-    "id" : "SOR_045",
-    "count" : 2
-  }, {
-    "id" : "SOR_047",
-    "count" : 1
-  }, {
-    "id" : "JTL_065",
-    "count" : 2
-  }, {
-    "id" : "SHD_044",
-    "count" : 2
-  }, {
-    "id" : "SOR_044",
-    "count" : 2
-  }, {
-    "id" : "SOR_056",
-    "count" : 1
-  }, {
-    "id" : "SOR_068",
-    "count" : 2
-  }, {
-    "id" : "JTL_056",
-    "count" : 1
-  }, {
-    "id" : "SOR_077",
+    "id" : "SOR_238",
     "count" : 2
   }, {
     "id" : "SHD_041",
     "count" : 3
   }, {
-    "id" : "SOR_078",
+    "id" : "SOR_236",
     "count" : 3
+  }, {
+    "id" : "SOR_047",
+    "count" : 1
+  }, {
+    "id" : "JTL_056",
+    "count" : 1
+  }, {
+    "id" : "SOR_051",
+    "count" : 3
+  }, {
+    "id" : "SHD_052",
+    "count" : 2
+  }, {
+    "id" : "JTL_065",
+    "count" : 2
+  }, {
+    "id" : "TWI_064",
+    "count" : 1
+  }, {
+    "id" : "SOR_056",
+    "count" : 1
   }, {
     "id" : "SHD_079",
     "count" : 3
   }, {
-    "id" : "JTL_048",
-    "count" : 1
+    "id" : "SHD_044",
+    "count" : 2
   } ],
   "sideboard" : [ {
     "id" : "SHD_262",
     "count" : 2
   }, {
-    "id" : "SOR_057",
+    "id" : "SHD_248",
     "count" : 1
   }, {
-    "id" : "SHD_248",
+    "id" : "SOR_057",
     "count" : 1
   }, {
     "id" : "SOR_062",
@@ -3998,20 +3920,38 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
+    "id" : "JTL_043",
+    "count" : 2
+  }, {
+    "id" : "TWI_238",
+    "count" : 2
+  }, {
+    "id" : "SOR_058",
+    "count" : 2
+  }, {
+    "id" : "SOR_077",
+    "count" : 2
+  }, {
     "id" : "TWI_040",
     "count" : 2
   }, {
-    "id" : "TWI_070",
+    "id" : "SOR_135",
+    "count" : 2
+  }, {
+    "id" : "SOR_131",
     "count" : 2
   }, {
     "id" : "SHD_071",
     "count" : 3
   }, {
-    "id" : "SHD_176",
+    "id" : "TWI_070",
+    "count" : 2
+  }, {
+    "id" : "SOR_072",
     "count" : 3
   }, {
-    "id" : "SOR_135",
-    "count" : 2
+    "id" : "SHD_028",
+    "count" : 3
   }, {
     "id" : "SOR_043",
     "count" : 3
@@ -4019,80 +3959,62 @@ basesChart.setOption(basesOption);
     "id" : "SHD_037",
     "count" : 2
   }, {
-    "id" : "SOR_131",
-    "count" : 2
-  }, {
-    "id" : "SOR_040",
-    "count" : 2
-  }, {
     "id" : "SOR_035",
-    "count" : 3
-  }, {
-    "id" : "SOR_041",
     "count" : 3
   }, {
     "id" : "SOR_167",
     "count" : 3
   }, {
-    "id" : "SHD_031",
-    "count" : 3
-  }, {
-    "id" : "SHD_181",
-    "count" : 2
-  }, {
-    "id" : "SHD_028",
-    "count" : 3
-  }, {
-    "id" : "SHD_079",
-    "count" : 2
-  }, {
     "id" : "SHD_244",
     "count" : 3
   }, {
-    "id" : "JTL_043",
-    "count" : 2
-  }, {
-    "id" : "SOR_077",
-    "count" : 2
-  }, {
     "id" : "SOR_139",
-    "count" : 2
-  }, {
-    "id" : "SOR_078",
     "count" : 2
   }, {
     "id" : "SHD_172",
     "count" : 2
   }, {
-    "id" : "SOR_058",
-    "count" : 2
-  }, {
-    "id" : "TWI_238",
-    "count" : 2
-  }, {
-    "id" : "SOR_072",
+    "id" : "SOR_041",
     "count" : 3
+  }, {
+    "id" : "SHD_176",
+    "count" : 3
+  }, {
+    "id" : "SHD_181",
+    "count" : 2
+  }, {
+    "id" : "SOR_040",
+    "count" : 2
+  }, {
+    "id" : "SHD_079",
+    "count" : 2
+  }, {
+    "id" : "SHD_031",
+    "count" : 3
+  }, {
+    "id" : "SOR_078",
+    "count" : 2
   } ],
   "sideboard" : [ {
     "id" : "JTL_043",
     "count" : 1
   }, {
-    "id" : "SHD_181",
-    "count" : 1
-  }, {
     "id" : "SOR_134",
     "count" : 2
-  }, {
-    "id" : "SOR_058",
-    "count" : 1
   }, {
     "id" : "SHD_029",
     "count" : 2
   }, {
+    "id" : "SOR_155",
+    "count" : 1
+  }, {
     "id" : "SHD_166",
     "count" : 2
   }, {
-    "id" : "SOR_155",
+    "id" : "SHD_181",
+    "count" : 1
+  }, {
+    "id" : "SOR_058",
     "count" : 1
   } ]
 }
@@ -4112,84 +4034,84 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SOR_142",
-    "count" : 3
-  }, {
-    "id" : "SHD_197",
-    "count" : 3
-  }, {
-    "id" : "TWI_226",
-    "count" : 2
-  }, {
     "id" : "SOR_207",
-    "count" : 3
-  }, {
-    "id" : "JTL_224",
-    "count" : 2
-  }, {
-    "id" : "SHD_153",
-    "count" : 3
-  }, {
-    "id" : "JTL_218",
-    "count" : 2
-  }, {
-    "id" : "SHD_174",
-    "count" : 3
-  }, {
-    "id" : "SOR_193",
     "count" : 3
   }, {
     "id" : "SOR_198",
     "count" : 1
   }, {
-    "id" : "SHD_248",
-    "count" : 2
+    "id" : "SHD_153",
+    "count" : 3
   }, {
     "id" : "SOR_200",
-    "count" : 2
-  }, {
-    "id" : "SOR_189",
-    "count" : 2
-  }, {
-    "id" : "SHD_148",
-    "count" : 3
-  }, {
-    "id" : "SOR_167",
-    "count" : 3
-  }, {
-    "id" : "TWI_196",
-    "count" : 3
-  }, {
-    "id" : "SOR_220",
     "count" : 2
   }, {
     "id" : "SHD_178",
     "count" : 3
   }, {
+    "id" : "JTL_218",
+    "count" : 2
+  }, {
+    "id" : "SHD_148",
+    "count" : 3
+  }, {
     "id" : "SOR_204",
     "count" : 2
   }, {
+    "id" : "TWI_196",
+    "count" : 3
+  }, {
+    "id" : "SHD_197",
+    "count" : 3
+  }, {
+    "id" : "JTL_224",
+    "count" : 2
+  }, {
+    "id" : "SOR_220",
+    "count" : 2
+  }, {
+    "id" : "SOR_193",
+    "count" : 3
+  }, {
+    "id" : "SOR_142",
+    "count" : 3
+  }, {
     "id" : "JTL_201",
     "count" : 3
+  }, {
+    "id" : "SHD_174",
+    "count" : 3
+  }, {
+    "id" : "SOR_189",
+    "count" : 2
+  }, {
+    "id" : "SHD_248",
+    "count" : 2
+  }, {
+    "id" : "SOR_167",
+    "count" : 3
+  }, {
+    "id" : "TWI_226",
+    "count" : 2
   } ],
   "sideboard" : [ {
-    "id" : "SOR_199",
-    "count" : 2
-  }, {
-    "id" : "SOR_200",
-    "count" : 1
-  }, {
-    "id" : "SHD_181",
-    "count" : 2
-  }, {
     "id" : "SHD_202",
+    "count" : 2
+  }, {
+    "id" : "JTL_230",
     "count" : 2
   }, {
     "id" : "SOR_198",
     "count" : 1
   }, {
-    "id" : "JTL_230",
+    "id" : "SHD_181",
     "count" : 2
+  }, {
+    "id" : "SOR_199",
+    "count" : 2
+  }, {
+    "id" : "SOR_200",
+    "count" : 1
   } ]
 }
   </pre>
@@ -4208,80 +4130,80 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SOR_142",
-    "count" : 3
-  }, {
-    "id" : "SHD_178",
-    "count" : 2
-  }, {
-    "id" : "TWI_226",
-    "count" : 2
-  }, {
-    "id" : "SOR_207",
-    "count" : 3
-  }, {
-    "id" : "SOR_224",
-    "count" : 1
-  }, {
-    "id" : "SHD_153",
-    "count" : 3
-  }, {
-    "id" : "JTL_218",
-    "count" : 3
-  }, {
-    "id" : "SHD_174",
-    "count" : 3
-  }, {
-    "id" : "SOR_145",
-    "count" : 2
-  }, {
-    "id" : "SOR_193",
+    "id" : "JTL_201",
     "count" : 3
   }, {
     "id" : "SOR_198",
     "count" : 2
   }, {
-    "id" : "SOR_167",
+    "id" : "SHD_153",
     "count" : 3
   }, {
-    "id" : "JTL_214",
+    "id" : "SHD_178",
+    "count" : 2
+  }, {
+    "id" : "JTL_218",
+    "count" : 3
+  }, {
+    "id" : "SOR_207",
     "count" : 3
   }, {
     "id" : "SOR_200",
     "count" : 2
   }, {
-    "id" : "SHD_148",
-    "count" : 3
+    "id" : "SOR_145",
+    "count" : 2
   }, {
-    "id" : "TWI_196",
-    "count" : 3
-  }, {
-    "id" : "SOR_220",
+    "id" : "SOR_167",
     "count" : 3
   }, {
     "id" : "SHD_197",
     "count" : 3
   }, {
-    "id" : "JTL_201",
+    "id" : "SHD_148",
     "count" : 3
-  } ],
-  "sideboard" : [ {
+  }, {
+    "id" : "SOR_220",
+    "count" : 3
+  }, {
+    "id" : "SOR_193",
+    "count" : 3
+  }, {
+    "id" : "SOR_142",
+    "count" : 3
+  }, {
     "id" : "SOR_224",
     "count" : 1
+  }, {
+    "id" : "SHD_174",
+    "count" : 3
+  }, {
+    "id" : "JTL_214",
+    "count" : 3
+  }, {
+    "id" : "TWI_196",
+    "count" : 3
+  }, {
+    "id" : "TWI_226",
+    "count" : 2
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_230",
+    "count" : 2
+  }, {
+    "id" : "SOR_224",
+    "count" : 1
+  }, {
+    "id" : "SHD_248",
+    "count" : 1
+  }, {
+    "id" : "JTL_224",
+    "count" : 2
   }, {
     "id" : "SOR_199",
     "count" : 2
   }, {
     "id" : "JTL_154",
-    "count" : 2
-  }, {
-    "id" : "SHD_248",
-    "count" : 1
-  }, {
-    "id" : "JTL_230",
-    "count" : 2
-  }, {
-    "id" : "JTL_224",
     "count" : 2
   } ]
 }
@@ -4301,31 +4223,19 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SOR_142",
-    "count" : 3
-  }, {
-    "id" : "SHD_197",
-    "count" : 2
-  }, {
-    "id" : "SOR_199",
-    "count" : 2
-  }, {
-    "id" : "SOR_241",
-    "count" : 3
-  }, {
-    "id" : "JTL_245",
-    "count" : 3
-  }, {
     "id" : "SHD_202",
     "count" : 2
   }, {
     "id" : "SOR_150",
     "count" : 3
   }, {
-    "id" : "SOR_193",
-    "count" : 3
+    "id" : "SOR_140",
+    "count" : 2
   }, {
-    "id" : "SOR_220",
+    "id" : "JTL_207",
+    "count" : 1
+  }, {
+    "id" : "SHD_148",
     "count" : 3
   }, {
     "id" : "SOR_236",
@@ -4334,50 +4244,62 @@ basesChart.setOption(basesOption);
     "id" : "SOR_145",
     "count" : 3
   }, {
-    "id" : "SOR_152",
-    "count" : 3
-  }, {
     "id" : "SOR_240",
     "count" : 3
   }, {
-    "id" : "SOR_188",
-    "count" : 2
-  }, {
-    "id" : "SHD_148",
-    "count" : 3
-  }, {
-    "id" : "JTL_207",
-    "count" : 1
-  }, {
-    "id" : "SOR_140",
+    "id" : "SHD_197",
     "count" : 2
   }, {
     "id" : "SHD_195",
     "count" : 3
   }, {
+    "id" : "SOR_220",
+    "count" : 3
+  }, {
+    "id" : "SOR_241",
+    "count" : 3
+  }, {
+    "id" : "SOR_193",
+    "count" : 3
+  }, {
+    "id" : "SOR_142",
+    "count" : 3
+  }, {
+    "id" : "SOR_188",
+    "count" : 2
+  }, {
     "id" : "SOR_189",
+    "count" : 3
+  }, {
+    "id" : "SOR_199",
+    "count" : 2
+  }, {
+    "id" : "JTL_245",
+    "count" : 3
+  }, {
+    "id" : "SOR_152",
     "count" : 3
   } ],
   "sideboard" : [ {
-    "id" : "JTL_235",
+    "id" : "SHD_178",
     "count" : 1
+  }, {
+    "id" : "SHD_155",
+    "count" : 1
+  }, {
+    "id" : "JTL_207",
+    "count" : 2
   }, {
     "id" : "SOR_140",
-    "count" : 1
-  }, {
-    "id" : "SHD_178",
     "count" : 1
   }, {
     "id" : "SHD_151",
     "count" : 2
   }, {
-    "id" : "JTL_207",
-    "count" : 2
-  }, {
     "id" : "SHD_166",
     "count" : 2
   }, {
-    "id" : "SHD_155",
+    "id" : "JTL_235",
     "count" : 1
   } ]
 }
@@ -4397,41 +4319,29 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SHD_178",
+    "id" : "JTL_140",
     "count" : 3
-  }, {
-    "id" : "JTL_240",
-    "count" : 3
-  }, {
-    "id" : "TWI_226",
-    "count" : 2
   }, {
     "id" : "JTL_132",
     "count" : 2
   }, {
+    "id" : "JTL_240",
+    "count" : 3
+  }, {
     "id" : "JTL_133",
+    "count" : 3
+  }, {
+    "id" : "SOR_219",
+    "count" : 2
+  }, {
+    "id" : "SHD_178",
     "count" : 3
   }, {
     "id" : "JTL_218",
     "count" : 3
   }, {
-    "id" : "SHD_174",
-    "count" : 1
-  }, {
-    "id" : "JTL_143",
-    "count" : 3
-  }, {
-    "id" : "JTL_140",
-    "count" : 3
-  }, {
-    "id" : "JTL_234",
+    "id" : "SOR_139",
     "count" : 2
-  }, {
-    "id" : "SOR_179",
-    "count" : 3
-  }, {
-    "id" : "SHD_135",
-    "count" : 3
   }, {
     "id" : "JTL_183",
     "count" : 3
@@ -4439,36 +4349,48 @@ basesChart.setOption(basesOption);
     "id" : "SOR_134",
     "count" : 3
   }, {
-    "id" : "SOR_220",
+    "id" : "JTL_143",
     "count" : 3
-  }, {
-    "id" : "SOR_219",
-    "count" : 2
-  }, {
-    "id" : "SOR_139",
-    "count" : 2
   }, {
     "id" : "JTL_162",
     "count" : 3
   }, {
+    "id" : "SHD_135",
+    "count" : 3
+  }, {
     "id" : "SHD_194",
+    "count" : 3
+  }, {
+    "id" : "SHD_174",
+    "count" : 1
+  }, {
+    "id" : "SOR_179",
+    "count" : 3
+  }, {
+    "id" : "JTL_234",
+    "count" : 2
+  }, {
+    "id" : "TWI_226",
+    "count" : 2
+  }, {
+    "id" : "SOR_220",
     "count" : 3
   } ],
   "sideboard" : [ {
-    "id" : "SOR_186",
-    "count" : 2
+    "id" : "SOR_204",
+    "count" : 3
   }, {
     "id" : "JTL_176",
     "count" : 3
   }, {
-    "id" : "SOR_204",
-    "count" : 3
+    "id" : "JTL_132",
+    "count" : 1
   }, {
     "id" : "SOR_139",
     "count" : 1
   }, {
-    "id" : "JTL_132",
-    "count" : 1
+    "id" : "SOR_186",
+    "count" : 2
   } ]
 }
   </pre>
@@ -4487,65 +4409,38 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SHD_184",
-    "count" : 3
-  }, {
     "id" : "SOR_186",
     "count" : 2
   }, {
-    "id" : "TWI_226",
+    "id" : "JTL_121",
     "count" : 3
   }, {
-    "id" : "TWI_187",
-    "count" : 3
-  }, {
-    "id" : "SHD_094",
-    "count" : 3
-  }, {
-    "id" : "SHD_085",
-    "count" : 3
-  }, {
-    "id" : "SHD_188",
-    "count" : 2
-  }, {
-    "id" : "SOR_119",
-    "count" : 3
-  }, {
-    "id" : "SHD_214",
-    "count" : 1
-  }, {
-    "id" : "SOR_092",
-    "count" : 2
-  }, {
-    "id" : "SHD_256",
-    "count" : 3
-  }, {
-    "id" : "SOR_183",
-    "count" : 2
-  }, {
-    "id" : "SOR_252",
-    "count" : 1
-  }, {
-    "id" : "SHD_193",
-    "count" : 3
-  }, {
-    "id" : "SOR_109",
+    "id" : "SHD_184",
     "count" : 3
   }, {
     "id" : "TWI_127",
     "count" : 3
   }, {
+    "id" : "SOR_252",
+    "count" : 1
+  }, {
+    "id" : "SHD_094",
+    "count" : 3
+  }, {
+    "id" : "TWI_187",
+    "count" : 3
+  }, {
+    "id" : "SOR_119",
+    "count" : 3
+  }, {
+    "id" : "SHD_188",
+    "count" : 2
+  }, {
+    "id" : "SHD_085",
+    "count" : 3
+  }, {
     "id" : "SHD_122",
     "count" : 3
-  }, {
-    "id" : "SHD_090",
-    "count" : 3
-  }, {
-    "id" : "JTL_121",
-    "count" : 3
-  }, {
-    "id" : "SOR_090",
-    "count" : 2
   }, {
     "id" : "JTL_112",
     "count" : 3
@@ -4555,25 +4450,52 @@ basesChart.setOption(basesOption);
   }, {
     "id" : "SHD_080",
     "count" : 3
-  } ],
-  "sideboard" : [ {
-    "id" : "SOR_186",
-    "count" : 1
   }, {
-    "id" : "JTL_235",
-    "count" : 2
-  }, {
-    "id" : "SHD_084",
+    "id" : "SOR_109",
     "count" : 3
   }, {
+    "id" : "SHD_090",
+    "count" : 3
+  }, {
+    "id" : "SHD_256",
+    "count" : 3
+  }, {
+    "id" : "SOR_090",
+    "count" : 2
+  }, {
+    "id" : "SHD_193",
+    "count" : 3
+  }, {
+    "id" : "SOR_183",
+    "count" : 2
+  }, {
+    "id" : "SHD_214",
+    "count" : 1
+  }, {
+    "id" : "SOR_092",
+    "count" : 2
+  }, {
+    "id" : "TWI_226",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
     "id" : "SOR_089",
     "count" : 2
   }, {
     "id" : "SOR_090",
     "count" : 1
   }, {
+    "id" : "SOR_186",
+    "count" : 1
+  }, {
+    "id" : "SHD_084",
+    "count" : 3
+  }, {
     "id" : "SOR_092",
     "count" : 1
+  }, {
+    "id" : "JTL_235",
+    "count" : 2
   } ]
 }
   </pre>
@@ -4592,74 +4514,74 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SOR_142",
-    "count" : 3
-  }, {
-    "id" : "SHD_197",
-    "count" : 3
-  }, {
     "id" : "SHD_202",
     "count" : 3
   }, {
-    "id" : "TWI_226",
-    "count" : 2
-  }, {
     "id" : "SOR_207",
-    "count" : 3
-  }, {
-    "id" : "SHD_200",
-    "count" : 3
-  }, {
-    "id" : "JTL_235",
-    "count" : 2
-  }, {
-    "id" : "SHD_174",
-    "count" : 2
-  }, {
-    "id" : "SOR_193",
-    "count" : 3
-  }, {
-    "id" : "SOR_198",
-    "count" : 3
-  }, {
-    "id" : "SOR_167",
-    "count" : 3
-  }, {
-    "id" : "JTL_151",
-    "count" : 2
-  }, {
-    "id" : "SOR_200",
     "count" : 3
   }, {
     "id" : "SOR_141",
     "count" : 3
   }, {
+    "id" : "SOR_198",
+    "count" : 3
+  }, {
+    "id" : "JTL_151",
+    "count" : 2
+  }, {
     "id" : "SHD_148",
+    "count" : 3
+  }, {
+    "id" : "JTL_235",
+    "count" : 2
+  }, {
+    "id" : "SHD_200",
     "count" : 3
   }, {
     "id" : "TWI_196",
     "count" : 3
   }, {
+    "id" : "SHD_197",
+    "count" : 3
+  }, {
+    "id" : "SOR_200",
+    "count" : 3
+  }, {
     "id" : "SOR_220",
+    "count" : 3
+  }, {
+    "id" : "SOR_193",
+    "count" : 3
+  }, {
+    "id" : "SOR_142",
     "count" : 3
   }, {
     "id" : "JTL_201",
     "count" : 3
+  }, {
+    "id" : "SHD_174",
+    "count" : 2
+  }, {
+    "id" : "SOR_167",
+    "count" : 3
+  }, {
+    "id" : "TWI_226",
+    "count" : 2
   } ],
   "sideboard" : [ {
-    "id" : "SOR_199",
-    "count" : 2
-  }, {
-    "id" : "JTL_164",
-    "count" : 2
-  }, {
-    "id" : "SHD_204",
+    "id" : "JTL_230",
     "count" : 2
   }, {
     "id" : "JTL_207",
     "count" : 2
   }, {
-    "id" : "JTL_230",
+    "id" : "JTL_164",
+    "count" : 2
+  }, {
+    "id" : "SOR_199",
+    "count" : 2
+  }, {
+    "id" : "SHD_204",
     "count" : 2
   } ]
 }
@@ -4679,43 +4601,22 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SOR_142",
-    "count" : 3
-  }, {
-    "id" : "SHD_178",
-    "count" : 2
-  }, {
-    "id" : "SOR_220",
+    "id" : "SOR_207",
     "count" : 3
   }, {
     "id" : "SOR_198",
     "count" : 1
   }, {
-    "id" : "SOR_207",
-    "count" : 3
-  }, {
-    "id" : "SOR_224",
-    "count" : 1
-  }, {
-    "id" : "SHD_153",
-    "count" : 3
-  }, {
-    "id" : "JTL_218",
+    "id" : "SHD_148",
     "count" : 2
-  }, {
-    "id" : "SHD_174",
-    "count" : 2
-  }, {
-    "id" : "SOR_193",
-    "count" : 3
   }, {
     "id" : "TWI_226",
     "count" : 2
   }, {
-    "id" : "SOR_167",
-    "count" : 3
+    "id" : "SHD_178",
+    "count" : 2
   }, {
-    "id" : "JTL_214",
+    "id" : "JTL_218",
     "count" : 2
   }, {
     "id" : "JTL_151",
@@ -4724,44 +4625,65 @@ basesChart.setOption(basesOption);
     "id" : "SOR_200",
     "count" : 2
   }, {
-    "id" : "SHD_148",
-    "count" : 2
-  }, {
-    "id" : "SOR_192",
-    "count" : 2
-  }, {
     "id" : "TWI_196",
     "count" : 3
   }, {
     "id" : "SOR_145",
     "count" : 2
   }, {
+    "id" : "SOR_224",
+    "count" : 1
+  }, {
+    "id" : "SOR_167",
+    "count" : 3
+  }, {
     "id" : "SHD_197",
+    "count" : 3
+  }, {
+    "id" : "SOR_192",
+    "count" : 2
+  }, {
+    "id" : "SOR_220",
+    "count" : 3
+  }, {
+    "id" : "SOR_193",
+    "count" : 3
+  }, {
+    "id" : "SOR_142",
+    "count" : 3
+  }, {
+    "id" : "JTL_201",
+    "count" : 3
+  }, {
+    "id" : "SHD_174",
+    "count" : 2
+  }, {
+    "id" : "JTL_214",
+    "count" : 2
+  }, {
+    "id" : "SHD_153",
     "count" : 3
   }, {
     "id" : "SOR_219",
     "count" : 1
-  }, {
-    "id" : "JTL_201",
-    "count" : 3
   } ],
   "sideboard" : [ {
+    "id" : "JTL_230",
+    "count" : 2
+  }, {
     "id" : "SOR_224",
+    "count" : 1
+  }, {
+    "id" : "SOR_198",
     "count" : 1
   }, {
     "id" : "SOR_199",
     "count" : 2
   }, {
-    "id" : "SHD_172",
-    "count" : 2
-  }, {
-    "id" : "SOR_198",
-    "count" : 1
-  }, {
-    "id" : "JTL_230",
-    "count" : 2
-  }, {
     "id" : "JTL_224",
+    "count" : 2
+  }, {
+    "id" : "SHD_172",
     "count" : 2
   } ]
 }
@@ -4781,49 +4703,13 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SOR_142",
-    "count" : 3
-  }, {
-    "id" : "SOR_199",
-    "count" : 2
-  }, {
     "id" : "JTL_221",
-    "count" : 3
-  }, {
-    "id" : "JTL_198",
-    "count" : 3
-  }, {
-    "id" : "JTL_203",
-    "count" : 3
-  }, {
-    "id" : "SOR_193",
     "count" : 3
   }, {
     "id" : "SOR_150",
     "count" : 3
   }, {
-    "id" : "JTL_207",
-    "count" : 3
-  }, {
-    "id" : "SOR_152",
-    "count" : 3
-  }, {
     "id" : "SOR_141",
-    "count" : 3
-  }, {
-    "id" : "SOR_189",
-    "count" : 2
-  }, {
-    "id" : "SHD_148",
-    "count" : 3
-  }, {
-    "id" : "TWI_196",
-    "count" : 2
-  }, {
-    "id" : "SHD_206",
-    "count" : 2
-  }, {
-    "id" : "SHD_195",
     "count" : 3
   }, {
     "id" : "JTL_156",
@@ -4832,24 +4718,60 @@ basesChart.setOption(basesOption);
     "id" : "JTL_145",
     "count" : 3
   }, {
+    "id" : "JTL_207",
+    "count" : 3
+  }, {
+    "id" : "SHD_148",
+    "count" : 3
+  }, {
+    "id" : "JTL_198",
+    "count" : 3
+  }, {
     "id" : "JTL_147",
+    "count" : 3
+  }, {
+    "id" : "TWI_196",
+    "count" : 2
+  }, {
+    "id" : "SHD_195",
+    "count" : 3
+  }, {
+    "id" : "SOR_193",
+    "count" : 3
+  }, {
+    "id" : "SOR_142",
+    "count" : 3
+  }, {
+    "id" : "SHD_206",
+    "count" : 2
+  }, {
+    "id" : "SOR_189",
+    "count" : 2
+  }, {
+    "id" : "JTL_203",
+    "count" : 3
+  }, {
+    "id" : "SOR_199",
+    "count" : 2
+  }, {
+    "id" : "SOR_152",
     "count" : 3
   } ],
   "sideboard" : [ {
-    "id" : "SOR_224",
-    "count" : 2
-  }, {
-    "id" : "JTL_235",
-    "count" : 2
-  }, {
-    "id" : "SOR_200",
-    "count" : 3
-  }, {
     "id" : "SHD_262",
+    "count" : 2
+  }, {
+    "id" : "SOR_224",
     "count" : 2
   }, {
     "id" : "SHD_206",
     "count" : 1
+  }, {
+    "id" : "SOR_200",
+    "count" : 3
+  }, {
+    "id" : "JTL_235",
+    "count" : 2
   } ]
 }
   </pre>
@@ -4868,31 +4790,16 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SHD_178",
+    "id" : "SHD_135",
     "count" : 3
-  }, {
-    "id" : "TWI_181",
-    "count" : 3
-  }, {
-    "id" : "JTL_226",
-    "count" : 2
   }, {
     "id" : "JTL_140",
     "count" : 3
   }, {
-    "id" : "TWI_226",
-    "count" : 2
-  }, {
     "id" : "SOR_207",
     "count" : 3
   }, {
-    "id" : "JTL_224",
-    "count" : 2
-  }, {
-    "id" : "JTL_218",
-    "count" : 3
-  }, {
-    "id" : "JTL_143",
+    "id" : "TWI_181",
     "count" : 3
   }, {
     "id" : "JTL_132",
@@ -4901,33 +4808,48 @@ basesChart.setOption(basesOption);
     "id" : "JTL_133",
     "count" : 2
   }, {
-    "id" : "SHD_135",
+    "id" : "JTL_170",
+    "count" : 3
+  }, {
+    "id" : "SHD_178",
+    "count" : 3
+  }, {
+    "id" : "JTL_218",
     "count" : 3
   }, {
     "id" : "SOR_176",
     "count" : 3
   }, {
+    "id" : "TWI_226",
+    "count" : 2
+  }, {
     "id" : "SOR_134",
     "count" : 3
+  }, {
+    "id" : "JTL_224",
+    "count" : 2
+  }, {
+    "id" : "JTL_143",
+    "count" : 3
+  }, {
+    "id" : "SOR_220",
+    "count" : 2
+  }, {
+    "id" : "JTL_226",
+    "count" : 2
   }, {
     "id" : "SOR_186",
     "count" : 3
   }, {
-    "id" : "SOR_220",
-    "count" : 2
-  }, {
-    "id" : "SOR_219",
-    "count" : 2
-  }, {
     "id" : "SHD_194",
     "count" : 3
   }, {
-    "id" : "JTL_170",
-    "count" : 3
+    "id" : "SOR_219",
+    "count" : 2
   } ],
   "sideboard" : [ {
-    "id" : "SOR_220",
-    "count" : 1
+    "id" : "JTL_181",
+    "count" : 2
   }, {
     "id" : "JTL_176",
     "count" : 2
@@ -4938,8 +4860,8 @@ basesChart.setOption(basesOption);
     "id" : "TWI_226",
     "count" : 1
   }, {
-    "id" : "JTL_181",
-    "count" : 2
+    "id" : "SOR_220",
+    "count" : 1
   }, {
     "id" : "SHD_166",
     "count" : 2
@@ -4961,63 +4883,63 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "TWI_160",
+    "id" : "JTL_089",
     "count" : 3
-  }, {
-    "id" : "JTL_190",
-    "count" : 3
-  }, {
-    "id" : "TWI_226",
-    "count" : 2
   }, {
     "id" : "JTL_230",
     "count" : 2
   }, {
-    "id" : "TWI_232",
-    "count" : 3
-  }, {
-    "id" : "SOR_224",
-    "count" : 2
-  }, {
-    "id" : "TWI_237",
-    "count" : 3
-  }, {
-    "id" : "JTL_082",
-    "count" : 3
-  }, {
-    "id" : "TWI_079",
-    "count" : 3
-  }, {
-    "id" : "TWI_180",
-    "count" : 3
-  }, {
-    "id" : "TWI_207",
-    "count" : 3
-  }, {
-    "id" : "JTL_089",
-    "count" : 3
-  }, {
-    "id" : "SOR_092",
-    "count" : 3
-  }, {
-    "id" : "SOR_186",
+    "id" : "JTL_190",
     "count" : 3
   }, {
     "id" : "JTL_119",
     "count" : 2
   }, {
+    "id" : "TWI_237",
+    "count" : 3
+  }, {
+    "id" : "TWI_079",
+    "count" : 3
+  }, {
+    "id" : "JTL_191",
+    "count" : 3
+  }, {
+    "id" : "JTL_082",
+    "count" : 3
+  }, {
+    "id" : "TWI_207",
+    "count" : 3
+  }, {
     "id" : "SOR_220",
+    "count" : 3
+  }, {
+    "id" : "SOR_186",
     "count" : 3
   }, {
     "id" : "SHD_194",
     "count" : 3
   }, {
-    "id" : "JTL_191",
+    "id" : "SOR_224",
+    "count" : 2
+  }, {
+    "id" : "TWI_160",
+    "count" : 3
+  }, {
+    "id" : "TWI_180",
+    "count" : 3
+  }, {
+    "id" : "SOR_092",
+    "count" : 3
+  }, {
+    "id" : "TWI_226",
+    "count" : 2
+  }, {
+    "id" : "TWI_232",
     "count" : 3
   } ],
   "sideboard" : [ {
-    "id" : "SHD_230",
-    "count" : 2
+    "id" : "TWI_210",
+    "count" : 3
   }, {
     "id" : "TWI_181",
     "count" : 3
@@ -5025,8 +4947,8 @@ basesChart.setOption(basesOption);
     "id" : "SOR_221",
     "count" : 2
   }, {
-    "id" : "TWI_210",
-    "count" : 3
+    "id" : "SHD_230",
+    "count" : 2
   } ]
 }
   </pre>
@@ -5048,11 +4970,50 @@ basesChart.setOption(basesOption);
     "id" : "SOR_207",
     "count" : 3
   }, {
+    "id" : "SOR_180",
+    "count" : 3
+  }, {
+    "id" : "SHD_225",
+    "count" : 2
+  }, {
+    "id" : "SHD_032",
+    "count" : 3
+  }, {
+    "id" : "JTL_033",
+    "count" : 2
+  }, {
+    "id" : "JTL_032",
+    "count" : 3
+  }, {
+    "id" : "SHD_031",
+    "count" : 1
+  }, {
+    "id" : "JTL_242",
+    "count" : 3
+  }, {
     "id" : "JTL_235",
+    "count" : 2
+  }, {
+    "id" : "SOR_204",
+    "count" : 3
+  }, {
+    "id" : "JTL_183",
+    "count" : 3
+  }, {
+    "id" : "SHD_229",
+    "count" : 3
+  }, {
+    "id" : "SOR_220",
+    "count" : 3
+  }, {
+    "id" : "SOR_186",
     "count" : 2
   }, {
     "id" : "SHD_174",
     "count" : 3
+  }, {
+    "id" : "JTL_189",
+    "count" : 2
   }, {
     "id" : "JTL_065",
     "count" : 3
@@ -5063,62 +5024,23 @@ basesChart.setOption(basesOption);
     "id" : "SOR_179",
     "count" : 2
   }, {
-    "id" : "SHD_031",
-    "count" : 1
-  }, {
     "id" : "JTL_076",
     "count" : 2
-  }, {
-    "id" : "SHD_229",
-    "count" : 3
-  }, {
-    "id" : "JTL_183",
-    "count" : 3
-  }, {
-    "id" : "JTL_242",
-    "count" : 3
-  }, {
-    "id" : "JTL_033",
-    "count" : 2
-  }, {
-    "id" : "SOR_180",
-    "count" : 3
-  }, {
-    "id" : "JTL_189",
-    "count" : 2
-  }, {
-    "id" : "SOR_186",
-    "count" : 2
-  }, {
-    "id" : "SOR_220",
-    "count" : 3
-  }, {
-    "id" : "SHD_225",
-    "count" : 2
-  }, {
-    "id" : "SHD_032",
-    "count" : 3
-  }, {
-    "id" : "SOR_204",
-    "count" : 3
-  }, {
-    "id" : "JTL_032",
-    "count" : 3
   } ],
   "sideboard" : [ {
-    "id" : "SOR_224",
+    "id" : "SHD_262",
     "count" : 2
   }, {
-    "id" : "SHD_262",
+    "id" : "JTL_230",
+    "count" : 2
+  }, {
+    "id" : "SOR_224",
     "count" : 2
   }, {
     "id" : "SOR_070",
     "count" : 2
   }, {
     "id" : "TWI_226",
-    "count" : 2
-  }, {
-    "id" : "JTL_230",
     "count" : 2
   } ]
 }
@@ -5138,8 +5060,11 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SHD_178",
+    "id" : "JTL_140",
     "count" : 3
+  }, {
+    "id" : "JTL_132",
+    "count" : 2
   }, {
     "id" : "SOR_184",
     "count" : 2
@@ -5147,13 +5072,13 @@ basesChart.setOption(basesOption);
     "id" : "JTL_240",
     "count" : 3
   }, {
+    "id" : "JTL_133",
+    "count" : 3
+  }, {
     "id" : "TWI_226",
     "count" : 2
   }, {
-    "id" : "JTL_132",
-    "count" : 2
-  }, {
-    "id" : "JTL_133",
+    "id" : "SHD_178",
     "count" : 3
   }, {
     "id" : "JTL_218",
@@ -5162,54 +5087,51 @@ basesChart.setOption(basesOption);
     "id" : "JTL_143",
     "count" : 3
   }, {
-    "id" : "JTL_140",
-    "count" : 3
-  }, {
-    "id" : "SOR_179",
-    "count" : 3
-  }, {
-    "id" : "SHD_135",
-    "count" : 3
-  }, {
     "id" : "JTL_183",
     "count" : 3
   }, {
     "id" : "SOR_134",
     "count" : 3
   }, {
+    "id" : "SOR_139",
+    "count" : 2
+  }, {
+    "id" : "SOR_220",
+    "count" : 3
+  }, {
+    "id" : "SHD_135",
+    "count" : 3
+  }, {
+    "id" : "SHD_194",
+    "count" : 3
+  }, {
     "id" : "JTL_189",
     "count" : 1
   }, {
-    "id" : "SOR_220",
+    "id" : "SOR_179",
     "count" : 3
   }, {
     "id" : "SOR_219",
     "count" : 2
   }, {
-    "id" : "SOR_139",
-    "count" : 2
-  }, {
     "id" : "JTL_162",
-    "count" : 3
-  }, {
-    "id" : "SHD_194",
     "count" : 3
   } ],
   "sideboard" : [ {
-    "id" : "SOR_186",
-    "count" : 3
-  }, {
     "id" : "JTL_235",
     "count" : 1
   }, {
-    "id" : "JTL_164",
-    "count" : 2
+    "id" : "JTL_189",
+    "count" : 1
   }, {
     "id" : "JTL_176",
     "count" : 3
   }, {
-    "id" : "JTL_189",
-    "count" : 1
+    "id" : "JTL_164",
+    "count" : 2
+  }, {
+    "id" : "SOR_186",
+    "count" : 3
   } ]
 }
   </pre>
@@ -5228,20 +5150,26 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SHD_178",
+    "id" : "JTL_140",
+    "count" : 3
+  }, {
+    "id" : "SOR_207",
+    "count" : 3
+  }, {
+    "id" : "SOR_180",
     "count" : 3
   }, {
     "id" : "TWI_181",
     "count" : 3
   }, {
-    "id" : "JTL_140",
-    "count" : 3
-  }, {
     "id" : "JTL_132",
     "count" : 2
   }, {
-    "id" : "JTL_230",
-    "count" : 2
+    "id" : "JTL_170",
+    "count" : 3
+  }, {
+    "id" : "SHD_178",
+    "count" : 3
   }, {
     "id" : "JTL_181",
     "count" : 1
@@ -5249,57 +5177,51 @@ basesChart.setOption(basesOption);
     "id" : "JTL_218",
     "count" : 3
   }, {
-    "id" : "JTL_143",
-    "count" : 3
-  }, {
-    "id" : "SOR_207",
-    "count" : 3
-  }, {
-    "id" : "SHD_135",
+    "id" : "SOR_176",
     "count" : 2
   }, {
-    "id" : "SOR_176",
+    "id" : "SOR_204",
+    "count" : 2
+  }, {
+    "id" : "JTL_230",
     "count" : 2
   }, {
     "id" : "SOR_134",
     "count" : 3
   }, {
-    "id" : "SOR_180",
+    "id" : "JTL_143",
     "count" : 3
   }, {
-    "id" : "SOR_220",
+    "id" : "JTL_162",
+    "count" : 3
+  }, {
+    "id" : "SHD_135",
+    "count" : 2
+  }, {
+    "id" : "SHD_194",
     "count" : 3
   }, {
     "id" : "SOR_219",
     "count" : 3
   }, {
-    "id" : "SOR_204",
-    "count" : 2
-  }, {
-    "id" : "JTL_162",
-    "count" : 3
-  }, {
-    "id" : "SHD_194",
-    "count" : 3
-  }, {
-    "id" : "JTL_170",
+    "id" : "SOR_220",
     "count" : 3
   } ],
   "sideboard" : [ {
+    "id" : "JTL_230",
+    "count" : 1
+  }, {
     "id" : "SHD_184",
     "count" : 3
   }, {
-    "id" : "JTL_213",
+    "id" : "SOR_184",
     "count" : 2
   }, {
     "id" : "JTL_226",
     "count" : 2
   }, {
-    "id" : "SOR_184",
+    "id" : "JTL_213",
     "count" : 2
-  }, {
-    "id" : "JTL_230",
-    "count" : 1
   } ]
 }
   </pre>
@@ -5318,53 +5240,20 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SOR_040",
-    "count" : 2
-  }, {
-    "id" : "SOR_077",
+    "id" : "JTL_043",
     "count" : 3
   }, {
-    "id" : "SHD_172",
-    "count" : 1
-  }, {
-    "id" : "SOR_072",
-    "count" : 2
-  }, {
-    "id" : "SOR_043",
+    "id" : "TWI_238",
     "count" : 3
-  }, {
-    "id" : "SHD_037",
-    "count" : 2
-  }, {
-    "id" : "SHD_176",
-    "count" : 3
-  }, {
-    "id" : "SOR_041",
-    "count" : 3
-  }, {
-    "id" : "JTL_041",
-    "count" : 2
   }, {
     "id" : "SHD_031",
     "count" : 3
   }, {
-    "id" : "SHD_028",
+    "id" : "SOR_077",
     "count" : 3
   }, {
-    "id" : "SHD_079",
-    "count" : 1
-  }, {
-    "id" : "JTL_043",
-    "count" : 3
-  }, {
-    "id" : "SOR_233",
-    "count" : 3
-  }, {
-    "id" : "SOR_139",
+    "id" : "JTL_041",
     "count" : 2
-  }, {
-    "id" : "SOR_172",
-    "count" : 3
   }, {
     "id" : "SHD_071",
     "count" : 3
@@ -5372,32 +5261,65 @@ basesChart.setOption(basesOption);
     "id" : "SOR_058",
     "count" : 3
   }, {
-    "id" : "TWI_238",
+    "id" : "SOR_072",
+    "count" : 2
+  }, {
+    "id" : "SHD_028",
     "count" : 3
+  }, {
+    "id" : "SOR_043",
+    "count" : 3
+  }, {
+    "id" : "SHD_037",
+    "count" : 2
+  }, {
+    "id" : "SOR_233",
+    "count" : 3
+  }, {
+    "id" : "SOR_139",
+    "count" : 2
+  }, {
+    "id" : "SHD_172",
+    "count" : 1
+  }, {
+    "id" : "SOR_041",
+    "count" : 3
+  }, {
+    "id" : "SHD_176",
+    "count" : 3
+  }, {
+    "id" : "SOR_040",
+    "count" : 2
+  }, {
+    "id" : "SHD_079",
+    "count" : 1
   }, {
     "id" : "SOR_135",
     "count" : 2
+  }, {
+    "id" : "SOR_172",
+    "count" : 3
   } ],
   "sideboard" : [ {
-    "id" : "SOR_252",
-    "count" : 1
-  }, {
     "id" : "SHD_262",
     "count" : 2
   }, {
-    "id" : "SHD_078",
+    "id" : "JTL_078",
+    "count" : 3
+  }, {
+    "id" : "SOR_183",
+    "count" : 1
+  }, {
+    "id" : "SHD_079",
     "count" : 1
   }, {
     "id" : "SOR_139",
     "count" : 1
   }, {
-    "id" : "JTL_078",
-    "count" : 3
-  }, {
-    "id" : "SHD_079",
+    "id" : "SOR_252",
     "count" : 1
   }, {
-    "id" : "SOR_183",
+    "id" : "SHD_078",
     "count" : 1
   } ]
 }
@@ -5417,68 +5339,68 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
+    "id" : "SHD_225",
+    "count" : 2
+  }, {
     "id" : "JTL_197",
-    "count" : 3
-  }, {
-    "id" : "SOR_220",
-    "count" : 3
-  }, {
-    "id" : "JTL_245",
-    "count" : 3
-  }, {
-    "id" : "JTL_210",
-    "count" : 2
-  }, {
-    "id" : "TWI_226",
-    "count" : 2
-  }, {
-    "id" : "JTL_212",
-    "count" : 3
-  }, {
-    "id" : "JTL_224",
-    "count" : 2
-  }, {
-    "id" : "SOR_199",
-    "count" : 2
-  }, {
-    "id" : "SHD_174",
-    "count" : 2
-  }, {
-    "id" : "JTL_203",
-    "count" : 3
-  }, {
-    "id" : "SOR_193",
-    "count" : 3
-  }, {
-    "id" : "JTL_096",
-    "count" : 3
-  }, {
-    "id" : "JTL_103",
-    "count" : 3
-  }, {
-    "id" : "JTL_249",
     "count" : 3
   }, {
     "id" : "SOR_215",
     "count" : 3
   }, {
-    "id" : "SOR_099",
+    "id" : "TWI_226",
     "count" : 2
   }, {
-    "id" : "JTL_094",
+    "id" : "JTL_096",
     "count" : 3
   }, {
     "id" : "SHD_195",
     "count" : 3
   }, {
-    "id" : "SHD_225",
-    "count" : 2
-  } ],
-  "sideboard" : [ {
-    "id" : "SHD_230",
+    "id" : "JTL_094",
+    "count" : 3
+  }, {
+    "id" : "JTL_212",
+    "count" : 3
+  }, {
+    "id" : "JTL_249",
+    "count" : 3
+  }, {
+    "id" : "SOR_099",
     "count" : 2
   }, {
-    "id" : "JTL_235",
+    "id" : "JTL_203",
+    "count" : 3
+  }, {
+    "id" : "JTL_224",
+    "count" : 2
+  }, {
+    "id" : "SOR_220",
+    "count" : 3
+  }, {
+    "id" : "SOR_193",
+    "count" : 3
+  }, {
+    "id" : "SHD_174",
+    "count" : 2
+  }, {
+    "id" : "JTL_210",
+    "count" : 2
+  }, {
+    "id" : "JTL_103",
+    "count" : 3
+  }, {
+    "id" : "SOR_199",
+    "count" : 2
+  }, {
+    "id" : "JTL_245",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_230",
+    "count" : 2
+  }, {
+    "id" : "SHD_230",
     "count" : 2
   }, {
     "id" : "SOR_211",
@@ -5487,7 +5409,7 @@ basesChart.setOption(basesOption);
     "id" : "SOR_104",
     "count" : 2
   }, {
-    "id" : "JTL_230",
+    "id" : "JTL_235",
     "count" : 2
   } ]
 }
@@ -5507,7 +5429,46 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
+    "id" : "JTL_043",
+    "count" : 3
+  }, {
     "id" : "TWI_181",
+    "count" : 3
+  }, {
+    "id" : "TWI_238",
+    "count" : 3
+  }, {
+    "id" : "SOR_058",
+    "count" : 3
+  }, {
+    "id" : "SOR_077",
+    "count" : 3
+  }, {
+    "id" : "JTL_230",
+    "count" : 1
+  }, {
+    "id" : "JTL_071",
+    "count" : 3
+  }, {
+    "id" : "TWI_187",
+    "count" : 2
+  }, {
+    "id" : "JTL_033",
+    "count" : 3
+  }, {
+    "id" : "SHD_028",
+    "count" : 3
+  }, {
+    "id" : "SOR_043",
+    "count" : 1
+  }, {
+    "id" : "SHD_037",
+    "count" : 3
+  }, {
+    "id" : "JTL_039",
+    "count" : 2
+  }, {
+    "id" : "SOR_035",
     "count" : 3
   }, {
     "id" : "TWI_070",
@@ -5516,71 +5477,32 @@ basesChart.setOption(basesOption);
     "id" : "SHD_058",
     "count" : 3
   }, {
-    "id" : "TWI_187",
-    "count" : 2
-  }, {
-    "id" : "JTL_230",
-    "count" : 1
-  }, {
-    "id" : "SOR_043",
-    "count" : 1
-  }, {
-    "id" : "SHD_037",
-    "count" : 3
-  }, {
-    "id" : "SOR_040",
+    "id" : "SOR_041",
     "count" : 3
   }, {
     "id" : "JTL_060",
     "count" : 3
   }, {
-    "id" : "SOR_035",
-    "count" : 3
-  }, {
-    "id" : "JTL_039",
-    "count" : 2
-  }, {
-    "id" : "SOR_041",
-    "count" : 3
-  }, {
-    "id" : "SHD_028",
-    "count" : 3
-  }, {
-    "id" : "SOR_058",
-    "count" : 3
-  }, {
-    "id" : "JTL_071",
-    "count" : 3
-  }, {
-    "id" : "JTL_043",
-    "count" : 3
-  }, {
-    "id" : "SOR_077",
-    "count" : 3
-  }, {
-    "id" : "JTL_033",
-    "count" : 3
-  }, {
-    "id" : "TWI_238",
+    "id" : "SOR_040",
     "count" : 3
   } ],
   "sideboard" : [ {
-    "id" : "SOR_252",
-    "count" : 1
-  }, {
-    "id" : "SOR_220",
+    "id" : "JTL_230",
     "count" : 2
   }, {
     "id" : "JTL_183",
     "count" : 2
   }, {
+    "id" : "TWI_215",
+    "count" : 1
+  }, {
     "id" : "TWI_226",
     "count" : 2
   }, {
-    "id" : "JTL_230",
+    "id" : "SOR_220",
     "count" : 2
   }, {
-    "id" : "TWI_215",
+    "id" : "SOR_252",
     "count" : 1
   } ]
 }
@@ -5600,10 +5522,58 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SOR_142",
+    "id" : "SHD_202",
+    "count" : 2
+  }, {
+    "id" : "SOR_207",
+    "count" : 3
+  }, {
+    "id" : "SOR_141",
+    "count" : 3
+  }, {
+    "id" : "SOR_198",
+    "count" : 3
+  }, {
+    "id" : "SOR_200",
+    "count" : 3
+  }, {
+    "id" : "JTL_235",
+    "count" : 2
+  }, {
+    "id" : "SHD_148",
+    "count" : 3
+  }, {
+    "id" : "SOR_145",
+    "count" : 1
+  }, {
+    "id" : "SHD_200",
+    "count" : 1
+  }, {
+    "id" : "SOR_167",
     "count" : 3
   }, {
     "id" : "SHD_197",
+    "count" : 3
+  }, {
+    "id" : "SOR_192",
+    "count" : 3
+  }, {
+    "id" : "SOR_220",
+    "count" : 2
+  }, {
+    "id" : "SOR_193",
+    "count" : 3
+  }, {
+    "id" : "SOR_142",
+    "count" : 3
+  }, {
+    "id" : "JTL_201",
+    "count" : 3
+  }, {
+    "id" : "SHD_174",
+    "count" : 3
+  }, {
+    "id" : "TWI_196",
     "count" : 3
   }, {
     "id" : "SOR_199",
@@ -5611,73 +5581,25 @@ basesChart.setOption(basesOption);
   }, {
     "id" : "SHD_213",
     "count" : 1
-  }, {
-    "id" : "SHD_202",
-    "count" : 2
-  }, {
-    "id" : "SOR_198",
-    "count" : 3
-  }, {
-    "id" : "SOR_207",
-    "count" : 3
-  }, {
-    "id" : "SHD_200",
-    "count" : 1
-  }, {
-    "id" : "JTL_235",
-    "count" : 2
-  }, {
-    "id" : "SHD_174",
-    "count" : 3
-  }, {
-    "id" : "SOR_200",
-    "count" : 3
-  }, {
-    "id" : "SOR_193",
-    "count" : 3
-  }, {
-    "id" : "SOR_167",
-    "count" : 3
-  }, {
-    "id" : "SOR_145",
-    "count" : 1
-  }, {
-    "id" : "SOR_141",
-    "count" : 3
-  }, {
-    "id" : "SHD_148",
-    "count" : 3
-  }, {
-    "id" : "SOR_192",
-    "count" : 3
-  }, {
-    "id" : "TWI_196",
-    "count" : 3
-  }, {
-    "id" : "SOR_220",
-    "count" : 2
-  }, {
-    "id" : "JTL_201",
-    "count" : 3
   } ],
   "sideboard" : [ {
-    "id" : "SOR_145",
-    "count" : 1
+    "id" : "JTL_230",
+    "count" : 2
   }, {
     "id" : "SOR_203",
+    "count" : 2
+  }, {
+    "id" : "JTL_207",
+    "count" : 2
+  }, {
+    "id" : "JTL_151",
     "count" : 2
   }, {
     "id" : "SOR_149",
     "count" : 1
   }, {
-    "id" : "JTL_207",
-    "count" : 2
-  }, {
-    "id" : "JTL_230",
-    "count" : 2
-  }, {
-    "id" : "JTL_151",
-    "count" : 2
+    "id" : "SOR_145",
+    "count" : 1
   } ]
 }
   </pre>
@@ -5696,7 +5618,40 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "TWI_127",
+    "id" : "JTL_221",
+    "count" : 2
+  }, {
+    "id" : "JTL_124",
+    "count" : 2
+  }, {
+    "id" : "JTL_103",
+    "count" : 3
+  }, {
+    "id" : "TWI_198",
+    "count" : 2
+  }, {
+    "id" : "SHD_202",
+    "count" : 3
+  }, {
+    "id" : "JTL_094",
+    "count" : 2
+  }, {
+    "id" : "JTL_252",
+    "count" : 2
+  }, {
+    "id" : "JTL_235",
+    "count" : 2
+  }, {
+    "id" : "JTL_096",
+    "count" : 3
+  }, {
+    "id" : "JTL_249",
+    "count" : 3
+  }, {
+    "id" : "SOR_104",
+    "count" : 2
+  }, {
+    "id" : "JTL_203",
     "count" : 3
   }, {
     "id" : "SHD_197",
@@ -5705,75 +5660,42 @@ basesChart.setOption(basesOption);
     "id" : "SHD_204",
     "count" : 2
   }, {
-    "id" : "SHD_213",
+    "id" : "SOR_193",
     "count" : 3
-  }, {
-    "id" : "SHD_202",
-    "count" : 3
-  }, {
-    "id" : "JTL_235",
-    "count" : 2
   }, {
     "id" : "SHD_174",
     "count" : 3
   }, {
-    "id" : "JTL_203",
-    "count" : 3
-  }, {
-    "id" : "SOR_193",
-    "count" : 3
-  }, {
-    "id" : "SOR_104",
+    "id" : "JTL_210",
     "count" : 2
-  }, {
-    "id" : "JTL_221",
-    "count" : 2
-  }, {
-    "id" : "JTL_096",
-    "count" : 3
-  }, {
-    "id" : "JTL_103",
-    "count" : 3
-  }, {
-    "id" : "JTL_249",
-    "count" : 3
   }, {
     "id" : "SHD_248",
     "count" : 3
   }, {
-    "id" : "JTL_252",
-    "count" : 2
+    "id" : "TWI_127",
+    "count" : 3
   }, {
-    "id" : "JTL_124",
-    "count" : 2
-  }, {
-    "id" : "TWI_198",
-    "count" : 2
-  }, {
-    "id" : "JTL_094",
-    "count" : 2
-  }, {
-    "id" : "JTL_210",
-    "count" : 2
+    "id" : "SHD_213",
+    "count" : 3
   } ],
   "sideboard" : [ {
+    "id" : "SOR_102",
+    "count" : 1
+  }, {
+    "id" : "JTL_121",
+    "count" : 1
+  }, {
+    "id" : "SOR_203",
+    "count" : 2
+  }, {
+    "id" : "SOR_198",
+    "count" : 2
+  }, {
     "id" : "SOR_200",
     "count" : 2
   }, {
     "id" : "SOR_199",
     "count" : 2
-  }, {
-    "id" : "SOR_203",
-    "count" : 2
-  }, {
-    "id" : "JTL_121",
-    "count" : 1
-  }, {
-    "id" : "SOR_198",
-    "count" : 2
-  }, {
-    "id" : "SOR_102",
-    "count" : 1
   } ]
 }
   </pre>
@@ -5792,55 +5714,16 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SHD_188",
-    "count" : 3
-  }, {
-    "id" : "SOR_181",
-    "count" : 3
-  }, {
-    "id" : "JTL_184",
-    "count" : 3
-  }, {
-    "id" : "JTL_240",
-    "count" : 3
-  }, {
-    "id" : "TWI_226",
-    "count" : 3
-  }, {
     "id" : "SOR_207",
-    "count" : 3
-  }, {
-    "id" : "JTL_235",
-    "count" : 1
-  }, {
-    "id" : "SHD_174",
-    "count" : 2
-  }, {
-    "id" : "SHD_190",
-    "count" : 3
-  }, {
-    "id" : "SOR_179",
     "count" : 3
   }, {
     "id" : "SHD_184",
     "count" : 2
   }, {
-    "id" : "SOR_134",
-    "count" : 3
-  }, {
-    "id" : "JTL_189",
-    "count" : 3
-  }, {
-    "id" : "SOR_220",
-    "count" : 3
-  }, {
     "id" : "SHD_225",
     "count" : 1
   }, {
-    "id" : "SHD_229",
-    "count" : 3
-  }, {
-    "id" : "SHD_194",
+    "id" : "JTL_240",
     "count" : 3
   }, {
     "id" : "JTL_170",
@@ -5848,21 +5731,60 @@ basesChart.setOption(basesOption);
   }, {
     "id" : "TWI_187",
     "count" : 2
+  }, {
+    "id" : "SHD_188",
+    "count" : 3
+  }, {
+    "id" : "JTL_235",
+    "count" : 1
+  }, {
+    "id" : "SHD_190",
+    "count" : 3
+  }, {
+    "id" : "SOR_134",
+    "count" : 3
+  }, {
+    "id" : "SHD_229",
+    "count" : 3
+  }, {
+    "id" : "SOR_181",
+    "count" : 3
+  }, {
+    "id" : "SOR_220",
+    "count" : 3
+  }, {
+    "id" : "JTL_184",
+    "count" : 3
+  }, {
+    "id" : "SHD_194",
+    "count" : 3
+  }, {
+    "id" : "SHD_174",
+    "count" : 2
+  }, {
+    "id" : "JTL_189",
+    "count" : 3
+  }, {
+    "id" : "SOR_179",
+    "count" : 3
+  }, {
+    "id" : "TWI_226",
+    "count" : 3
   } ],
   "sideboard" : [ {
+    "id" : "JTL_230",
+    "count" : 2
+  }, {
     "id" : "SOR_224",
     "count" : 2
   }, {
-    "id" : "JTL_213",
+    "id" : "SHD_166",
     "count" : 2
   }, {
     "id" : "TWI_224",
     "count" : 2
   }, {
-    "id" : "JTL_230",
-    "count" : 2
-  }, {
-    "id" : "SHD_166",
+    "id" : "JTL_213",
     "count" : 2
   } ]
 }
@@ -5882,16 +5804,16 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SOR_142",
-    "count" : 3
-  }, {
-    "id" : "SHD_197",
-    "count" : 3
-  }, {
     "id" : "SHD_202",
     "count" : 3
   }, {
+    "id" : "SOR_141",
+    "count" : 3
+  }, {
     "id" : "SOR_198",
+    "count" : 3
+  }, {
+    "id" : "SOR_200",
     "count" : 3
   }, {
     "id" : "JTL_230",
@@ -5900,59 +5822,59 @@ basesChart.setOption(basesOption);
     "id" : "JTL_218",
     "count" : 2
   }, {
-    "id" : "SHD_174",
-    "count" : 2
-  }, {
-    "id" : "SOR_193",
-    "count" : 3
-  }, {
-    "id" : "TWI_226",
-    "count" : 2
-  }, {
-    "id" : "SOR_167",
-    "count" : 3
-  }, {
     "id" : "JTL_151",
     "count" : 2
   }, {
-    "id" : "SOR_200",
-    "count" : 3
-  }, {
-    "id" : "SOR_141",
-    "count" : 3
-  }, {
     "id" : "SHD_148",
+    "count" : 3
+  }, {
+    "id" : "JTL_149",
+    "count" : 3
+  }, {
+    "id" : "TWI_196",
+    "count" : 3
+  }, {
+    "id" : "SHD_197",
     "count" : 3
   }, {
     "id" : "SOR_192",
     "count" : 2
   }, {
-    "id" : "TWI_196",
+    "id" : "SOR_220",
     "count" : 3
   }, {
-    "id" : "SOR_220",
+    "id" : "SOR_193",
+    "count" : 3
+  }, {
+    "id" : "SOR_142",
     "count" : 3
   }, {
     "id" : "JTL_201",
     "count" : 2
   }, {
-    "id" : "JTL_149",
+    "id" : "SHD_174",
+    "count" : 2
+  }, {
+    "id" : "SOR_167",
     "count" : 3
+  }, {
+    "id" : "TWI_226",
+    "count" : 2
   } ],
   "sideboard" : [ {
-    "id" : "JTL_235",
-    "count" : 2
-  }, {
-    "id" : "SOR_199",
-    "count" : 2
-  }, {
     "id" : "SOR_211",
     "count" : 2
   }, {
     "id" : "JTL_207",
     "count" : 2
   }, {
+    "id" : "SOR_199",
+    "count" : 2
+  }, {
     "id" : "SHD_166",
+    "count" : 2
+  }, {
+    "id" : "JTL_235",
     "count" : 2
   } ]
 }
@@ -5972,81 +5894,81 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "JTL_095",
-    "count" : 3
-  }, {
-    "id" : "SHD_115",
-    "count" : 2
-  }, {
-    "id" : "SOR_220",
-    "count" : 2
-  }, {
     "id" : "SHD_202",
     "count" : 2
-  }, {
-    "id" : "SOR_198",
-    "count" : 1
-  }, {
-    "id" : "JTL_230",
-    "count" : 2
-  }, {
-    "id" : "JTL_235",
-    "count" : 2
-  }, {
-    "id" : "SHD_174",
-    "count" : 2
-  }, {
-    "id" : "SOR_193",
-    "count" : 2
-  }, {
-    "id" : "JTL_214",
-    "count" : 3
   }, {
     "id" : "SHD_123",
     "count" : 3
   }, {
-    "id" : "SOR_098",
-    "count" : 3
+    "id" : "SOR_198",
+    "count" : 1
   }, {
     "id" : "TWI_193",
+    "count" : 3
+  }, {
+    "id" : "JTL_230",
+    "count" : 2
+  }, {
+    "id" : "JTL_250",
+    "count" : 3
+  }, {
+    "id" : "JTL_095",
     "count" : 3
   }, {
     "id" : "TWI_121",
     "count" : 3
   }, {
-    "id" : "TWI_196",
+    "id" : "JTL_094",
     "count" : 3
   }, {
-    "id" : "JTL_094",
+    "id" : "JTL_235",
+    "count" : 2
+  }, {
+    "id" : "SHD_098",
+    "count" : 3
+  }, {
+    "id" : "TWI_196",
     "count" : 3
   }, {
     "id" : "TWI_096",
     "count" : 3
   }, {
-    "id" : "SHD_098",
+    "id" : "SOR_220",
+    "count" : 2
+  }, {
+    "id" : "SOR_193",
+    "count" : 2
+  }, {
+    "id" : "SOR_098",
     "count" : 3
+  }, {
+    "id" : "SHD_174",
+    "count" : 2
+  }, {
+    "id" : "SHD_115",
+    "count" : 2
   }, {
     "id" : "SOR_189",
     "count" : 2
   }, {
-    "id" : "JTL_250",
+    "id" : "JTL_214",
     "count" : 3
   } ],
   "sideboard" : [ {
     "id" : "SHD_206",
     "count" : 2
   }, {
-    "id" : "JTL_235",
-    "count" : 1
+    "id" : "SOR_099",
+    "count" : 2
   }, {
     "id" : "SOR_199",
     "count" : 2
   }, {
-    "id" : "SOR_099",
-    "count" : 2
-  }, {
     "id" : "SOR_194",
     "count" : 3
+  }, {
+    "id" : "JTL_235",
+    "count" : 1
   } ]
 }
   </pre>
@@ -6065,41 +5987,38 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SHD_178",
-    "count" : 2
-  }, {
-    "id" : "TWI_181",
-    "count" : 3
-  }, {
     "id" : "JTL_140",
     "count" : 3
-  }, {
-    "id" : "TWI_226",
-    "count" : 2
   }, {
     "id" : "SOR_207",
     "count" : 3
   }, {
+    "id" : "SOR_180",
+    "count" : 3
+  }, {
+    "id" : "TWI_181",
+    "count" : 3
+  }, {
+    "id" : "JTL_133",
+    "count" : 3
+  }, {
+    "id" : "JTL_170",
+    "count" : 3
+  }, {
+    "id" : "SHD_178",
+    "count" : 2
+  }, {
     "id" : "JTL_230",
     "count" : 1
   }, {
-    "id" : "JTL_133",
+    "id" : "JTL_218",
     "count" : 3
   }, {
     "id" : "SHD_230",
     "count" : 2
   }, {
-    "id" : "JTL_218",
-    "count" : 3
-  }, {
-    "id" : "JTL_143",
-    "count" : 3
-  }, {
-    "id" : "JTL_224",
+    "id" : "TWI_226",
     "count" : 2
-  }, {
-    "id" : "SHD_135",
-    "count" : 3
   }, {
     "id" : "JTL_183",
     "count" : 2
@@ -6107,27 +6026,27 @@ basesChart.setOption(basesOption);
     "id" : "SOR_134",
     "count" : 3
   }, {
-    "id" : "SOR_180",
+    "id" : "JTL_224",
+    "count" : 2
+  }, {
+    "id" : "JTL_143",
     "count" : 3
   }, {
     "id" : "SOR_220",
     "count" : 3
   }, {
-    "id" : "SOR_219",
+    "id" : "SHD_135",
     "count" : 3
   }, {
     "id" : "SHD_194",
     "count" : 3
   }, {
-    "id" : "JTL_170",
+    "id" : "SOR_219",
     "count" : 3
   } ],
   "sideboard" : [ {
-    "id" : "SOR_186",
-    "count" : 2
-  }, {
-    "id" : "JTL_164",
-    "count" : 2
+    "id" : "JTL_142",
+    "count" : 1
   }, {
     "id" : "SOR_204",
     "count" : 3
@@ -6135,8 +6054,11 @@ basesChart.setOption(basesOption);
     "id" : "JTL_230",
     "count" : 2
   }, {
-    "id" : "JTL_142",
-    "count" : 1
+    "id" : "JTL_164",
+    "count" : 2
+  }, {
+    "id" : "SOR_186",
+    "count" : 2
   } ]
 }
   </pre>
@@ -6158,77 +6080,77 @@ basesChart.setOption(basesOption);
     "id" : "SOR_054",
     "count" : 2
   }, {
-    "id" : "JTL_095",
+    "id" : "TWI_127",
     "count" : 3
   }, {
-    "id" : "SOR_051",
+    "id" : "SOR_052",
+    "count" : 2
+  }, {
+    "id" : "TWI_048",
+    "count" : 2
+  }, {
+    "id" : "JTL_096",
     "count" : 3
   }, {
     "id" : "SOR_095",
     "count" : 3
   }, {
-    "id" : "JTL_097",
-    "count" : 2
-  }, {
-    "id" : "JTL_046",
-    "count" : 3
-  }, {
-    "id" : "JTL_096",
-    "count" : 3
-  }, {
-    "id" : "SHD_129",
-    "count" : 2
-  }, {
-    "id" : "JTL_103",
-    "count" : 3
-  }, {
-    "id" : "TWI_048",
-    "count" : 2
-  }, {
-    "id" : "SHD_103",
-    "count" : 2
-  }, {
-    "id" : "JTL_055",
-    "count" : 2
-  }, {
-    "id" : "JTL_076",
-    "count" : 2
-  }, {
-    "id" : "SOR_047",
-    "count" : 3
-  }, {
-    "id" : "SOR_240",
+    "id" : "JTL_095",
     "count" : 3
   }, {
     "id" : "TWI_121",
     "count" : 2
   }, {
-    "id" : "SOR_052",
+    "id" : "SHD_103",
     "count" : 2
   }, {
-    "id" : "TWI_127",
+    "id" : "JTL_094",
+    "count" : 3
+  }, {
+    "id" : "SOR_047",
+    "count" : 3
+  }, {
+    "id" : "JTL_055",
+    "count" : 2
+  }, {
+    "id" : "SOR_240",
     "count" : 3
   }, {
     "id" : "SOR_099",
     "count" : 2
   }, {
-    "id" : "JTL_094",
+    "id" : "SOR_051",
+    "count" : 3
+  }, {
+    "id" : "JTL_097",
+    "count" : 2
+  }, {
+    "id" : "JTL_103",
+    "count" : 3
+  }, {
+    "id" : "JTL_076",
+    "count" : 2
+  }, {
+    "id" : "SHD_129",
+    "count" : 2
+  }, {
+    "id" : "JTL_046",
     "count" : 3
   } ],
   "sideboard" : [ {
-    "id" : "SHD_114",
-    "count" : 3
-  }, {
-    "id" : "SHD_078",
-    "count" : 2
-  }, {
-    "id" : "SOR_070",
+    "id" : "SOR_102",
     "count" : 2
   }, {
     "id" : "JTL_121",
     "count" : 1
   }, {
-    "id" : "SOR_102",
+    "id" : "SOR_070",
+    "count" : 2
+  }, {
+    "id" : "SHD_114",
+    "count" : 3
+  }, {
+    "id" : "SHD_078",
     "count" : 2
   } ]
 }
@@ -6248,43 +6170,31 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SOR_142",
+    "id" : "SOR_150",
+    "count" : 2
+  }, {
+    "id" : "SOR_141",
     "count" : 3
   }, {
-    "id" : "JTL_095",
+    "id" : "SOR_143",
+    "count" : 3
+  }, {
+    "id" : "JTL_164",
+    "count" : 3
+  }, {
+    "id" : "SHD_126",
+    "count" : 2
+  }, {
+    "id" : "SOR_245",
     "count" : 2
   }, {
     "id" : "SOR_095",
     "count" : 3
   }, {
-    "id" : "SOR_245",
+    "id" : "JTL_095",
     "count" : 2
   }, {
-    "id" : "SHD_126",
-    "count" : 2
-  }, {
-    "id" : "SHD_153",
-    "count" : 3
-  }, {
-    "id" : "SOR_150",
-    "count" : 2
-  }, {
-    "id" : "SOR_143",
-    "count" : 3
-  }, {
-    "id" : "SOR_103",
-    "count" : 3
-  }, {
-    "id" : "SOR_145",
-    "count" : 3
-  }, {
-    "id" : "SOR_152",
-    "count" : 3
-  }, {
-    "id" : "SOR_141",
-    "count" : 3
-  }, {
-    "id" : "SOR_240",
+    "id" : "SHD_154",
     "count" : 3
   }, {
     "id" : "SHD_148",
@@ -6293,20 +6203,32 @@ basesChart.setOption(basesOption);
     "id" : "JTL_094",
     "count" : 3
   }, {
-    "id" : "JTL_164",
+    "id" : "SOR_145",
     "count" : 3
   }, {
-    "id" : "SHD_154",
+    "id" : "SOR_103",
     "count" : 3
   }, {
     "id" : "JTL_250",
     "count" : 3
-  } ],
-  "sideboard" : [ {
-    "id" : "SOR_099",
+  }, {
+    "id" : "SOR_240",
     "count" : 3
   }, {
+    "id" : "SOR_142",
+    "count" : 3
+  }, {
+    "id" : "SHD_153",
+    "count" : 3
+  }, {
+    "id" : "SOR_152",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
     "id" : "SHD_262",
+    "count" : 3
+  }, {
+    "id" : "SOR_099",
     "count" : 3
   }, {
     "id" : "JTL_103",
@@ -6332,77 +6254,77 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "JTL_197",
-    "count" : 3
-  }, {
-    "id" : "SHD_204",
-    "count" : 1
-  }, {
     "id" : "SHD_202",
     "count" : 3
-  }, {
-    "id" : "SOR_198",
-    "count" : 3
-  }, {
-    "id" : "SOR_199",
-    "count" : 2
   }, {
     "id" : "SHD_174",
     "count" : 2
   }, {
-    "id" : "SOR_193",
+    "id" : "SOR_198",
     "count" : 3
   }, {
-    "id" : "TWI_226",
-    "count" : 2
-  }, {
-    "id" : "SOR_167",
+    "id" : "JTL_197",
     "count" : 3
-  }, {
-    "id" : "JTL_151",
-    "count" : 2
   }, {
     "id" : "SOR_200",
-    "count" : 3
-  }, {
-    "id" : "SHD_196",
-    "count" : 3
-  }, {
-    "id" : "SHD_148",
-    "count" : 3
-  }, {
-    "id" : "SOR_192",
-    "count" : 3
-  }, {
-    "id" : "TWI_196",
     "count" : 3
   }, {
     "id" : "TWI_198",
     "count" : 2
   }, {
+    "id" : "JTL_151",
+    "count" : 2
+  }, {
+    "id" : "SHD_148",
+    "count" : 3
+  }, {
+    "id" : "SHD_204",
+    "count" : 1
+  }, {
+    "id" : "JTL_149",
+    "count" : 3
+  }, {
+    "id" : "TWI_196",
+    "count" : 3
+  }, {
+    "id" : "SOR_192",
+    "count" : 3
+  }, {
     "id" : "SOR_220",
+    "count" : 3
+  }, {
+    "id" : "SOR_193",
     "count" : 3
   }, {
     "id" : "JTL_201",
     "count" : 3
   }, {
-    "id" : "JTL_149",
+    "id" : "SHD_196",
     "count" : 3
+  }, {
+    "id" : "SOR_167",
+    "count" : 3
+  }, {
+    "id" : "SOR_199",
+    "count" : 2
+  }, {
+    "id" : "TWI_226",
+    "count" : 2
   } ],
   "sideboard" : [ {
     "id" : "SHD_178",
     "count" : 2
   }, {
-    "id" : "JTL_235",
+    "id" : "JTL_230",
     "count" : 2
   }, {
     "id" : "JTL_207",
     "count" : 2
   }, {
-    "id" : "JTL_230",
+    "id" : "JTL_214",
     "count" : 2
   }, {
-    "id" : "JTL_214",
+    "id" : "JTL_235",
     "count" : 2
   } ]
 }
@@ -6422,56 +6344,56 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SHD_184",
-    "count" : 3
-  }, {
-    "id" : "JTL_256",
-    "count" : 15
-  }, {
-    "id" : "SHD_193",
-    "count" : 3
-  }, {
-    "id" : "JTL_085",
-    "count" : 3
-  }, {
-    "id" : "JTL_237",
-    "count" : 3
-  }, {
-    "id" : "SOR_221",
-    "count" : 3
-  }, {
-    "id" : "SHD_129",
-    "count" : 3
-  }, {
-    "id" : "JTL_228",
-    "count" : 3
-  }, {
-    "id" : "JTL_089",
-    "count" : 3
-  }, {
-    "id" : "JTL_115",
-    "count" : 3
-  }, {
     "id" : "SOR_186",
     "count" : 3
   }, {
     "id" : "SHD_233",
     "count" : 2
   }, {
+    "id" : "SHD_184",
+    "count" : 3
+  }, {
+    "id" : "JTL_089",
+    "count" : 3
+  }, {
+    "id" : "SOR_221",
+    "count" : 3
+  }, {
+    "id" : "JTL_237",
+    "count" : 3
+  }, {
+    "id" : "JTL_256",
+    "count" : 15
+  }, {
+    "id" : "JTL_085",
+    "count" : 3
+  }, {
+    "id" : "JTL_115",
+    "count" : 3
+  }, {
+    "id" : "JTL_228",
+    "count" : 3
+  }, {
+    "id" : "SHD_193",
+    "count" : 3
+  }, {
     "id" : "JTL_083",
+    "count" : 3
+  }, {
+    "id" : "SHD_129",
     "count" : 3
   } ],
   "sideboard" : [ {
     "id" : "SOR_224",
     "count" : 3
   }, {
+    "id" : "SOR_122",
+    "count" : 3
+  }, {
     "id" : "SHD_233",
     "count" : 1
   }, {
     "id" : "TWI_226",
-    "count" : 3
-  }, {
-    "id" : "SOR_122",
     "count" : 3
   } ]
 }
@@ -6491,23 +6413,29 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SHD_178",
+    "id" : "JTL_142",
     "count" : 2
   }, {
-    "id" : "JTL_240",
-    "count" : 3
-  }, {
-    "id" : "TWI_226",
+    "id" : "JTL_140",
     "count" : 2
   }, {
     "id" : "JTL_132",
     "count" : 3
   }, {
-    "id" : "SHD_194",
+    "id" : "SOR_179",
+    "count" : 3
+  }, {
+    "id" : "JTL_240",
     "count" : 3
   }, {
     "id" : "JTL_133",
     "count" : 3
+  }, {
+    "id" : "TWI_226",
+    "count" : 2
+  }, {
+    "id" : "SHD_178",
+    "count" : 2
   }, {
     "id" : "JTL_218",
     "count" : 3
@@ -6515,14 +6443,8 @@ basesChart.setOption(basesOption);
     "id" : "JTL_237",
     "count" : 2
   }, {
-    "id" : "JTL_143",
-    "count" : 3
-  }, {
-    "id" : "SOR_184",
+    "id" : "SOR_219",
     "count" : 2
-  }, {
-    "id" : "SOR_179",
-    "count" : 3
   }, {
     "id" : "JTL_183",
     "count" : 3
@@ -6530,38 +6452,38 @@ basesChart.setOption(basesOption);
     "id" : "SOR_134",
     "count" : 3
   }, {
+    "id" : "JTL_143",
+    "count" : 3
+  }, {
+    "id" : "JTL_162",
+    "count" : 3
+  }, {
     "id" : "SOR_186",
     "count" : 2
   }, {
-    "id" : "SOR_220",
+    "id" : "SHD_194",
     "count" : 3
   }, {
-    "id" : "SOR_219",
+    "id" : "SOR_184",
     "count" : 2
   }, {
     "id" : "SOR_139",
     "count" : 2
   }, {
-    "id" : "JTL_162",
+    "id" : "SOR_220",
     "count" : 3
-  }, {
-    "id" : "JTL_140",
-    "count" : 2
-  }, {
-    "id" : "JTL_142",
-    "count" : 2
   } ],
   "sideboard" : [ {
-    "id" : "SHD_230",
+    "id" : "JTL_181",
+    "count" : 2
+  }, {
+    "id" : "JTL_230",
     "count" : 2
   }, {
     "id" : "SOR_207",
     "count" : 2
   }, {
-    "id" : "JTL_181",
-    "count" : 2
-  }, {
-    "id" : "JTL_230",
+    "id" : "SHD_230",
     "count" : 2
   }, {
     "id" : "SHD_166",
@@ -6584,38 +6506,41 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "JTL_173",
-    "count" : 3
+    "id" : "JTL_043",
+    "count" : 2
   }, {
     "id" : "SOR_131",
     "count" : 2
   }, {
-    "id" : "JTL_078",
+    "id" : "SOR_032",
     "count" : 2
   }, {
-    "id" : "SHD_136",
+    "id" : "JTL_161",
+    "count" : 2
+  }, {
+    "id" : "SHD_032",
+    "count" : 2
+  }, {
+    "id" : "SOR_077",
+    "count" : 2
+  }, {
+    "id" : "JTL_170",
+    "count" : 3
+  }, {
+    "id" : "JTL_078",
     "count" : 2
   }, {
     "id" : "JTL_034",
     "count" : 3
   }, {
-    "id" : "JTL_237",
-    "count" : 3
-  }, {
-    "id" : "JTL_176",
-    "count" : 2
-  }, {
-    "id" : "SHD_166",
-    "count" : 3
-  }, {
     "id" : "JTL_163",
+    "count" : 3
+  }, {
+    "id" : "JTL_237",
     "count" : 3
   }, {
     "id" : "JTL_144",
     "count" : 3
-  }, {
-    "id" : "SHD_032",
-    "count" : 2
   }, {
     "id" : "SHD_028",
     "count" : 3
@@ -6623,38 +6548,35 @@ basesChart.setOption(basesOption);
     "id" : "JTL_037",
     "count" : 3
   }, {
-    "id" : "SOR_032",
+    "id" : "JTL_141",
+    "count" : 3
+  }, {
+    "id" : "JTL_173",
+    "count" : 3
+  }, {
+    "id" : "SHD_136",
     "count" : 2
   }, {
     "id" : "SHD_027",
     "count" : 2
   }, {
-    "id" : "JTL_141",
-    "count" : 3
-  }, {
-    "id" : "JTL_043",
+    "id" : "JTL_176",
     "count" : 2
   }, {
-    "id" : "SOR_077",
-    "count" : 2
-  }, {
-    "id" : "JTL_161",
-    "count" : 2
-  }, {
-    "id" : "JTL_170",
+    "id" : "SHD_166",
     "count" : 3
   } ],
   "sideboard" : [ {
-    "id" : "JTL_178",
-    "count" : 3
-  }, {
     "id" : "JTL_172",
     "count" : 2
   }, {
-    "id" : "SOR_034",
+    "id" : "SHD_036",
     "count" : 2
   }, {
-    "id" : "SHD_036",
+    "id" : "JTL_178",
+    "count" : 3
+  }, {
+    "id" : "SOR_034",
     "count" : 2
   }, {
     "id" : "JTL_078",
@@ -6677,43 +6599,22 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SOR_142",
+    "id" : "SOR_150",
+    "count" : 2
+  }, {
+    "id" : "SOR_141",
+    "count" : 3
+  }, {
+    "id" : "JTL_096",
+    "count" : 3
+  }, {
+    "id" : "JTL_250",
     "count" : 3
   }, {
     "id" : "JTL_095",
     "count" : 3
   }, {
-    "id" : "SOR_095",
-    "count" : 3
-  }, {
-    "id" : "JTL_100",
-    "count" : 3
-  }, {
-    "id" : "SHD_126",
-    "count" : 3
-  }, {
-    "id" : "SOR_150",
-    "count" : 2
-  }, {
-    "id" : "JTL_096",
-    "count" : 3
-  }, {
-    "id" : "SHD_129",
-    "count" : 2
-  }, {
-    "id" : "SOR_103",
-    "count" : 3
-  }, {
-    "id" : "SOR_145",
-    "count" : 3
-  }, {
-    "id" : "SOR_152",
-    "count" : 3
-  }, {
-    "id" : "SOR_141",
-    "count" : 3
-  }, {
-    "id" : "SOR_240",
+    "id" : "SHD_154",
     "count" : 3
   }, {
     "id" : "SHD_148",
@@ -6722,30 +6623,51 @@ basesChart.setOption(basesOption);
     "id" : "JTL_094",
     "count" : 3
   }, {
-    "id" : "SHD_154",
-    "count" : 3
-  }, {
-    "id" : "JTL_250",
-    "count" : 3
-  }, {
     "id" : "JTL_149",
     "count" : 2
-  } ],
-  "sideboard" : [ {
-    "id" : "SOR_099",
+  }, {
+    "id" : "SOR_145",
+    "count" : 3
+  }, {
+    "id" : "SOR_103",
+    "count" : 3
+  }, {
+    "id" : "SOR_095",
+    "count" : 3
+  }, {
+    "id" : "SOR_240",
+    "count" : 3
+  }, {
+    "id" : "JTL_100",
+    "count" : 3
+  }, {
+    "id" : "SOR_142",
+    "count" : 3
+  }, {
+    "id" : "SHD_126",
+    "count" : 3
+  }, {
+    "id" : "SHD_129",
     "count" : 2
   }, {
+    "id" : "SOR_152",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
     "id" : "JTL_175",
     "count" : 2
   }, {
-    "id" : "JTL_164",
+    "id" : "SOR_146",
+    "count" : 1
+  }, {
+    "id" : "SOR_099",
     "count" : 2
   }, {
     "id" : "JTL_176",
     "count" : 3
   }, {
-    "id" : "SOR_146",
-    "count" : 1
+    "id" : "JTL_164",
+    "count" : 2
   } ]
 }
   </pre>
@@ -6764,83 +6686,83 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SHD_178",
-    "count" : 2
-  }, {
-    "id" : "JTL_226",
-    "count" : 1
-  }, {
-    "id" : "SOR_219",
-    "count" : 2
-  }, {
     "id" : "JTL_140",
     "count" : 3
   }, {
-    "id" : "TWI_226",
-    "count" : 2
-  }, {
     "id" : "SOR_207",
-    "count" : 3
-  }, {
-    "id" : "SHD_194",
-    "count" : 3
-  }, {
-    "id" : "JTL_133",
-    "count" : 3
-  }, {
-    "id" : "JTL_235",
-    "count" : 2
-  }, {
-    "id" : "JTL_143",
-    "count" : 2
-  }, {
-    "id" : "JTL_210",
-    "count" : 2
-  }, {
-    "id" : "SOR_178",
-    "count" : 3
-  }, {
-    "id" : "JTL_224",
-    "count" : 2
-  }, {
-    "id" : "JTL_183",
     "count" : 3
   }, {
     "id" : "JTL_242",
     "count" : 2
   }, {
-    "id" : "SOR_134",
+    "id" : "JTL_133",
     "count" : 3
   }, {
-    "id" : "JTL_189",
+    "id" : "SOR_219",
     "count" : 2
   }, {
-    "id" : "SOR_220",
+    "id" : "SHD_178",
+    "count" : 2
+  }, {
+    "id" : "SOR_178",
     "count" : 3
   }, {
     "id" : "JTL_186",
     "count" : 2
   }, {
-    "id" : "JTL_162",
-    "count" : 3
+    "id" : "JTL_235",
+    "count" : 2
   }, {
     "id" : "JTL_185",
     "count" : 3
+  }, {
+    "id" : "JTL_183",
+    "count" : 3
+  }, {
+    "id" : "SOR_134",
+    "count" : 3
+  }, {
+    "id" : "JTL_224",
+    "count" : 2
+  }, {
+    "id" : "JTL_143",
+    "count" : 2
+  }, {
+    "id" : "JTL_162",
+    "count" : 3
+  }, {
+    "id" : "JTL_226",
+    "count" : 1
+  }, {
+    "id" : "SHD_194",
+    "count" : 3
+  }, {
+    "id" : "JTL_189",
+    "count" : 2
+  }, {
+    "id" : "JTL_210",
+    "count" : 2
+  }, {
+    "id" : "TWI_226",
+    "count" : 2
+  }, {
+    "id" : "SOR_220",
+    "count" : 3
   } ],
   "sideboard" : [ {
-    "id" : "SHD_137",
+    "id" : "JTL_181",
     "count" : 2
   }, {
     "id" : "JTL_176",
     "count" : 2
   }, {
-    "id" : "TWI_224",
-    "count" : 2
-  }, {
-    "id" : "JTL_181",
-    "count" : 2
-  }, {
     "id" : "SHD_166",
+    "count" : 2
+  }, {
+    "id" : "SHD_137",
+    "count" : 2
+  }, {
+    "id" : "TWI_224",
     "count" : 2
   } ]
 }
@@ -6860,19 +6782,28 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "TWI_040",
-    "count" : 1
-  }, {
-    "id" : "SHD_078",
-    "count" : 2
-  }, {
-    "id" : "SOR_040",
+    "id" : "JTL_043",
     "count" : 3
+  }, {
+    "id" : "SOR_058",
+    "count" : 3
+  }, {
+    "id" : "SOR_077",
+    "count" : 3
+  }, {
+    "id" : "SOR_252",
+    "count" : 1
   }, {
     "id" : "JTL_078",
     "count" : 3
   }, {
+    "id" : "SHD_071",
+    "count" : 3
+  }, {
     "id" : "SOR_072",
+    "count" : 3
+  }, {
+    "id" : "SHD_028",
     "count" : 3
   }, {
     "id" : "SOR_043",
@@ -6884,56 +6815,47 @@ basesChart.setOption(basesOption);
     "id" : "SOR_035",
     "count" : 3
   }, {
-    "id" : "SOR_041",
-    "count" : 3
-  }, {
-    "id" : "SOR_252",
-    "count" : 1
-  }, {
     "id" : "SHD_031",
-    "count" : 3
-  }, {
-    "id" : "SHD_028",
-    "count" : 3
-  }, {
-    "id" : "SHD_176",
-    "count" : 3
-  }, {
-    "id" : "JTL_043",
-    "count" : 3
-  }, {
-    "id" : "SOR_077",
     "count" : 3
   }, {
     "id" : "SOR_172",
     "count" : 3
   }, {
-    "id" : "SHD_071",
+    "id" : "SOR_041",
     "count" : 3
   }, {
-    "id" : "SOR_058",
+    "id" : "SHD_176",
     "count" : 3
+  }, {
+    "id" : "SOR_040",
+    "count" : 3
+  }, {
+    "id" : "TWI_040",
+    "count" : 1
   }, {
     "id" : "SOR_135",
     "count" : 2
-  } ],
-  "sideboard" : [ {
-    "id" : "SOR_252",
-    "count" : 1
   }, {
     "id" : "SHD_078",
+    "count" : 2
+  } ],
+  "sideboard" : [ {
+    "id" : "SHD_078",
+    "count" : 1
+  }, {
+    "id" : "SOR_042",
     "count" : 1
   }, {
     "id" : "JTL_176",
     "count" : 3
   }, {
-    "id" : "JTL_041",
-    "count" : 2
-  }, {
-    "id" : "SOR_042",
+    "id" : "SOR_252",
     "count" : 1
   }, {
     "id" : "SHD_079",
+    "count" : 2
+  }, {
+    "id" : "JTL_041",
     "count" : 2
   } ]
 }
@@ -6953,10 +6875,52 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
+    "id" : "JTL_140",
+    "count" : 2
+  }, {
+    "id" : "SOR_207",
+    "count" : 3
+  }, {
+    "id" : "SHD_184",
+    "count" : 2
+  }, {
+    "id" : "JTL_183",
+    "count" : 1
+  }, {
+    "id" : "SHD_190",
+    "count" : 3
+  }, {
+    "id" : "SOR_178",
+    "count" : 3
+  }, {
+    "id" : "TWI_187",
+    "count" : 3
+  }, {
+    "id" : "JTL_186",
+    "count" : 2
+  }, {
+    "id" : "SHD_188",
+    "count" : 3
+  }, {
     "id" : "SHD_232",
     "count" : 2
   }, {
-    "id" : "SOR_199",
+    "id" : "JTL_235",
+    "count" : 1
+  }, {
+    "id" : "JTL_185",
+    "count" : 2
+  }, {
+    "id" : "SOR_204",
+    "count" : 2
+  }, {
+    "id" : "SOR_211",
+    "count" : 1
+  }, {
+    "id" : "SHD_229",
+    "count" : 3
+  }, {
+    "id" : "SOR_181",
     "count" : 2
   }, {
     "id" : "SOR_220",
@@ -6965,84 +6929,42 @@ basesChart.setOption(basesOption);
     "id" : "JTL_184",
     "count" : 2
   }, {
-    "id" : "JTL_140",
-    "count" : 2
-  }, {
-    "id" : "TWI_226",
-    "count" : 3
-  }, {
-    "id" : "TWI_187",
-    "count" : 3
-  }, {
-    "id" : "SHD_184",
-    "count" : 2
-  }, {
     "id" : "SOR_182",
     "count" : 2
-  }, {
-    "id" : "SOR_207",
-    "count" : 3
-  }, {
-    "id" : "SOR_178",
-    "count" : 3
-  }, {
-    "id" : "SOR_179",
-    "count" : 2
-  }, {
-    "id" : "JTL_235",
-    "count" : 1
-  }, {
-    "id" : "SOR_211",
-    "count" : 1
-  }, {
-    "id" : "SHD_229",
-    "count" : 3
-  }, {
-    "id" : "JTL_183",
-    "count" : 1
   }, {
     "id" : "JTL_189",
     "count" : 2
   }, {
-    "id" : "SHD_188",
-    "count" : 3
-  }, {
-    "id" : "SOR_181",
+    "id" : "SOR_179",
     "count" : 2
   }, {
-    "id" : "JTL_186",
+    "id" : "SOR_199",
     "count" : 2
   }, {
-    "id" : "SOR_204",
-    "count" : 2
-  }, {
-    "id" : "JTL_185",
-    "count" : 2
-  }, {
-    "id" : "SHD_190",
+    "id" : "TWI_226",
     "count" : 3
   } ],
   "sideboard" : [ {
-    "id" : "SHD_184",
-    "count" : 1
-  }, {
-    "id" : "JTL_235",
-    "count" : 1
-  }, {
     "id" : "JTL_213",
+    "count" : 1
+  }, {
+    "id" : "JTL_230",
+    "count" : 2
+  }, {
+    "id" : "SHD_184",
     "count" : 1
   }, {
     "id" : "SOR_211",
     "count" : 1
   }, {
-    "id" : "JTL_144",
-    "count" : 2
-  }, {
     "id" : "JTL_164",
     "count" : 2
   }, {
-    "id" : "JTL_230",
+    "id" : "JTL_144",
     "count" : 2
+  }, {
+    "id" : "JTL_235",
+    "count" : 1
   } ]
 }
   </pre>
@@ -7061,80 +6983,80 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SOR_142",
-    "count" : 3
-  }, {
-    "id" : "SHD_197",
-    "count" : 3
-  }, {
     "id" : "SHD_202",
     "count" : 2
-  }, {
-    "id" : "TWI_226",
-    "count" : 2
-  }, {
-    "id" : "SOR_207",
-    "count" : 3
   }, {
     "id" : "SOR_224",
     "count" : 2
   }, {
-    "id" : "SHD_153",
-    "count" : 3
-  }, {
-    "id" : "JTL_218",
-    "count" : 2
-  }, {
-    "id" : "SHD_174",
-    "count" : 2
-  }, {
-    "id" : "SOR_193",
-    "count" : 3
-  }, {
     "id" : "SOR_198",
-    "count" : 2
-  }, {
-    "id" : "SOR_167",
-    "count" : 3
-  }, {
-    "id" : "JTL_214",
-    "count" : 3
-  }, {
-    "id" : "JTL_151",
     "count" : 2
   }, {
     "id" : "SOR_200",
     "count" : 2
   }, {
+    "id" : "JTL_218",
+    "count" : 2
+  }, {
+    "id" : "SOR_207",
+    "count" : 3
+  }, {
+    "id" : "JTL_151",
+    "count" : 2
+  }, {
     "id" : "SHD_148",
+    "count" : 3
+  }, {
+    "id" : "TWI_196",
+    "count" : 2
+  }, {
+    "id" : "SOR_167",
+    "count" : 3
+  }, {
+    "id" : "SHD_197",
     "count" : 3
   }, {
     "id" : "SOR_192",
     "count" : 2
   }, {
-    "id" : "TWI_196",
-    "count" : 2
-  }, {
     "id" : "SOR_220",
+    "count" : 3
+  }, {
+    "id" : "SOR_193",
+    "count" : 3
+  }, {
+    "id" : "SOR_142",
     "count" : 3
   }, {
     "id" : "JTL_201",
     "count" : 3
+  }, {
+    "id" : "SHD_174",
+    "count" : 2
+  }, {
+    "id" : "JTL_214",
+    "count" : 3
+  }, {
+    "id" : "SHD_153",
+    "count" : 3
+  }, {
+    "id" : "TWI_226",
+    "count" : 2
   } ],
   "sideboard" : [ {
     "id" : "SHD_178",
     "count" : 2
   }, {
-    "id" : "SOR_199",
-    "count" : 2
-  }, {
-    "id" : "JTL_154",
-    "count" : 2
-  }, {
     "id" : "JTL_230",
     "count" : 2
   }, {
+    "id" : "SOR_199",
+    "count" : 2
+  }, {
     "id" : "JTL_224",
+    "count" : 2
+  }, {
+    "id" : "JTL_154",
     "count" : 2
   } ]
 }
@@ -7154,16 +7076,31 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SHD_078",
-    "count" : 2
+    "id" : "JTL_043",
+    "count" : 3
   }, {
-    "id" : "SOR_040",
+    "id" : "TWI_238",
+    "count" : 3
+  }, {
+    "id" : "SOR_058",
     "count" : 3
   }, {
     "id" : "SOR_077",
     "count" : 3
   }, {
-    "id" : "TWI_238",
+    "id" : "SOR_252",
+    "count" : 1
+  }, {
+    "id" : "JTL_041",
+    "count" : 2
+  }, {
+    "id" : "SHD_071",
+    "count" : 2
+  }, {
+    "id" : "SOR_031",
+    "count" : 3
+  }, {
+    "id" : "SHD_028",
     "count" : 3
   }, {
     "id" : "SOR_043",
@@ -7172,62 +7109,47 @@ basesChart.setOption(basesOption);
     "id" : "SHD_037",
     "count" : 3
   }, {
-    "id" : "TWI_070",
-    "count" : 3
-  }, {
     "id" : "SOR_035",
-    "count" : 3
-  }, {
-    "id" : "SOR_041",
-    "count" : 3
-  }, {
-    "id" : "SHD_079",
-    "count" : 2
-  }, {
-    "id" : "SOR_252",
-    "count" : 1
-  }, {
-    "id" : "SHD_028",
-    "count" : 3
-  }, {
-    "id" : "SOR_031",
-    "count" : 3
-  }, {
-    "id" : "JTL_043",
     "count" : 3
   }, {
     "id" : "JTL_075",
     "count" : 1
   }, {
-    "id" : "JTL_041",
+    "id" : "TWI_070",
+    "count" : 3
+  }, {
+    "id" : "SOR_041",
+    "count" : 3
+  }, {
+    "id" : "JTL_040",
+    "count" : 2
+  }, {
+    "id" : "SOR_040",
+    "count" : 3
+  }, {
+    "id" : "SHD_079",
     "count" : 2
   }, {
     "id" : "SOR_078",
     "count" : 2
   }, {
-    "id" : "SHD_071",
-    "count" : 2
-  }, {
-    "id" : "SOR_058",
-    "count" : 3
-  }, {
-    "id" : "JTL_040",
+    "id" : "SHD_078",
     "count" : 2
   } ],
   "sideboard" : [ {
+    "id" : "SHD_262",
+    "count" : 2
+  }, {
+    "id" : "SOR_072",
+    "count" : 2
+  }, {
     "id" : "SOR_252",
     "count" : 1
   }, {
     "id" : "SHD_077",
     "count" : 2
   }, {
-    "id" : "SHD_262",
-    "count" : 2
-  }, {
     "id" : "JTL_078",
-    "count" : 2
-  }, {
-    "id" : "SOR_072",
     "count" : 2
   } ]
 }
@@ -7247,19 +7169,16 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SOR_142",
-    "count" : 3
-  }, {
-    "id" : "SHD_197",
-    "count" : 3
-  }, {
     "id" : "SHD_202",
     "count" : 2
+  }, {
+    "id" : "SOR_207",
+    "count" : 3
   }, {
     "id" : "SOR_198",
     "count" : 3
   }, {
-    "id" : "SOR_207",
+    "id" : "SOR_200",
     "count" : 3
   }, {
     "id" : "JTL_230",
@@ -7268,56 +7187,59 @@ basesChart.setOption(basesOption);
     "id" : "JTL_218",
     "count" : 2
   }, {
-    "id" : "SHD_174",
+    "id" : "JTL_151",
     "count" : 2
   }, {
-    "id" : "SOR_193",
+    "id" : "SHD_148",
     "count" : 3
-  }, {
-    "id" : "TWI_226",
-    "count" : 2
   }, {
     "id" : "SOR_167",
     "count" : 3
   }, {
-    "id" : "JTL_214",
-    "count" : 3
-  }, {
-    "id" : "JTL_151",
-    "count" : 2
-  }, {
-    "id" : "SOR_200",
-    "count" : 3
-  }, {
-    "id" : "SHD_148",
+    "id" : "SHD_197",
     "count" : 3
   }, {
     "id" : "SOR_192",
     "count" : 2
   }, {
-    "id" : "TWI_196",
+    "id" : "SOR_220",
     "count" : 3
   }, {
-    "id" : "SOR_220",
+    "id" : "SOR_193",
+    "count" : 3
+  }, {
+    "id" : "SOR_142",
     "count" : 3
   }, {
     "id" : "JTL_201",
     "count" : 3
+  }, {
+    "id" : "SHD_174",
+    "count" : 2
+  }, {
+    "id" : "JTL_214",
+    "count" : 3
+  }, {
+    "id" : "TWI_196",
+    "count" : 3
+  }, {
+    "id" : "TWI_226",
+    "count" : 2
   } ],
   "sideboard" : [ {
     "id" : "SOR_224",
     "count" : 2
   }, {
-    "id" : "JTL_235",
+    "id" : "JTL_207",
     "count" : 2
   }, {
     "id" : "SOR_199",
     "count" : 2
   }, {
-    "id" : "JTL_207",
+    "id" : "JTL_224",
     "count" : 2
   }, {
-    "id" : "JTL_224",
+    "id" : "JTL_235",
     "count" : 2
   } ]
 }
@@ -7337,58 +7259,10 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SOR_142",
-    "count" : 3
-  }, {
-    "id" : "SHD_197",
-    "count" : 3
-  }, {
-    "id" : "SOR_199",
-    "count" : 3
-  }, {
-    "id" : "SOR_241",
-    "count" : 2
-  }, {
-    "id" : "JTL_245",
-    "count" : 2
-  }, {
     "id" : "SHD_202",
     "count" : 2
   }, {
-    "id" : "JTL_235",
-    "count" : 2
-  }, {
-    "id" : "SHD_174",
-    "count" : 3
-  }, {
-    "id" : "JTL_203",
-    "count" : 2
-  }, {
-    "id" : "SOR_193",
-    "count" : 3
-  }, {
-    "id" : "SOR_220",
-    "count" : 2
-  }, {
-    "id" : "JTL_249",
-    "count" : 1
-  }, {
-    "id" : "SOR_145",
-    "count" : 3
-  }, {
     "id" : "SOR_141",
-    "count" : 3
-  }, {
-    "id" : "SOR_240",
-    "count" : 3
-  }, {
-    "id" : "SOR_189",
-    "count" : 2
-  }, {
-    "id" : "SHD_148",
-    "count" : 3
-  }, {
-    "id" : "SOR_140",
     "count" : 3
   }, {
     "id" : "SHD_195",
@@ -7396,22 +7270,70 @@ basesChart.setOption(basesOption);
   }, {
     "id" : "SOR_219",
     "count" : 2
-  } ],
-  "sideboard" : [ {
-    "id" : "SOR_152",
-    "count" : 3
   }, {
-    "id" : "JTL_164",
+    "id" : "JTL_235",
     "count" : 2
   }, {
+    "id" : "SOR_140",
+    "count" : 3
+  }, {
+    "id" : "SOR_145",
+    "count" : 3
+  }, {
+    "id" : "SOR_240",
+    "count" : 3
+  }, {
+    "id" : "JTL_203",
+    "count" : 2
+  }, {
+    "id" : "SOR_189",
+    "count" : 2
+  }, {
+    "id" : "SHD_197",
+    "count" : 3
+  }, {
+    "id" : "SHD_148",
+    "count" : 3
+  }, {
+    "id" : "SOR_220",
+    "count" : 2
+  }, {
+    "id" : "SOR_241",
+    "count" : 2
+  }, {
+    "id" : "SOR_193",
+    "count" : 3
+  }, {
+    "id" : "SOR_142",
+    "count" : 3
+  }, {
+    "id" : "SHD_174",
+    "count" : 3
+  }, {
+    "id" : "JTL_249",
+    "count" : 1
+  }, {
+    "id" : "SOR_199",
+    "count" : 3
+  }, {
+    "id" : "JTL_245",
+    "count" : 2
+  } ],
+  "sideboard" : [ {
     "id" : "JTL_230",
     "count" : 2
   }, {
     "id" : "TWI_196",
     "count" : 2
   }, {
+    "id" : "JTL_164",
+    "count" : 2
+  }, {
     "id" : "SHD_126",
     "count" : 1
+  }, {
+    "id" : "SOR_152",
+    "count" : 3
   } ]
 }
   </pre>
@@ -7430,80 +7352,80 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SOR_092",
-    "count" : 3
-  }, {
-    "id" : "SOR_040",
+    "id" : "JTL_043",
     "count" : 2
   }, {
     "id" : "SOR_090",
     "count" : 3
   }, {
-    "id" : "SOR_043",
-    "count" : 1
-  }, {
-    "id" : "SOR_041",
-    "count" : 3
-  }, {
     "id" : "JTL_131",
-    "count" : 2
-  }, {
-    "id" : "JTL_118",
-    "count" : 2
-  }, {
-    "id" : "SHD_028",
-    "count" : 3
-  }, {
-    "id" : "SOR_058",
-    "count" : 3
-  }, {
-    "id" : "SHD_029",
-    "count" : 3
-  }, {
-    "id" : "TWI_034",
-    "count" : 2
-  }, {
-    "id" : "TWI_127",
-    "count" : 3
-  }, {
-    "id" : "SHD_090",
-    "count" : 2
-  }, {
-    "id" : "JTL_119",
-    "count" : 2
-  }, {
-    "id" : "JTL_043",
-    "count" : 2
-  }, {
-    "id" : "JTL_038",
     "count" : 2
   }, {
     "id" : "SOR_077",
     "count" : 2
   }, {
+    "id" : "JTL_118",
+    "count" : 2
+  }, {
     "id" : "SHD_071",
+    "count" : 2
+  }, {
+    "id" : "JTL_119",
     "count" : 2
   }, {
     "id" : "SOR_031",
     "count" : 3
   }, {
-    "id" : "JTL_040",
-    "count" : 2
+    "id" : "SOR_058",
+    "count" : 3
   }, {
     "id" : "SHD_085",
     "count" : 3
-  } ],
-  "sideboard" : [ {
-    "id" : "JTL_090",
-    "count" : 2
   }, {
-    "id" : "JTL_041",
+    "id" : "SHD_028",
+    "count" : 3
+  }, {
+    "id" : "SOR_043",
     "count" : 1
   }, {
+    "id" : "TWI_034",
+    "count" : 2
+  }, {
+    "id" : "SHD_029",
+    "count" : 3
+  }, {
+    "id" : "SOR_041",
+    "count" : 3
+  }, {
+    "id" : "SHD_090",
+    "count" : 2
+  }, {
+    "id" : "JTL_038",
+    "count" : 2
+  }, {
+    "id" : "JTL_040",
+    "count" : 2
+  }, {
+    "id" : "TWI_127",
+    "count" : 3
+  }, {
+    "id" : "SOR_040",
+    "count" : 2
+  }, {
+    "id" : "SOR_092",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
     "id" : "JTL_121",
     "count" : 2
   }, {
+    "id" : "JTL_090",
+    "count" : 2
+  }, {
     "id" : "SHD_071",
+    "count" : 1
+  }, {
+    "id" : "JTL_041",
     "count" : 1
   } ]
 }
@@ -7523,28 +7445,43 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SOR_142",
+    "id" : "SOR_141",
+    "count" : 3
+  }, {
+    "id" : "SOR_155",
+    "count" : 2
+  }, {
+    "id" : "JTL_177",
     "count" : 3
   }, {
     "id" : "SHD_178",
     "count" : 3
   }, {
-    "id" : "JTL_174",
+    "id" : "JTL_250",
     "count" : 2
   }, {
-    "id" : "SHD_175",
-    "count" : 2
+    "id" : "SHD_154",
+    "count" : 3
   }, {
-    "id" : "SOR_172",
+    "id" : "SHD_148",
     "count" : 3
   }, {
     "id" : "JTL_150",
     "count" : 3
   }, {
+    "id" : "JTL_149",
+    "count" : 3
+  }, {
+    "id" : "SOR_144",
+    "count" : 2
+  }, {
     "id" : "SOR_237",
     "count" : 2
   }, {
-    "id" : "JTL_177",
+    "id" : "SHD_175",
+    "count" : 2
+  }, {
+    "id" : "SOR_240",
     "count" : 3
   }, {
     "id" : "TWI_142",
@@ -7553,48 +7490,33 @@ basesChart.setOption(basesOption);
     "id" : "JTL_151",
     "count" : 3
   }, {
-    "id" : "SOR_144",
-    "count" : 2
-  }, {
-    "id" : "SOR_141",
-    "count" : 3
-  }, {
-    "id" : "SOR_240",
-    "count" : 3
-  }, {
-    "id" : "SHD_148",
-    "count" : 3
-  }, {
-    "id" : "SOR_155",
-    "count" : 2
-  }, {
     "id" : "JTL_179",
     "count" : 2
   }, {
-    "id" : "SHD_154",
+    "id" : "SOR_172",
     "count" : 3
   }, {
-    "id" : "JTL_250",
+    "id" : "JTL_174",
     "count" : 2
   }, {
-    "id" : "JTL_149",
+    "id" : "SOR_142",
     "count" : 3
   } ],
   "sideboard" : [ {
+    "id" : "SOR_153",
+    "count" : 2
+  }, {
     "id" : "SOR_154",
     "count" : 2
   }, {
-    "id" : "SOR_144",
-    "count" : 1
-  }, {
-    "id" : "SOR_153",
+    "id" : "JTL_148",
     "count" : 2
   }, {
     "id" : "SHD_166",
     "count" : 3
   }, {
-    "id" : "JTL_148",
-    "count" : 2
+    "id" : "SOR_144",
+    "count" : 1
   } ]
 }
   </pre>
@@ -7613,58 +7535,16 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "TWI_127",
-    "count" : 3
-  }, {
-    "id" : "TWI_039",
+    "id" : "JTL_043",
     "count" : 2
   }, {
-    "id" : "SOR_040",
-    "count" : 1
-  }, {
-    "id" : "SOR_077",
-    "count" : 2
-  }, {
-    "id" : "JTL_068",
-    "count" : 1
-  }, {
-    "id" : "SOR_041",
-    "count" : 3
-  }, {
-    "id" : "SOR_031",
+    "id" : "SHD_028",
     "count" : 3
   }, {
     "id" : "JTL_131",
     "count" : 2
   }, {
-    "id" : "SOR_092",
-    "count" : 3
-  }, {
-    "id" : "JTL_071",
-    "count" : 1
-  }, {
-    "id" : "SHD_028",
-    "count" : 3
-  }, {
-    "id" : "JTL_033",
-    "count" : 1
-  }, {
-    "id" : "SHD_029",
-    "count" : 3
-  }, {
-    "id" : "SHD_122",
-    "count" : 1
-  }, {
     "id" : "JTL_128",
-    "count" : 2
-  }, {
-    "id" : "JTL_119",
-    "count" : 1
-  }, {
-    "id" : "JTL_043",
-    "count" : 2
-  }, {
-    "id" : "JTL_038",
     "count" : 2
   }, {
     "id" : "JTL_041",
@@ -7673,36 +7553,78 @@ basesChart.setOption(basesOption);
     "id" : "SOR_089",
     "count" : 2
   }, {
-    "id" : "SOR_090",
+    "id" : "JTL_119",
+    "count" : 1
+  }, {
+    "id" : "SOR_031",
     "count" : 3
   }, {
-    "id" : "JTL_040",
-    "count" : 3
+    "id" : "SOR_077",
+    "count" : 2
   }, {
     "id" : "SHD_085",
     "count" : 3
   }, {
     "id" : "SOR_072",
     "count" : 3
+  }, {
+    "id" : "JTL_038",
+    "count" : 2
+  }, {
+    "id" : "SHD_122",
+    "count" : 1
+  }, {
+    "id" : "JTL_071",
+    "count" : 1
+  }, {
+    "id" : "SHD_029",
+    "count" : 3
+  }, {
+    "id" : "JTL_068",
+    "count" : 1
+  }, {
+    "id" : "SOR_041",
+    "count" : 3
+  }, {
+    "id" : "SOR_090",
+    "count" : 3
+  }, {
+    "id" : "JTL_040",
+    "count" : 3
+  }, {
+    "id" : "TWI_127",
+    "count" : 3
+  }, {
+    "id" : "SOR_040",
+    "count" : 1
+  }, {
+    "id" : "SOR_092",
+    "count" : 3
+  }, {
+    "id" : "JTL_033",
+    "count" : 1
+  }, {
+    "id" : "TWI_039",
+    "count" : 2
   } ],
   "sideboard" : [ {
-    "id" : "SOR_043",
-    "count" : 2
-  }, {
-    "id" : "TWI_070",
-    "count" : 2
-  }, {
-    "id" : "JTL_075",
-    "count" : 2
+    "id" : "SHD_076",
+    "count" : 1
   }, {
     "id" : "JTL_121",
+    "count" : 2
+  }, {
+    "id" : "SOR_043",
     "count" : 2
   }, {
     "id" : "SOR_089",
     "count" : 1
   }, {
-    "id" : "SHD_076",
-    "count" : 1
+    "id" : "JTL_075",
+    "count" : 2
+  }, {
+    "id" : "TWI_070",
+    "count" : 2
   } ]
 }
   </pre>
@@ -7721,71 +7643,71 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "JTL_095",
-    "count" : 3
-  }, {
-    "id" : "SOR_051",
-    "count" : 3
-  }, {
-    "id" : "SOR_093",
-    "count" : 3
-  }, {
-    "id" : "TWI_070",
+    "id" : "SOR_044",
     "count" : 2
   }, {
-    "id" : "SOR_062",
-    "count" : 2
-  }, {
-    "id" : "SHD_043",
-    "count" : 3
-  }, {
-    "id" : "SOR_053",
-    "count" : 2
-  }, {
-    "id" : "SOR_104",
-    "count" : 1
-  }, {
-    "id" : "JTL_096",
-    "count" : 1
-  }, {
-    "id" : "SOR_102",
+    "id" : "SOR_045",
     "count" : 2
   }, {
     "id" : "JTL_103",
     "count" : 1
   }, {
-    "id" : "SOR_045",
+    "id" : "JTL_076",
     "count" : 2
   }, {
-    "id" : "JTL_047",
+    "id" : "SOR_062",
     "count" : 2
   }, {
-    "id" : "SHD_248",
-    "count" : 2
-  }, {
-    "id" : "SHD_079",
+    "id" : "JTL_096",
     "count" : 1
   }, {
-    "id" : "SOR_044",
-    "count" : 2
-  }, {
-    "id" : "SHD_042",
+    "id" : "JTL_095",
     "count" : 3
   }, {
-    "id" : "TWI_127",
-    "count" : 3
-  }, {
-    "id" : "SOR_099",
+    "id" : "SOR_093",
     "count" : 3
   }, {
     "id" : "JTL_094",
     "count" : 3
   }, {
-    "id" : "JTL_076",
+    "id" : "SHD_043",
+    "count" : 3
+  }, {
+    "id" : "SOR_104",
+    "count" : 1
+  }, {
+    "id" : "JTL_047",
     "count" : 2
+  }, {
+    "id" : "TWI_070",
+    "count" : 2
+  }, {
+    "id" : "SHD_042",
+    "count" : 3
+  }, {
+    "id" : "SOR_102",
+    "count" : 2
+  }, {
+    "id" : "SOR_051",
+    "count" : 3
   }, {
     "id" : "SOR_077",
     "count" : 2
+  }, {
+    "id" : "SOR_099",
+    "count" : 3
+  }, {
+    "id" : "SHD_248",
+    "count" : 2
+  }, {
+    "id" : "TWI_127",
+    "count" : 3
+  }, {
+    "id" : "SOR_053",
+    "count" : 2
+  }, {
+    "id" : "SHD_079",
+    "count" : 1
   }, {
     "id" : "SOR_078",
     "count" : 2
@@ -7794,19 +7716,19 @@ basesChart.setOption(basesOption);
     "id" : "SHD_262",
     "count" : 2
   }, {
+    "id" : "SOR_104",
+    "count" : 2
+  }, {
     "id" : "SHD_114",
     "count" : 3
   }, {
-    "id" : "SOR_104",
-    "count" : 2
+    "id" : "JTL_103",
+    "count" : 1
   }, {
     "id" : "SOR_077",
     "count" : 1
   }, {
     "id" : "SHD_079",
-    "count" : 1
-  }, {
-    "id" : "JTL_103",
     "count" : 1
   } ]
 }
@@ -7826,65 +7748,68 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "SOR_142",
-    "count" : 3
-  }, {
-    "id" : "JTL_095",
-    "count" : 2
-  }, {
-    "id" : "SOR_095",
-    "count" : 3
-  }, {
-    "id" : "SHD_126",
-    "count" : 2
-  }, {
-    "id" : "SHD_153",
+    "id" : "SOR_141",
     "count" : 3
   }, {
     "id" : "SOR_143",
     "count" : 2
   }, {
-    "id" : "SHD_129",
+    "id" : "SHD_126",
     "count" : 2
   }, {
-    "id" : "SHD_166",
+    "id" : "JTL_250",
     "count" : 3
   }, {
-    "id" : "SOR_103",
-    "count" : 3
-  }, {
-    "id" : "SOR_145",
-    "count" : 3
-  }, {
-    "id" : "SOR_152",
-    "count" : 3
-  }, {
-    "id" : "SOR_141",
-    "count" : 3
-  }, {
-    "id" : "SOR_240",
-    "count" : 3
-  }, {
-    "id" : "SHD_148",
-    "count" : 2
-  }, {
-    "id" : "SOR_099",
-    "count" : 2
-  }, {
-    "id" : "JTL_094",
-    "count" : 3
-  }, {
-    "id" : "SHD_098",
+    "id" : "JTL_095",
     "count" : 2
   }, {
     "id" : "SHD_154",
     "count" : 3
   }, {
-    "id" : "JTL_250",
+    "id" : "SHD_148",
+    "count" : 2
+  }, {
+    "id" : "JTL_094",
+    "count" : 3
+  }, {
+    "id" : "SOR_145",
+    "count" : 3
+  }, {
+    "id" : "SOR_103",
+    "count" : 3
+  }, {
+    "id" : "SOR_095",
+    "count" : 3
+  }, {
+    "id" : "SOR_240",
+    "count" : 3
+  }, {
+    "id" : "SOR_099",
+    "count" : 2
+  }, {
+    "id" : "SOR_142",
+    "count" : 3
+  }, {
+    "id" : "SHD_098",
+    "count" : 2
+  }, {
+    "id" : "SHD_153",
+    "count" : 3
+  }, {
+    "id" : "SHD_166",
+    "count" : 3
+  }, {
+    "id" : "SHD_129",
+    "count" : 2
+  }, {
+    "id" : "SOR_152",
     "count" : 3
   } ],
   "sideboard" : [ {
     "id" : "JTL_164",
+    "count" : 3
+  }, {
+    "id" : "JTL_103",
     "count" : 3
   }, {
     "id" : "JTL_111",
@@ -7892,9 +7817,6 @@ basesChart.setOption(basesOption);
   }, {
     "id" : "SOR_245",
     "count" : 2
-  }, {
-    "id" : "JTL_103",
-    "count" : 3
   } ]
 }
   </pre>
@@ -7913,53 +7835,35 @@ basesChart.setOption(basesOption);
     "count" : 1
   },
   "deck" : [ {
-    "id" : "TWI_070",
-    "count" : 2
-  }, {
-    "id" : "SOR_231",
-    "count" : 2
-  }, {
-    "id" : "JTL_210",
-    "count" : 2
-  }, {
-    "id" : "TWI_226",
+    "id" : "SHD_034",
     "count" : 2
   }, {
     "id" : "SOR_207",
     "count" : 3
   }, {
-    "id" : "SHD_174",
+    "id" : "SOR_180",
     "count" : 3
   }, {
-    "id" : "SHD_187",
-    "count" : 3
+    "id" : "SHD_225",
+    "count" : 2
   }, {
-    "id" : "JTL_036",
-    "count" : 3
-  }, {
-    "id" : "JTL_076",
-    "count" : 3
+    "id" : "JTL_242",
+    "count" : 2
   }, {
     "id" : "SOR_034",
     "count" : 2
   }, {
-    "id" : "SHD_034",
+    "id" : "JTL_032",
+    "count" : 3
+  }, {
+    "id" : "SOR_231",
     "count" : 2
+  }, {
+    "id" : "SHD_187",
+    "count" : 3
   }, {
     "id" : "SOR_031",
     "count" : 3
-  }, {
-    "id" : "SOR_215",
-    "count" : 3
-  }, {
-    "id" : "SOR_180",
-    "count" : 3
-  }, {
-    "id" : "SOR_220",
-    "count" : 2
-  }, {
-    "id" : "SHD_225",
-    "count" : 2
   }, {
     "id" : "JTL_038",
     "count" : 2
@@ -7967,26 +7871,44 @@ basesChart.setOption(basesOption);
     "id" : "SOR_204",
     "count" : 3
   }, {
-    "id" : "JTL_242",
+    "id" : "TWI_070",
     "count" : 2
   }, {
-    "id" : "JTL_032",
+    "id" : "SOR_220",
+    "count" : 2
+  }, {
+    "id" : "SHD_174",
     "count" : 3
+  }, {
+    "id" : "JTL_210",
+    "count" : 2
+  }, {
+    "id" : "JTL_036",
+    "count" : 3
+  }, {
+    "id" : "SOR_215",
+    "count" : 3
+  }, {
+    "id" : "JTL_076",
+    "count" : 3
+  }, {
+    "id" : "TWI_226",
+    "count" : 2
   } ],
   "sideboard" : [ {
-    "id" : "SOR_186",
+    "id" : "JTL_078",
     "count" : 2
   }, {
     "id" : "SOR_224",
     "count" : 2
   }, {
-    "id" : "SHD_064",
-    "count" : 2
-  }, {
     "id" : "SHD_184",
     "count" : 2
   }, {
-    "id" : "JTL_078",
+    "id" : "SHD_064",
+    "count" : 2
+  }, {
+    "id" : "SOR_186",
     "count" : 2
   } ]
 }
