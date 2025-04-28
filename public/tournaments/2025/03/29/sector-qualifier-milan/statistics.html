@@ -6,6 +6,9 @@
   <title>Statistics from Sector Qualifier Milan - swumeta.net</title>
     <meta name="description" content="Statistics from the Star Wars Unlimited tournament Sector Qualifier Milan taking place in Milan (Italy) on March 29, 2025"/>
   <meta name="googlebot" content="notranslate"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
@@ -15,6 +18,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.6.0/echarts.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
   <script src="/js/chart.js"></script>
   <link rel="stylesheet" href="/css/styles.css"/>
 </head>
@@ -28,10 +32,26 @@
         <span class="fs-4">swumeta.net</span>
         <span class="text-secondary fs-6 align-text-bottom">beta</span>
       </a>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown d-none">
+            <a class="nav-link dropdown-toggle fw-bold fs-5 rounded-3" href="#" id="metagameDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-bar-chart-fill me-2"></i>Metagame
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="metagameDropdown">
+              <li><a class="dropdown-item fw-semibold" href="/meta/win-rate">Win Rate</a></li>
+              <li><a class="dropdown-item fw-semibold" href="/meta/tier-list">Tier List</a></li>
+              <li><a class="dropdown-item fw-semibold" href="/meta/staples">Staples</a></li>
+            </ul>
+          </li>
           <li class="nav-item">
-            <a class="nav-link" href="/about"><i class="bi bi-info-circle-fill me-2"></i>About</a>
+            <a class="nav-link fw-bold fs-5 rounded-3" href="/tournaments"><i class="bi bi-trophy-fill me-2"></i>Tournaments</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-bold fs-5 rounded-3" href="/about"><i class="bi bi-info-circle-fill me-2"></i>About</a>
           </li>
         </ul>
       </div>
@@ -43,9 +63,9 @@
 
 <section class="container">
   <p class="fs-6 m-0 p-0 mb-1"><a href="/tournaments" class="text-decoration-none sw-link">Tournaments</a> &gt;</p>
-  <h2 class="section-title">
+  <h1 class="section-title">
     Sector Qualifier Milan <i class="ms-1 fi fi-it"></i>
-  </h2>
+  </h1>
 
   <div class="row">
     <dl class="col event-metadata">
@@ -97,45 +117,45 @@
 
 <script type="text/javascript">
   const allLeadersData = [
-        { value: 1, name: "Boba Fett (SHD)" },
-        { value: 1, name: "IG-88 (SOR)" },
+        { value: 1, name: "Admiral Ackbar (JTL)" },
+        { value: 1, name: "Admiral Trench (JTL)" },
+        { value: 1, name: "Maul (TWI)" },
+        { value: 1, name: "Rio Durant (JTL)" },
         { value: 2, name: "Asajj Ventress (JTL)" },
         { value: 2, name: "Asajj Ventress (TWI)" },
+        { value: 2, name: "Captain Rex (TWI)" },
+        { value: 2, name: "Count Dooku (TWI)" },
         { value: 2, name: "Darth Vader (JTL)" },
+        { value: 2, name: "Iden Versio (SOR)" },
         { value: 2, name: "Lando Calrissian (JTL)" },
+        { value: 3, name: "Han Solo (JTL)" },
+        { value: 3, name: "Yoda (TWI)" },
+        { value: 5, name: "Obi-Wan Kenobi (TWI)" },
+        { value: 5, name: "Poe Dameron (JTL)" },
+        { value: 7, name: "Grand Admiral Thrawn (JTL)" },
+        { value: 7, name: "Kazuda Xiono (JTL)" },
+        { value: 18, name: "Anakin Skywalker (TWI)" },
+        { value: 41, name: "Admiral Piett (JTL)" },
+        { value: 66, name: "Quinlan Vos (TWI)" },
+        { value: 145, name: "Jango Fett (TWI)" },
+        { value: 1, name: "Boba Fett (SHD)" },
+        { value: 1, name: "Captain Phasma (JTL)" },
+        { value: 1, name: "IG-88 (SOR)" },
+        { value: 2, name: "Director Krennic (SOR)" },
+        { value: 2, name: "The Mandalorian (SHD)" },
         { value: 3, name: "Bossk (SHD)" },
         { value: 3, name: "Kylo Ren (SHD)" },
         { value: 3, name: "Qi'ra (SHD)" },
         { value: 4, name: "Leia Organa (SOR)" },
         { value: 4, name: "Rey (SHD)" },
         { value: 5, name: "Han Solo (SHD)" },
-        { value: 7, name: "Grand Admiral Thrawn (JTL)" },
+        { value: 6, name: "Luke Skywalker (JTL)" },
+        { value: 10, name: "Luke Skywalker (SOR)" },
         { value: 11, name: "Darth Vader (SOR)" },
         { value: 12, name: "Gar Saxon (SHD)" },
-        { value: 18, name: "Anakin Skywalker (TWI)" },
         { value: 24, name: "Emperor Palpatine (SOR)" },
-        { value: 30, name: "Sabine Wren (SOR)" },
-        { value: 41, name: "Admiral Piett (JTL)" },
-        { value: 66, name: "Quinlan Vos (TWI)" },
-        { value: 145, name: "Jango Fett (TWI)" },
-        { value: 1, name: "Admiral Ackbar (JTL)" },
-        { value: 1, name: "Admiral Trench (JTL)" },
-        { value: 1, name: "Captain Phasma (JTL)" },
-        { value: 1, name: "Maul (TWI)" },
-        { value: 1, name: "Rio Durant (JTL)" },
-        { value: 2, name: "Captain Rex (TWI)" },
-        { value: 2, name: "Count Dooku (TWI)" },
-        { value: 2, name: "Director Krennic (SOR)" },
-        { value: 2, name: "Iden Versio (SOR)" },
-        { value: 2, name: "The Mandalorian (SHD)" },
-        { value: 3, name: "Han Solo (JTL)" },
-        { value: 3, name: "Yoda (TWI)" },
-        { value: 5, name: "Obi-Wan Kenobi (TWI)" },
-        { value: 5, name: "Poe Dameron (JTL)" },
-        { value: 6, name: "Luke Skywalker (JTL)" },
-        { value: 7, name: "Kazuda Xiono (JTL)" },
-        { value: 10, name: "Luke Skywalker (SOR)" },
         { value: 25, name: "Cad Bane (SHD)" },
+        { value: 30, name: "Sabine Wren (SOR)" },
         { value: 40, name: "Boba Fett (JTL)" },
         { value: 41, name: "Han Solo (SOR)" },
     ];
