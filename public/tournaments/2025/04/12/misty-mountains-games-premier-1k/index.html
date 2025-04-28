@@ -6,6 +6,9 @@
   <title>Misty Mountains Games Premier $1K - swumeta.net</title>
     <meta name="description" content="Results from the Star Wars Unlimited tournament Misty Mountains Games Premier $1K taking place in Madison (USA) on April 12, 2025, including standings, decklists, Melee.gg link and more"/>
   <meta name="googlebot" content="notranslate"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"/>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
@@ -15,6 +18,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.6.0/echarts.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
   <script src="/js/chart.js"></script>
   <link rel="stylesheet" href="/css/styles.css"/>
 </head>
@@ -28,10 +32,26 @@
         <span class="fs-4">swumeta.net</span>
         <span class="text-secondary fs-6 align-text-bottom">beta</span>
       </a>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown d-none">
+            <a class="nav-link dropdown-toggle fw-bold fs-5 rounded-3" href="#" id="metagameDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-bar-chart-fill me-2"></i>Metagame
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="metagameDropdown">
+              <li><a class="dropdown-item fw-semibold" href="/meta/win-rate">Win Rate</a></li>
+              <li><a class="dropdown-item fw-semibold" href="/meta/tier-list">Tier List</a></li>
+              <li><a class="dropdown-item fw-semibold" href="/meta/staples">Staples</a></li>
+            </ul>
+          </li>
           <li class="nav-item">
-            <a class="nav-link" href="/about"><i class="bi bi-info-circle-fill me-2"></i>About</a>
+            <a class="nav-link fw-bold fs-5 rounded-3" href="/tournaments"><i class="bi bi-trophy-fill me-2"></i>Tournaments</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-bold fs-5 rounded-3" href="/about"><i class="bi bi-info-circle-fill me-2"></i>About</a>
           </li>
         </ul>
       </div>
@@ -43,9 +63,9 @@
 
 <section class="container">
   <p class="fs-6 m-0 p-0 mb-1"><a href="/tournaments" class="text-decoration-none sw-link">Tournaments</a> &gt;</p>
-  <h2 class="section-title">
+  <h1 class="section-title">
     Misty Mountains Games Premier $1K <i class="ms-1 fi fi-us"></i>
-  </h2>
+  </h1>
 
   <div class="row">
     <dl class="col event-metadata">
@@ -69,7 +89,7 @@
     </dl>
   </div>
 
-    <div class="row mt-4">
+    <div class="row">
       <div class="col-lg-6">
         <div id="chart-leaders" style="width: 100%; min-height: 400px"></div>
       </div>
@@ -84,7 +104,13 @@
 
   <div class="row">
     <div class="col-12">
-        <div class="table-responsive">
+        <div id="decks-container" class="table-responsive">
+          <div class="search-container">
+            <input type="text" class="form-control search-input search" placeholder="Search..."
+                   onkeydown="showMoreDecks()" spellcheck="false" autocorrect="off" autocomplete="off"
+                   autocapitalize="off">
+            <i class="bi bi-search search-icon"></i>
+          </div>
           <table id="decks" class="table table-hover sw-table">
             <thead>
             <tr>
@@ -97,7 +123,7 @@
               <th scope="col" class="text-end">Player</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody class="list">
               <tr class="d-none">
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
@@ -109,7 +135,7 @@
                        class="rounded rounded-1 d-inline-block me-2"/>
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_025_Tarkintown_Thumbnail_073f15e38f.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
                 </td>
-                <td class="align-middle">
+                <td class="align-middle deck-list">
                   <span class="align-middle"><a href="https://melee.gg/Decklist/View/08c1a897-a156-41ae-be71-b2bd00e5f760" target="_blank">Quinlan Vos (TWI) - Tarkintown</a></span>
                 </td>
                 <td class="align-middle text-center d-none d-md-table-cell fit">
@@ -126,7 +152,7 @@
                     <img src="/images/aspect_aggression.png" width="32" height="32"/>
                     <img src="/images/aspect_cunning.png" width="32" height="32"/>
                 </td>
-                <td class="align-middle text-end fit">
+                <td class="align-middle text-end fit deck-player">
                   <span class="align-middle">notapodaca</span>
                 </td>
               </tr>
@@ -141,7 +167,7 @@
                        class="rounded rounded-1 d-inline-block me-2"/>
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_025_Tarkintown_Thumbnail_073f15e38f.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
                 </td>
-                <td class="align-middle">
+                <td class="align-middle deck-list">
                   <span class="align-middle"><a href="https://melee.gg/Decklist/View/5f332d38-4dbf-472f-a5f9-b2bc016844a4" target="_blank">Sabine Wren (SOR) - Tarkintown</a></span>
                 </td>
                 <td class="align-middle text-center d-none d-md-table-cell fit">
@@ -158,7 +184,7 @@
                     <img src="/images/aspect_aggression.png" width="32" height="32"/>
                     <img src="/images/aspect_aggression.png" width="32" height="32"/>
                 </td>
-                <td class="align-middle text-end fit">
+                <td class="align-middle text-end fit deck-player">
                   <span class="align-middle">OsmiumBlaze</span>
                 </td>
               </tr>
@@ -173,7 +199,7 @@
                        class="rounded rounded-1 d-inline-block me-2"/>
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_025_Tarkintown_Thumbnail_073f15e38f.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
                 </td>
-                <td class="align-middle">
+                <td class="align-middle deck-list">
                   <span class="align-middle"><a href="https://melee.gg/Decklist/View/6b3b33e4-f85f-4a58-9a63-b2bd00e11538" target="_blank">Quinlan Vos (TWI) - Tarkintown</a></span>
                 </td>
                 <td class="align-middle text-center d-none d-md-table-cell fit">
@@ -190,7 +216,7 @@
                     <img src="/images/aspect_aggression.png" width="32" height="32"/>
                     <img src="/images/aspect_cunning.png" width="32" height="32"/>
                 </td>
-                <td class="align-middle text-end fit">
+                <td class="align-middle text-end fit deck-player">
                   <span class="align-middle">Loopee</span>
                 </td>
               </tr>
@@ -205,7 +231,7 @@
                        class="rounded rounded-1 d-inline-block me-2"/>
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_022_Energy_Conversion_Lab_Thumbnail_236456f6f4.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
                 </td>
-                <td class="align-middle">
+                <td class="align-middle deck-list">
                   <span class="align-middle"><a href="https://melee.gg/Decklist/View/000bccdb-7fd6-4bfe-9058-b2bd00fa0abc" target="_blank">Sabine Wren (SOR) - Energy Conversion Lab</a></span>
                 </td>
                 <td class="align-middle text-center d-none d-md-table-cell fit">
@@ -222,7 +248,7 @@
                     <img src="/images/aspect_command.png" width="32" height="32"/>
                     <img src="/images/aspect_aggression.png" width="32" height="32"/>
                 </td>
-                <td class="align-middle text-end fit">
+                <td class="align-middle text-end fit deck-player">
                   <span class="align-middle">LegoPercyJ</span>
                 </td>
               </tr>
@@ -237,7 +263,7 @@
                        class="rounded rounded-1 d-inline-block me-2"/>
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0201026_EN_Jabbas_Palace_Base_Thumbnail_e93bd4edc9.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
                 </td>
-                <td class="align-middle">
+                <td class="align-middle deck-list">
                   <span class="align-middle"><a href="https://melee.gg/Decklist/View/c1443838-2aa9-4cfc-b43d-b2bb000e2722" target="_blank">Gar Saxon (SHD) - Yellow</a></span>
                 </td>
                 <td class="align-middle text-center d-none d-md-table-cell fit">
@@ -254,7 +280,7 @@
                     <img src="/images/aspect_vigilance.png" width="32" height="32"/>
                     <img src="/images/aspect_cunning.png" width="32" height="32"/>
                 </td>
-                <td class="align-middle text-end fit">
+                <td class="align-middle text-end fit deck-player">
                   <span class="align-middle">Hippoboy</span>
                 </td>
               </tr>
@@ -269,7 +295,7 @@
                        class="rounded rounded-1 d-inline-block me-2"/>
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_025_Tarkintown_Thumbnail_073f15e38f.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
                 </td>
-                <td class="align-middle">
+                <td class="align-middle deck-list">
                   <span class="align-middle"><a href="https://melee.gg/Decklist/View/e34940ae-3a7e-40a0-aca6-b2bd00e60e31" target="_blank">Cad Bane (SHD) - Tarkintown</a></span>
                 </td>
                 <td class="align-middle text-center d-none d-md-table-cell fit">
@@ -286,7 +312,7 @@
                     <img src="/images/aspect_aggression.png" width="32" height="32"/>
                     <img src="/images/aspect_cunning.png" width="32" height="32"/>
                 </td>
-                <td class="align-middle text-end fit">
+                <td class="align-middle text-end fit deck-player">
                   <span class="align-middle">Overley28</span>
                 </td>
               </tr>
@@ -301,7 +327,7 @@
                        class="rounded rounded-1 d-inline-block me-2"/>
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_04010021_EN_Colossus_Base_Thumbnail_12c8a86507.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
                 </td>
-                <td class="align-middle">
+                <td class="align-middle deck-list">
                   <span class="align-middle"><a href="https://melee.gg/Decklist/View/ca52eca7-0e2e-4b79-95ef-b2bd00f60fd7" target="_blank">Anakin Skywalker (TWI) - Colossus</a></span>
                 </td>
                 <td class="align-middle text-center d-none d-md-table-cell fit">
@@ -318,7 +344,7 @@
                     <img src="/images/aspect_vigilance.png" width="32" height="32"/>
                     <img src="/images/aspect_aggression.png" width="32" height="32"/>
                 </td>
-                <td class="align-middle text-end fit">
+                <td class="align-middle text-end fit deck-player">
                   <span class="align-middle">Camden</span>
                 </td>
               </tr>
@@ -333,7 +359,7 @@
                        class="rounded rounded-1 d-inline-block me-2"/>
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_029_Administrator_s_Tower_Thumbnail_2bbe8ea753.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
                 </td>
-                <td class="align-middle">
+                <td class="align-middle deck-list">
                   <span class="align-middle"><a href="https://melee.gg/Decklist/View/5c0f1592-59bf-479e-9af0-b2bd00fb1786" target="_blank">Han Solo (SOR) - Yellow</a></span>
                 </td>
                 <td class="align-middle text-center d-none d-md-table-cell fit">
@@ -350,7 +376,7 @@
                     <img src="/images/aspect_cunning.png" width="32" height="32"/>
                     <img src="/images/aspect_cunning.png" width="32" height="32"/>
                 </td>
-                <td class="align-middle text-end fit">
+                <td class="align-middle text-end fit deck-player">
                   <span class="align-middle">Cuek</span>
                 </td>
               </tr>
@@ -365,7 +391,7 @@
                        class="rounded rounded-1 d-inline-block me-2"/>
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0301030_EN_Pyke_Palace_Base_Thumbnail_0104a704ef.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
                 </td>
-                <td class="align-middle">
+                <td class="align-middle deck-list">
                   <span class="align-middle"><a href="https://melee.gg/Decklist/View/4b72cda9-939d-4591-b7de-b2bd00fbd2be" target="_blank">Gar Saxon (SHD) - Yellow</a></span>
                 </td>
                 <td class="align-middle text-center d-none d-md-table-cell fit">
@@ -382,7 +408,7 @@
                     <img src="/images/aspect_vigilance.png" width="32" height="32"/>
                     <img src="/images/aspect_cunning.png" width="32" height="32"/>
                 </td>
-                <td class="align-middle text-end fit">
+                <td class="align-middle text-end fit deck-player">
                   <span class="align-middle">N3rdSl4y3r</span>
                 </td>
               </tr>
@@ -397,7 +423,7 @@
                        class="rounded rounded-1 d-inline-block me-2"/>
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_04010030_EN_Mos_Eisley_Base_Thumbnail_96b581f371.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
                 </td>
-                <td class="align-middle">
+                <td class="align-middle deck-list">
                   <span class="align-middle"><a href="https://melee.gg/Decklist/View/48fc3de1-3be9-4381-aed4-b2bd00e24ef0" target="_blank">Boba Fett (JTL) - Yellow</a></span>
                 </td>
                 <td class="align-middle text-center d-none d-md-table-cell fit">
@@ -414,7 +440,7 @@
                     <img src="/images/aspect_aggression.png" width="32" height="32"/>
                     <img src="/images/aspect_cunning.png" width="32" height="32"/>
                 </td>
-                <td class="align-middle text-end fit">
+                <td class="align-middle text-end fit deck-player">
                   <span class="align-middle">BuckyBadger1848</span>
                 </td>
               </tr>
@@ -429,7 +455,7 @@
                        class="rounded rounded-1 d-inline-block me-2"/>
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_022_Energy_Conversion_Lab_Thumbnail_236456f6f4.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
                 </td>
-                <td class="align-middle">
+                <td class="align-middle deck-list">
                   <span class="align-middle"><a href="https://melee.gg/Decklist/View/720ced45-6670-4b12-bffb-b2bd003d3e8c" target="_blank">Sabine Wren (SOR) - Energy Conversion Lab</a></span>
                 </td>
                 <td class="align-middle text-center d-none d-md-table-cell fit">
@@ -446,7 +472,7 @@
                     <img src="/images/aspect_command.png" width="32" height="32"/>
                     <img src="/images/aspect_aggression.png" width="32" height="32"/>
                 </td>
-                <td class="align-middle text-end fit">
+                <td class="align-middle text-end fit deck-player">
                   <span class="align-middle">Wolfmeister0314</span>
                 </td>
               </tr>
@@ -461,7 +487,7 @@
                        class="rounded rounded-1 d-inline-block me-2"/>
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0301029_EN_Level_1313_Base_Thumbnail_23e198e3d2.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
                 </td>
-                <td class="align-middle">
+                <td class="align-middle deck-list">
                   <span class="align-middle"><a href="https://melee.gg/Decklist/View/7f626274-6da7-4c87-96e8-b2bd00f9865b" target="_blank">Darth Vader (JTL) - Yellow</a></span>
                 </td>
                 <td class="align-middle text-center d-none d-md-table-cell fit">
@@ -478,7 +504,7 @@
                     <img src="/images/aspect_command.png" width="32" height="32"/>
                     <img src="/images/aspect_cunning.png" width="32" height="32"/>
                 </td>
-                <td class="align-middle text-end fit">
+                <td class="align-middle text-end fit deck-player">
                   <span class="align-middle">Picardy3rd</span>
                 </td>
               </tr>
@@ -493,7 +519,7 @@
                        class="rounded rounded-1 d-inline-block me-2"/>
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0201019_EN_Remnant_Science_Facility_Base_Thumbnail_eb441bd2e5.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
                 </td>
-                <td class="align-middle">
+                <td class="align-middle deck-list">
                   <span class="align-middle"><a href="https://melee.gg/Decklist/View/babd0efc-6275-4af8-a87d-b2bd00e8d4ee" target="_blank">Boba Fett (SHD) - Blue</a></span>
                 </td>
                 <td class="align-middle text-center d-none d-md-table-cell fit">
@@ -510,7 +536,7 @@
                     <img src="/images/aspect_vigilance.png" width="32" height="32"/>
                     <img src="/images/aspect_command.png" width="32" height="32"/>
                 </td>
-                <td class="align-middle text-end fit">
+                <td class="align-middle text-end fit deck-player">
                   <span class="align-middle">Jadale</span>
                 </td>
               </tr>
@@ -525,7 +551,7 @@
                        class="rounded rounded-1 d-inline-block me-2"/>
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_022_Energy_Conversion_Lab_Thumbnail_236456f6f4.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
                 </td>
-                <td class="align-middle">
+                <td class="align-middle deck-list">
                   <span class="align-middle"><a href="https://melee.gg/Decklist/View/e87b2736-b297-4744-8174-b2bd0022ad35" target="_blank">Qi&#x27;ra (SHD) - Energy Conversion Lab</a></span>
                 </td>
                 <td class="align-middle text-center d-none d-md-table-cell fit">
@@ -542,7 +568,7 @@
                     <img src="/images/aspect_vigilance.png" width="32" height="32"/>
                     <img src="/images/aspect_command.png" width="32" height="32"/>
                 </td>
-                <td class="align-middle text-end fit">
+                <td class="align-middle text-end fit deck-player">
                   <span class="align-middle">BB1996</span>
                 </td>
               </tr>
@@ -557,7 +583,7 @@
                        class="rounded rounded-1 d-inline-block me-2"/>
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_022_Energy_Conversion_Lab_Thumbnail_236456f6f4.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
                 </td>
-                <td class="align-middle">
+                <td class="align-middle deck-list">
                   <span class="align-middle"><a href="https://melee.gg/Decklist/View/7357fddc-a9df-4ccf-9193-b2bd00ee267f" target="_blank">Sabine Wren (SOR) - Energy Conversion Lab</a></span>
                 </td>
                 <td class="align-middle text-center d-none d-md-table-cell fit">
@@ -574,7 +600,7 @@
                     <img src="/images/aspect_command.png" width="32" height="32"/>
                     <img src="/images/aspect_aggression.png" width="32" height="32"/>
                 </td>
-                <td class="align-middle text-end fit">
+                <td class="align-middle text-end fit deck-player">
                   <span class="align-middle">ChocolatChip</span>
                 </td>
               </tr>
@@ -589,7 +615,7 @@
                        class="rounded rounded-1 d-inline-block me-2"/>
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_022_Energy_Conversion_Lab_Thumbnail_236456f6f4.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
                 </td>
-                <td class="align-middle">
+                <td class="align-middle deck-list">
                   <span class="align-middle"><a href="https://melee.gg/Decklist/View/b44fb6d2-de00-4b30-bc93-b2bd0052a03d" target="_blank">Sabine Wren (SOR) - Energy Conversion Lab</a></span>
                 </td>
                 <td class="align-middle text-center d-none d-md-table-cell fit">
@@ -606,7 +632,7 @@
                     <img src="/images/aspect_command.png" width="32" height="32"/>
                     <img src="/images/aspect_aggression.png" width="32" height="32"/>
                 </td>
-                <td class="align-middle text-end fit">
+                <td class="align-middle text-end fit deck-player">
                   <span class="align-middle">Kelp11</span>
                 </td>
               </tr>
@@ -621,7 +647,7 @@
                        class="rounded rounded-1 d-inline-block me-2"/>
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_022_Energy_Conversion_Lab_Thumbnail_236456f6f4.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
                 </td>
-                <td class="align-middle">
+                <td class="align-middle deck-list">
                   <span class="align-middle"><a href="https://melee.gg/Decklist/View/74f91ccf-e819-4337-9b59-b2bd00f9ed84" target="_blank">Boba Fett (JTL) - Energy Conversion Lab</a></span>
                 </td>
                 <td class="align-middle text-center d-none d-md-table-cell fit">
@@ -638,7 +664,7 @@
                     <img src="/images/aspect_command.png" width="32" height="32"/>
                     <img src="/images/aspect_aggression.png" width="32" height="32"/>
                 </td>
-                <td class="align-middle text-end fit">
+                <td class="align-middle text-end fit deck-player">
                   <span class="align-middle">Evan_Fitzgerald</span>
                 </td>
               </tr>
@@ -653,7 +679,7 @@
                        class="rounded rounded-1 d-inline-block me-2"/>
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_025_Tarkintown_Thumbnail_073f15e38f.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
                 </td>
-                <td class="align-middle">
+                <td class="align-middle deck-list">
                   <span class="align-middle"><a href="https://melee.gg/Decklist/View/0de95867-3915-41de-ae0f-b2bd0052f2d8" target="_blank">Cad Bane (SHD) - Tarkintown</a></span>
                 </td>
                 <td class="align-middle text-center d-none d-md-table-cell fit">
@@ -670,7 +696,7 @@
                     <img src="/images/aspect_aggression.png" width="32" height="32"/>
                     <img src="/images/aspect_cunning.png" width="32" height="32"/>
                 </td>
-                <td class="align-middle text-end fit">
+                <td class="align-middle text-end fit deck-player">
                   <span class="align-middle">Thecaptain23</span>
                 </td>
               </tr>
@@ -685,7 +711,7 @@
                        class="rounded rounded-1 d-inline-block me-2"/>
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_022_Energy_Conversion_Lab_Thumbnail_236456f6f4.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
                 </td>
-                <td class="align-middle">
+                <td class="align-middle deck-list">
                   <span class="align-middle"><a href="https://melee.gg/Decklist/View/1add65d9-da07-40d5-8636-b2bd0108835b" target="_blank">Sabine Wren (SOR) - Energy Conversion Lab</a></span>
                 </td>
                 <td class="align-middle text-center d-none d-md-table-cell fit">
@@ -702,7 +728,7 @@
                     <img src="/images/aspect_command.png" width="32" height="32"/>
                     <img src="/images/aspect_aggression.png" width="32" height="32"/>
                 </td>
-                <td class="align-middle text-end fit">
+                <td class="align-middle text-end fit deck-player">
                   <span class="align-middle">storm123</span>
                 </td>
               </tr>
@@ -717,7 +743,7 @@
                        class="rounded rounded-1 d-inline-block me-2"/>
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_022_Energy_Conversion_Lab_Thumbnail_236456f6f4.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
                 </td>
-                <td class="align-middle">
+                <td class="align-middle deck-list">
                   <span class="align-middle"><a href="https://melee.gg/Decklist/View/78e9854a-4c27-40f4-8aaf-b2bd00d24f80" target="_blank">Poe Dameron (JTL) - Energy Conversion Lab</a></span>
                 </td>
                 <td class="align-middle text-center d-none d-md-table-cell fit">
@@ -734,7 +760,7 @@
                     <img src="/images/aspect_command.png" width="32" height="32"/>
                     <img src="/images/aspect_aggression.png" width="32" height="32"/>
                 </td>
-                <td class="align-middle text-end fit">
+                <td class="align-middle text-end fit deck-player">
                   <span class="align-middle">Nico_Nine</span>
                 </td>
               </tr>
@@ -749,7 +775,7 @@
                        class="rounded rounded-1 d-inline-block me-2"/>
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_022_Energy_Conversion_Lab_Thumbnail_236456f6f4.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
                 </td>
-                <td class="align-middle">
+                <td class="align-middle deck-list">
                   <span class="align-middle"><a href="https://melee.gg/Decklist/View/327b3c4c-8012-49d7-90e8-b2ae003c5759" target="_blank">Sabine Wren (SOR) - Energy Conversion Lab</a></span>
                 </td>
                 <td class="align-middle text-center d-none d-md-table-cell fit">
@@ -766,7 +792,7 @@
                     <img src="/images/aspect_command.png" width="32" height="32"/>
                     <img src="/images/aspect_aggression.png" width="32" height="32"/>
                 </td>
-                <td class="align-middle text-end fit">
+                <td class="align-middle text-end fit deck-player">
                   <span class="align-middle">Droogrardion</span>
                 </td>
               </tr>
@@ -781,7 +807,7 @@
                        class="rounded rounded-1 d-inline-block me-2"/>
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_04010030_EN_Mos_Eisley_Base_Thumbnail_96b581f371.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
                 </td>
-                <td class="align-middle">
+                <td class="align-middle deck-list">
                   <span class="align-middle"><a href="https://melee.gg/Decklist/View/0d1adafb-745b-4afd-9dcc-b2bd0050c4c8" target="_blank">Gar Saxon (SHD) - Yellow</a></span>
                 </td>
                 <td class="align-middle text-center d-none d-md-table-cell fit">
@@ -798,7 +824,7 @@
                     <img src="/images/aspect_vigilance.png" width="32" height="32"/>
                     <img src="/images/aspect_cunning.png" width="32" height="32"/>
                 </td>
-                <td class="align-middle text-end fit">
+                <td class="align-middle text-end fit deck-player">
                   <span class="align-middle">jimbodubs</span>
                 </td>
               </tr>
@@ -813,7 +839,7 @@
                        class="rounded rounded-1 d-inline-block me-2"/>
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_025_Tarkintown_Thumbnail_073f15e38f.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
                 </td>
-                <td class="align-middle">
+                <td class="align-middle deck-list">
                   <span class="align-middle"><a href="https://melee.gg/Decklist/View/3ed5d3ed-3826-49e1-8714-b2bd00f6e2a7" target="_blank">Cad Bane (SHD) - Tarkintown</a></span>
                 </td>
                 <td class="align-middle text-center d-none d-md-table-cell fit">
@@ -830,7 +856,7 @@
                     <img src="/images/aspect_aggression.png" width="32" height="32"/>
                     <img src="/images/aspect_cunning.png" width="32" height="32"/>
                 </td>
-                <td class="align-middle text-end fit">
+                <td class="align-middle text-end fit deck-player">
                   <span class="align-middle">Lanczzz</span>
                 </td>
               </tr>
@@ -845,7 +871,7 @@
                        class="rounded rounded-1 d-inline-block me-2"/>
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_025_Tarkintown_Thumbnail_073f15e38f.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
                 </td>
-                <td class="align-middle">
+                <td class="align-middle deck-list">
                   <span class="align-middle"><a href="https://melee.gg/Decklist/View/a1b29fff-5a31-4b84-88bf-b2bd00c4a905" target="_blank">Grand Admiral Thrawn (JTL) - Tarkintown</a></span>
                 </td>
                 <td class="align-middle text-center d-none d-md-table-cell fit">
@@ -862,7 +888,7 @@
                     <img src="/images/aspect_vigilance.png" width="32" height="32"/>
                     <img src="/images/aspect_aggression.png" width="32" height="32"/>
                 </td>
-                <td class="align-middle text-end fit">
+                <td class="align-middle text-end fit deck-player">
                   <span class="align-middle">JohnGriffin</span>
                 </td>
               </tr>
@@ -877,7 +903,7 @@
                        class="rounded rounded-1 d-inline-block me-2"/>
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_025_Tarkintown_Thumbnail_073f15e38f.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
                 </td>
-                <td class="align-middle">
+                <td class="align-middle deck-list">
                   <span class="align-middle"><a href="https://melee.gg/Decklist/View/9866ca9b-767a-4929-a2dd-b2bc00bdd103" target="_blank">Luke Skywalker (JTL) - Tarkintown</a></span>
                 </td>
                 <td class="align-middle text-center d-none d-md-table-cell fit">
@@ -894,7 +920,7 @@
                     <img src="/images/aspect_aggression.png" width="32" height="32"/>
                     <img src="/images/aspect_aggression.png" width="32" height="32"/>
                 </td>
-                <td class="align-middle text-end fit">
+                <td class="align-middle text-end fit deck-player">
                   <span class="align-middle">tWinston</span>
                 </td>
               </tr>
@@ -909,7 +935,7 @@
                        class="rounded rounded-1 d-inline-block me-2"/>
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_024_Echo_Base_Thumbnail_a3c7d60f6d.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
                 </td>
-                <td class="align-middle">
+                <td class="align-middle deck-list">
                   <span class="align-middle"><a href="https://melee.gg/Decklist/View/88c58922-7991-4364-9936-b2ba017ff718" target="_blank">Leia Organa (SOR) - Green</a></span>
                 </td>
                 <td class="align-middle text-center d-none d-md-table-cell fit">
@@ -926,7 +952,7 @@
                     <img src="/images/aspect_command.png" width="32" height="32"/>
                     <img src="/images/aspect_command.png" width="32" height="32"/>
                 </td>
-                <td class="align-middle text-end fit">
+                <td class="align-middle text-end fit deck-player">
                   <span class="align-middle">Programmatical</span>
                 </td>
               </tr>
@@ -941,7 +967,7 @@
                        class="rounded rounded-1 d-inline-block me-2"/>
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0201026_EN_Jabbas_Palace_Base_Thumbnail_e93bd4edc9.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
                 </td>
-                <td class="align-middle">
+                <td class="align-middle deck-list">
                   <span class="align-middle"><a href="https://melee.gg/Decklist/View/7b812849-887f-40ef-a464-b2bd00f363ac" target="_blank">Boba Fett (JTL) - Yellow</a></span>
                 </td>
                 <td class="align-middle text-center d-none d-md-table-cell fit">
@@ -958,7 +984,7 @@
                     <img src="/images/aspect_aggression.png" width="32" height="32"/>
                     <img src="/images/aspect_cunning.png" width="32" height="32"/>
                 </td>
-                <td class="align-middle text-end fit">
+                <td class="align-middle text-end fit deck-player">
                   <span class="align-middle">bbchase</span>
                 </td>
               </tr>
@@ -973,7 +999,7 @@
                        class="rounded rounded-1 d-inline-block me-2"/>
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_023_Command_Center_Thumbnail_8a46d7dcf4.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
                 </td>
-                <td class="align-middle">
+                <td class="align-middle deck-list">
                   <span class="align-middle"><a href="https://melee.gg/Decklist/View/a7dc25dd-74ed-441f-be69-b2bd00ea4483" target="_blank">Grand Admiral Thrawn (JTL) - Green</a></span>
                 </td>
                 <td class="align-middle text-center d-none d-md-table-cell fit">
@@ -990,7 +1016,7 @@
                     <img src="/images/aspect_vigilance.png" width="32" height="32"/>
                     <img src="/images/aspect_command.png" width="32" height="32"/>
                 </td>
-                <td class="align-middle text-end fit">
+                <td class="align-middle text-end fit deck-player">
                   <span class="align-middle">SwigglyWiggly</span>
                 </td>
               </tr>
@@ -1005,7 +1031,7 @@
                        class="rounded rounded-1 d-inline-block me-2"/>
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_04010021_EN_Colossus_Base_Thumbnail_12c8a86507.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
                 </td>
-                <td class="align-middle">
+                <td class="align-middle deck-list">
                   <span class="align-middle"><a href="https://melee.gg/Decklist/View/909f664c-e265-4f67-9289-b2bd00daf63e" target="_blank">Admiral Piett (JTL) - Colossus</a></span>
                 </td>
                 <td class="align-middle text-center d-none d-md-table-cell fit">
@@ -1022,7 +1048,7 @@
                     <img src="/images/aspect_vigilance.png" width="32" height="32"/>
                     <img src="/images/aspect_command.png" width="32" height="32"/>
                 </td>
-                <td class="align-middle text-end fit">
+                <td class="align-middle text-end fit deck-player">
                   <span class="align-middle">RileyD</span>
                 </td>
               </tr>
@@ -1037,7 +1063,7 @@
                        class="rounded rounded-1 d-inline-block me-2"/>
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_04010024_EN_Data_Vault_Base_Thumbnail_a08b0130d8.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
                 </td>
-                <td class="align-middle">
+                <td class="align-middle deck-list">
                   <span class="align-middle"><a href="https://melee.gg/Decklist/View/f68b18ac-a602-4a83-af98-b2bb0160216a" target="_blank">Yoda (TWI) - Data Vault</a></span>
                 </td>
                 <td class="align-middle text-center d-none d-md-table-cell fit">
@@ -1054,7 +1080,7 @@
                     <img src="/images/aspect_vigilance.png" width="32" height="32"/>
                     <img src="/images/aspect_command.png" width="32" height="32"/>
                 </td>
-                <td class="align-middle text-end fit">
+                <td class="align-middle text-end fit deck-player">
                   <span class="align-middle">UnitMonster</span>
                 </td>
               </tr>
@@ -1069,7 +1095,7 @@
                        class="rounded rounded-1 d-inline-block me-2"/>
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_022_Energy_Conversion_Lab_Thumbnail_236456f6f4.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
                 </td>
-                <td class="align-middle">
+                <td class="align-middle deck-list">
                   <span class="align-middle"><a href="https://melee.gg/Decklist/View/1aad1dc7-05d6-4d2b-805e-b2bb01782e61" target="_blank">Bossk (SHD) - Energy Conversion Lab</a></span>
                 </td>
                 <td class="align-middle text-center d-none d-md-table-cell fit">
@@ -1086,7 +1112,7 @@
                     <img src="/images/aspect_command.png" width="32" height="32"/>
                     <img src="/images/aspect_aggression.png" width="32" height="32"/>
                 </td>
-                <td class="align-middle text-end fit">
+                <td class="align-middle text-end fit deck-player">
                   <span class="align-middle">DarthThresh</span>
                 </td>
               </tr>
@@ -1101,7 +1127,7 @@
                        class="rounded rounded-1 d-inline-block me-2"/>
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_022_Energy_Conversion_Lab_Thumbnail_236456f6f4.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
                 </td>
-                <td class="align-middle">
+                <td class="align-middle deck-list">
                   <span class="align-middle"><a href="https://melee.gg/Decklist/View/7210e9ae-dbb2-47d6-87e2-b2bd00e9b9cd" target="_blank">Sabine Wren (SOR) - Energy Conversion Lab</a></span>
                 </td>
                 <td class="align-middle text-center d-none d-md-table-cell fit">
@@ -1118,7 +1144,7 @@
                     <img src="/images/aspect_command.png" width="32" height="32"/>
                     <img src="/images/aspect_aggression.png" width="32" height="32"/>
                 </td>
-                <td class="align-middle text-end fit">
+                <td class="align-middle text-end fit deck-player">
                   <span class="align-middle">AtomicFloof</span>
                 </td>
               </tr>
@@ -1133,7 +1159,7 @@
                        class="rounded rounded-1 d-inline-block me-2"/>
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_021_Dagobah_Swamp_Thumbnail_59e4315e34.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
                 </td>
-                <td class="align-middle">
+                <td class="align-middle deck-list">
                   <span class="align-middle"><a href="https://melee.gg/Decklist/View/9dd2b318-bee4-477d-9bf1-b2bd0038f80c" target="_blank">Cad Bane (SHD) - Blue</a></span>
                 </td>
                 <td class="align-middle text-center d-none d-md-table-cell fit">
@@ -1150,7 +1176,7 @@
                     <img src="/images/aspect_vigilance.png" width="32" height="32"/>
                     <img src="/images/aspect_cunning.png" width="32" height="32"/>
                 </td>
-                <td class="align-middle text-end fit">
+                <td class="align-middle text-end fit deck-player">
                   <span class="align-middle">Fatherj2000</span>
                 </td>
               </tr>
@@ -1176,18 +1202,18 @@
 
   <script type="text/javascript">
     const leaderData = [
-        { value: 3, name: "Boba Fett (JTL)" },
-        { value: 3, name: "Gar Saxon (SHD)" },
-        { value: 4, name: "Cad Bane (SHD)" },
-        { value: 8, name: "Sabine Wren (SOR)" },
-        { value: 15, name: "Others" },
+      { value: 3, name: "Boba Fett (JTL)" },
+      { value: 3, name: "Gar Saxon (SHD)" },
+      { value: 4, name: "Cad Bane (SHD)" },
+      { value: 8, name: "Sabine Wren (SOR)" },
+      { value: 15, name: "Others" },
     ];
     const baseData = [
-        { value: 2, name: "Blue" },
-        { value: 5, name: "Others" },
-        { value: 7, name: "Yellow" },
-        { value: 8, name: "Tarkintown" },
-        { value: 11, name: "Energy Conversion Lab" },
+      { value: 2, name: "Blue" },
+      { value: 5, name: "Others" },
+      { value: 7, name: "Yellow" },
+      { value: 8, name: "Tarkintown" },
+      { value: 11, name: "Energy Conversion Lab" },
     ];
     createHorizontalBarChart('chart-leaders', leaderData, {
         title: 'Leaders',
@@ -4327,6 +4353,11 @@
   }
 
   function showMoreDecks() {
+    const showMoreSection = document.getElementById("showMoreSection");
+    if(showMoreSection.classList.contains("d-none")) {
+      return;
+    }
+
     const table = document.getElementById("decks");
     const rows = table.querySelectorAll("tr");
     let i = 0;
@@ -4334,7 +4365,6 @@
       row.classList.remove("d-none");
       i++;
     }
-    const showMoreSection = document.getElementById("showMoreSection");
     showMoreSection.classList.toggle("d-none", true);
   }
 
@@ -4347,6 +4377,13 @@
       row.classList.remove("d-none");
       i++;
     }
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const options = {
+      valueNames: [ 'deck-list', 'deck-player' ]
+    };
+    const decksList = new List('decks-container', options);
   });
 </script>
 
