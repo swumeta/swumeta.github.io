@@ -18,6 +18,7 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
   <link rel="manifest" href="/site.webmanifest"/>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/echarts@5.6.0/dist/echarts.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/list.js@2.3.1/dist/list.min.js"></script>
   <script src="/js/chart.js"></script>
@@ -13547,25 +13548,13 @@
 </section>
 
   <script type="text/javascript">
-    const leaderData = [
-      { value: 28, name: "Boba Fett (JTL)" },
-      { value: 31, name: "Admiral Piett (JTL)" },
-      { value: 37, name: "Quinlan Vos (TWI)" },
-      { value: 76, name: "Jango Fett (TWI)" },
-      { value: 246, name: "Others" },
-    ];
-    const baseData = [
-      { value: 43, name: "Colossus" },
-      { value: 45, name: "Energy Conversion Lab" },
-      { value: 72, name: "Yellow" },
-      { value: 125, name: "Tarkintown" },
-      { value: 133, name: "Others" },
-    ];
-    createHorizontalBarChart('chart-leaders', leaderData, {
+    document.addEventListener('DOMContentLoaded', function() {
+      createHorizontalBarChart('chart-leaders', 'usage-leaders.json', {
         title: 'Leaders',
-    });
-    createHorizontalBarChart('chart-bases', baseData, {
+      });
+      createHorizontalBarChart('chart-bases', 'usage-bases.json', {
         title: 'Bases',
+      });
     });
   </script>
 
