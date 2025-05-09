@@ -21,7 +21,8 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/echarts@5.6.0/dist/echarts.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/list.js@2.3.1/dist/list.min.js"></script>
-  <script src="/js/chart.js"></script>
+  <script src="/js/charts.js"></script>
+  <script src="/js/winrates.js"></script>
   <link rel="stylesheet" href="/css/styles.css"/>
 </head>
 <body>
@@ -90,49 +91,41 @@
   </div>
 
   <div class="row">
+    <div class="col mt-3">
+      <div class="winrates-chart" data-url="winrates-chart.json"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col mt-3">
+      <div class="winrates-container" data-url="winrates-matrix.json">
+        <div class="spinner-border m-1" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
     <div class="col">
-      <div id="chart-all-leaders" class="w-100"></div>
+      <div class="bar-chart w-100" data-url="all-leaders.json" data-title="All Leaders"></div>
     </div>
   </div>
   <div class="row">
     <div class="col-xl-6">
-      <div id="chart-top64-leaders" class="w-100"></div>
+      <div class="bar-chart w-100" data-url="top64-leaders.json" data-title="Top 64 Leaders"></div>
     </div>
     <div class="col-xl-6">
-      <div id="chart-top64-survivors" class="w-100"></div>
+      <div class="bar-chart w-100" data-url="top64-conversion.json" data-title="Top 64 Conversion (%)" data-percent="true"></div>
     </div>
   </div>
   <div class="row">
     <div class="col-xl-6">
-      <div id="chart-top8-leaders" class="w-100"></div>
+      <div class="bar-chart w-100" data-url="top8-leaders.json" data-title="Top 8 Leaders"></div>
     </div>
     <div class="col-xl-6">
-      <div id="chart-top8-survivors" class="w-100"></div>
+      <div class="bar-chart w-100" data-url="top8-conversion.json" data-title="Top 8 Conversion (%)" data-percent="true"></div>
     </div>
   </div>
 </section>
-
-<script type="text/javascript">
-  document.addEventListener('DOMContentLoaded', function() {
-    createHorizontalBarChart('chart-all-leaders', 'all-leaders.json', {
-      title: 'All Leaders',
-    });
-    createHorizontalBarChart('chart-top64-leaders', 'top64-leaders.json', {
-      title: 'Top 64 Leaders',
-    });
-    createHorizontalBarChart('chart-top8-leaders', 'top8-leaders.json', {
-      title: 'Top 8 Leaders',
-    });
-    createHorizontalBarChart('chart-top64-survivors', 'top64-survivors.json', {
-      title: 'Top 64 Survivors (%)',
-      valueAsPercentage: true
-    });
-    createHorizontalBarChart('chart-top8-survivors', 'top8-survivors.json', {
-      title: 'Top 8 Survivors (%)',
-      valueAsPercentage: true
-    });
-  });
-</script>
 
 </main>
 
