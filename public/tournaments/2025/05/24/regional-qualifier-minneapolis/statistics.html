@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Planetary Qualifier Niles - swumeta.net</title>
-    <meta name="description" content="Results from the Star Wars Unlimited tournament Planetary Qualifier Niles taking place in Niles (USA) on May 10, 2025, including standings, decklists, Melee.gg link and more"/>
-    <link rel="canonical" href="https://swumeta.net/tournaments/2025/05/10/planetary-qualifier-niles/"/>
+  <title>Statistics from Regional Qualifier Minneapolis - swumeta.net</title>
+    <meta name="description" content="Statistics from the Star Wars Unlimited tournament Regional Qualifier Minneapolis taking place in Minneapolis (USA) on May 24, 2025"/>
+    <link rel="canonical" href="https://swumeta.net/2025/05/24/regional-qualifier-minneapolis/statistics.html"/>
   <meta name="googlebot" content="notranslate"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -65,107 +65,67 @@
 <section class="container">
   <p class="fs-6 m-0 p-0 mb-1"><a href="/tournaments/" class="text-decoration-none sw-link">Tournaments</a> &gt;</p>
   <h1 class="section-title">
-    Planetary Qualifier Niles <i class="ms-1 fi fi-us"></i>
+    Regional Qualifier Minneapolis <i class="ms-1 fi fi-us"></i>
   </h1>
 
   <div class="row">
     <dl class="col event-metadata">
       <div>
         <dt class="text-secondary">Location:</dt>
-        <dd class="fw-bold">Niles, USA</dd>
+        <dd class="fw-bold">Minneapolis, USA</dd>
       </div>
       <div>
         <dt class="text-secondary">Date:</dt>
-        <dd class="fw-bold">2025-05-10</dd>
+        <dd class="fw-bold">2025-05-24</dd>
       </div>
       <div>
         <dt class="text-secondary">Type:</dt>
-        <dd><span class="fw-bold">Planetary Qualifier</span> / 39 players</dd>
+        <dd><span class="fw-bold">Regional Qualifier</span> / 178 players</dd>
       </div>
         <div>
           <dt class="text-secondary">Source:</dt>
           <dd><i class="bi bi-card-list source mx-1"></i>
-            <a class="source" href="https://melee.gg/Tournament/View/287101" target="_blank">Melee.gg</a></dd>
+            <a class="source" href="https://melee.gg/Tournament/View/273310" target="_blank">Melee.gg</a></dd>
         </div>
     </dl>
   </div>
 
-
   <div class="row">
-    <div class="col-12">
-        <p class="my-4"><i class="text-warning bi bi-exclamation-triangle-fill me-1"></i>
-          <strong>No deck found</strong>: please try again later</p>
+    <div class="col mt-3">
+      <div class="winrates-chart" data-url="winrates-chart.json"></div>
     </div>
   </div>
-</section>
-
-<section class="container">
   <div class="row">
-      <div class="col-6 my-2" style="min-width: 400px">
-        <h3 class="text-secondary fs-6">Livestream</h3>
-        <div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;">
-          <iframe src="https://www.youtube.com/embed/FDV8zwqs3a4?autoplay=0" style="top: 0; left: 0; width: 100%; height: 100%; position: absolute; border: 0;"
-                  allowfullscreen scrolling="no" allow="encrypted-media;"></iframe>
+    <div class="col mt-3">
+      <div class="winrates-container" data-url="winrates-matrix.json">
+        <div class="spinner-border m-1" role="status">
+          <span class="visually-hidden">Loading...</span>
         </div>
       </div>
-  </div>
-</section>
-
-
-<div class="toast-container position-fixed bottom-0 end-0 p-3">
-  <div id="copy-toast" class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true"
-       data-bs-delay="2000">
-    <div class="d-flex">
-      <div class="toast-body">Copied deck to clipboard.</div>
     </div>
   </div>
-</div>
-
-<script type="text/javascript">
-  function copyDeck(deckId) {
-    const text = document.getElementById(deckId).textContent.trim();
-    navigator.clipboard.writeText(text)
-    .then(() => {
-      bootstrap.Toast.getOrCreateInstance(document.getElementById("copy-toast")).show();
-    }).catch(err => {
-      console.error('Error during copy: ', err);
-    });
-  }
-
-  function showMoreDecks() {
-    const showMoreSection = document.getElementById("showMoreSection");
-    if(showMoreSection.classList.contains("d-none")) {
-      return;
-    }
-
-    const table = document.getElementById("decks");
-    const rows = table.querySelectorAll("tr");
-    let i = 0;
-    for (const row of rows) {
-      row.classList.remove("d-none");
-      i++;
-    }
-    showMoreSection.classList.toggle("d-none", true);
-  }
-
-  document.addEventListener('DOMContentLoaded', function() {
-    const table = document.getElementById("decks");
-    const rows = table.querySelectorAll("tr");
-    let i = 0;
-    for (const row of rows) {
-      if (i > 8) break;
-      row.classList.remove("d-none");
-      i++;
-    }
-  });
-
-  document.addEventListener('DOMContentLoaded', function() {
-    const options = {
-      valueNames: [ 'deck-list', 'deck-player' ]
-    };
-    const decksList = new List('decks-container', options);
-  });
-</script>
+  <div class="row">
+    <div class="col">
+      <div class="bar-chart w-100" data-url="all-leaders.json" data-title="All Leaders"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xl-6">
+      <div class="bar-chart w-100" data-url="top64-leaders.json" data-title="Top 64 Leaders"></div>
+    </div>
+    <div class="col-xl-6">
+      <div class="bar-chart w-100" data-url="top64-conversion.json" data-title="Top 64 Conversion (%)" data-percent="true"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xl-6">
+      <div class="bar-chart w-100" data-url="top8-leaders.json" data-title="Top 8 Leaders"></div>
+    </div>
+    <div class="col-xl-6">
+      <div class="bar-chart w-100" data-url="top8-conversion.json" data-title="Top 8 Conversion (%)" data-percent="true"></div>
+    </div>
+  </div>
+</section>
 
 </main>
 
