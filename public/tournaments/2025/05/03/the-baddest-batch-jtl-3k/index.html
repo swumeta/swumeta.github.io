@@ -21,7 +21,8 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/echarts@5.6.0/dist/echarts.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/list.js@2.3.1/dist/list.min.js"></script>
-  <script src="/js/chart.js"></script>
+  <script src="/js/charts.js"></script>
+  <script src="/js/winrates.js"></script>
   <link rel="stylesheet" href="/css/styles.css"/>
 </head>
 <body>
@@ -91,10 +92,10 @@
 
     <div class="row">
       <div class="col-lg-6">
-        <div id="chart-leaders" style="width: 100%; min-height: 400px"></div>
+        <div style="width: 100%; min-height: 400px" class="bar-chart" data-url="usage-leaders.json" data-title="Leaders"></div>
       </div>
       <div class="col-lg-6">
-        <div id="chart-bases" style="width: 100%; min-height: 400px"></div>
+        <div id="chart-bases" style="width: 100%; min-height: 400px" class="bar-chart" data-url="usage-bases.json" data-title="Bases"></div>
       </div>
     </div>
     <div class="row mb-4">
@@ -1111,17 +1112,6 @@
   </div>
 </section>
 
-  <script type="text/javascript">
-    document.addEventListener('DOMContentLoaded', function() {
-      createHorizontalBarChart('chart-leaders', 'usage-leaders.json', {
-        title: 'Leaders',
-      });
-      createHorizontalBarChart('chart-bases', 'usage-bases.json', {
-        title: 'Bases',
-      });
-    });
-  </script>
-
   <pre class="d-none" id="swudb-deck-34a05ce07505e57869df5b7a9ad2b88f">
     {
   "metadata" : {
@@ -1198,6 +1188,9 @@
     "id" : "SHD_098",
     "count" : 1
   }, {
+    "id" : "SHD_262",
+    "count" : 2
+  }, {
     "id" : "SOR_099",
     "count" : 3
   }, {
@@ -1205,9 +1198,6 @@
     "count" : 2
   }, {
     "id" : "SOR_150",
-    "count" : 2
-  }, {
-    "id" : "SOR_251",
     "count" : 2
   } ]
 }
@@ -1245,6 +1235,9 @@
     "id" : "SHD_163",
     "count" : 3
   }, {
+    "id" : "SHD_178",
+    "count" : 3
+  }, {
     "id" : "SOR_128",
     "count" : 3
   }, {
@@ -1273,9 +1266,6 @@
     "count" : 3
   }, {
     "id" : "TWI_154",
-    "count" : 3
-  }, {
-    "id" : "TWI_170",
     "count" : 3
   } ],
   "sideboard" : [ {
@@ -1477,14 +1467,14 @@
     "id" : "SHD_187",
     "count" : 3
   }, {
+    "id" : "SHD_262",
+    "count" : 2
+  }, {
     "id" : "SOR_139",
     "count" : 2
   }, {
     "id" : "SOR_199",
     "count" : 1
-  }, {
-    "id" : "SOR_251",
-    "count" : 2
   } ]
 }
   </pre>
@@ -1567,6 +1557,9 @@
     "id" : "SHD_098",
     "count" : 1
   }, {
+    "id" : "SHD_262",
+    "count" : 2
+  }, {
     "id" : "SOR_099",
     "count" : 3
   }, {
@@ -1574,9 +1567,6 @@
     "count" : 2
   }, {
     "id" : "SOR_150",
-    "count" : 2
-  }, {
-    "id" : "SOR_251",
     "count" : 2
   } ]
 }
@@ -1620,6 +1610,9 @@
     "id" : "SHD_175",
     "count" : 2
   }, {
+    "id" : "SHD_178",
+    "count" : 3
+  }, {
     "id" : "SHD_181",
     "count" : 1
   }, {
@@ -1645,9 +1638,6 @@
     "count" : 3
   }, {
     "id" : "TWI_154",
-    "count" : 3
-  }, {
-    "id" : "TWI_170",
     "count" : 3
   } ],
   "sideboard" : [ {
@@ -1741,6 +1731,9 @@
     "id" : "SHD_098",
     "count" : 1
   }, {
+    "id" : "SHD_262",
+    "count" : 2
+  }, {
     "id" : "SOR_099",
     "count" : 2
   }, {
@@ -1748,9 +1741,6 @@
     "count" : 3
   }, {
     "id" : "SOR_150",
-    "count" : 2
-  }, {
-    "id" : "SOR_251",
     "count" : 2
   } ]
 }
@@ -1834,11 +1824,11 @@
     "id" : "SHD_184",
     "count" : 3
   }, {
+    "id" : "SHD_262",
+    "count" : 1
+  }, {
     "id" : "SOR_221",
     "count" : 2
-  }, {
-    "id" : "SOR_251",
-    "count" : 1
   } ]
 }
   </pre>
@@ -2443,7 +2433,7 @@
     "id" : "SHD_248",
     "count" : 1
   }, {
-    "id" : "SOR_251",
+    "id" : "SHD_262",
     "count" : 2
   } ]
 }
@@ -2539,11 +2529,11 @@
     "id" : "SHD_079",
     "count" : 3
   }, {
+    "id" : "SHD_262",
+    "count" : 3
+  }, {
     "id" : "SOR_077",
     "count" : 1
-  }, {
-    "id" : "SOR_251",
-    "count" : 3
   } ]
 }
   </pre>
@@ -2647,11 +2637,11 @@
     "id" : "SHD_248",
     "count" : 1
   }, {
+    "id" : "SHD_262",
+    "count" : 2
+  }, {
     "id" : "SOR_052",
     "count" : 1
-  }, {
-    "id" : "SOR_251",
-    "count" : 2
   } ]
 }
   </pre>
@@ -2808,6 +2798,9 @@
     "id" : "SHD_153",
     "count" : 3
   }, {
+    "id" : "SHD_178",
+    "count" : 2
+  }, {
     "id" : "SOR_141",
     "count" : 3
   }, {
@@ -2828,9 +2821,6 @@
   }, {
     "id" : "SOR_241",
     "count" : 3
-  }, {
-    "id" : "TWI_170",
-    "count" : 2
   } ],
   "sideboard" : [ {
     "id" : "JTL_164",
@@ -2947,13 +2937,13 @@
     "id" : "SHD_248",
     "count" : 2
   }, {
+    "id" : "SHD_262",
+    "count" : 2
+  }, {
     "id" : "SOR_102",
     "count" : 1
   }, {
     "id" : "SOR_122",
-    "count" : 2
-  }, {
-    "id" : "SOR_251",
     "count" : 2
   } ]
 }
@@ -3303,6 +3293,9 @@
     "id" : "SHD_248",
     "count" : 3
   }, {
+    "id" : "SHD_262",
+    "count" : 1
+  }, {
     "id" : "SOR_104",
     "count" : 3
   }, {
@@ -3320,12 +3313,12 @@
   }, {
     "id" : "SOR_222",
     "count" : 2
-  }, {
-    "id" : "SOR_251",
-    "count" : 1
   } ],
   "sideboard" : [ {
     "id" : "JTL_121",
+    "count" : 2
+  }, {
+    "id" : "SHD_262",
     "count" : 2
   }, {
     "id" : "SOR_102",
@@ -3335,9 +3328,6 @@
     "count" : 2
   }, {
     "id" : "SOR_200",
-    "count" : 2
-  }, {
-    "id" : "SOR_251",
     "count" : 2
   } ]
 }
@@ -3390,13 +3380,13 @@
     "id" : "SHD_090",
     "count" : 2
   }, {
-    "id" : "SHD_128",
-    "count" : 2
-  }, {
     "id" : "SHD_135",
     "count" : 3
   }, {
     "id" : "SHD_141",
+    "count" : 2
+  }, {
+    "id" : "SHD_178",
     "count" : 2
   }, {
     "id" : "SOR_087",
@@ -3411,10 +3401,10 @@
     "id" : "SOR_134",
     "count" : 3
   }, {
-    "id" : "TWI_133",
+    "id" : "TWI_123",
     "count" : 2
   }, {
-    "id" : "TWI_170",
+    "id" : "TWI_133",
     "count" : 2
   } ],
   "sideboard" : [ {
@@ -3474,9 +3464,6 @@
     "id" : "SHD_034",
     "count" : 3
   }, {
-    "id" : "SHD_223",
-    "count" : 3
-  }, {
     "id" : "SHD_225",
     "count" : 3
   }, {
@@ -3493,6 +3480,9 @@
     "count" : 3
   }, {
     "id" : "SOR_207",
+    "count" : 3
+  }, {
+    "id" : "SOR_215",
     "count" : 3
   }, {
     "id" : "SOR_218",
@@ -3558,6 +3548,9 @@
     "id" : "JTL_110",
     "count" : 3
   }, {
+    "id" : "JTL_113",
+    "count" : 3
+  }, {
     "id" : "JTL_117",
     "count" : 2
   }, {
@@ -3603,9 +3596,6 @@
     "id" : "SHD_154",
     "count" : 2
   }, {
-    "id" : "SOR_113",
-    "count" : 3
-  }, {
     "id" : "SOR_126",
     "count" : 3
   } ],
@@ -3622,11 +3612,11 @@
     "id" : "JTL_257",
     "count" : 2
   }, {
+    "id" : "SHD_262",
+    "count" : 1
+  }, {
     "id" : "SOR_162",
     "count" : 2
-  }, {
-    "id" : "SOR_251",
-    "count" : 1
   } ]
 }
   </pre>

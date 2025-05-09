@@ -21,7 +21,8 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/echarts@5.6.0/dist/echarts.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/list.js@2.3.1/dist/list.min.js"></script>
-  <script src="/js/chart.js"></script>
+  <script src="/js/charts.js"></script>
+  <script src="/js/winrates.js"></script>
   <link rel="stylesheet" href="/css/styles.css"/>
 </head>
 <body>
@@ -91,10 +92,10 @@
 
     <div class="row">
       <div class="col-lg-6">
-        <div id="chart-leaders" style="width: 100%; min-height: 400px"></div>
+        <div style="width: 100%; min-height: 400px" class="bar-chart" data-url="usage-leaders.json" data-title="Leaders"></div>
       </div>
       <div class="col-lg-6">
-        <div id="chart-bases" style="width: 100%; min-height: 400px"></div>
+        <div id="chart-bases" style="width: 100%; min-height: 400px" class="bar-chart" data-url="usage-bases.json" data-title="Bases"></div>
       </div>
     </div>
     <div class="row mb-4">
@@ -256,7 +257,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    6
+                    5
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0301018_EN_Quinlan_Vos_Leader_Unit_Thumbnail_694ffbd46c.png" width="120" height="40"
@@ -288,7 +289,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    7
+                    6
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_014_Sabine_Wren_Thumbnail_509d51b9bb.png" width="120" height="40"
@@ -320,7 +321,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    8
+                    7
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0201010_EN_Bossk_Leader_Unit_Thumbnail_ba98ac3bb9.png" width="120" height="40"
@@ -352,7 +353,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    9
+                    8
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0201014_EN_Cad_Bane_Leader_Unit_Thumbnail_906009d9e4.png" width="120" height="40"
@@ -384,7 +385,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    10
+                    9
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0201014_EN_Cad_Bane_Leader_Unit_Thumbnail_906009d9e4.png" width="120" height="40"
@@ -415,7 +416,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    11
+                    10
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0201002_EN_Qira_Leader_Unit_Thumbnail_5e24120f94.png" width="120" height="40"
@@ -447,7 +448,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    12
+                    11
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0201001_EN_Gar_Saxon_Leader_Unit_Thumbnail_42b2b26ec8.png" width="120" height="40"
@@ -479,7 +480,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    13
+                    12
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0201002_EN_Qira_Leader_Unit_Thumbnail_5e24120f94.png" width="120" height="40"
@@ -511,7 +512,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    14
+                    13
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0301018_EN_Quinlan_Vos_Leader_Unit_Thumbnail_694ffbd46c.png" width="120" height="40"
@@ -543,7 +544,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    15
+                    14
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_04010013_EN_Poe_Dameron_Leader_Unit_Thumbnail_99df13811f.png" width="120" height="40"
@@ -575,7 +576,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    16
+                    15
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0301018_EN_Quinlan_Vos_Leader_Unit_Thumbnail_694ffbd46c.png" width="120" height="40"
@@ -607,7 +608,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    17
+                    16
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0201002_EN_Qira_Leader_Unit_Thumbnail_5e24120f94.png" width="120" height="40"
@@ -639,7 +640,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    18
+                    17
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0201014_EN_Cad_Bane_Leader_Unit_Thumbnail_906009d9e4.png" width="120" height="40"
@@ -671,7 +672,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    19
+                    18
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_04010005_EN_Admiral_Piett_Leader_Unit_Thumbnail_339d9076e1.png" width="120" height="40"
@@ -703,7 +704,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    20
+                    19
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_04010009_EN_Boba_Fett_Leader_Unit_Thumbnail_ecf6fdcb78.png" width="120" height="40"
@@ -735,7 +736,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    21
+                    20
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0201004_EN_Rey_Leader_Unit_Thumbnail_be4a507ea4.png" width="120" height="40"
@@ -767,7 +768,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    22
+                    21
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0201014_EN_Cad_Bane_Leader_Unit_Thumbnail_906009d9e4.png" width="120" height="40"
@@ -799,7 +800,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    23
+                    22
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0301005_EN_Count_Dooku_Leader_Unit_Thumbnail_83d723d0a0.png" width="120" height="40"
@@ -831,7 +832,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    24
+                    23
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_017_Han_Solo_Thumbnail_0d922f48af.png" width="120" height="40"
@@ -863,7 +864,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    25
+                    24
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0201014_EN_Cad_Bane_Leader_Unit_Thumbnail_906009d9e4.png" width="120" height="40"
@@ -895,7 +896,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    26
+                    25
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_04010009_EN_Boba_Fett_Leader_Unit_Thumbnail_ecf6fdcb78.png" width="120" height="40"
@@ -927,7 +928,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    27
+                    26
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_017_Han_Solo_Thumbnail_0d922f48af.png" width="120" height="40"
@@ -959,7 +960,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    28
+                    27
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_006_Emperor_Palpatine_Thumbnail_3090a45abe.png" width="120" height="40"
@@ -991,7 +992,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    29
+                    28
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_014_Sabine_Wren_Thumbnail_509d51b9bb.png" width="120" height="40"
@@ -1023,7 +1024,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    30
+                    29
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_014_Sabine_Wren_Thumbnail_509d51b9bb.png" width="120" height="40"
@@ -1055,7 +1056,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    31
+                    30
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_04010012_EN_Luke_Skywalker_Leader_Unit_Thumbnail_1231dbac39.png" width="120" height="40"
@@ -1087,7 +1088,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    32
+                    31
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0201014_EN_Cad_Bane_Leader_Unit_Thumbnail_906009d9e4.png" width="120" height="40"
@@ -1119,7 +1120,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    33
+                    32
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0201002_EN_Qira_Leader_Unit_Thumbnail_5e24120f94.png" width="120" height="40"
@@ -1151,7 +1152,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    34
+                    33
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_04010006_EN_Darth_Vader_Leader_Unit_Thumbnail_08201df668.png" width="120" height="40"
@@ -1183,7 +1184,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    35
+                    34
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0201002_EN_Qira_Leader_Unit_Thumbnail_5e24120f94.png" width="120" height="40"
@@ -1215,7 +1216,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    36
+                    35
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_014_Sabine_Wren_Thumbnail_509d51b9bb.png" width="120" height="40"
@@ -1247,7 +1248,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    37
+                    36
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_04010018_EN_Kazuda_Xiono_Leader_Unit_Thumbnail_fe48ed2877.png" width="120" height="40"
@@ -1279,7 +1280,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    38
+                    37
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0301012_EN_Anakin_Skywalker_Leader_Unit_Thumbnail_b397642854.png" width="120" height="40"
@@ -1311,7 +1312,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    39
+                    38
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_04010001_EN_Asajj_Ventress_Leader_Unit_Thumbnail_b8448790fe.png" width="120" height="40"
@@ -1343,7 +1344,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    40
+                    39
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0201002_EN_Qira_Leader_Unit_Thumbnail_5e24120f94.png" width="120" height="40"
@@ -1375,7 +1376,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    41
+                    40
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_014_Sabine_Wren_Thumbnail_509d51b9bb.png" width="120" height="40"
@@ -1407,7 +1408,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    42
+                    41
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_014_Sabine_Wren_Thumbnail_509d51b9bb.png" width="120" height="40"
@@ -1439,7 +1440,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    43
+                    42
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_04010009_EN_Boba_Fett_Leader_Unit_Thumbnail_ecf6fdcb78.png" width="120" height="40"
@@ -1471,7 +1472,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    44
+                    43
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0201017_EN_Lando_Calrissian_Leader_Unit_Thumbnail_091215132f.png" width="120" height="40"
@@ -1503,7 +1504,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    45
+                    44
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0201002_EN_Qira_Leader_Unit_Thumbnail_5e24120f94.png" width="120" height="40"
@@ -1535,7 +1536,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    46
+                    45
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_014_Sabine_Wren_Thumbnail_509d51b9bb.png" width="120" height="40"
@@ -1567,7 +1568,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    47
+                    46
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_014_Sabine_Wren_Thumbnail_509d51b9bb.png" width="120" height="40"
@@ -1599,7 +1600,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    48
+                    47
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_014_Sabine_Wren_Thumbnail_509d51b9bb.png" width="120" height="40"
@@ -1631,7 +1632,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    49
+                    48
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_04010018_EN_Kazuda_Xiono_Leader_Unit_Thumbnail_fe48ed2877.png" width="120" height="40"
@@ -1663,7 +1664,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    50
+                    49
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_04010009_EN_Boba_Fett_Leader_Unit_Thumbnail_ecf6fdcb78.png" width="120" height="40"
@@ -1695,7 +1696,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    51
+                    50
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0301012_EN_Anakin_Skywalker_Leader_Unit_Thumbnail_b397642854.png" width="120" height="40"
@@ -1727,7 +1728,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    52
+                    51
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0201014_EN_Cad_Bane_Leader_Unit_Thumbnail_906009d9e4.png" width="120" height="40"
@@ -1759,7 +1760,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    53
+                    52
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_014_Sabine_Wren_Thumbnail_509d51b9bb.png" width="120" height="40"
@@ -1791,7 +1792,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    54
+                    53
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_014_Sabine_Wren_Thumbnail_509d51b9bb.png" width="120" height="40"
@@ -1823,7 +1824,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    55
+                    54
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0201004_EN_Rey_Leader_Unit_Thumbnail_be4a507ea4.png" width="120" height="40"
@@ -1855,7 +1856,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    56
+                    55
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_014_Sabine_Wren_Thumbnail_509d51b9bb.png" width="120" height="40"
@@ -1887,7 +1888,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    57
+                    56
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_006_Emperor_Palpatine_Thumbnail_3090a45abe.png" width="120" height="40"
@@ -1919,7 +1920,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    58
+                    57
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0201014_EN_Cad_Bane_Leader_Unit_Thumbnail_906009d9e4.png" width="120" height="40"
@@ -1951,7 +1952,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    59
+                    58
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0201001_EN_Gar_Saxon_Leader_Unit_Thumbnail_42b2b26ec8.png" width="120" height="40"
@@ -1983,7 +1984,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    60
+                    59
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0201004_EN_Rey_Leader_Unit_Thumbnail_be4a507ea4.png" width="120" height="40"
@@ -2015,7 +2016,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    61
+                    60
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0201014_EN_Cad_Bane_Leader_Unit_Thumbnail_906009d9e4.png" width="120" height="40"
@@ -2047,7 +2048,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    62
+                    61
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_04010009_EN_Boba_Fett_Leader_Unit_Thumbnail_ecf6fdcb78.png" width="120" height="40"
@@ -2079,7 +2080,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    63
+                    62
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0201001_EN_Gar_Saxon_Leader_Unit_Thumbnail_42b2b26ec8.png" width="120" height="40"
@@ -2111,7 +2112,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    64
+                    63
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0201018_EN_The_Mandalorian_Leader_Unit_Thumbnail_1a3eee6983.png" width="120" height="40"
@@ -2143,7 +2144,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    65
+                    64
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0201014_EN_Cad_Bane_Leader_Unit_Thumbnail_906009d9e4.png" width="120" height="40"
@@ -2175,7 +2176,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    66
+                    65
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0201014_EN_Cad_Bane_Leader_Unit_Thumbnail_906009d9e4.png" width="120" height="40"
@@ -2207,7 +2208,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    67
+                    66
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0201008_EN_Boba_Fett_Leader_Unit_Thumbnail_a026f6caab.png" width="120" height="40"
@@ -2239,7 +2240,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    68
+                    67
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0301012_EN_Anakin_Skywalker_Leader_Unit_Thumbnail_b397642854.png" width="120" height="40"
@@ -2271,7 +2272,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    69
+                    68
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_04010002_EN_Grand_Admiral_Thrawn_Leader_Unit_Thumbnail_2df5a92952.png" width="120" height="40"
@@ -2303,7 +2304,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    70
+                    69
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0301018_EN_Quinlan_Vos_Leader_Unit_Thumbnail_694ffbd46c.png" width="120" height="40"
@@ -2335,7 +2336,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    71
+                    70
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_011_Grand_Inquisitor_Thumbnail_92b3c4de9e.png" width="120" height="40"
@@ -2367,7 +2368,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    72
+                    71
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com//thumbnail_0201014_EN_Cad_Bane_Leader_Unit_Thumbnail_906009d9e4.png" width="120" height="40"
@@ -2398,7 +2399,7 @@
                 <td class="align-middle text-end fit">
                   <span class="align-middle text-secondary" style="font-size: 80%">
                     
-                    73
+                    72
                   </span></td>
                 <td class="align-middle d-none d-md-table-cell fit">
                   <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_014_Sabine_Wren_Thumbnail_509d51b9bb.png" width="120" height="40"
@@ -2445,17 +2446,6 @@
   <div class="row">
   </div>
 </section>
-
-  <script type="text/javascript">
-    document.addEventListener('DOMContentLoaded', function() {
-      createHorizontalBarChart('chart-leaders', 'usage-leaders.json', {
-        title: 'Leaders',
-      });
-      createHorizontalBarChart('chart-bases', 'usage-bases.json', {
-        title: 'Bases',
-      });
-    });
-  </script>
 
   <pre class="d-none" id="swudb-deck-b7e6fe1dc68bf0e1e9d4b09721d66586">
     {
@@ -2616,9 +2606,6 @@
     "id" : "SHD_204",
     "count" : 2
   }, {
-    "id" : "SHD_231",
-    "count" : 3
-  }, {
     "id" : "SHD_248",
     "count" : 3
   }, {
@@ -2642,6 +2629,9 @@
   }, {
     "id" : "SOR_200",
     "count" : 2
+  }, {
+    "id" : "SOR_220",
+    "count" : 3
   }, {
     "id" : "SOR_222",
     "count" : 3
@@ -2892,9 +2882,6 @@
     "id" : "SHD_204",
     "count" : 2
   }, {
-    "id" : "SHD_231",
-    "count" : 2
-  }, {
     "id" : "SOR_141",
     "count" : 3
   }, {
@@ -2915,6 +2902,9 @@
   }, {
     "id" : "SOR_200",
     "count" : 3
+  }, {
+    "id" : "SOR_220",
+    "count" : 2
   }, {
     "id" : "SOR_222",
     "count" : 2
@@ -3258,9 +3248,6 @@
     "id" : "SHD_229",
     "count" : 3
   }, {
-    "id" : "SHD_231",
-    "count" : 3
-  }, {
     "id" : "SHD_232",
     "count" : 2
   }, {
@@ -3287,6 +3274,9 @@
   }, {
     "id" : "SOR_219",
     "count" : 1
+  }, {
+    "id" : "SOR_220",
+    "count" : 3
   }, {
     "id" : "TWI_187",
     "count" : 3
@@ -3465,9 +3455,6 @@
     "id" : "SHD_187",
     "count" : 2
   }, {
-    "id" : "SHD_231",
-    "count" : 3
-  }, {
     "id" : "SOR_031",
     "count" : 3
   }, {
@@ -3487,6 +3474,9 @@
     "count" : 3
   }, {
     "id" : "SOR_215",
+    "count" : 3
+  }, {
+    "id" : "SOR_220",
     "count" : 3
   }, {
     "id" : "SOR_222",
@@ -3657,9 +3647,6 @@
     "id" : "SHD_202",
     "count" : 3
   }, {
-    "id" : "SHD_231",
-    "count" : 3
-  }, {
     "id" : "SOR_141",
     "count" : 3
   }, {
@@ -3673,6 +3660,9 @@
     "count" : 3
   }, {
     "id" : "SOR_193",
+    "count" : 3
+  }, {
+    "id" : "SOR_220",
     "count" : 3
   }, {
     "id" : "SOR_222",
@@ -3843,9 +3833,6 @@
     "id" : "SHD_203",
     "count" : 1
   }, {
-    "id" : "SHD_231",
-    "count" : 3
-  }, {
     "id" : "SOR_141",
     "count" : 3
   }, {
@@ -3872,6 +3859,9 @@
   }, {
     "id" : "SOR_199",
     "count" : 2
+  }, {
+    "id" : "SOR_220",
+    "count" : 3
   }, {
     "id" : "TWI_196",
     "count" : 3
@@ -4221,9 +4211,6 @@
     "id" : "SHD_178",
     "count" : 2
   }, {
-    "id" : "SHD_231",
-    "count" : 2
-  }, {
     "id" : "SOR_134",
     "count" : 3
   }, {
@@ -4238,6 +4225,9 @@
   }, {
     "id" : "SOR_186",
     "count" : 3
+  }, {
+    "id" : "SOR_220",
+    "count" : 2
   }, {
     "id" : "SOR_222",
     "count" : 3
@@ -4395,9 +4385,6 @@
     "id" : "SHD_229",
     "count" : 3
   }, {
-    "id" : "SHD_231",
-    "count" : 3
-  }, {
     "id" : "SOR_178",
     "count" : 3
   }, {
@@ -4418,6 +4405,9 @@
   }, {
     "id" : "SOR_219",
     "count" : 2
+  }, {
+    "id" : "SOR_220",
+    "count" : 3
   }, {
     "id" : "SOR_222",
     "count" : 2
@@ -4476,9 +4466,6 @@
     "id" : "SHD_184",
     "count" : 2
   }, {
-    "id" : "SHD_231",
-    "count" : 3
-  }, {
     "id" : "SOR_092",
     "count" : 3
   }, {
@@ -4493,6 +4480,9 @@
   }, {
     "id" : "SOR_199",
     "count" : 2
+  }, {
+    "id" : "SOR_220",
+    "count" : 3
   }, {
     "id" : "SOR_224",
     "count" : 2
@@ -4677,9 +4667,6 @@
     "id" : "SHD_229",
     "count" : 3
   }, {
-    "id" : "SHD_231",
-    "count" : 3
-  }, {
     "id" : "SOR_134",
     "count" : 3
   }, {
@@ -4699,6 +4686,9 @@
     "count" : 3
   }, {
     "id" : "SOR_207",
+    "count" : 3
+  }, {
+    "id" : "SOR_220",
     "count" : 3
   }, {
     "id" : "SOR_222",
@@ -4773,9 +4763,6 @@
     "id" : "SHD_182",
     "count" : 2
   }, {
-    "id" : "SHD_231",
-    "count" : 3
-  }, {
     "id" : "SOR_134",
     "count" : 3
   }, {
@@ -4783,6 +4770,9 @@
     "count" : 3
   }, {
     "id" : "SOR_219",
+    "count" : 3
+  }, {
+    "id" : "SOR_220",
     "count" : 3
   } ],
   "sideboard" : [ {
@@ -4854,9 +4844,6 @@
     "id" : "SHD_204",
     "count" : 2
   }, {
-    "id" : "SHD_231",
-    "count" : 3
-  }, {
     "id" : "SHD_248",
     "count" : 3
   }, {
@@ -4874,6 +4861,9 @@
   }, {
     "id" : "SOR_198",
     "count" : 2
+  }, {
+    "id" : "SOR_220",
+    "count" : 3
   }, {
     "id" : "SOR_222",
     "count" : 2
@@ -5052,9 +5042,6 @@
     "id" : "SHD_195",
     "count" : 3
   }, {
-    "id" : "SHD_231",
-    "count" : 3
-  }, {
     "id" : "SOR_140",
     "count" : 1
   }, {
@@ -5078,6 +5065,9 @@
   }, {
     "id" : "SOR_199",
     "count" : 2
+  }, {
+    "id" : "SOR_220",
+    "count" : 3
   }, {
     "id" : "SOR_237",
     "count" : 2
@@ -5346,9 +5336,6 @@
     "id" : "SHD_229",
     "count" : 3
   }, {
-    "id" : "SHD_231",
-    "count" : 2
-  }, {
     "id" : "SHD_232",
     "count" : 2
   }, {
@@ -5378,6 +5365,9 @@
   }, {
     "id" : "SOR_219",
     "count" : 1
+  }, {
+    "id" : "SOR_220",
+    "count" : 2
   }, {
     "id" : "SOR_222",
     "count" : 2
@@ -5559,9 +5549,6 @@
     "id" : "SHD_064",
     "count" : 2
   }, {
-    "id" : "SHD_128",
-    "count" : 2
-  }, {
     "id" : "SHD_256",
     "count" : 3
   }, {
@@ -5579,6 +5566,9 @@
   }, {
     "id" : "TWI_039",
     "count" : 3
+  }, {
+    "id" : "TWI_123",
+    "count" : 2
   } ],
   "sideboard" : [ {
     "id" : "JTL_043",
@@ -5859,9 +5849,6 @@
     "id" : "SHD_195",
     "count" : 3
   }, {
-    "id" : "SHD_231",
-    "count" : 3
-  }, {
     "id" : "SOR_145",
     "count" : 3
   }, {
@@ -5873,6 +5860,9 @@
   }, {
     "id" : "SOR_199",
     "count" : 2
+  }, {
+    "id" : "SOR_220",
+    "count" : 3
   }, {
     "id" : "TWI_225",
     "count" : 3
@@ -6546,9 +6536,6 @@
     "id" : "SHD_204",
     "count" : 2
   }, {
-    "id" : "SHD_231",
-    "count" : 2
-  }, {
     "id" : "SHD_248",
     "count" : 3
   }, {
@@ -6565,6 +6552,9 @@
     "count" : 2
   }, {
     "id" : "SOR_204",
+    "count" : 2
+  }, {
+    "id" : "SOR_220",
     "count" : 2
   }, {
     "id" : "SOR_222",
@@ -7014,9 +7004,6 @@
     "id" : "SHD_195",
     "count" : 3
   }, {
-    "id" : "SHD_231",
-    "count" : 3
-  }, {
     "id" : "SHD_262",
     "count" : 3
   }, {
@@ -7027,6 +7014,9 @@
     "count" : 3
   }, {
     "id" : "SOR_215",
+    "count" : 3
+  }, {
+    "id" : "SOR_220",
     "count" : 3
   } ],
   "sideboard" : [ {
@@ -7779,6 +7769,9 @@
     "id" : "SOR_109",
     "count" : 3
   }, {
+    "id" : "SOR_111",
+    "count" : 2
+  }, {
     "id" : "SOR_119",
     "count" : 2
   }, {
@@ -7795,9 +7788,6 @@
     "count" : 3
   }, {
     "id" : "TWI_101",
-    "count" : 2
-  }, {
-    "id" : "TWI_107",
     "count" : 2
   }, {
     "id" : "TWI_116",
@@ -7968,12 +7958,6 @@
     "id" : "SHD_187",
     "count" : 3
   }, {
-    "id" : "SHD_231",
-    "count" : 3
-  }, {
-    "id" : "SHD_236",
-    "count" : 3
-  }, {
     "id" : "SOR_031",
     "count" : 3
   }, {
@@ -7992,8 +7976,14 @@
     "id" : "SOR_218",
     "count" : 2
   }, {
+    "id" : "SOR_220",
+    "count" : 3
+  }, {
     "id" : "SOR_222",
     "count" : 2
+  }, {
+    "id" : "SOR_227",
+    "count" : 3
   }, {
     "id" : "SOR_231",
     "count" : 3
@@ -8136,9 +8126,6 @@
     "id" : "SHD_229",
     "count" : 3
   }, {
-    "id" : "SHD_231",
-    "count" : 2
-  }, {
     "id" : "SHD_232",
     "count" : 3
   }, {
@@ -8162,6 +8149,9 @@
   }, {
     "id" : "SOR_207",
     "count" : 3
+  }, {
+    "id" : "SOR_220",
+    "count" : 2
   }, {
     "id" : "SOR_222",
     "count" : 2
@@ -8235,9 +8225,6 @@
     "id" : "SHD_135",
     "count" : 3
   }, {
-    "id" : "SHD_231",
-    "count" : 3
-  }, {
     "id" : "SOR_134",
     "count" : 3
   }, {
@@ -8248,6 +8235,9 @@
     "count" : 3
   }, {
     "id" : "SOR_219",
+    "count" : 3
+  }, {
+    "id" : "SOR_220",
     "count" : 3
   }, {
     "id" : "TWI_138",
@@ -8313,9 +8303,6 @@
     "id" : "SHD_174",
     "count" : 3
   }, {
-    "id" : "SHD_231",
-    "count" : 3
-  }, {
     "id" : "SOR_031",
     "count" : 2
   }, {
@@ -8335,6 +8322,9 @@
     "count" : 3
   }, {
     "id" : "SOR_215",
+    "count" : 3
+  }, {
+    "id" : "SOR_220",
     "count" : 3
   }, {
     "id" : "SOR_221",
@@ -8406,9 +8396,6 @@
     "id" : "SHD_204",
     "count" : 2
   }, {
-    "id" : "SHD_231",
-    "count" : 2
-  }, {
     "id" : "SOR_098",
     "count" : 3
   }, {
@@ -8423,6 +8410,9 @@
   }, {
     "id" : "SOR_215",
     "count" : 3
+  }, {
+    "id" : "SOR_220",
+    "count" : 2
   }, {
     "id" : "SOR_222",
     "count" : 2
@@ -8484,9 +8474,6 @@
     "id" : "SHD_229",
     "count" : 3
   }, {
-    "id" : "SHD_231",
-    "count" : 2
-  }, {
     "id" : "SHD_232",
     "count" : 2
   }, {
@@ -8513,6 +8500,9 @@
   }, {
     "id" : "SOR_207",
     "count" : 3
+  }, {
+    "id" : "SOR_220",
+    "count" : 2
   }, {
     "id" : "SOR_222",
     "count" : 3
@@ -8679,9 +8669,6 @@
     "id" : "SHD_224",
     "count" : 2
   }, {
-    "id" : "SHD_231",
-    "count" : 2
-  }, {
     "id" : "SHD_248",
     "count" : 2
   }, {
@@ -8699,6 +8686,9 @@
   }, {
     "id" : "SOR_213",
     "count" : 3
+  }, {
+    "id" : "SOR_220",
+    "count" : 2
   }, {
     "id" : "SOR_222",
     "count" : 3
@@ -9003,9 +8993,6 @@
     "id" : "SHD_181",
     "count" : 2
   }, {
-    "id" : "SHD_231",
-    "count" : 3
-  }, {
     "id" : "SOR_167",
     "count" : 3
   }, {
@@ -9014,6 +9001,9 @@
   }, {
     "id" : "SOR_199",
     "count" : 2
+  }, {
+    "id" : "SOR_220",
+    "count" : 3
   }, {
     "id" : "SOR_222",
     "count" : 3
@@ -9153,9 +9143,6 @@
     "id" : "SHD_229",
     "count" : 3
   }, {
-    "id" : "SHD_231",
-    "count" : 3
-  }, {
     "id" : "SHD_232",
     "count" : 2
   }, {
@@ -9182,6 +9169,9 @@
   }, {
     "id" : "SOR_219",
     "count" : 1
+  }, {
+    "id" : "SOR_220",
+    "count" : 3
   }, {
     "id" : "TWI_187",
     "count" : 3
