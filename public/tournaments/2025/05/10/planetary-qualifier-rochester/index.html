@@ -90,11 +90,436 @@
     </dl>
   </div>
 
+    <div class="row">
+      <div class="col-lg-6">
+        <div style="width: 100%; min-height: 400px" class="bar-chart" data-url="usage-leaders.json" data-title="Leaders"></div>
+      </div>
+      <div class="col-lg-6">
+        <div id="chart-bases" style="width: 100%; min-height: 400px" class="bar-chart" data-url="usage-bases.json" data-title="Bases"></div>
+      </div>
+    </div>
+    <div class="row mb-4">
+      <div class="col text-end"><a href="/tournaments/2025/05/10/planetary-qualifier-rochester/statistics.html" class="sw-link" style="font-size: 90%">
+        <i class="bi bi-bar-chart-fill me-2"></i>more statistics...</a></div>
+    </div>
 
   <div class="row">
     <div class="col-12">
-        <p class="my-4"><i class="text-warning bi bi-exclamation-triangle-fill me-1"></i>
-          <strong>No deck found</strong>: please try again later</p>
+        <div id="decks-container" class="table-responsive">
+          <div class="search-container">
+            <input type="text" class="form-control search-input search" placeholder="Search..."
+                   onkeydown="showMoreDecks()" spellcheck="false" autocorrect="off" autocomplete="off"
+                   autocapitalize="off">
+            <i class="bi bi-search search-icon"></i>
+          </div>
+          <table id="decks" class="table table-hover sw-table">
+            <thead>
+            <tr>
+              <th scope="col" class="text-end">#</th>
+              <th scope="col">Decklist</th>
+              <th scope="col" class="d-none d-md-table-cell">&nbsp;</th>
+              <th scope="col" class="d-none d-md-table-cell">&nbsp;</th>
+              <th scope="col" class="text-center d-none d-md-table-cell">Record</th>
+              <th scope="col" class="text-center d-none d-md-table-cell">Aspects</th>
+              <th scope="col" class="text-end">Player</th>
+            </tr>
+            </thead>
+            <tbody class="list">
+              <tr class="d-none">
+                <td class="align-middle text-end fit">
+                  <span class="align-middle text-secondary" style="font-size: 80%">
+                    
+                    1
+                  </span></td>
+                <td class="align-middle d-none d-md-table-cell fit">
+                  <img src="https://cdn.starwarsunlimited.com//thumbnail_0201004_EN_Rey_Leader_Unit_Thumbnail_be4a507ea4.png" width="120" height="40"
+                       class="rounded rounded-1 d-inline-block me-2"/>
+                  <img src="https://cdn.starwarsunlimited.com//thumbnail_04010024_EN_Data_Vault_Base_Thumbnail_a08b0130d8.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
+                </td>
+                <td class="align-middle deck-list">
+                  <span class="align-middle"><a href="https://melee.gg/Decklist/View/be680a73-26aa-4793-b005-b2d9011d188e" target="_blank">Rey (SHD) - Data Vault</a></span>
+                </td>
+                <td class="align-middle text-center d-none d-md-table-cell fit">
+                  <button class="btn-copy align-middle ms-2 btn btn-success btn-sm"
+                          onclick="copyDeck('swudb-deck-3d8bccdc94b0df173003c29cd2e45c45');">
+                    <i class="bi bi-copy me-1"></i>.json
+                  </button>
+                </td>
+                <td class="align-middle text-center d-none d-md-table-cell fit">
+                  <span class="align-middle">7-2-0</span>
+                </td>
+                <td class="align-middle text-center d-none d-md-table-cell fit">
+                    <img src="/images/aspect_heroism.png" width="32" height="32"/>
+                    <img src="/images/aspect_vigilance.png" width="32" height="32"/>
+                    <img src="/images/aspect_command.png" width="32" height="32"/>
+                </td>
+                <td class="align-middle text-end fit deck-player">
+                  <span class="align-middle">GleS2</span>
+                </td>
+              </tr>
+              <tr class="d-none">
+                <td class="align-middle text-end fit">
+                  <span class="align-middle text-secondary" style="font-size: 80%">
+                    
+                    2
+                  </span></td>
+                <td class="align-middle d-none d-md-table-cell fit">
+                  <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_014_Sabine_Wren_Thumbnail_509d51b9bb.png" width="120" height="40"
+                       class="rounded rounded-1 d-inline-block me-2"/>
+                  <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_022_Energy_Conversion_Lab_Thumbnail_236456f6f4.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
+                </td>
+                <td class="align-middle deck-list">
+                  <span class="align-middle"><a href="https://melee.gg/Decklist/View/0db76968-cab0-47e0-a8f3-b2d9011d64cd" target="_blank">Sabine Wren (SOR) - Energy Conversion Lab</a></span>
+                </td>
+                <td class="align-middle text-center d-none d-md-table-cell fit">
+                  <button class="btn-copy align-middle ms-2 btn btn-success btn-sm"
+                          onclick="copyDeck('swudb-deck-2e6968ceb062d904b99a8afcf35730d1');">
+                    <i class="bi bi-copy me-1"></i>.json
+                  </button>
+                </td>
+                <td class="align-middle text-center d-none d-md-table-cell fit">
+                  <span class="align-middle">6-2-1</span>
+                </td>
+                <td class="align-middle text-center d-none d-md-table-cell fit">
+                    <img src="/images/aspect_heroism.png" width="32" height="32"/>
+                    <img src="/images/aspect_command.png" width="32" height="32"/>
+                    <img src="/images/aspect_aggression.png" width="32" height="32"/>
+                </td>
+                <td class="align-middle text-end fit deck-player">
+                  <span class="align-middle">seeweed</span>
+                </td>
+              </tr>
+              <tr class="d-none">
+                <td class="align-middle text-end fit">
+                  <span class="align-middle text-secondary" style="font-size: 80%">
+                    
+                    3
+                  </span></td>
+                <td class="align-middle d-none d-md-table-cell fit">
+                  <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_017_Han_Solo_Thumbnail_0d922f48af.png" width="120" height="40"
+                       class="rounded rounded-1 d-inline-block me-2"/>
+                  <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_023_Command_Center_Thumbnail_8a46d7dcf4.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
+                </td>
+                <td class="align-middle deck-list">
+                  <span class="align-middle"><a href="https://melee.gg/Decklist/View/01e2ab2e-03bc-4ccf-9987-b2d9011e6efd" target="_blank">Han Solo (SOR) - Green</a></span>
+                </td>
+                <td class="align-middle text-center d-none d-md-table-cell fit">
+                  <button class="btn-copy align-middle ms-2 btn btn-success btn-sm"
+                          onclick="copyDeck('swudb-deck-44488cb089072c267f52d5fadc911c47');">
+                    <i class="bi bi-copy me-1"></i>.json
+                  </button>
+                </td>
+                <td class="align-middle text-center d-none d-md-table-cell fit">
+                  <span class="align-middle">5-1-2</span>
+                </td>
+                <td class="align-middle text-center d-none d-md-table-cell fit">
+                    <img src="/images/aspect_heroism.png" width="32" height="32"/>
+                    <img src="/images/aspect_command.png" width="32" height="32"/>
+                    <img src="/images/aspect_cunning.png" width="32" height="32"/>
+                </td>
+                <td class="align-middle text-end fit deck-player">
+                  <span class="align-middle">gcal27</span>
+                </td>
+              </tr>
+              <tr class="d-none">
+                <td class="align-middle text-end fit">
+                  <span class="align-middle text-secondary" style="font-size: 80%">
+                    
+                    4
+                  </span></td>
+                <td class="align-middle d-none d-md-table-cell fit">
+                  <img src="https://cdn.starwarsunlimited.com//thumbnail_04010009_EN_Boba_Fett_Leader_Unit_Thumbnail_ecf6fdcb78.png" width="120" height="40"
+                       class="rounded rounded-1 d-inline-block me-2"/>
+                  <img src="https://cdn.starwarsunlimited.com//thumbnail_0201026_EN_Jabbas_Palace_Base_Thumbnail_e93bd4edc9.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
+                </td>
+                <td class="align-middle deck-list">
+                  <span class="align-middle"><a href="https://melee.gg/Decklist/View/6bf927ba-f4d4-45eb-9e1a-b2d9011c585d" target="_blank">Boba Fett (JTL) - Yellow</a></span>
+                </td>
+                <td class="align-middle text-center d-none d-md-table-cell fit">
+                  <button class="btn-copy align-middle ms-2 btn btn-success btn-sm"
+                          onclick="copyDeck('swudb-deck-3a54a73748dfe660236749f403251907');">
+                    <i class="bi bi-copy me-1"></i>.json
+                  </button>
+                </td>
+                <td class="align-middle text-center d-none d-md-table-cell fit">
+                  <span class="align-middle">5-1-2</span>
+                </td>
+                <td class="align-middle text-center d-none d-md-table-cell fit">
+                    <img src="/images/aspect_villainy.png" width="32" height="32"/>
+                    <img src="/images/aspect_aggression.png" width="32" height="32"/>
+                    <img src="/images/aspect_cunning.png" width="32" height="32"/>
+                </td>
+                <td class="align-middle text-end fit deck-player">
+                  <span class="align-middle">KeiG2</span>
+                </td>
+              </tr>
+              <tr class="d-none">
+                <td class="align-middle text-end fit">
+                  <span class="align-middle text-secondary" style="font-size: 80%">
+                    
+                    6
+                  </span></td>
+                <td class="align-middle d-none d-md-table-cell fit">
+                  <img src="https://cdn.starwarsunlimited.com//thumbnail_0301018_EN_Quinlan_Vos_Leader_Unit_Thumbnail_694ffbd46c.png" width="120" height="40"
+                       class="rounded rounded-1 d-inline-block me-2"/>
+                  <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_025_Tarkintown_Thumbnail_073f15e38f.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
+                </td>
+                <td class="align-middle deck-list">
+                  <span class="align-middle"><a href="https://melee.gg/Decklist/View/6d68207b-b671-4b60-81e0-b2d9010f4001" target="_blank">Quinlan Vos (TWI) - Tarkintown</a></span>
+                </td>
+                <td class="align-middle text-center d-none d-md-table-cell fit">
+                  <button class="btn-copy align-middle ms-2 btn btn-success btn-sm"
+                          onclick="copyDeck('swudb-deck-080b754c4143544c51c21adc49a33d96');">
+                    <i class="bi bi-copy me-1"></i>.json
+                  </button>
+                </td>
+                <td class="align-middle text-center d-none d-md-table-cell fit">
+                  <span class="align-middle">4-1-2</span>
+                </td>
+                <td class="align-middle text-center d-none d-md-table-cell fit">
+                    <img src="/images/aspect_heroism.png" width="32" height="32"/>
+                    <img src="/images/aspect_aggression.png" width="32" height="32"/>
+                    <img src="/images/aspect_cunning.png" width="32" height="32"/>
+                </td>
+                <td class="align-middle text-end fit deck-player">
+                  <span class="align-middle">EKohl25</span>
+                </td>
+              </tr>
+              <tr class="d-none">
+                <td class="align-middle text-end fit">
+                  <span class="align-middle text-secondary" style="font-size: 80%">
+                    
+                    7
+                  </span></td>
+                <td class="align-middle d-none d-md-table-cell fit">
+                  <img src="https://cdn.starwarsunlimited.com//thumbnail_0201014_EN_Cad_Bane_Leader_Unit_Thumbnail_906009d9e4.png" width="120" height="40"
+                       class="rounded rounded-1 d-inline-block me-2"/>
+                  <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_025_Tarkintown_Thumbnail_073f15e38f.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
+                </td>
+                <td class="align-middle deck-list">
+                  <span class="align-middle"><a href="https://melee.gg/Decklist/View/900023e1-a04c-4b1b-9a57-b2d9011cea1b" target="_blank">Cad Bane (SHD) - Tarkintown</a></span>
+                </td>
+                <td class="align-middle text-center d-none d-md-table-cell fit">
+                  <button class="btn-copy align-middle ms-2 btn btn-success btn-sm"
+                          onclick="copyDeck('swudb-deck-4f91446cdf719e5f3e5fc622f814a19e');">
+                    <i class="bi bi-copy me-1"></i>.json
+                  </button>
+                </td>
+                <td class="align-middle text-center d-none d-md-table-cell fit">
+                  <span class="align-middle">4-1-2</span>
+                </td>
+                <td class="align-middle text-center d-none d-md-table-cell fit">
+                    <img src="/images/aspect_villainy.png" width="32" height="32"/>
+                    <img src="/images/aspect_aggression.png" width="32" height="32"/>
+                    <img src="/images/aspect_cunning.png" width="32" height="32"/>
+                </td>
+                <td class="align-middle text-end fit deck-player">
+                  <span class="align-middle">JoshK96</span>
+                </td>
+              </tr>
+              <tr class="d-none">
+                <td class="align-middle text-end fit">
+                  <span class="align-middle text-secondary" style="font-size: 80%">
+                    
+                    8
+                  </span></td>
+                <td class="align-middle d-none d-md-table-cell fit">
+                  <img src="https://cdn.starwarsunlimited.com//thumbnail_0201014_EN_Cad_Bane_Leader_Unit_Thumbnail_906009d9e4.png" width="120" height="40"
+                       class="rounded rounded-1 d-inline-block me-2"/>
+                  <img src="https://cdn.starwarsunlimited.com//thumbnail_04010024_EN_Data_Vault_Base_Thumbnail_a08b0130d8.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
+                </td>
+                <td class="align-middle deck-list">
+                  <span class="align-middle"><a href="https://melee.gg/Decklist/View/9c26abe5-56a9-4be5-abba-b2d9011c74ae" target="_blank">Cad Bane (SHD) - Data Vault</a></span>
+                </td>
+                <td class="align-middle text-center d-none d-md-table-cell fit">
+                  <button class="btn-copy align-middle ms-2 btn btn-success btn-sm"
+                          onclick="copyDeck('swudb-deck-3498684060b2f1f777bcdbe304803221');">
+                    <i class="bi bi-copy me-1"></i>.json
+                  </button>
+                </td>
+                <td class="align-middle text-center d-none d-md-table-cell fit">
+                  <span class="align-middle">4-1-2</span>
+                </td>
+                <td class="align-middle text-center d-none d-md-table-cell fit">
+                    <img src="/images/aspect_villainy.png" width="32" height="32"/>
+                    <img src="/images/aspect_command.png" width="32" height="32"/>
+                    <img src="/images/aspect_cunning.png" width="32" height="32"/>
+                </td>
+                <td class="align-middle text-end fit deck-player">
+                  <span class="align-middle">Koto</span>
+                </td>
+              </tr>
+              <tr class="d-none">
+                <td class="align-middle text-end fit">
+                  <span class="align-middle text-secondary" style="font-size: 80%">
+                    
+                    9
+                  </span></td>
+                <td class="align-middle d-none d-md-table-cell fit">
+                  <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_006_Emperor_Palpatine_Thumbnail_3090a45abe.png" width="120" height="40"
+                       class="rounded rounded-1 d-inline-block me-2"/>
+                  <img src="https://cdn.starwarsunlimited.com//thumbnail_04010024_EN_Data_Vault_Base_Thumbnail_a08b0130d8.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
+                </td>
+                <td class="align-middle deck-list">
+                  <span class="align-middle"><a href="https://melee.gg/Decklist/View/903042ec-e540-4954-afc8-b2d9011c4bac" target="_blank">Emperor Palpatine (SOR) - Data Vault</a></span>
+                </td>
+                <td class="align-middle text-center d-none d-md-table-cell fit">
+                  <button class="btn-copy align-middle ms-2 btn btn-success btn-sm"
+                          onclick="copyDeck('swudb-deck-41cd07e1dbfb025944f098be625b16e4');">
+                    <i class="bi bi-copy me-1"></i>.json
+                  </button>
+                </td>
+                <td class="align-middle text-center d-none d-md-table-cell fit">
+                  <span class="align-middle">4-0-3</span>
+                </td>
+                <td class="align-middle text-center d-none d-md-table-cell fit">
+                    <img src="/images/aspect_villainy.png" width="32" height="32"/>
+                    <img src="/images/aspect_command.png" width="32" height="32"/>
+                    <img src="/images/aspect_command.png" width="32" height="32"/>
+                </td>
+                <td class="align-middle text-end fit deck-player">
+                  <span class="align-middle">TheCervini</span>
+                </td>
+              </tr>
+              <tr class="d-none">
+                <td class="align-middle text-end fit">
+                  <span class="align-middle text-secondary" style="font-size: 80%">
+                    
+                    18
+                  </span></td>
+                <td class="align-middle d-none d-md-table-cell fit">
+                  <img src="https://cdn.starwarsunlimited.com//thumbnail_0201004_EN_Rey_Leader_Unit_Thumbnail_be4a507ea4.png" width="120" height="40"
+                       class="rounded rounded-1 d-inline-block me-2"/>
+                  <img src="https://cdn.starwarsunlimited.com//thumbnail_04010024_EN_Data_Vault_Base_Thumbnail_a08b0130d8.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
+                </td>
+                <td class="align-middle deck-list">
+                  <span class="align-middle"><a href="https://melee.gg/Decklist/View/d71b9915-c47a-4f90-be13-b2d9011c6586" target="_blank">Rey (SHD) - Data Vault</a></span>
+                </td>
+                <td class="align-middle text-center d-none d-md-table-cell fit">
+                  <button class="btn-copy align-middle ms-2 btn btn-success btn-sm"
+                          onclick="copyDeck('swudb-deck-09a6f283fb3a992e31f196d8c18ac0ff');">
+                    <i class="bi bi-copy me-1"></i>.json
+                  </button>
+                </td>
+                <td class="align-middle text-center d-none d-md-table-cell fit">
+                  <span class="align-middle">2-3-1</span>
+                </td>
+                <td class="align-middle text-center d-none d-md-table-cell fit">
+                    <img src="/images/aspect_heroism.png" width="32" height="32"/>
+                    <img src="/images/aspect_vigilance.png" width="32" height="32"/>
+                    <img src="/images/aspect_command.png" width="32" height="32"/>
+                </td>
+                <td class="align-middle text-end fit deck-player">
+                  <span class="align-middle">Critchenator</span>
+                </td>
+              </tr>
+              <tr class="d-none">
+                <td class="align-middle text-end fit">
+                  <span class="align-middle text-secondary" style="font-size: 80%">
+                    
+                    21
+                  </span></td>
+                <td class="align-middle d-none d-md-table-cell fit">
+                  <img src="https://cdn.starwarsunlimited.com//thumbnail_0201002_EN_Qira_Leader_Unit_Thumbnail_5e24120f94.png" width="120" height="40"
+                       class="rounded rounded-1 d-inline-block me-2"/>
+                  <img src="https://cdn.starwarsunlimited.com//thumbnail_04010024_EN_Data_Vault_Base_Thumbnail_a08b0130d8.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
+                </td>
+                <td class="align-middle deck-list">
+                  <span class="align-middle"><a href="https://melee.gg/Decklist/View/ac1a6aba-2ea6-4f23-96b3-b2d9011caab4" target="_blank">Qi&#x27;ra (SHD) - Data Vault</a></span>
+                </td>
+                <td class="align-middle text-center d-none d-md-table-cell fit">
+                  <button class="btn-copy align-middle ms-2 btn btn-success btn-sm"
+                          onclick="copyDeck('swudb-deck-6bb669f0339c5938531694f43b9135e2');">
+                    <i class="bi bi-copy me-1"></i>.json
+                  </button>
+                </td>
+                <td class="align-middle text-center d-none d-md-table-cell fit">
+                  <span class="align-middle">3-0-3</span>
+                </td>
+                <td class="align-middle text-center d-none d-md-table-cell fit">
+                    <img src="/images/aspect_villainy.png" width="32" height="32"/>
+                    <img src="/images/aspect_vigilance.png" width="32" height="32"/>
+                    <img src="/images/aspect_command.png" width="32" height="32"/>
+                </td>
+                <td class="align-middle text-end fit deck-player">
+                  <span class="align-middle">KidKly</span>
+                </td>
+              </tr>
+              <tr class="d-none">
+                <td class="align-middle text-end fit">
+                  <span class="align-middle text-secondary" style="font-size: 80%">
+                    
+                    25
+                  </span></td>
+                <td class="align-middle d-none d-md-table-cell fit">
+                  <img src="https://cdn.starwarsunlimited.com//thumbnail_04010006_EN_Darth_Vader_Leader_Unit_Thumbnail_08201df668.png" width="120" height="40"
+                       class="rounded rounded-1 d-inline-block me-2"/>
+                  <img src="https://cdn.starwarsunlimited.com//thumbnail_04010030_EN_Mos_Eisley_Base_Thumbnail_96b581f371.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
+                </td>
+                <td class="align-middle deck-list">
+                  <span class="align-middle"><a href="https://melee.gg/Decklist/View/c27ca829-fd47-4f6a-b3ed-b2d9011e1984" target="_blank">Darth Vader (JTL) - Yellow</a></span>
+                </td>
+                <td class="align-middle text-center d-none d-md-table-cell fit">
+                  <button class="btn-copy align-middle ms-2 btn btn-success btn-sm"
+                          onclick="copyDeck('swudb-deck-6da4bd0f4e50434a0fcebe4417c7cea4');">
+                    <i class="bi bi-copy me-1"></i>.json
+                  </button>
+                </td>
+                <td class="align-middle text-center d-none d-md-table-cell fit">
+                  <span class="align-middle">2-1-3</span>
+                </td>
+                <td class="align-middle text-center d-none d-md-table-cell fit">
+                    <img src="/images/aspect_villainy.png" width="32" height="32"/>
+                    <img src="/images/aspect_command.png" width="32" height="32"/>
+                    <img src="/images/aspect_cunning.png" width="32" height="32"/>
+                </td>
+                <td class="align-middle text-end fit deck-player">
+                  <span class="align-middle">Androuis</span>
+                </td>
+              </tr>
+              <tr class="d-none">
+                <td class="align-middle text-end fit">
+                  <span class="align-middle text-secondary" style="font-size: 80%">
+                    
+                    30
+                  </span></td>
+                <td class="align-middle d-none d-md-table-cell fit">
+                  <img src="https://cdn.starwarsunlimited.com//thumbnail_04010018_EN_Kazuda_Xiono_Leader_Unit_Thumbnail_fe48ed2877.png" width="120" height="40"
+                       class="rounded rounded-1 d-inline-block me-2"/>
+                  <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_026_Catacombs_of_Cadera_Thumbnail_bcda5d865e.png" width="120" height="40" class="rounded rounded-1 d-inline-block"/>
+                </td>
+                <td class="align-middle deck-list">
+                  <span class="align-middle"><a href="https://melee.gg/Decklist/View/6633c9fb-00f5-4897-8490-b2d90137c71d" target="_blank">Kazuda Xiono (JTL) - Red</a></span>
+                </td>
+                <td class="align-middle text-center d-none d-md-table-cell fit">
+                  <button class="btn-copy align-middle ms-2 btn btn-success btn-sm"
+                          onclick="copyDeck('swudb-deck-971c58cd3ec26ea0fc97e238d7f184d2');">
+                    <i class="bi bi-copy me-1"></i>.json
+                  </button>
+                </td>
+                <td class="align-middle text-center d-none d-md-table-cell fit">
+                  <span class="align-middle">2-0-4</span>
+                </td>
+                <td class="align-middle text-center d-none d-md-table-cell fit">
+                    <img src="/images/aspect_heroism.png" width="32" height="32"/>
+                    <img src="/images/aspect_aggression.png" width="32" height="32"/>
+                    <img src="/images/aspect_cunning.png" width="32" height="32"/>
+                </td>
+                <td class="align-middle text-end fit deck-player">
+                  <span class="align-middle">Rilelikins30</span>
+                </td>
+              </tr>
+            </tbody>
+            <tfooter>
+              <tr class="text-center" id="showMoreSection">
+                <td colspan="7">
+                  <button class="btn btn-sw m-2" onclick="showMoreDecks();">
+                    Show more <i class="bi bi-caret-down-fill"></i></button>
+                </td>
+              </tr>
+            </tfooter>
+          </table>
+        </div>
     </div>
   </div>
 </section>
@@ -104,6 +529,1218 @@
   </div>
 </section>
 
+  <pre class="d-none" id="swudb-deck-3d8bccdc94b0df173003c29cd2e45c45">
+    {
+  "metadata" : {
+    "name" : "Rey (SHD) - Data Vault",
+    "author" : "GleS2"
+  },
+  "leader" : {
+    "id" : "SHD_004",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "JTL_024",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_096",
+    "count" : 3
+  }, {
+    "id" : "SHD_043",
+    "count" : 3
+  }, {
+    "id" : "SHD_078",
+    "count" : 3
+  }, {
+    "id" : "SHD_095",
+    "count" : 2
+  }, {
+    "id" : "SHD_098",
+    "count" : 3
+  }, {
+    "id" : "SHD_105",
+    "count" : 3
+  }, {
+    "id" : "SHD_248",
+    "count" : 3
+  }, {
+    "id" : "SOR_045",
+    "count" : 2
+  }, {
+    "id" : "SOR_051",
+    "count" : 3
+  }, {
+    "id" : "SOR_072",
+    "count" : 3
+  }, {
+    "id" : "SOR_077",
+    "count" : 3
+  }, {
+    "id" : "SOR_093",
+    "count" : 2
+  }, {
+    "id" : "SOR_096",
+    "count" : 3
+  }, {
+    "id" : "SOR_097",
+    "count" : 2
+  }, {
+    "id" : "SOR_099",
+    "count" : 3
+  }, {
+    "id" : "SOR_102",
+    "count" : 3
+  }, {
+    "id" : "SOR_104",
+    "count" : 3
+  }, {
+    "id" : "SOR_122",
+    "count" : 3
+  }, {
+    "id" : "SOR_126",
+    "count" : 3
+  }, {
+    "id" : "SOR_236",
+    "count" : 3
+  }, {
+    "id" : "SOR_238",
+    "count" : 3
+  }, {
+    "id" : "SOR_240",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_103",
+    "count" : 3
+  }, {
+    "id" : "SHD_079",
+    "count" : 2
+  }, {
+    "id" : "SHD_132",
+    "count" : 2
+  }, {
+    "id" : "SOR_045",
+    "count" : 1
+  }, {
+    "id" : "SOR_049",
+    "count" : 2
+  } ]
+}
+  </pre>
+  <pre class="d-none" id="swudb-deck-2e6968ceb062d904b99a8afcf35730d1">
+    {
+  "metadata" : {
+    "name" : "Sabine Wren (SOR) - Energy Conversion Lab",
+    "author" : "seeweed"
+  },
+  "leader" : {
+    "id" : "SOR_014",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "SOR_022",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_094",
+    "count" : 3
+  }, {
+    "id" : "JTL_095",
+    "count" : 3
+  }, {
+    "id" : "JTL_103",
+    "count" : 2
+  }, {
+    "id" : "JTL_250",
+    "count" : 3
+  }, {
+    "id" : "SHD_098",
+    "count" : 1
+  }, {
+    "id" : "SHD_126",
+    "count" : 2
+  }, {
+    "id" : "SHD_129",
+    "count" : 2
+  }, {
+    "id" : "SHD_148",
+    "count" : 3
+  }, {
+    "id" : "SHD_153",
+    "count" : 3
+  }, {
+    "id" : "SHD_154",
+    "count" : 3
+  }, {
+    "id" : "SOR_095",
+    "count" : 3
+  }, {
+    "id" : "SOR_103",
+    "count" : 3
+  }, {
+    "id" : "SOR_141",
+    "count" : 2
+  }, {
+    "id" : "SOR_142",
+    "count" : 3
+  }, {
+    "id" : "SOR_143",
+    "count" : 1
+  }, {
+    "id" : "SOR_145",
+    "count" : 3
+  }, {
+    "id" : "SOR_152",
+    "count" : 3
+  }, {
+    "id" : "SOR_240",
+    "count" : 3
+  }, {
+    "id" : "SOR_241",
+    "count" : 2
+  }, {
+    "id" : "SOR_245",
+    "count" : 2
+  } ],
+  "sideboard" : [ {
+    "id" : "SHD_098",
+    "count" : 2
+  }, {
+    "id" : "SOR_099",
+    "count" : 2
+  }, {
+    "id" : "SOR_143",
+    "count" : 2
+  }, {
+    "id" : "SOR_150",
+    "count" : 2
+  }, {
+    "id" : "SOR_251",
+    "count" : 2
+  } ]
+}
+  </pre>
+  <pre class="d-none" id="swudb-deck-44488cb089072c267f52d5fadc911c47">
+    {
+  "metadata" : {
+    "name" : "Han Solo (SOR) - Green",
+    "author" : "gcal27"
+  },
+  "leader" : {
+    "id" : "SOR_017",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "SOR_023",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_095",
+    "count" : 2
+  }, {
+    "id" : "JTL_096",
+    "count" : 2
+  }, {
+    "id" : "JTL_100",
+    "count" : 2
+  }, {
+    "id" : "JTL_103",
+    "count" : 3
+  }, {
+    "id" : "JTL_203",
+    "count" : 3
+  }, {
+    "id" : "JTL_221",
+    "count" : 2
+  }, {
+    "id" : "JTL_249",
+    "count" : 3
+  }, {
+    "id" : "SHD_174",
+    "count" : 3
+  }, {
+    "id" : "SHD_197",
+    "count" : 3
+  }, {
+    "id" : "SHD_202",
+    "count" : 2
+  }, {
+    "id" : "SHD_204",
+    "count" : 2
+  }, {
+    "id" : "SHD_220",
+    "count" : 1
+  }, {
+    "id" : "SHD_248",
+    "count" : 3
+  }, {
+    "id" : "SOR_051",
+    "count" : 2
+  }, {
+    "id" : "SOR_092",
+    "count" : 1
+  }, {
+    "id" : "SOR_104",
+    "count" : 3
+  }, {
+    "id" : "SOR_126",
+    "count" : 3
+  }, {
+    "id" : "SOR_193",
+    "count" : 3
+  }, {
+    "id" : "SOR_198",
+    "count" : 1
+  }, {
+    "id" : "SOR_220",
+    "count" : 3
+  }, {
+    "id" : "TWI_187",
+    "count" : 1
+  }, {
+    "id" : "TWI_226",
+    "count" : 2
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_121",
+    "count" : 2
+  }, {
+    "id" : "JTL_245",
+    "count" : 2
+  }, {
+    "id" : "SOR_092",
+    "count" : 1
+  }, {
+    "id" : "SOR_102",
+    "count" : 3
+  }, {
+    "id" : "SOR_251",
+    "count" : 2
+  } ]
+}
+  </pre>
+  <pre class="d-none" id="swudb-deck-3a54a73748dfe660236749f403251907">
+    {
+  "metadata" : {
+    "name" : "Boba Fett (JTL) - Yellow",
+    "author" : "KeiG2"
+  },
+  "leader" : {
+    "id" : "JTL_009",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "SHD_026",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_132",
+    "count" : 3
+  }, {
+    "id" : "JTL_133",
+    "count" : 3
+  }, {
+    "id" : "JTL_139",
+    "count" : 1
+  }, {
+    "id" : "JTL_140",
+    "count" : 2
+  }, {
+    "id" : "JTL_142",
+    "count" : 1
+  }, {
+    "id" : "JTL_162",
+    "count" : 3
+  }, {
+    "id" : "JTL_170",
+    "count" : 1
+  }, {
+    "id" : "JTL_183",
+    "count" : 3
+  }, {
+    "id" : "JTL_189",
+    "count" : 1
+  }, {
+    "id" : "JTL_218",
+    "count" : 3
+  }, {
+    "id" : "JTL_222",
+    "count" : 1
+  }, {
+    "id" : "JTL_240",
+    "count" : 3
+  }, {
+    "id" : "SHD_135",
+    "count" : 3
+  }, {
+    "id" : "SHD_174",
+    "count" : 1
+  }, {
+    "id" : "SHD_178",
+    "count" : 1
+  }, {
+    "id" : "SHD_224",
+    "count" : 1
+  }, {
+    "id" : "SOR_134",
+    "count" : 3
+  }, {
+    "id" : "SOR_139",
+    "count" : 2
+  }, {
+    "id" : "SOR_179",
+    "count" : 2
+  }, {
+    "id" : "SOR_184",
+    "count" : 2
+  }, {
+    "id" : "SOR_186",
+    "count" : 2
+  }, {
+    "id" : "SOR_219",
+    "count" : 3
+  }, {
+    "id" : "SOR_220",
+    "count" : 2
+  }, {
+    "id" : "TWI_226",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_176",
+    "count" : 2
+  }, {
+    "id" : "JTL_181",
+    "count" : 1
+  }, {
+    "id" : "SHD_187",
+    "count" : 2
+  }, {
+    "id" : "SOR_173",
+    "count" : 1
+  }, {
+    "id" : "SOR_186",
+    "count" : 1
+  }, {
+    "id" : "SOR_221",
+    "count" : 2
+  }, {
+    "id" : "SOR_224",
+    "count" : 1
+  } ]
+}
+  </pre>
+  <pre class="d-none" id="swudb-deck-080b754c4143544c51c21adc49a33d96">
+    {
+  "metadata" : {
+    "name" : "Quinlan Vos (TWI) - Tarkintown",
+    "author" : "EKohl25"
+  },
+  "leader" : {
+    "id" : "TWI_018",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "SOR_025",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_201",
+    "count" : 3
+  }, {
+    "id" : "JTL_214",
+    "count" : 2
+  }, {
+    "id" : "JTL_218",
+    "count" : 3
+  }, {
+    "id" : "SHD_148",
+    "count" : 3
+  }, {
+    "id" : "SHD_153",
+    "count" : 2
+  }, {
+    "id" : "SHD_174",
+    "count" : 3
+  }, {
+    "id" : "SHD_178",
+    "count" : 2
+  }, {
+    "id" : "SHD_197",
+    "count" : 3
+  }, {
+    "id" : "SHD_202",
+    "count" : 3
+  }, {
+    "id" : "SOR_141",
+    "count" : 3
+  }, {
+    "id" : "SOR_142",
+    "count" : 3
+  }, {
+    "id" : "SOR_162",
+    "count" : 2
+  }, {
+    "id" : "SOR_167",
+    "count" : 3
+  }, {
+    "id" : "SOR_193",
+    "count" : 3
+  }, {
+    "id" : "SOR_198",
+    "count" : 2
+  }, {
+    "id" : "SOR_199",
+    "count" : 2
+  }, {
+    "id" : "SOR_200",
+    "count" : 3
+  }, {
+    "id" : "SOR_220",
+    "count" : 2
+  }, {
+    "id" : "TWI_196",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_207",
+    "count" : 2
+  }, {
+    "id" : "JTL_224",
+    "count" : 2
+  }, {
+    "id" : "SHD_204",
+    "count" : 2
+  }, {
+    "id" : "SHD_220",
+    "count" : 1
+  }, {
+    "id" : "SOR_149",
+    "count" : 1
+  }, {
+    "id" : "SOR_224",
+    "count" : 2
+  } ]
+}
+  </pre>
+  <pre class="d-none" id="swudb-deck-4f91446cdf719e5f3e5fc622f814a19e">
+    {
+  "metadata" : {
+    "name" : "Cad Bane (SHD) - Tarkintown",
+    "author" : "JoshK96"
+  },
+  "leader" : {
+    "id" : "SHD_014",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "SOR_025",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_139",
+    "count" : 3
+  }, {
+    "id" : "JTL_141",
+    "count" : 3
+  }, {
+    "id" : "JTL_183",
+    "count" : 3
+  }, {
+    "id" : "JTL_184",
+    "count" : 2
+  }, {
+    "id" : "JTL_213",
+    "count" : 3
+  }, {
+    "id" : "JTL_235",
+    "count" : 2
+  }, {
+    "id" : "SHD_174",
+    "count" : 2
+  }, {
+    "id" : "SHD_188",
+    "count" : 3
+  }, {
+    "id" : "SHD_190",
+    "count" : 3
+  }, {
+    "id" : "SHD_229",
+    "count" : 3
+  }, {
+    "id" : "SHD_239",
+    "count" : 1
+  }, {
+    "id" : "SOR_178",
+    "count" : 2
+  }, {
+    "id" : "SOR_179",
+    "count" : 2
+  }, {
+    "id" : "SOR_181",
+    "count" : 2
+  }, {
+    "id" : "SOR_182",
+    "count" : 2
+  }, {
+    "id" : "SOR_186",
+    "count" : 2
+  }, {
+    "id" : "SOR_204",
+    "count" : 3
+  }, {
+    "id" : "SOR_207",
+    "count" : 3
+  }, {
+    "id" : "TWI_187",
+    "count" : 3
+  }, {
+    "id" : "TWI_225",
+    "count" : 2
+  }, {
+    "id" : "TWI_226",
+    "count" : 2
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_222",
+    "count" : 2
+  }, {
+    "id" : "SHD_184",
+    "count" : 2
+  }, {
+    "id" : "SHD_191",
+    "count" : 1
+  }, {
+    "id" : "SOR_217",
+    "count" : 1
+  }, {
+    "id" : "SOR_219",
+    "count" : 1
+  }, {
+    "id" : "SOR_220",
+    "count" : 2
+  }, {
+    "id" : "SOR_224",
+    "count" : 1
+  } ]
+}
+  </pre>
+  <pre class="d-none" id="swudb-deck-3498684060b2f1f777bcdbe304803221">
+    {
+  "metadata" : {
+    "name" : "Cad Bane (SHD) - Data Vault",
+    "author" : "Koto"
+  },
+  "leader" : {
+    "id" : "SHD_014",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "JTL_024",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_183",
+    "count" : 2
+  }, {
+    "id" : "JTL_184",
+    "count" : 2
+  }, {
+    "id" : "JTL_185",
+    "count" : 2
+  }, {
+    "id" : "SHD_080",
+    "count" : 2
+  }, {
+    "id" : "SHD_085",
+    "count" : 3
+  }, {
+    "id" : "SHD_090",
+    "count" : 3
+  }, {
+    "id" : "SHD_174",
+    "count" : 3
+  }, {
+    "id" : "SHD_184",
+    "count" : 3
+  }, {
+    "id" : "SHD_188",
+    "count" : 3
+  }, {
+    "id" : "SHD_190",
+    "count" : 3
+  }, {
+    "id" : "SHD_229",
+    "count" : 2
+  }, {
+    "id" : "SHD_232",
+    "count" : 2
+  }, {
+    "id" : "SOR_092",
+    "count" : 3
+  }, {
+    "id" : "SOR_119",
+    "count" : 2
+  }, {
+    "id" : "SOR_126",
+    "count" : 3
+  }, {
+    "id" : "SOR_178",
+    "count" : 3
+  }, {
+    "id" : "SOR_179",
+    "count" : 2
+  }, {
+    "id" : "SOR_182",
+    "count" : 3
+  }, {
+    "id" : "SOR_186",
+    "count" : 2
+  }, {
+    "id" : "SOR_204",
+    "count" : 3
+  }, {
+    "id" : "SOR_207",
+    "count" : 3
+  }, {
+    "id" : "SOR_220",
+    "count" : 3
+  }, {
+    "id" : "TWI_187",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
+    "id" : "SHD_187",
+    "count" : 2
+  }, {
+    "id" : "SOR_186",
+    "count" : 1
+  }, {
+    "id" : "SOR_199",
+    "count" : 2
+  }, {
+    "id" : "SOR_221",
+    "count" : 3
+  }, {
+    "id" : "TWI_226",
+    "count" : 2
+  } ]
+}
+  </pre>
+  <pre class="d-none" id="swudb-deck-41cd07e1dbfb025944f098be625b16e4">
+    {
+  "metadata" : {
+    "name" : "Emperor Palpatine (SOR) - Data Vault",
+    "author" : "TheCervini"
+  },
+  "leader" : {
+    "id" : "SOR_006",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "JTL_024",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_112",
+    "count" : 3
+  }, {
+    "id" : "JTL_119",
+    "count" : 3
+  }, {
+    "id" : "SHD_080",
+    "count" : 3
+  }, {
+    "id" : "SHD_084",
+    "count" : 3
+  }, {
+    "id" : "SHD_085",
+    "count" : 3
+  }, {
+    "id" : "SHD_090",
+    "count" : 2
+  }, {
+    "id" : "SHD_094",
+    "count" : 3
+  }, {
+    "id" : "SHD_107",
+    "count" : 2
+  }, {
+    "id" : "SHD_122",
+    "count" : 2
+  }, {
+    "id" : "SHD_129",
+    "count" : 3
+  }, {
+    "id" : "SOR_082",
+    "count" : 3
+  }, {
+    "id" : "SOR_087",
+    "count" : 3
+  }, {
+    "id" : "SOR_089",
+    "count" : 2
+  }, {
+    "id" : "SOR_090",
+    "count" : 2
+  }, {
+    "id" : "SOR_092",
+    "count" : 3
+  }, {
+    "id" : "SOR_107",
+    "count" : 3
+  }, {
+    "id" : "SOR_109",
+    "count" : 3
+  }, {
+    "id" : "SOR_119",
+    "count" : 3
+  }, {
+    "id" : "SOR_122",
+    "count" : 2
+  }, {
+    "id" : "SOR_126",
+    "count" : 3
+  }, {
+    "id" : "TWI_080",
+    "count" : 3
+  }, {
+    "id" : "TWI_101",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_121",
+    "count" : 3
+  }, {
+    "id" : "JTL_131",
+    "count" : 2
+  }, {
+    "id" : "SHD_114",
+    "count" : 3
+  }, {
+    "id" : "SOR_089",
+    "count" : 1
+  }, {
+    "id" : "SOR_090",
+    "count" : 1
+  } ]
+}
+  </pre>
+  <pre class="d-none" id="swudb-deck-09a6f283fb3a992e31f196d8c18ac0ff">
+    {
+  "metadata" : {
+    "name" : "Rey (SHD) - Data Vault",
+    "author" : "Critchenator"
+  },
+  "leader" : {
+    "id" : "SHD_004",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "JTL_024",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_096",
+    "count" : 3
+  }, {
+    "id" : "SHD_043",
+    "count" : 3
+  }, {
+    "id" : "SHD_078",
+    "count" : 3
+  }, {
+    "id" : "SHD_079",
+    "count" : 1
+  }, {
+    "id" : "SHD_095",
+    "count" : 3
+  }, {
+    "id" : "SHD_098",
+    "count" : 3
+  }, {
+    "id" : "SHD_105",
+    "count" : 2
+  }, {
+    "id" : "SHD_248",
+    "count" : 3
+  }, {
+    "id" : "SOR_045",
+    "count" : 2
+  }, {
+    "id" : "SOR_051",
+    "count" : 3
+  }, {
+    "id" : "SOR_072",
+    "count" : 3
+  }, {
+    "id" : "SOR_077",
+    "count" : 3
+  }, {
+    "id" : "SOR_093",
+    "count" : 2
+  }, {
+    "id" : "SOR_096",
+    "count" : 3
+  }, {
+    "id" : "SOR_097",
+    "count" : 3
+  }, {
+    "id" : "SOR_099",
+    "count" : 2
+  }, {
+    "id" : "SOR_102",
+    "count" : 3
+  }, {
+    "id" : "SOR_104",
+    "count" : 3
+  }, {
+    "id" : "SOR_122",
+    "count" : 2
+  }, {
+    "id" : "SOR_126",
+    "count" : 3
+  }, {
+    "id" : "SOR_236",
+    "count" : 3
+  }, {
+    "id" : "SOR_238",
+    "count" : 3
+  }, {
+    "id" : "SOR_240",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_103",
+    "count" : 2
+  }, {
+    "id" : "SHD_079",
+    "count" : 1
+  }, {
+    "id" : "SHD_132",
+    "count" : 1
+  }, {
+    "id" : "SOR_058",
+    "count" : 3
+  }, {
+    "id" : "SOR_251",
+    "count" : 2
+  }, {
+    "id" : "SOR_252",
+    "count" : 1
+  } ]
+}
+  </pre>
+  <pre class="d-none" id="swudb-deck-6bb669f0339c5938531694f43b9135e2">
+    {
+  "metadata" : {
+    "name" : "Qi'ra (SHD) - Data Vault",
+    "author" : "KidKly"
+  },
+  "leader" : {
+    "id" : "SHD_002",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "JTL_024",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_033",
+    "count" : 1
+  }, {
+    "id" : "JTL_043",
+    "count" : 2
+  }, {
+    "id" : "SHD_027",
+    "count" : 3
+  }, {
+    "id" : "SHD_028",
+    "count" : 3
+  }, {
+    "id" : "SHD_029",
+    "count" : 3
+  }, {
+    "id" : "SHD_078",
+    "count" : 2
+  }, {
+    "id" : "SHD_079",
+    "count" : 1
+  }, {
+    "id" : "SHD_085",
+    "count" : 3
+  }, {
+    "id" : "SHD_090",
+    "count" : 3
+  }, {
+    "id" : "SOR_031",
+    "count" : 2
+  }, {
+    "id" : "SOR_033",
+    "count" : 2
+  }, {
+    "id" : "SOR_035",
+    "count" : 3
+  }, {
+    "id" : "SOR_041",
+    "count" : 3
+  }, {
+    "id" : "SOR_043",
+    "count" : 3
+  }, {
+    "id" : "SOR_058",
+    "count" : 3
+  }, {
+    "id" : "SOR_077",
+    "count" : 2
+  }, {
+    "id" : "SOR_087",
+    "count" : 3
+  }, {
+    "id" : "SOR_092",
+    "count" : 3
+  }, {
+    "id" : "SOR_119",
+    "count" : 3
+  }, {
+    "id" : "SOR_122",
+    "count" : 2
+  }, {
+    "id" : "SOR_126",
+    "count" : 3
+  }, {
+    "id" : "TWI_036",
+    "count" : 2
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_043",
+    "count" : 1
+  }, {
+    "id" : "SHD_071",
+    "count" : 3
+  }, {
+    "id" : "SHD_094",
+    "count" : 3
+  }, {
+    "id" : "SOR_089",
+    "count" : 2
+  }, {
+    "id" : "SOR_252",
+    "count" : 1
+  } ]
+}
+  </pre>
+  <pre class="d-none" id="swudb-deck-6da4bd0f4e50434a0fcebe4417c7cea4">
+    {
+  "metadata" : {
+    "name" : "Darth Vader (JTL) - Yellow",
+    "author" : "Androuis"
+  },
+  "leader" : {
+    "id" : "JTL_006",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "JTL_030",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_081",
+    "count" : 2
+  }, {
+    "id" : "JTL_082",
+    "count" : 2
+  }, {
+    "id" : "JTL_084",
+    "count" : 2
+  }, {
+    "id" : "JTL_085",
+    "count" : 3
+  }, {
+    "id" : "JTL_087",
+    "count" : 3
+  }, {
+    "id" : "JTL_090",
+    "count" : 1
+  }, {
+    "id" : "JTL_108",
+    "count" : 2
+  }, {
+    "id" : "JTL_115",
+    "count" : 3
+  }, {
+    "id" : "JTL_125",
+    "count" : 2
+  }, {
+    "id" : "JTL_183",
+    "count" : 2
+  }, {
+    "id" : "JTL_184",
+    "count" : 2
+  }, {
+    "id" : "JTL_222",
+    "count" : 2
+  }, {
+    "id" : "JTL_226",
+    "count" : 2
+  }, {
+    "id" : "JTL_231",
+    "count" : 2
+  }, {
+    "id" : "JTL_234",
+    "count" : 2
+  }, {
+    "id" : "SHD_084",
+    "count" : 3
+  }, {
+    "id" : "SHD_128",
+    "count" : 2
+  }, {
+    "id" : "SHD_129",
+    "count" : 2
+  }, {
+    "id" : "SHD_187",
+    "count" : 3
+  }, {
+    "id" : "SHD_193",
+    "count" : 2
+  }, {
+    "id" : "SOR_090",
+    "count" : 2
+  }, {
+    "id" : "SOR_092",
+    "count" : 2
+  }, {
+    "id" : "SOR_220",
+    "count" : 3
+  }, {
+    "id" : "TWI_213",
+    "count" : 2
+  }, {
+    "id" : "TWI_215",
+    "count" : 2
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_116",
+    "count" : 2
+  }, {
+    "id" : "JTL_184",
+    "count" : 1
+  }, {
+    "id" : "JTL_212",
+    "count" : 2
+  }, {
+    "id" : "SHD_129",
+    "count" : 1
+  }, {
+    "id" : "SHD_193",
+    "count" : 1
+  }, {
+    "id" : "SOR_092",
+    "count" : 1
+  }, {
+    "id" : "TWI_087",
+    "count" : 2
+  } ]
+}
+  </pre>
+  <pre class="d-none" id="swudb-deck-971c58cd3ec26ea0fc97e238d7f184d2">
+    {
+  "metadata" : {
+    "name" : "Kazuda Xiono (JTL) - Red",
+    "author" : "Rilelikins30"
+  },
+  "leader" : {
+    "id" : "JTL_018",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "SOR_026",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_147",
+    "count" : 2
+  }, {
+    "id" : "JTL_155",
+    "count" : 3
+  }, {
+    "id" : "JTL_156",
+    "count" : 3
+  }, {
+    "id" : "JTL_177",
+    "count" : 2
+  }, {
+    "id" : "JTL_179",
+    "count" : 3
+  }, {
+    "id" : "JTL_198",
+    "count" : 3
+  }, {
+    "id" : "JTL_203",
+    "count" : 2
+  }, {
+    "id" : "JTL_204",
+    "count" : 2
+  }, {
+    "id" : "JTL_216",
+    "count" : 3
+  }, {
+    "id" : "JTL_221",
+    "count" : 3
+  }, {
+    "id" : "JTL_249",
+    "count" : 3
+  }, {
+    "id" : "JTL_250",
+    "count" : 2
+  }, {
+    "id" : "SHD_181",
+    "count" : 2
+  }, {
+    "id" : "SHD_195",
+    "count" : 3
+  }, {
+    "id" : "SOR_145",
+    "count" : 2
+  }, {
+    "id" : "SOR_150",
+    "count" : 3
+  }, {
+    "id" : "SOR_162",
+    "count" : 2
+  }, {
+    "id" : "SOR_193",
+    "count" : 3
+  }, {
+    "id" : "SOR_200",
+    "count" : 2
+  }, {
+    "id" : "SOR_220",
+    "count" : 3
+  }, {
+    "id" : "TWI_194",
+    "count" : 2
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_148",
+    "count" : 2
+  }, {
+    "id" : "JTL_154",
+    "count" : 2
+  }, {
+    "id" : "JTL_207",
+    "count" : 2
+  }, {
+    "id" : "SOR_170",
+    "count" : 2
+  }, {
+    "id" : "TWI_174",
+    "count" : 2
+  } ]
+}
+  </pre>
 
 <div class="toast-container position-fixed bottom-0 end-0 p-3">
   <div id="copy-toast" class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true"
