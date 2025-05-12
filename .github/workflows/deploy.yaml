@@ -45,7 +45,7 @@ jobs:
         mkdir -p public cache database
         chmod -R a+rw public cache database
         docker pull ghcr.io/swumeta/swumeta-cli:latest
-        docker run --rm -v ${{ github.workspace }}:/app -w /app -e swu.database=/app/database -e swu.cache=/app/cache ghcr.io/swumeta/swumeta-cli:latest generate-site -o /app/public
+        docker run --rm -v ${{ github.workspace }}:/app -w /app -e swu.database=/app/database -e swu.cache=/app/cache -e swu.output=/app/public ghcr.io/swumeta/swumeta-cli:latest generate-site
 
     - name: Commit content
       run: |
