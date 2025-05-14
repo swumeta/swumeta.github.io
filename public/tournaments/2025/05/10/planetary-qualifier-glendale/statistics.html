@@ -46,6 +46,7 @@
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="/meta/win-rates/">Win Rates</a></li>
+              <li><a class="dropdown-item" href="/meta/top8/">Top 8</a></li>
             </ul>
           </li>
           <li class="nav-item">
@@ -97,7 +98,19 @@
   </div>
   <div class="row">
     <div class="col mt-3">
-      <div class="winrates-container" data-url="winrates-matrix.json">
+      <div class="winrates-matrix" data-url="winrates-matrix.json">
+        <button class="go-fullscreen btn btn-light" type="button"><i class="bi bi-arrows-fullscreen"></i></button>
+        <div class="modal" tabindex="-1">
+          <div class="modal-dialog modal-fullscreen modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2 class="modal-title text-secondary"><i class="bi bi-percent"></i> Win Rates</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body"></div>
+            </div>
+          </div>
+        </div>
         <div class="spinner-border m-1" role="status">
           <span class="visually-hidden">Loading...</span>
         </div>
