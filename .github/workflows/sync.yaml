@@ -1,0 +1,54 @@
+name: Sync events
+
+on:
+  # Run workflow on every push to the main branch
+  push:
+    branches: [ main ]
+  
+  # Allow manual trigger of the workflow from GitHub interface
+  workflow_dispatch:
+
+# Set required permissions
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+# Only one sync can be active at a time
+concurrency:
+  group: sync
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Log in to the container registry
+      uses: docker/login-action@v3
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+    
+    - name: Sync up events
+      run: |
+        tree -up public
+        mkdir -p public cache database
+        chmod -R a+rw public cache database
+        docker pull ghcr.io/swumeta/swumeta-cli:latest
+        docker run --rm -v ${{ github.workspace }}:/app -w /app -e swu.database=/app/database -e swu.cache=/app/cache -e swu.output=/app/public ghcr.io/swumeta/swumeta-cli:latest sync-events
+
+    - name: Commit content
+      run: |
+        if [[ `git status --porcelain` ]]; then
+          git config --global user.name 'github-actions'
+          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add public cache database
+          git commit -am "Sync up events"
+          git push
+        fi
