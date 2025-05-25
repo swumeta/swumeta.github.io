@@ -119,11 +119,91 @@
     </div>
   </div>
 
+    <div class="row">
+      <div class="col-lg-5">
+        <div class="bar-chart w-100" data-url="usage-leaders.json" data-title="Leaders"></div>
+      </div>
+      <div class="col-lg-4">
+        <div class="bar-chart w-100" data-url="usage-bases.json" data-title="Bases"></div>
+      </div>
+      <div class="col-3 d-none d-lg-block">
+        <div class="pie-chart w-100" data-url="match-results.json" data-title="Match Results"></div>
+      </div>
+    </div>
+    <div class="row mb-4">
+      <div class="col text-end"><a href="/tournaments/2025/05/25/planetary-qualifier-nottingham/statistics.html" class="sw-link" style="font-size: 90%">
+        <i class="bi bi-bar-chart-fill me-2"></i>more statistics...</a></div>
+    </div>
 
   <div class="row">
     <div class="col-12">
-        <p class="my-4"><i class="text-warning bi bi-exclamation-triangle-fill me-1"></i>
-          <strong>No deck found</strong>: please try again later</p>
+        <div id="decks-container">
+          <div class="search-container">
+            <input type="text" class="form-control search-input search" placeholder="Search..."
+                   onkeydown="showMoreDecks()" spellcheck="false" autocorrect="off" autocomplete="off"
+                   autocapitalize="off">
+            <i class="bi bi-search search-icon"></i>
+          </div>
+          <table id="decks" class="table table-hover sw-table">
+            <thead>
+            <tr>
+              <th scope="col" class="col-rank text-end">#</th>
+              <th scope="col" class="col-decklist">Decklist</th>
+              <th scope="col" class="col-actions d-none d-lg-table-cell">&nbsp;</th>
+              <th scope="col" class="col-record text-center">Record</th>
+              <th scope="col" class="col-aspects text-center d-none d-md-table-cell">Aspects</th>
+              <th scope="col" class="col-player text-end d-none d-md-table-cell">Player</th>
+            </tr>
+            </thead>
+            <tbody class="list">
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    17
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010006_EN_Darth_Vader_Leader_Unit_Thumbnail_08201df668.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_029_Administrator_s_Tower_Thumbnail_2bbe8ea753.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/d698686c-49d2-44f8-bab8-b2e300bb8cbe" target="_blank"><div class="text-truncate">Darth Vader (JTL) - Yellow</div></a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010006_EN_Darth_Vader_Leader_Unit_Thumbnail_08201df668.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_029_Administrator_s_Tower_Thumbnail_2bbe8ea753.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-lg-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-d36c591e0a6ddfdd81b82cc58ba7f7c1');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">4-0-2</td>
+                <td class="col-aspects text-center d-none d-md-table-cell">
+                    <img src="/images/aspect_villainy.png" width="32" height="32"/>
+                    <img src="/images/aspect_command.png" width="32" height="32"/>
+                    <img src="/images/aspect_cunning.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">DonPedroX</div></td>
+              </tr>
+            </tbody>
+            <tfooter>
+              <tr class="text-center" id="showMoreSection">
+                <td colspan="7">
+                  <button class="btn btn-sw m-2" onclick="showMoreDecks();">
+                    Show more <i class="bi bi-caret-down-fill"></i></button>
+                </td>
+              </tr>
+            </tfooter>
+          </table>
+        </div>
     </div>
   </div>
 </section>
@@ -133,6 +213,96 @@
   </div>
 </section>
 
+    <pre class="d-none" id="swudb-deck-d36c591e0a6ddfdd81b82cc58ba7f7c1">
+      {
+  "metadata" : {
+    "name" : "Darth Vader (JTL) - Yellow",
+    "author" : "DonPedroX"
+  },
+  "leader" : {
+    "id" : "JTL_006",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "SOR_029",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_081",
+    "count" : 3
+  }, {
+    "id" : "JTL_082",
+    "count" : 3
+  }, {
+    "id" : "JTL_084",
+    "count" : 3
+  }, {
+    "id" : "JTL_085",
+    "count" : 3
+  }, {
+    "id" : "JTL_112",
+    "count" : 2
+  }, {
+    "id" : "JTL_115",
+    "count" : 3
+  }, {
+    "id" : "JTL_183",
+    "count" : 2
+  }, {
+    "id" : "JTL_215",
+    "count" : 2
+  }, {
+    "id" : "JTL_217",
+    "count" : 3
+  }, {
+    "id" : "SHD_187",
+    "count" : 3
+  }, {
+    "id" : "SHD_256",
+    "count" : 2
+  }, {
+    "id" : "SOR_092",
+    "count" : 3
+  }, {
+    "id" : "SOR_186",
+    "count" : 3
+  }, {
+    "id" : "SOR_206",
+    "count" : 2
+  }, {
+    "id" : "SOR_220",
+    "count" : 3
+  }, {
+    "id" : "SOR_225",
+    "count" : 2
+  }, {
+    "id" : "TWI_213",
+    "count" : 3
+  }, {
+    "id" : "TWI_215",
+    "count" : 3
+  }, {
+    "id" : "TWI_226",
+    "count" : 2
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_112",
+    "count" : 1
+  }, {
+    "id" : "SHD_129",
+    "count" : 2
+  }, {
+    "id" : "SHD_132",
+    "count" : 2
+  }, {
+    "id" : "SHD_184",
+    "count" : 3
+  }, {
+    "id" : "SHD_262",
+    "count" : 2
+  } ]
+}
+    </pre>
 
 <div class="toast-container position-fixed bottom-0 end-0 p-3">
   <div id="copy-toast" class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true"
