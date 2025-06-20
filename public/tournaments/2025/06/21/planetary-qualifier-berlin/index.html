@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About - swumeta.net</title>
-    <meta name="description" content="Discover swumeta.net, created by Alexandre (NotAlex), software engineer and Star Wars Unlimited player, to analyze matchups and optimize your decks against popular game leaders.
-"/>
-    <link rel="canonical" href="https://swumeta.net/about/"/>
+  <title>Planetary Qualifier Berlin (June 21, 2025) - swumeta.net</title>
+    <meta name="description" content="Results from the Star Wars Unlimited tournament Planetary Qualifier Berlin taking place in Berlin (Germany) on June 21, 2025, including standings, decklists, Melee.gg link and more"/>
+    <link rel="canonical" href="https://swumeta.net/tournaments/2025/06/21/planetary-qualifier-berlin/"/>
   <meta name="googlebot" content="notranslate"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -64,38 +63,136 @@
 
 <main class="pt-2">
 
-<section class="container" id="about">
-  <h1 class="section-title text-center mb-1">About</h1>
-  <p>Hello there!</p>
-  <p>My name is Alexandre, aka <strong>NotAlex</strong> on Discord.</p>
-  <p>I started playing Star Wars Unlimited one week after its release.
-    Like many people my age, I'm a Star Wars fan.</p>
-  <p>I used to play a lot of board games - much less since Star Wars Unlimited entered my life!</p>
-  <p><a href="https://www.linkedin.com/in/alexandre-roman/" target="_blank">I'm a software engineer</a>,
-    and I love building stuff. This website is an attempt to solve THE question many SWU
-    players wonder about: will my deck beat <s>Jango Fett</s> Sabine Wren?!?</p>
+<section class="container">
+  <p class="fs-6 m-0 p-0 mb-1"><a href="/tournaments/" class="text-decoration-none sw-link">Tournaments</a> &gt;</p>
+  <h1 class="section-title text-truncate d-block">
+    <i class="me-1 fi fi-de"></i>
+    Planetary Qualifier Berlin
+  </h1>
 
-  <div class="info-banner mt-4">
-    <blockquote class="m-0 p-0">Awww, cannot get your ship out...eh-heheheh!</blockquote>
+  <div class="row">
+    <dl class="d-lg-none col event-metadata">
+      <div>
+        <dt class="text-secondary">Location:</dt>
+        <dd class="fw-bold">Berlin, Germany</dd>
+      </div>
+      <div>
+        <dt class="text-secondary">Date:</dt>
+        <dd class="fw-bold">2025-06-21</dd>
+      </div>
+      <div>
+        <dt class="text-secondary">Type:</dt>
+        <dd><span class="fw-bold">Planetary Qualifier</span> / 63 players</dd>
+      </div>
+        <div>
+          <dt class="text-secondary">Source:</dt>
+          <dd><i class="bi bi-box-arrow-up-right me-1"></i>
+            <a class="source" href="https://melee.gg/Tournament/View/288131" target="_blank">Melee.gg</a></dd>
+        </div>
+    </dl>
+    <div class="d-none d-lg-block col event-metadata">
+      <div class="hstack gap-3 mb-4 p-3 rounded rounded-2 bg-dark">
+        <div class="hstack">
+          <i class="bi bi-geo-alt-fill me-2"></i>
+          Berlin, Germany
+        </div>
+        <div class="vr"></div>
+        <div class="hstack">
+          <i class="bi bi-calendar-event-fill me-2"></i>
+          2025-06-21
+        </div>
+        <div class="vr"></div>
+        <div class="hstack">
+          <i class="bi bi-trophy-fill me-2"></i>
+          Planetary Qualifier
+        </div>
+        <div class="vr"></div>
+        <div class="hstack">
+          <i class="bi bi-people-fill me-2"></i>
+          63 players
+        </div>
+          <div class="hstack ms-auto">
+            <i class="bi bi-box-arrow-up-right me-2"></i>
+            <a class="source" href="https://melee.gg/Tournament/View/288131" target="_blank">Melee.gg</a>
+          </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="row">
+      <div class="text-center my-3">
+        <p class="text-secondary">
+          <i class="bi bi-exclamation-diamond-fill me-1"></i>
+          Tournament statistics are not available due to missing data.
+        </p>
+      </div>
+    </div>
+
+  <div class="row">
+    <div class="col-12">
+    </div>
   </div>
 </section>
 
-<script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfilePage",
-    "dateCreated": "2025-04-07T23:11:33.206982086Z",
-    "dateModified": "2025-04-12T17:10:33.206982086Z",
-    "mainEntity": {
-      "@type": "Person",
-      "name": "Alexandre",
-      "alternateName": "NotAlex",
-      "description": "Hosting swumeta.net",
-      "sameAs": [
-        "https://www.linkedin.com/in/alexandre-roman/"
-      ]
-    }
+<section class="container">
+  <div class="row">
+  </div>
+</section>
+
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="copy-toast" class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true"
+       data-bs-delay="2000">
+    <div class="d-flex">
+      <div class="toast-body">Copied deck to clipboard.</div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  function copyDeck(deckId) {
+    const text = document.getElementById(deckId).textContent.trim();
+    navigator.clipboard.writeText(text)
+    .then(() => {
+      bootstrap.Toast.getOrCreateInstance(document.getElementById("copy-toast")).show();
+    }).catch(err => {
+      console.error('Error during copy: ', err);
+    });
   }
+
+  function showMoreDecks() {
+    const showMoreSection = document.getElementById("showMoreSection");
+    if(showMoreSection.classList.contains("d-none")) {
+      return;
+    }
+
+    const table = document.getElementById("decks");
+    const rows = table.querySelectorAll("tr");
+    let i = 0;
+    for (const row of rows) {
+      row.classList.remove("d-none");
+      i++;
+    }
+    showMoreSection.classList.toggle("d-none", true);
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const table = document.getElementById("decks");
+    const rows = table.querySelectorAll("tr");
+    let i = 0;
+    for (const row of rows) {
+      if (i > 8) break;
+      row.classList.remove("d-none");
+      i++;
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const options = {
+      valueNames: [ 'deck-list', 'deck-player' ]
+    };
+    const decksList = new List('decks-container', options);
+  });
 </script>
 
 </main>
