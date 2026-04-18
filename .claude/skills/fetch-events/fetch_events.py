@@ -4,6 +4,7 @@
 import os
 import re
 import sys
+import unicodedata
 import urllib.request
 
 BASE_URL = "https://www.swu-competitivehub.com"
@@ -77,39 +78,25 @@ def parse_event_page(html):
     return info
 
 
+# Characters that don't decompose via NFKD and need explicit mapping
+_NON_DECOMPOSABLE = str.maketrans({
+    "ł": "l", "Ł": "L",
+    "ø": "o", "Ø": "O",
+    "đ": "d", "Đ": "D",
+    "þ": "th", "Þ": "Th",
+    "ß": "ss",
+    "æ": "ae", "Æ": "Ae",
+    "œ": "oe", "Œ": "Oe",
+})
+
+
 def slugify_city(city):
     """Convert city name to a filename-friendly slug."""
-    slug = city.lower()
-    # Normalize common accented characters
-    replacements = {
-        "é": "e", "è": "e", "ê": "e", "ë": "e",
-        "à": "a", "â": "a", "ä": "a",
-        "ù": "u", "û": "u", "ü": "u",
-        "ô": "o", "ö": "o",
-        "î": "i", "ï": "i",
-        "ç": "c",
-        "ń": "n", "ñ": "n",
-        "ł": "l",
-        "ś": "s", "š": "s",
-        "ž": "z", "ź": "z", "ż": "z",
-        "ć": "c", "č": "c",
-        "ř": "r",
-        "ě": "e",
-        "ů": "u",
-        "ý": "y",
-        "á": "a",
-        "í": "i",
-        "ó": "o",
-        "ú": "u",
-        "ą": "a",
-        "ę": "e",
-    }
-    for char, repl in replacements.items():
-        slug = slug.replace(char, repl)
-    # Replace non-alphanumeric with hyphens
-    slug = re.sub(r"[^a-z0-9]+", "-", slug)
-    slug = slug.strip("-")
-    return slug
+    pre = city.translate(_NON_DECOMPOSABLE)
+    normalized = unicodedata.normalize("NFKD", pre)
+    ascii_str = normalized.encode("ascii", "ignore").decode("ascii")
+    slug = re.sub(r"[^a-z0-9]+", "-", ascii_str.lower())
+    return slug.strip("-")
 
 
 def write_event_yaml(date_str, info):
