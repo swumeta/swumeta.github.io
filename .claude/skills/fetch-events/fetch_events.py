@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fetch Planetary Qualifier events from swu-competitivehub.com and create YAML event files."""
+"""Fetch Planetary/Sector Qualifier events from swu-competitivehub.com and create YAML event files."""
 
 import os
 import re
@@ -16,6 +16,12 @@ COUNTRY_MAP = {
     "UK": "United Kingdom",
 }
 
+# Supported event types: URL slug -> (filename prefix, YAML type, display label)
+EVENT_TYPES = {
+    "planetary-qualifier": ("pq", "planetary-qualifier", "Planetary Qualifier"),
+    "sector-qualifier": ("sq", "sector-qualifier", "Sector Qualifier"),
+}
+
 
 def fetch_html(url):
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
@@ -23,20 +29,28 @@ def fetch_html(url):
         return resp.read().decode("utf-8")
 
 
-def find_pq_links(html, dates):
-    """Find all Planetary Qualifier links matching the given dates (YYYY-MM-DD format)."""
+def find_event_links(html, dates):
+    """Find all supported event links matching the given dates (YYYY-MM-DD format).
+
+    Returns a list of (url, event_type_key) tuples, where event_type_key is a
+    key in EVENT_TYPES.
+    """
+    slugs = "|".join(re.escape(s) for s in EVENT_TYPES)
+    date_re = "|".join(re.escape(d) for d in dates)
+    # Require the date to follow the event slug directly, which excludes
+    # variants like "planetary-qualifier-limited-...".
     pattern = re.compile(
-        r'href="(' + re.escape(BASE_URL) + r'/event/planetary-qualifier-('
-        + "|".join(re.escape(d) for d in dates)
-        + r')-[^"]+/)"'
+        r'href="(' + re.escape(BASE_URL) + r'/event/(' + slugs
+        + r')-(?:' + date_re + r')-[^"]+/)"'
     )
     seen = set()
     results = []
     for match in pattern.finditer(html):
         url = match.group(1)
+        event_type = match.group(2)
         if url not in seen:
             seen.add(url)
-            results.append(url)
+            results.append((url, event_type))
     return results
 
 
@@ -60,13 +74,15 @@ def parse_event_page(html):
     if m:
         info["players"] = int(m.group(1))
 
-    # City
+    # City — strip trailing US state code (e.g. "Atlanta - GA" → "Atlanta")
     m = re.search(r'id="span-231-135"[^>]*>\s*(.+?)\s*</span>', html)
     if m:
-        info["city"] = m.group(1).strip()
+        city = m.group(1).strip()
+        city = re.sub(r"\s*-\s*[A-Z]{2}$", "", city)
+        info["city"] = city
 
-    # Melee link
-    m = re.search(r'href="(https://melee\.gg/Tournament/View/\d+)"', html)
+    # Melee link (Tournament/View for PQs, Hub/View for SQs)
+    m = re.search(r'href="(https://melee\.gg/(?:Tournament|Hub)/View/\d+)"', html)
     if m:
         info["melee"] = m.group(1)
 
@@ -99,19 +115,20 @@ def slugify_city(city):
     return slug.strip("-")
 
 
-def write_event_yaml(date_str, info):
+def write_event_yaml(date_str, info, event_type):
     """Write a YAML event file. Returns (filepath, created) tuple."""
+    file_prefix, yaml_type, label = EVENT_TYPES[event_type]
     city = info.get("city", "unknown")
     slug = slugify_city(city)
-    filename = f"{date_str}-pq-{slug}.yaml"
+    filename = f"{date_str}-{file_prefix}-{slug}.yaml"
     filepath = os.path.join(EVENTS_DIR, filename)
 
     if os.path.exists(filepath):
         return filepath, False
 
     lines = ["---"]
-    lines.append(f'name: "{info.get("name", "Planetary Qualifier " + city)}"')
-    lines.append('type: "planetary-qualifier"')
+    lines.append(f'name: "{info.get("name", label + " " + city)}"')
+    lines.append(f'type: "{yaml_type}"')
     lines.append(f"players: {info.get('players', 0)}")
     lines.append(f'date: "{date_str[:4]}-{date_str[4:6]}-{date_str[6:8]}"')
     lines.append("location:")
@@ -152,26 +169,27 @@ def main():
         dates.append(d)
 
     iso_dates = [f"{d[:4]}-{d[4:6]}-{d[6:8]}" for d in dates]
-    print(f"Fetching Planetary Qualifiers for: {', '.join(iso_dates)}")
+    print(f"Fetching Planetary/Sector Qualifiers for: {', '.join(iso_dates)}")
 
     # Fetch listing page
     print(f"\nFetching tournament listing from {LISTING_URL}...")
     listing_html = fetch_html(LISTING_URL)
 
-    # Find PQ links for the requested dates
-    pq_links = find_pq_links(listing_html, iso_dates)
-    print(f"Found {len(pq_links)} Planetary Qualifier(s).")
+    # Find event links for the requested dates
+    event_links = find_event_links(listing_html, iso_dates)
+    print(f"Found {len(event_links)} event(s).")
 
-    if not pq_links:
+    if not event_links:
         print("No events found for the given dates.")
         sys.exit(0)
 
     # Process each event
     created = 0
     skipped = 0
-    for url in pq_links:
+    date_re = re.compile(r"-(\d{4})-(\d{2})-(\d{2})-")
+    for url, event_type in event_links:
         # Extract date from URL
-        m = re.search(r"/planetary-qualifier-(\d{4})-(\d{2})-(\d{2})-", url)
+        m = date_re.search(url)
         if not m:
             print(f"  Skipping (can't parse date): {url}")
             continue
@@ -185,7 +203,7 @@ def main():
             continue
 
         info = parse_event_page(event_html)
-        filepath, was_created = write_event_yaml(date_str, info)
+        filepath, was_created = write_event_yaml(date_str, info, event_type)
         basename = os.path.basename(filepath)
 
         if was_created:
