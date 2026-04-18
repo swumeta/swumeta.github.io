@@ -135,8 +135,8 @@ def write_event_yaml(date_str, info, event_type):
     lines.append(f'  country: "{info.get("country", "Unknown")}"')
     lines.append(f'  city: "{city}"')
 
-    melee = info.get("melee", "")
-    lines.append(f'melee: "{melee}"')
+    if "melee" in info:
+        lines.append(f'melee: "{info["melee"]}"')
 
     lines.append("contributors:")
     lines.append('- "NotAlex"')
