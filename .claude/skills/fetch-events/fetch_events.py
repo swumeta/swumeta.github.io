@@ -115,6 +115,31 @@ def slugify_city(city):
     return slug.strip("-")
 
 
+_MELEE_RE = re.compile(r'^melee:\s*"([^"]+)"', re.MULTILINE)
+
+
+def load_existing_melee_index():
+    """Return {melee_url: filepath} for all existing event YAML files."""
+    index = {}
+    try:
+        names = os.listdir(EVENTS_DIR)
+    except FileNotFoundError:
+        return index
+    for name in names:
+        if not name.endswith(".yaml"):
+            continue
+        path = os.path.join(EVENTS_DIR, name)
+        try:
+            with open(path) as f:
+                content = f.read()
+        except OSError:
+            continue
+        m = _MELEE_RE.search(content)
+        if m:
+            index[m.group(1)] = path
+    return index
+
+
 def write_event_yaml(date_str, info, event_type):
     """Write a YAML event file. Returns (filepath, created) tuple."""
     file_prefix, yaml_type, label = EVENT_TYPES[event_type]
@@ -183,6 +208,10 @@ def main():
         print("No events found for the given dates.")
         sys.exit(0)
 
+    # Index existing events by melee URL so we can detect duplicates whose
+    # filename slug would otherwise differ (e.g. "México" vs "Estado de México").
+    melee_index = load_existing_melee_index()
+
     # Process each event
     created = 0
     skipped = 0
@@ -203,11 +232,21 @@ def main():
             continue
 
         info = parse_event_page(event_html)
+
+        melee_url = info.get("melee")
+        if melee_url and melee_url in melee_index:
+            existing = os.path.basename(melee_index[melee_url])
+            skipped += 1
+            print(f"    Skipped (same melee as {existing})")
+            continue
+
         filepath, was_created = write_event_yaml(date_str, info, event_type)
         basename = os.path.basename(filepath)
 
         if was_created:
             created += 1
+            if melee_url:
+                melee_index[melee_url] = filepath
             city = info.get("city", "?")
             country = info.get("country", "?")
             players = info.get("players", 0)
