@@ -14,6 +14,10 @@ EVENTS_DIR = os.path.join(os.path.dirname(__file__), "..", "..", "..", "database
 # Map flag alt text from the site to YAML country names
 COUNTRY_MAP = {
     "UK": "United Kingdom",
+    "England": "United Kingdom",
+    "Scotland": "United Kingdom",
+    "Wales": "United Kingdom",
+    "Northern Ireland": "United Kingdom",
 }
 
 # Supported event types: URL slug -> (filename prefix, YAML type, display label)
