@@ -1,6 +1,6 @@
 ---
 name: fetch-events
-description: Fetch Planetary Qualifier and Sector Qualifier events from swu-competitivehub.com for given dates and create YAML event files. Use when the user asks to fetch, import, download, or add PQ/SQ events for specific dates (e.g. "fetch events for 20260411 20260412").
+description: Fetch Planetary Qualifier, Sector Qualifier, and Regional Qualifier (Regional Championship) events from swu-competitivehub.com for given dates and create YAML event files. Use when the user asks to fetch, import, download, or add PQ/SQ/RQ events for specific dates (e.g. "fetch events for 20260411 20260412").
 argument-hint: <DATE> [DATE ...] (e.g. 20260411, 20260412)
 allowed-tools: Bash Read Write Glob Grep
 ---

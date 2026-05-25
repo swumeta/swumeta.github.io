@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fetch Planetary/Sector Qualifier events from swu-competitivehub.com and create YAML event files."""
+"""Fetch Planetary/Sector/Regional Qualifier events from swu-competitivehub.com and create YAML event files."""
 
 import os
 import re
@@ -25,6 +25,7 @@ COUNTRY_MAP = {
 EVENT_TYPES = {
     "planetary-qualifier": ("pq", "planetary-qualifier", "Planetary Qualifier"),
     "sector-qualifier": ("sq", "sector-qualifier", "Sector Qualifier"),
+    "regional-championship": ("rq", "regional-qualifier", "Regional Qualifier"),
 }
 
 
