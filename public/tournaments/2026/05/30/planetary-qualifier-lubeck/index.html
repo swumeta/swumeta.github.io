@@ -120,16 +120,1783 @@
   </div>
 
     <div class="row">
-      <div class="text-center my-3">
-        <p class="text-secondary">
-          <i class="bi bi-exclamation-diamond-fill me-1"></i>
-          Tournament statistics are not available due to missing data.
-        </p>
+      <div class="col-lg-5">
+        <div class="bar-chart w-100" data-url="usage-leaders.json" data-title="Leaders"></div>
       </div>
+      <div class="col-lg-4">
+        <div class="bar-chart w-100" data-url="usage-bases.json" data-title="Bases"></div>
+      </div>
+      <div class="col-3 d-none d-lg-block">
+        <div class="pie-chart w-100" data-url="match-results.json" data-title="Match Results"></div>
+      </div>
+    </div>
+    <div class="row mb-4">
+      <div class="col text-end"><a href="/tournaments/2026/05/30/planetary-qualifier-lubeck/statistics.html" class="sw-link" style="font-size: 90%">
+        <i class="bi bi-bar-chart-fill me-2"></i>more statistics...</a></div>
     </div>
 
   <div class="row">
     <div class="col-12">
+        <div id="decks-container">
+          <div class="search-container">
+            <input type="text" class="form-control search-input search" placeholder="Search..."
+                   onkeydown="showMoreDecks()" spellcheck="false" autocorrect="off" autocomplete="off"
+                   autocapitalize="off">
+            <i class="bi bi-search search-icon"></i>
+          </div>
+          <table id="decks" class="table table-hover sw-table">
+            <thead>
+            <tr>
+              <th scope="col" class="col-rank text-end">#</th>
+              <th scope="col" class="col-decklist">Decklist</th>
+              <th scope="col" class="col-actions d-none d-xl-table-cell">&nbsp;</th>
+              <th scope="col" class="col-record text-center">Record</th>
+              <th scope="col" class="col-aspects text-center d-none d-xl-table-cell">Aspects</th>
+              <th scope="col" class="col-player text-end d-none d-md-table-cell">Player</th>
+            </tr>
+            </thead>
+            <tbody class="list">
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    1
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010002_EN_Mother_Talzin_Leader_Unit_Thumbnail_bff4651aae.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010024_EN_Starlight_Temple_Base_Thumbnail_6c2c38e733.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/3eae68f8-8088-46ce-95e3-b45a00691bc5" target="_blank">Mother Talzin (LOF) - Green Force</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010002_EN_Mother_Talzin_Leader_Unit_Thumbnail_bff4651aae.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010024_EN_Starlight_Temple_Base_Thumbnail_6c2c38e733.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-b0622b603278098626afd52732902e32');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">8-0-1</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_villainy.png" width="32" height="32"/>
+                    <img src="/images/aspect_vigilance.png" width="32" height="32"/>
+                    <img src="/images/aspect_command.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">GLHF_Gerrit</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    2
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_06010006_EN_Colonel_Yularen_Leader_Unit_Thumbnail_2f11c96456.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_06010023_EN_Imperial_Prison_Complex_Base_Thumbnail_e4cdf346f4.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/6a6259b8-6e62-4b47-a91d-b45900eab3fe" target="_blank">Colonel Yularen (SEC) - Red</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_06010006_EN_Colonel_Yularen_Leader_Unit_Thumbnail_2f11c96456.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_06010023_EN_Imperial_Prison_Complex_Base_Thumbnail_e4cdf346f4.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-0798bfd47008e2100d97304724daf515');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">7-2-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_villainy.png" width="32" height="32"/>
+                    <img src="/images/aspect_command.png" width="32" height="32"/>
+                    <img src="/images/aspect_aggression.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">DomiPHG</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    3
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010009_EN_Boba_Fett_Leader_Unit_Thumbnail_ecf6fdcb78.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010031_EN_Lake_Country_Base_Thumbnail_45b2ec0158.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/86a97d73-33d7-4a75-be57-b459008bb0af" target="_blank">Boba Fett (JTL) - Lake Country</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010009_EN_Boba_Fett_Leader_Unit_Thumbnail_ecf6fdcb78.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010031_EN_Lake_Country_Base_Thumbnail_45b2ec0158.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-6fa8d652ae52fec4774a81f6d049b5c7');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">6-2-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_villainy.png" width="32" height="32"/>
+                    <img src="/images/aspect_aggression.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">KNR_JPW2</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    4
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010009_EN_Boba_Fett_Leader_Unit_Thumbnail_ecf6fdcb78.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010031_EN_Lake_Country_Base_Thumbnail_45b2ec0158.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/db878fe9-69ec-40f9-911b-b45a006bb518" target="_blank">Boba Fett (JTL) - Lake Country</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010009_EN_Boba_Fett_Leader_Unit_Thumbnail_ecf6fdcb78.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010031_EN_Lake_Country_Base_Thumbnail_45b2ec0158.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-ec6482c59f350a8e82e18db1c5d57fe4');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">5-2-1</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_villainy.png" width="32" height="32"/>
+                    <img src="/images/aspect_aggression.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">GLHF_MrHamburg</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    5
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010002_EN_Mother_Talzin_Leader_Unit_Thumbnail_bff4651aae.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010029_EN_Crystal_Caves_Base_Thumbnail_2200be7645.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/1ab779cb-f297-4ca3-b67c-b45801371f72" target="_blank">Mother Talzin (LOF) - Yellow Force</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010002_EN_Mother_Talzin_Leader_Unit_Thumbnail_bff4651aae.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010029_EN_Crystal_Caves_Base_Thumbnail_2200be7645.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-2d51a9c8605bebdbbf017d073cb7fc5d');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">4-2-1</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_villainy.png" width="32" height="32"/>
+                    <img src="/images/aspect_vigilance.png" width="32" height="32"/>
+                    <img src="/images/aspect_cunning.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">TSF_Cancler</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    6
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_07010004_EN_Aurra_Sing_Leader_Unit_Thumbnail_59bdf48396.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_06010024_EN_Naval_Intelligence_HQ_Base_Thumbnail_fc4cd94c83.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/2a3be270-3678-46c1-95dd-b45901657e8c" target="_blank">Aurra Sing (LAW) - Red</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_07010004_EN_Aurra_Sing_Leader_Unit_Thumbnail_59bdf48396.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_06010024_EN_Naval_Intelligence_HQ_Base_Thumbnail_fc4cd94c83.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-85937b44994445452cf990aa92a4e489');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">4-2-1</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_villainy.png" width="32" height="32"/>
+                    <img src="/images/aspect_vigilance.png" width="32" height="32"/>
+                    <img src="/images/aspect_aggression.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">KNR_JohB</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    7
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010002_EN_Mother_Talzin_Leader_Unit_Thumbnail_bff4651aae.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010029_EN_Crystal_Caves_Base_Thumbnail_2200be7645.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/66e7d68c-afe2-4cb7-aa90-b45a00879848" target="_blank">Mother Talzin (LOF) - Yellow Force</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010002_EN_Mother_Talzin_Leader_Unit_Thumbnail_bff4651aae.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010029_EN_Crystal_Caves_Base_Thumbnail_2200be7645.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-a55f018e68662ab62851a7bbcd505906');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">4-2-1</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_villainy.png" width="32" height="32"/>
+                    <img src="/images/aspect_vigilance.png" width="32" height="32"/>
+                    <img src="/images/aspect_cunning.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">LTD_p0nk</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    8
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010002_EN_Mother_Talzin_Leader_Unit_Thumbnail_bff4651aae.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010024_EN_Starlight_Temple_Base_Thumbnail_6c2c38e733.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/84dc09c3-eaa2-4ffd-aaf7-b4590119034d" target="_blank">Mother Talzin (LOF) - Green Force</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010002_EN_Mother_Talzin_Leader_Unit_Thumbnail_bff4651aae.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010024_EN_Starlight_Temple_Base_Thumbnail_6c2c38e733.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-70471eebd27f7ce327fc4e7f9681a1cf');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">4-2-1</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_villainy.png" width="32" height="32"/>
+                    <img src="/images/aspect_vigilance.png" width="32" height="32"/>
+                    <img src="/images/aspect_command.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">GLHF_Christian_B</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    9
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010009_EN_Boba_Fett_Leader_Unit_Thumbnail_ecf6fdcb78.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010019_EN_City_in_the_Clouds_Base_Thumbnail_9bb586891b.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/0a5447d8-c1c3-4d14-849a-b4590164043c" target="_blank">Boba Fett (JTL) - Blue</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010009_EN_Boba_Fett_Leader_Unit_Thumbnail_ecf6fdcb78.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010019_EN_City_in_the_Clouds_Base_Thumbnail_9bb586891b.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-929e0d2894c859901f8fa290ad7820b5');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">4-2-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_villainy.png" width="32" height="32"/>
+                    <img src="/images/aspect_vigilance.png" width="32" height="32"/>
+                    <img src="/images/aspect_aggression.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">KNR_Merlin28</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    10
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_06010004_EN_Leia_Organa_Leader_Unit_Thumbnail_8bdbc5d7b6.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010024_EN_Data_Vault_Base_Thumbnail_a08b0130d8.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/0e9db5e6-e8b8-4e8a-9581-b45900e9d22d" target="_blank">Leia Organa (SEC) - Data Vault</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_06010004_EN_Leia_Organa_Leader_Unit_Thumbnail_8bdbc5d7b6.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010024_EN_Data_Vault_Base_Thumbnail_a08b0130d8.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-391947dfad6b25da15559c2948a3c296');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">4-2-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_heroism.png" width="32" height="32"/>
+                    <img src="/images/aspect_vigilance.png" width="32" height="32"/>
+                    <img src="/images/aspect_command.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">GLHF_Skulphire</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    11
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010005_EN_Admiral_Piett_Leader_Unit_Thumbnail_339d9076e1.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010020_EN_Shield_Generator_Complex_Base_Thumbnail_76ddf7df7a.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/4091353b-5114-49cb-9277-b459011e1c92" target="_blank">Admiral Piett (JTL) - Blue</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010005_EN_Admiral_Piett_Leader_Unit_Thumbnail_339d9076e1.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010020_EN_Shield_Generator_Complex_Base_Thumbnail_76ddf7df7a.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-ff0677d0393fdfde78dc66ac72772ca3');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">4-2-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_villainy.png" width="32" height="32"/>
+                    <img src="/images/aspect_vigilance.png" width="32" height="32"/>
+                    <img src="/images/aspect_command.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">OTS_Patzner</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    12
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010002_EN_Mother_Talzin_Leader_Unit_Thumbnail_bff4651aae.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010023_EN_Jedi_Temple_Base_Thumbnail_e07192b96c.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/4534e29f-013e-44c7-b9eb-b45a0064df33" target="_blank">Mother Talzin (LOF) - Green Force</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010002_EN_Mother_Talzin_Leader_Unit_Thumbnail_bff4651aae.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010023_EN_Jedi_Temple_Base_Thumbnail_e07192b96c.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-0180a3b4450a40ab63f561b1b92b8852');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">4-2-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_villainy.png" width="32" height="32"/>
+                    <img src="/images/aspect_vigilance.png" width="32" height="32"/>
+                    <img src="/images/aspect_command.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">PetM3</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    13
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010009_EN_Boba_Fett_Leader_Unit_Thumbnail_ecf6fdcb78.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010031_EN_Lake_Country_Base_Thumbnail_45b2ec0158.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/45bae900-b575-484d-9065-b45a00643487" target="_blank">Boba Fett (JTL) - Lake Country</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010009_EN_Boba_Fett_Leader_Unit_Thumbnail_ecf6fdcb78.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010031_EN_Lake_Country_Base_Thumbnail_45b2ec0158.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-e40dbf02d36220eeb440619f4d771a65');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">4-2-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_villainy.png" width="32" height="32"/>
+                    <img src="/images/aspect_aggression.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">MVP_sqUadi</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    14
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010002_EN_Mother_Talzin_Leader_Unit_Thumbnail_bff4651aae.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010023_EN_Jedi_Temple_Base_Thumbnail_e07192b96c.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/b8acabb5-9b51-4bfa-a13f-b45a007222c9" target="_blank">Mother Talzin (LOF) - Green Force</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010002_EN_Mother_Talzin_Leader_Unit_Thumbnail_bff4651aae.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010023_EN_Jedi_Temple_Base_Thumbnail_e07192b96c.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-8b8addf2c9e174259eb8528334d689a5');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">4-2-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_villainy.png" width="32" height="32"/>
+                    <img src="/images/aspect_vigilance.png" width="32" height="32"/>
+                    <img src="/images/aspect_command.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">7LS_Spark_One</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    15
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_07010013_EN_Chewbacca_Leader_Unit_Thumbnail_1dc052723a.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_07010019_EN_Alliance_Outpost_Base_Thumbnail_308bc77816.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/439a99e1-3406-4a91-8602-b459008df2b7" target="_blank">Chewbacca (LAW) - Alliance Outpost</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_07010013_EN_Chewbacca_Leader_Unit_Thumbnail_1dc052723a.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_07010019_EN_Alliance_Outpost_Base_Thumbnail_308bc77816.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-a4c1925cde7f3dc27403071c53128bc6');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">4-2-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_heroism.png" width="32" height="32"/>
+                    <img src="/images/aspect_vigilance.png" width="32" height="32"/>
+                    <img src="/images/aspect_aggression.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">Bobby802</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    16
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_06010006_EN_Colonel_Yularen_Leader_Unit_Thumbnail_2f11c96456.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010020_EN_Shield_Generator_Complex_Base_Thumbnail_76ddf7df7a.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/d0b48ba9-7af7-45d6-b602-b459017db968" target="_blank">Colonel Yularen (SEC) - Blue</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_06010006_EN_Colonel_Yularen_Leader_Unit_Thumbnail_2f11c96456.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010020_EN_Shield_Generator_Complex_Base_Thumbnail_76ddf7df7a.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-56eca9a9a529d39386c0be6ff0b6e256');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">4-2-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_villainy.png" width="32" height="32"/>
+                    <img src="/images/aspect_vigilance.png" width="32" height="32"/>
+                    <img src="/images/aspect_command.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">K7_Forbishes</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    17
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_07010004_EN_Aurra_Sing_Leader_Unit_Thumbnail_59bdf48396.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010024_EN_Data_Vault_Base_Thumbnail_a08b0130d8.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/233e40d4-9665-4d02-9d8c-b459015c2e92" target="_blank">Aurra Sing (LAW) - Data Vault</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_07010004_EN_Aurra_Sing_Leader_Unit_Thumbnail_59bdf48396.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010024_EN_Data_Vault_Base_Thumbnail_a08b0130d8.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-7d5534595430076c32c97afa23e9f06d');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">3-3-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_villainy.png" width="32" height="32"/>
+                    <img src="/images/aspect_vigilance.png" width="32" height="32"/>
+                    <img src="/images/aspect_command.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">Suardo_TCT</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    18
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_07010016_EN_The_Client_Leader_Unit_Thumbnail_1c67be356a.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_06010023_EN_Imperial_Prison_Complex_Base_Thumbnail_e4cdf346f4.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/c2a1d203-dda6-46c5-a9c0-b4590154419b" target="_blank">The Client (LAW) - Red</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_07010016_EN_The_Client_Leader_Unit_Thumbnail_1c67be356a.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_06010023_EN_Imperial_Prison_Complex_Base_Thumbnail_e4cdf346f4.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-529863ca39e9f7fd8b89a15470b2e28b');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">3-3-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_villainy.png" width="32" height="32"/>
+                    <img src="/images/aspect_aggression.png" width="32" height="32"/>
+                    <img src="/images/aspect_cunning.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">MVP_Fusselchen</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    19
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010008_EN_Wedge_Antilles_Leader_Unit_Thumbnail_f751c6a70c.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_030_Chopper_Base_Thumbnail_846b97a06c.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/5e2bfcff-4110-4962-b34b-b45a00864e8d" target="_blank">Wedge Antilles (JTL) - Yellow</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010008_EN_Wedge_Antilles_Leader_Unit_Thumbnail_f751c6a70c.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com/thumbnail_SWH_01_030_Chopper_Base_Thumbnail_846b97a06c.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-f0afc65629889cb03cce5282ae483333');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">3-3-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_heroism.png" width="32" height="32"/>
+                    <img src="/images/aspect_command.png" width="32" height="32"/>
+                    <img src="/images/aspect_cunning.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">2Nerdy</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    20
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_07010018_EN_Lando_Calrissian_Leader_Unit_Thumbnail_aa29fecc58.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010031_EN_Lake_Country_Base_Thumbnail_45b2ec0158.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/2677d0fc-1725-4f63-a512-b45a004387c8" target="_blank">Lando Calrissian (LAW) - Lake Country</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_07010018_EN_Lando_Calrissian_Leader_Unit_Thumbnail_aa29fecc58.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010031_EN_Lake_Country_Base_Thumbnail_45b2ec0158.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-65cbb2c0d3c33c6e6ece60dd6d525c54');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">3-3-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_heroism.png" width="32" height="32"/>
+                    <img src="/images/aspect_cunning.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">TSF_Weyoun</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    21
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_06010004_EN_Leia_Organa_Leader_Unit_Thumbnail_8bdbc5d7b6.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010024_EN_Data_Vault_Base_Thumbnail_a08b0130d8.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/58d3b89e-3194-4206-a978-b45901389e7f" target="_blank">Leia Organa (SEC) - Data Vault</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_06010004_EN_Leia_Organa_Leader_Unit_Thumbnail_8bdbc5d7b6.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010024_EN_Data_Vault_Base_Thumbnail_a08b0130d8.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-1fc499943c67c9b71b0e4d5fff6574a3');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">3-3-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_heroism.png" width="32" height="32"/>
+                    <img src="/images/aspect_vigilance.png" width="32" height="32"/>
+                    <img src="/images/aspect_command.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">KNR_Boelkstoff</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    22
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010005_EN_Admiral_Piett_Leader_Unit_Thumbnail_339d9076e1.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010027_EN_Nadiri_Dockyards_Base_Thumbnail_76cf7e32cf.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/cbe54832-1d85-4ca8-8378-b4590177c14b" target="_blank">Admiral Piett (JTL) - Red</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010005_EN_Admiral_Piett_Leader_Unit_Thumbnail_339d9076e1.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010027_EN_Nadiri_Dockyards_Base_Thumbnail_76cf7e32cf.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-87fd49bf2f6c31187a8b440bd78583a4');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">3-3-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_villainy.png" width="32" height="32"/>
+                    <img src="/images/aspect_command.png" width="32" height="32"/>
+                    <img src="/images/aspect_aggression.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">GlubShitto_BW</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    23
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010002_EN_Mother_Talzin_Leader_Unit_Thumbnail_bff4651aae.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010029_EN_Crystal_Caves_Base_Thumbnail_2200be7645.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/93d6ccc0-552c-4299-86b5-b4590154f0b3" target="_blank">Mother Talzin (LOF) - Yellow Force</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010002_EN_Mother_Talzin_Leader_Unit_Thumbnail_bff4651aae.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010029_EN_Crystal_Caves_Base_Thumbnail_2200be7645.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-67f90b5e50d26e953f8a3e58f497c95c');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">3-3-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_villainy.png" width="32" height="32"/>
+                    <img src="/images/aspect_vigilance.png" width="32" height="32"/>
+                    <img src="/images/aspect_cunning.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">KNR_Merock</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    24
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010009_EN_Boba_Fett_Leader_Unit_Thumbnail_ecf6fdcb78.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010031_EN_Lake_Country_Base_Thumbnail_45b2ec0158.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/9359779e-35ba-4b6d-81ed-b4590127fc16" target="_blank">Boba Fett (JTL) - Lake Country</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010009_EN_Boba_Fett_Leader_Unit_Thumbnail_ecf6fdcb78.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010031_EN_Lake_Country_Base_Thumbnail_45b2ec0158.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-9d6ce825c9c9be6080154e9427ad8519');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">3-3-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_villainy.png" width="32" height="32"/>
+                    <img src="/images/aspect_aggression.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">Urlok</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    25
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010008_EN_Obi_Wan_Kenobi_Leader_Unit_Thumbnail_44551616fb.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010020_EN_Nightsister_Lair_Base_Thumbnail_1e0bdaf806.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/909bf70a-d67b-461f-b1e8-b45901218249" target="_blank">Obi-Wan Kenobi (LOF) - Blue Force</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010008_EN_Obi_Wan_Kenobi_Leader_Unit_Thumbnail_44551616fb.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010020_EN_Nightsister_Lair_Base_Thumbnail_1e0bdaf806.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-bb6f35976221c986b5f1394c1994259b');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">3-3-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_heroism.png" width="32" height="32"/>
+                    <img src="/images/aspect_vigilance.png" width="32" height="32"/>
+                    <img src="/images/aspect_command.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">OTS_rohpex</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    26
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010009_EN_Boba_Fett_Leader_Unit_Thumbnail_ecf6fdcb78.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_06010020_EN_Uscru_Entertainment_District_Base_Thumbnail_67563e4050.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/fac25da6-c381-485b-9f6a-b45a00845ac7" target="_blank">Boba Fett (JTL) - Blue</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010009_EN_Boba_Fett_Leader_Unit_Thumbnail_ecf6fdcb78.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_06010020_EN_Uscru_Entertainment_District_Base_Thumbnail_67563e4050.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-ee729c1a5674f528f477906f610e0a29');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">3-3-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_villainy.png" width="32" height="32"/>
+                    <img src="/images/aspect_vigilance.png" width="32" height="32"/>
+                    <img src="/images/aspect_aggression.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">Erik_TCT</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    27
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_06010006_EN_Colonel_Yularen_Leader_Unit_Thumbnail_2f11c96456.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_06010023_EN_Imperial_Prison_Complex_Base_Thumbnail_e4cdf346f4.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/98bd10cc-9f8d-4b80-a781-b45a0087971d" target="_blank">Colonel Yularen (SEC) - Red</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_06010006_EN_Colonel_Yularen_Leader_Unit_Thumbnail_2f11c96456.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_06010023_EN_Imperial_Prison_Complex_Base_Thumbnail_e4cdf346f4.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-7dfd6cb13ad08df772b384fbff8e9640');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">3-3-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_villainy.png" width="32" height="32"/>
+                    <img src="/images/aspect_command.png" width="32" height="32"/>
+                    <img src="/images/aspect_aggression.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">MVP_Carl2408</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    28
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_06010017_EN_Sabe_Leader_Unit_Thumbnail_e0defbc048.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010024_EN_Data_Vault_Base_Thumbnail_a08b0130d8.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/eb1a71f8-8aac-4d12-b243-b45a006bdd66" target="_blank">Sabé (SEC) - Data Vault</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_06010017_EN_Sabe_Leader_Unit_Thumbnail_e0defbc048.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010024_EN_Data_Vault_Base_Thumbnail_a08b0130d8.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-93982fdc683a9304eea87ec097d65319');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">3-3-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_heroism.png" width="32" height="32"/>
+                    <img src="/images/aspect_command.png" width="32" height="32"/>
+                    <img src="/images/aspect_cunning.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">KNR_Orbe</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    29
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010002_EN_Grand_Admiral_Thrawn_Leader_Unit_Thumbnail_2df5a92952.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010029_EN_Crystal_Caves_Base_Thumbnail_2200be7645.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/6b50ae7d-3437-4b4c-b02d-b4590128133b" target="_blank">Grand Admiral Thrawn (JTL) - Yellow Force</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010002_EN_Grand_Admiral_Thrawn_Leader_Unit_Thumbnail_2df5a92952.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010029_EN_Crystal_Caves_Base_Thumbnail_2200be7645.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-09a5e735fde62617e53d17ff5efc753d');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">3-3-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_villainy.png" width="32" height="32"/>
+                    <img src="/images/aspect_vigilance.png" width="32" height="32"/>
+                    <img src="/images/aspect_cunning.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">7LS_Cosmiq</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    30
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010013_EN_Poe_Dameron_Leader_Unit_Thumbnail_99df13811f.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010024_EN_Data_Vault_Base_Thumbnail_a08b0130d8.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/1fb3ed34-8145-4ce5-a3c3-b45a0061c253" target="_blank">Poe Dameron (JTL) - Data Vault</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010013_EN_Poe_Dameron_Leader_Unit_Thumbnail_99df13811f.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010024_EN_Data_Vault_Base_Thumbnail_a08b0130d8.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-5b597635a03c68d712b181f8a8c94daf');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">3-3-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_heroism.png" width="32" height="32"/>
+                    <img src="/images/aspect_command.png" width="32" height="32"/>
+                    <img src="/images/aspect_aggression.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">Joloh93</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    31
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010009_EN_Boba_Fett_Leader_Unit_Thumbnail_ecf6fdcb78.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010031_EN_Lake_Country_Base_Thumbnail_45b2ec0158.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/0a3e89b3-9a6b-49a4-9ce5-b45a005f4ad0" target="_blank">Boba Fett (JTL) - Lake Country</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010009_EN_Boba_Fett_Leader_Unit_Thumbnail_ecf6fdcb78.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010031_EN_Lake_Country_Base_Thumbnail_45b2ec0158.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-52e2b04836a30bc27d677f3b7ac475c1');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">3-3-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_villainy.png" width="32" height="32"/>
+                    <img src="/images/aspect_aggression.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">VeniVidiViolini</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    32
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_07010018_EN_Lando_Calrissian_Leader_Unit_Thumbnail_aa29fecc58.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010031_EN_Lake_Country_Base_Thumbnail_45b2ec0158.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/ecd67e17-2152-455f-a3b4-b45a00828fd3" target="_blank">Lando Calrissian (LAW) - Lake Country</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_07010018_EN_Lando_Calrissian_Leader_Unit_Thumbnail_aa29fecc58.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010031_EN_Lake_Country_Base_Thumbnail_45b2ec0158.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-0a6fff0a07474c7ea3b2b0bd50015b26');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">3-3-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_heroism.png" width="32" height="32"/>
+                    <img src="/images/aspect_cunning.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">Meeplepeat</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    33
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_07010018_EN_Lando_Calrissian_Leader_Unit_Thumbnail_aa29fecc58.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010031_EN_Lake_Country_Base_Thumbnail_45b2ec0158.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/c299d8c2-06b6-45d5-ba68-b45a0087f9ac" target="_blank">Lando Calrissian (LAW) - Lake Country</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_07010018_EN_Lando_Calrissian_Leader_Unit_Thumbnail_aa29fecc58.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010031_EN_Lake_Country_Base_Thumbnail_45b2ec0158.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-46b44a0729aa545bc5e78fc05f19a608');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">2-4-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_heroism.png" width="32" height="32"/>
+                    <img src="/images/aspect_cunning.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">HungrigerHenni</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    34
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010009_EN_Boba_Fett_Leader_Unit_Thumbnail_ecf6fdcb78.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010031_EN_Lake_Country_Base_Thumbnail_45b2ec0158.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/072f8faa-80f4-48a2-904b-b459012289b1" target="_blank">Boba Fett (JTL) - Lake Country</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010009_EN_Boba_Fett_Leader_Unit_Thumbnail_ecf6fdcb78.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010031_EN_Lake_Country_Base_Thumbnail_45b2ec0158.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-86c155733b867d037eb0991cf9eac10f');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">2-4-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_villainy.png" width="32" height="32"/>
+                    <img src="/images/aspect_aggression.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">Fetzi85</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    35
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_06010017_EN_Sabe_Leader_Unit_Thumbnail_e0defbc048.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010024_EN_Data_Vault_Base_Thumbnail_a08b0130d8.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/a347ab84-9576-4008-990d-b45901293032" target="_blank">Sabé (SEC) - Data Vault</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_06010017_EN_Sabe_Leader_Unit_Thumbnail_e0defbc048.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010024_EN_Data_Vault_Base_Thumbnail_a08b0130d8.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-18635144855632e668a1bdb9f51987a1');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">2-4-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_heroism.png" width="32" height="32"/>
+                    <img src="/images/aspect_command.png" width="32" height="32"/>
+                    <img src="/images/aspect_cunning.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">marsta91</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    36
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_06010006_EN_Colonel_Yularen_Leader_Unit_Thumbnail_2f11c96456.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_06010024_EN_Naval_Intelligence_HQ_Base_Thumbnail_fc4cd94c83.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/47c2c23a-cfad-418e-94f2-b45901405b6a" target="_blank">Colonel Yularen (SEC) - Red</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_06010006_EN_Colonel_Yularen_Leader_Unit_Thumbnail_2f11c96456.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_06010024_EN_Naval_Intelligence_HQ_Base_Thumbnail_fc4cd94c83.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-9b3193e87af72b56e7a3e4ac091d0dab');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">2-4-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_villainy.png" width="32" height="32"/>
+                    <img src="/images/aspect_command.png" width="32" height="32"/>
+                    <img src="/images/aspect_aggression.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">MVP_Fluffelchen</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    37
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010006_EN_Darth_Vader_Leader_Unit_Thumbnail_08201df668.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010030_EN_Mos_Eisley_Base_Thumbnail_96b581f371.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/9eb8b128-1739-4e31-9681-b4580131c817" target="_blank">Darth Vader (JTL) - Yellow</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010006_EN_Darth_Vader_Leader_Unit_Thumbnail_08201df668.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010030_EN_Mos_Eisley_Base_Thumbnail_96b581f371.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-11ac1d504a672e72801589f2307fd29f');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">2-4-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_villainy.png" width="32" height="32"/>
+                    <img src="/images/aspect_command.png" width="32" height="32"/>
+                    <img src="/images/aspect_cunning.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">MVP_DrTammilie</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    38
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010002_EN_Mother_Talzin_Leader_Unit_Thumbnail_bff4651aae.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010029_EN_Crystal_Caves_Base_Thumbnail_2200be7645.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/1561fd31-bbe7-4aad-b5f8-b45901398594" target="_blank">Mother Talzin (LOF) - Yellow Force</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010002_EN_Mother_Talzin_Leader_Unit_Thumbnail_bff4651aae.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010029_EN_Crystal_Caves_Base_Thumbnail_2200be7645.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-e589c5094daead1c2ef2eae1b7035c0a');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">2-4-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_villainy.png" width="32" height="32"/>
+                    <img src="/images/aspect_vigilance.png" width="32" height="32"/>
+                    <img src="/images/aspect_cunning.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">MagicL89</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    39
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_07010005_EN_Jyn_Erso_Leader_Unit_Thumbnail_668536ab18.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_07010027_EN_Stygeon_Spire_Base_Thumbnail_4717dcb98a.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/d3e43ce1-f6f3-47b5-af37-b4590121d03e" target="_blank">Jyn Erso (LAW) - Red</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_07010005_EN_Jyn_Erso_Leader_Unit_Thumbnail_668536ab18.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_07010027_EN_Stygeon_Spire_Base_Thumbnail_4717dcb98a.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-edc2555aa9e593d2d442d3cce9d8d06b');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">2-4-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_heroism.png" width="32" height="32"/>
+                    <img src="/images/aspect_vigilance.png" width="32" height="32"/>
+                    <img src="/images/aspect_aggression.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">Steffen</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    40
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010007_EN_Avar_Kriss_Leader_Unit_Thumbnail_c8d85235d2.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010021_EN_Shadowed_Undercity_Base_Thumbnail_a1ac80707b.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/3fdc1a87-4406-4786-8d97-b459013e949b" target="_blank">Avar Kriss (LOF) - Blue Force</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010007_EN_Avar_Kriss_Leader_Unit_Thumbnail_c8d85235d2.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010021_EN_Shadowed_Undercity_Base_Thumbnail_a1ac80707b.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-2a5882eb3cd668d10e6829f60922250e');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">2-4-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_heroism.png" width="32" height="32"/>
+                    <img src="/images/aspect_vigilance.png" width="32" height="32"/>
+                    <img src="/images/aspect_command.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">501Legion</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    41
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_06010004_EN_Leia_Organa_Leader_Unit_Thumbnail_8bdbc5d7b6.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010024_EN_Data_Vault_Base_Thumbnail_a08b0130d8.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/4e1cbdf9-bcc2-4cbd-99ea-b459011e2013" target="_blank">Leia Organa (SEC) - Data Vault</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_06010004_EN_Leia_Organa_Leader_Unit_Thumbnail_8bdbc5d7b6.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010024_EN_Data_Vault_Base_Thumbnail_a08b0130d8.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-269024ec697540a4b86d58e3a4d59bd8');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">2-4-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_heroism.png" width="32" height="32"/>
+                    <img src="/images/aspect_vigilance.png" width="32" height="32"/>
+                    <img src="/images/aspect_command.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">OTS_Chimerafly</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    42
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010006_EN_Darth_Vader_Leader_Unit_Thumbnail_08201df668.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010030_EN_Mos_Eisley_Base_Thumbnail_96b581f371.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/036b0b1a-e01b-4d9b-aff6-b4590135edf2" target="_blank">Darth Vader (JTL) - Yellow</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010006_EN_Darth_Vader_Leader_Unit_Thumbnail_08201df668.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010030_EN_Mos_Eisley_Base_Thumbnail_96b581f371.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-0005043f3229a20a358d6f8df3402fc2');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">1-4-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_villainy.png" width="32" height="32"/>
+                    <img src="/images/aspect_command.png" width="32" height="32"/>
+                    <img src="/images/aspect_cunning.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">Mailman1980</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    43
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_07010010_EN_Leia_Organa_Leader_Unit_Thumbnail_a53c63a2ad.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_07010020_EN_Daimyo_s_Palace_Base_Thumbnail_37c5585773.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/8f1d8d18-33dd-448d-87af-b4590164c6a0" target="_blank">Leia Organa (LAW) - Blue</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_07010010_EN_Leia_Organa_Leader_Unit_Thumbnail_a53c63a2ad.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_07010020_EN_Daimyo_s_Palace_Base_Thumbnail_37c5585773.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-763d90cd4f77daf0b6ee525f0d406e6b');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">1-3-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_heroism.png" width="32" height="32"/>
+                    <img src="/images/aspect_vigilance.png" width="32" height="32"/>
+                    <img src="/images/aspect_command.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">KNR_Vagabond</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    44
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010008_EN_Obi_Wan_Kenobi_Leader_Unit_Thumbnail_44551616fb.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010021_EN_Shadowed_Undercity_Base_Thumbnail_a1ac80707b.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/a50c68d8-9aa6-4d87-a1b0-b459016020c9" target="_blank">Obi-Wan Kenobi (LOF) - Blue Force</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010008_EN_Obi_Wan_Kenobi_Leader_Unit_Thumbnail_44551616fb.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_05010021_EN_Shadowed_Undercity_Base_Thumbnail_a1ac80707b.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-a5cb673f183a789d97adaa8e8a08137d');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">1-5-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_heroism.png" width="32" height="32"/>
+                    <img src="/images/aspect_vigilance.png" width="32" height="32"/>
+                    <img src="/images/aspect_command.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">KillerKuchen</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    46
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_07010009_EN_Hera_Syndulla_Leader_Unit_Thumbnail_fdea4c78d0.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_07010020_EN_Daimyo_s_Palace_Base_Thumbnail_37c5585773.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/037bed82-dec5-4518-bdda-b459013b6f69" target="_blank">Hera Syndulla (LAW) - Blue</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_07010009_EN_Hera_Syndulla_Leader_Unit_Thumbnail_fdea4c78d0.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_07010020_EN_Daimyo_s_Palace_Base_Thumbnail_37c5585773.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-52afea7c6c6f04c23994e93716fe4fef');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">1-4-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_heroism.png" width="32" height="32"/>
+                    <img src="/images/aspect_vigilance.png" width="32" height="32"/>
+                    <img src="/images/aspect_command.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">TGCAO</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    47
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010005_EN_Admiral_Piett_Leader_Unit_Thumbnail_339d9076e1.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_06010023_EN_Imperial_Prison_Complex_Base_Thumbnail_e4cdf346f4.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/084b556b-04e1-41bd-8ed1-b45901249422" target="_blank">Admiral Piett (JTL) - Red</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010005_EN_Admiral_Piett_Leader_Unit_Thumbnail_339d9076e1.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_06010023_EN_Imperial_Prison_Complex_Base_Thumbnail_e4cdf346f4.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-07d54d66fd13d59be395bea3117678b3');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">1-5-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_villainy.png" width="32" height="32"/>
+                    <img src="/images/aspect_command.png" width="32" height="32"/>
+                    <img src="/images/aspect_aggression.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">7LS_Konfitzius</div></td>
+              </tr>
+              <tr class="d-none">
+                <td class="col-rank text-end text-secondary">
+                    
+                    48
+                </td>
+                <td class="col-decklist deck-list">
+                  <div class="vstack gap-2">
+                    <div class="hstack text-truncate">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010016_EN_Admiral_Ackbar_Leader_Unit_Thumbnail_36c3af397f.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010024_EN_Data_Vault_Base_Thumbnail_a08b0130d8.png" width="120" height="40"
+                           class="rounded rounded-1 d-none d-lg-inline-block me-2"/>
+                      <a href="https://melee.gg/Decklist/View/29f8effb-c7b4-47c7-a834-b4590142f391" target="_blank">Admiral Ackbar (JTL) - Data Vault</a>
+                      
+                    </div>
+                    <div class="hstack mb-1 d-lg-none">
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010016_EN_Admiral_Ackbar_Leader_Unit_Thumbnail_36c3af397f.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block me-1"/>
+                      <img src="https://cdn.starwarsunlimited.com//thumbnail_04010024_EN_Data_Vault_Base_Thumbnail_a08b0130d8.png" width="120" height="40"
+                           class="rounded rounded-1 d-inline-block"/>
+                    </div>
+                  </div>
+                </td>
+                <td class="col-actions text-end d-none d-xl-table-cell">
+                    <button class="btn-copy ms-2 btn btn-success btn-sm"
+                            onclick="copyDeck('swudb-deck-62e57326816e9db73eb8cbe967d649f2');">
+                      <i class="bi bi-copy me-1"></i>.json
+                    </button>
+                </td>
+                <td class="col-record text-center">1-5-0</td>
+                <td class="col-aspects text-center d-none d-xl-table-cell">
+                    <img src="/images/aspect_heroism.png" width="32" height="32"/>
+                    <img src="/images/aspect_command.png" width="32" height="32"/>
+                    <img src="/images/aspect_cunning.png" width="32" height="32"/>
+                </td>
+                <td class="col-player text-end fit deck-player d-none d-md-table-cell"><div class="text-truncate">KNR_Chironimo</div></td>
+              </tr>
+            </tbody>
+            <tfooter>
+              <tr class="text-center" id="showMoreSection">
+                <td colspan="7">
+                  <button class="btn btn-sw m-2" onclick="showMoreDecks();">
+                    Show more <i class="bi bi-caret-down-fill"></i></button>
+                </td>
+              </tr>
+            </tfooter>
+          </table>
+        </div>
     </div>
   </div>
 </section>
@@ -139,6 +1906,4611 @@
   </div>
 </section>
 
+    <pre class="d-none" id="swudb-deck-b0622b603278098626afd52732902e32">
+      {
+  "metadata" : {
+    "name" : "Mother Talzin (LOF) - Green Force",
+    "author" : "GLHF_Gerrit"
+  },
+  "leader" : {
+    "id" : "LOF_002",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "LOF_024",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_043",
+    "count" : 2
+  }, {
+    "id" : "JTL_112",
+    "count" : 2
+  }, {
+    "id" : "LAW_039",
+    "count" : 3
+  }, {
+    "id" : "LAW_129",
+    "count" : 1
+  }, {
+    "id" : "LOF_031",
+    "count" : 3
+  }, {
+    "id" : "LOF_035",
+    "count" : 3
+  }, {
+    "id" : "LOF_059",
+    "count" : 2
+  }, {
+    "id" : "LOF_061",
+    "count" : 3
+  }, {
+    "id" : "LOF_084",
+    "count" : 2
+  }, {
+    "id" : "LOF_087",
+    "count" : 2
+  }, {
+    "id" : "LOF_091",
+    "count" : 3
+  }, {
+    "id" : "LOF_111",
+    "count" : 3
+  }, {
+    "id" : "LOF_229",
+    "count" : 2
+  }, {
+    "id" : "LOF_231",
+    "count" : 3
+  }, {
+    "id" : "LOF_237",
+    "count" : 2
+  }, {
+    "id" : "LOF_261",
+    "count" : 3
+  }, {
+    "id" : "SEC_028",
+    "count" : 3
+  }, {
+    "id" : "SEC_037",
+    "count" : 2
+  }, {
+    "id" : "SEC_038",
+    "count" : 3
+  }, {
+    "id" : "SEC_040",
+    "count" : 1
+  }, {
+    "id" : "SEC_111",
+    "count" : 2
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_112",
+    "count" : 1
+  }, {
+    "id" : "LOF_067",
+    "count" : 2
+  }, {
+    "id" : "LOF_226",
+    "count" : 3
+  }, {
+    "id" : "SEC_037",
+    "count" : 1
+  }, {
+    "id" : "SEC_040",
+    "count" : 1
+  }, {
+    "id" : "SEC_092",
+    "count" : 2
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-0798bfd47008e2100d97304724daf515">
+      {
+  "metadata" : {
+    "name" : "Colonel Yularen (SEC) - Red",
+    "author" : "DomiPHG"
+  },
+  "leader" : {
+    "id" : "SEC_006",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "SEC_023",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_089",
+    "count" : 3
+  }, {
+    "id" : "JTL_143",
+    "count" : 2
+  }, {
+    "id" : "JTL_162",
+    "count" : 3
+  }, {
+    "id" : "LAW_053",
+    "count" : 2
+  }, {
+    "id" : "LAW_057",
+    "count" : 3
+  }, {
+    "id" : "LAW_063",
+    "count" : 2
+  }, {
+    "id" : "LAW_075",
+    "count" : 3
+  }, {
+    "id" : "LAW_168",
+    "count" : 3
+  }, {
+    "id" : "LAW_173",
+    "count" : 3
+  }, {
+    "id" : "LAW_174",
+    "count" : 3
+  }, {
+    "id" : "LAW_191",
+    "count" : 2
+  }, {
+    "id" : "LOF_091",
+    "count" : 3
+  }, {
+    "id" : "LOF_130",
+    "count" : 3
+  }, {
+    "id" : "LOF_155",
+    "count" : 2
+  }, {
+    "id" : "SEC_080",
+    "count" : 3
+  }, {
+    "id" : "SEC_082",
+    "count" : 2
+  }, {
+    "id" : "SEC_168",
+    "count" : 3
+  }, {
+    "id" : "SEC_179",
+    "count" : 3
+  }, {
+    "id" : "SEC_242",
+    "count" : 2
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_140",
+    "count" : 2
+  }, {
+    "id" : "JTL_143",
+    "count" : 1
+  }, {
+    "id" : "LAW_059",
+    "count" : 2
+  }, {
+    "id" : "LAW_063",
+    "count" : 1
+  }, {
+    "id" : "LAW_191",
+    "count" : 1
+  }, {
+    "id" : "SEC_163",
+    "count" : 2
+  }, {
+    "id" : "SEC_170",
+    "count" : 1
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-6fa8d652ae52fec4774a81f6d049b5c7">
+      {
+  "metadata" : {
+    "name" : "Boba Fett (JTL) - Lake Country",
+    "author" : "KNR_JPW2"
+  },
+  "leader" : {
+    "id" : "JTL_009",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "JTL_031",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_133",
+    "count" : 3
+  }, {
+    "id" : "JTL_137",
+    "count" : 2
+  }, {
+    "id" : "JTL_140",
+    "count" : 2
+  }, {
+    "id" : "JTL_143",
+    "count" : 3
+  }, {
+    "id" : "JTL_162",
+    "count" : 3
+  }, {
+    "id" : "JTL_165",
+    "count" : 2
+  }, {
+    "id" : "JTL_175",
+    "count" : 2
+  }, {
+    "id" : "JTL_181",
+    "count" : 2
+  }, {
+    "id" : "JTL_237",
+    "count" : 3
+  }, {
+    "id" : "JTL_240",
+    "count" : 3
+  }, {
+    "id" : "LAW_173",
+    "count" : 3
+  }, {
+    "id" : "LAW_174",
+    "count" : 3
+  }, {
+    "id" : "LAW_191",
+    "count" : 1
+  }, {
+    "id" : "SEC_133",
+    "count" : 3
+  }, {
+    "id" : "SEC_163",
+    "count" : 2
+  }, {
+    "id" : "SEC_171",
+    "count" : 3
+  }, {
+    "id" : "SEC_172",
+    "count" : 2
+  }, {
+    "id" : "SEC_179",
+    "count" : 3
+  }, {
+    "id" : "SEC_182",
+    "count" : 2
+  }, {
+    "id" : "SEC_183",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_175",
+    "count" : 1
+  }, {
+    "id" : "JTL_176",
+    "count" : 3
+  }, {
+    "id" : "JTL_181",
+    "count" : 1
+  }, {
+    "id" : "JTL_242",
+    "count" : 2
+  }, {
+    "id" : "LAW_191",
+    "count" : 2
+  }, {
+    "id" : "SEC_163",
+    "count" : 1
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-ec6482c59f350a8e82e18db1c5d57fe4">
+      {
+  "metadata" : {
+    "name" : "Boba Fett (JTL) - Lake Country",
+    "author" : "GLHF_MrHamburg"
+  },
+  "leader" : {
+    "id" : "JTL_009",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "JTL_031",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_133",
+    "count" : 2
+  }, {
+    "id" : "JTL_137",
+    "count" : 3
+  }, {
+    "id" : "JTL_140",
+    "count" : 3
+  }, {
+    "id" : "JTL_143",
+    "count" : 3
+  }, {
+    "id" : "JTL_162",
+    "count" : 3
+  }, {
+    "id" : "JTL_181",
+    "count" : 2
+  }, {
+    "id" : "JTL_237",
+    "count" : 3
+  }, {
+    "id" : "JTL_240",
+    "count" : 3
+  }, {
+    "id" : "LAW_173",
+    "count" : 3
+  }, {
+    "id" : "LAW_174",
+    "count" : 3
+  }, {
+    "id" : "LAW_208",
+    "count" : 2
+  }, {
+    "id" : "LOF_130",
+    "count" : 3
+  }, {
+    "id" : "SEC_133",
+    "count" : 2
+  }, {
+    "id" : "SEC_163",
+    "count" : 2
+  }, {
+    "id" : "SEC_171",
+    "count" : 3
+  }, {
+    "id" : "SEC_172",
+    "count" : 3
+  }, {
+    "id" : "SEC_179",
+    "count" : 2
+  }, {
+    "id" : "SEC_182",
+    "count" : 2
+  }, {
+    "id" : "SEC_183",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_175",
+    "count" : 2
+  }, {
+    "id" : "JTL_181",
+    "count" : 1
+  }, {
+    "id" : "JTL_242",
+    "count" : 2
+  }, {
+    "id" : "LAW_191",
+    "count" : 2
+  }, {
+    "id" : "SEC_163",
+    "count" : 1
+  }, {
+    "id" : "SEC_179",
+    "count" : 1
+  }, {
+    "id" : "SEC_182",
+    "count" : 1
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-2d51a9c8605bebdbbf017d073cb7fc5d">
+      {
+  "metadata" : {
+    "name" : "Mother Talzin (LOF) - Yellow Force",
+    "author" : "TSF_Cancler"
+  },
+  "leader" : {
+    "id" : "LOF_002",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "LOF_029",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_032",
+    "count" : 2
+  }, {
+    "id" : "JTL_043",
+    "count" : 2
+  }, {
+    "id" : "JTL_218",
+    "count" : 2
+  }, {
+    "id" : "JTL_235",
+    "count" : 2
+  }, {
+    "id" : "LAW_086",
+    "count" : 2
+  }, {
+    "id" : "LAW_132",
+    "count" : 2
+  }, {
+    "id" : "LOF_031",
+    "count" : 3
+  }, {
+    "id" : "LOF_034",
+    "count" : 3
+  }, {
+    "id" : "LOF_035",
+    "count" : 3
+  }, {
+    "id" : "LOF_059",
+    "count" : 2
+  }, {
+    "id" : "LOF_061",
+    "count" : 3
+  }, {
+    "id" : "LOF_067",
+    "count" : 1
+  }, {
+    "id" : "LOF_070",
+    "count" : 2
+  }, {
+    "id" : "LOF_079",
+    "count" : 2
+  }, {
+    "id" : "LOF_183",
+    "count" : 3
+  }, {
+    "id" : "LOF_231",
+    "count" : 3
+  }, {
+    "id" : "LOF_261",
+    "count" : 3
+  }, {
+    "id" : "SEC_028",
+    "count" : 3
+  }, {
+    "id" : "SEC_037",
+    "count" : 1
+  }, {
+    "id" : "SEC_038",
+    "count" : 3
+  }, {
+    "id" : "SEC_179",
+    "count" : 1
+  }, {
+    "id" : "SEC_193",
+    "count" : 2
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_218",
+    "count" : 1
+  }, {
+    "id" : "JTL_235",
+    "count" : 1
+  }, {
+    "id" : "LOF_037",
+    "count" : 2
+  }, {
+    "id" : "LOF_067",
+    "count" : 1
+  }, {
+    "id" : "LOF_220",
+    "count" : 2
+  }, {
+    "id" : "SEC_078",
+    "count" : 2
+  }, {
+    "id" : "SEC_193",
+    "count" : 1
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-85937b44994445452cf990aa92a4e489">
+      {
+  "metadata" : {
+    "name" : "Aurra Sing (LAW) - Red",
+    "author" : "KNR_JohB"
+  },
+  "leader" : {
+    "id" : "LAW_004",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "SEC_024",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_041",
+    "count" : 1
+  }, {
+    "id" : "JTL_043",
+    "count" : 3
+  }, {
+    "id" : "JTL_079",
+    "count" : 2
+  }, {
+    "id" : "JTL_143",
+    "count" : 3
+  }, {
+    "id" : "JTL_144",
+    "count" : 2
+  }, {
+    "id" : "JTL_181",
+    "count" : 3
+  }, {
+    "id" : "LAW_044",
+    "count" : 3
+  }, {
+    "id" : "LAW_049",
+    "count" : 3
+  }, {
+    "id" : "LAW_050",
+    "count" : 2
+  }, {
+    "id" : "LAW_101",
+    "count" : 1
+  }, {
+    "id" : "LAW_118",
+    "count" : 2
+  }, {
+    "id" : "LAW_121",
+    "count" : 1
+  }, {
+    "id" : "LAW_131",
+    "count" : 2
+  }, {
+    "id" : "LAW_132",
+    "count" : 3
+  }, {
+    "id" : "LAW_133",
+    "count" : 3
+  }, {
+    "id" : "LAW_178",
+    "count" : 1
+  }, {
+    "id" : "LAW_217",
+    "count" : 1
+  }, {
+    "id" : "LOF_077",
+    "count" : 3
+  }, {
+    "id" : "SEC_037",
+    "count" : 3
+  }, {
+    "id" : "SEC_038",
+    "count" : 3
+  }, {
+    "id" : "SEC_075",
+    "count" : 2
+  }, {
+    "id" : "SEC_142",
+    "count" : 1
+  }, {
+    "id" : "SEC_180",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_041",
+    "count" : 1
+  }, {
+    "id" : "JTL_121",
+    "count" : 1
+  }, {
+    "id" : "LAW_208",
+    "count" : 2
+  }, {
+    "id" : "SEC_078",
+    "count" : 2
+  }, {
+    "id" : "SEC_172",
+    "count" : 1
+  }, {
+    "id" : "SEC_176",
+    "count" : 1
+  }, {
+    "id" : "SEC_186",
+    "count" : 2
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-a55f018e68662ab62851a7bbcd505906">
+      {
+  "metadata" : {
+    "name" : "Mother Talzin (LOF) - Yellow Force",
+    "author" : "LTD_p0nk"
+  },
+  "leader" : {
+    "id" : "LOF_002",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "LOF_029",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_043",
+    "count" : 2
+  }, {
+    "id" : "JTL_235",
+    "count" : 3
+  }, {
+    "id" : "LAW_086",
+    "count" : 3
+  }, {
+    "id" : "LAW_132",
+    "count" : 3
+  }, {
+    "id" : "LOF_031",
+    "count" : 3
+  }, {
+    "id" : "LOF_034",
+    "count" : 3
+  }, {
+    "id" : "LOF_035",
+    "count" : 3
+  }, {
+    "id" : "LOF_059",
+    "count" : 2
+  }, {
+    "id" : "LOF_061",
+    "count" : 3
+  }, {
+    "id" : "LOF_070",
+    "count" : 3
+  }, {
+    "id" : "LOF_079",
+    "count" : 3
+  }, {
+    "id" : "LOF_183",
+    "count" : 3
+  }, {
+    "id" : "LOF_231",
+    "count" : 3
+  }, {
+    "id" : "LOF_261",
+    "count" : 3
+  }, {
+    "id" : "SEC_028",
+    "count" : 3
+  }, {
+    "id" : "SEC_186",
+    "count" : 2
+  }, {
+    "id" : "SEC_193",
+    "count" : 2
+  }, {
+    "id" : "SEC_218",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_175",
+    "count" : 2
+  }, {
+    "id" : "LOF_037",
+    "count" : 2
+  }, {
+    "id" : "LOF_220",
+    "count" : 2
+  }, {
+    "id" : "SEC_038",
+    "count" : 2
+  }, {
+    "id" : "SEC_078",
+    "count" : 2
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-70471eebd27f7ce327fc4e7f9681a1cf">
+      {
+  "metadata" : {
+    "name" : "Mother Talzin (LOF) - Green Force",
+    "author" : "GLHF_Christian_B"
+  },
+  "leader" : {
+    "id" : "LOF_002",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "LOF_024",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_043",
+    "count" : 2
+  }, {
+    "id" : "JTL_112",
+    "count" : 2
+  }, {
+    "id" : "LAW_039",
+    "count" : 3
+  }, {
+    "id" : "LAW_129",
+    "count" : 1
+  }, {
+    "id" : "LOF_031",
+    "count" : 3
+  }, {
+    "id" : "LOF_035",
+    "count" : 3
+  }, {
+    "id" : "LOF_059",
+    "count" : 1
+  }, {
+    "id" : "LOF_061",
+    "count" : 3
+  }, {
+    "id" : "LOF_067",
+    "count" : 2
+  }, {
+    "id" : "LOF_087",
+    "count" : 2
+  }, {
+    "id" : "LOF_091",
+    "count" : 3
+  }, {
+    "id" : "LOF_111",
+    "count" : 3
+  }, {
+    "id" : "LOF_229",
+    "count" : 3
+  }, {
+    "id" : "LOF_231",
+    "count" : 3
+  }, {
+    "id" : "LOF_237",
+    "count" : 1
+  }, {
+    "id" : "LOF_261",
+    "count" : 3
+  }, {
+    "id" : "SEC_028",
+    "count" : 3
+  }, {
+    "id" : "SEC_037",
+    "count" : 3
+  }, {
+    "id" : "SEC_038",
+    "count" : 3
+  }, {
+    "id" : "SEC_040",
+    "count" : 2
+  }, {
+    "id" : "SEC_111",
+    "count" : 2
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_112",
+    "count" : 1
+  }, {
+    "id" : "LOF_034",
+    "count" : 2
+  }, {
+    "id" : "LOF_078",
+    "count" : 2
+  }, {
+    "id" : "LOF_226",
+    "count" : 3
+  }, {
+    "id" : "SEC_092",
+    "count" : 2
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-929e0d2894c859901f8fa290ad7820b5">
+      {
+  "metadata" : {
+    "name" : "Boba Fett (JTL) - Blue",
+    "author" : "KNR_Merlin28"
+  },
+  "leader" : {
+    "id" : "JTL_009",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "JTL_019",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_043",
+    "count" : 3
+  }, {
+    "id" : "JTL_133",
+    "count" : 1
+  }, {
+    "id" : "JTL_140",
+    "count" : 2
+  }, {
+    "id" : "JTL_143",
+    "count" : 3
+  }, {
+    "id" : "JTL_162",
+    "count" : 3
+  }, {
+    "id" : "JTL_175",
+    "count" : 2
+  }, {
+    "id" : "JTL_181",
+    "count" : 2
+  }, {
+    "id" : "JTL_237",
+    "count" : 2
+  }, {
+    "id" : "JTL_240",
+    "count" : 3
+  }, {
+    "id" : "LAW_044",
+    "count" : 2
+  }, {
+    "id" : "LAW_050",
+    "count" : 2
+  }, {
+    "id" : "LAW_133",
+    "count" : 2
+  }, {
+    "id" : "LAW_173",
+    "count" : 3
+  }, {
+    "id" : "LAW_174",
+    "count" : 3
+  }, {
+    "id" : "LOF_130",
+    "count" : 2
+  }, {
+    "id" : "SEC_038",
+    "count" : 2
+  }, {
+    "id" : "SEC_133",
+    "count" : 3
+  }, {
+    "id" : "SEC_171",
+    "count" : 3
+  }, {
+    "id" : "SEC_172",
+    "count" : 2
+  }, {
+    "id" : "SEC_179",
+    "count" : 2
+  }, {
+    "id" : "SEC_182",
+    "count" : 2
+  }, {
+    "id" : "SEC_183",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_033",
+    "count" : 2
+  }, {
+    "id" : "LAW_118",
+    "count" : 2
+  }, {
+    "id" : "LAW_191",
+    "count" : 2
+  }, {
+    "id" : "LAW_208",
+    "count" : 2
+  }, {
+    "id" : "SEC_077",
+    "count" : 2
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-391947dfad6b25da15559c2948a3c296">
+      {
+  "metadata" : {
+    "name" : "Leia Organa (SEC) - Data Vault",
+    "author" : "GLHF_Skulphire"
+  },
+  "leader" : {
+    "id" : "SEC_004",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "JTL_024",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_096",
+    "count" : 2
+  }, {
+    "id" : "JTL_112",
+    "count" : 2
+  }, {
+    "id" : "JTL_250",
+    "count" : 3
+  }, {
+    "id" : "LAW_037",
+    "count" : 3
+  }, {
+    "id" : "LAW_038",
+    "count" : 3
+  }, {
+    "id" : "LAW_039",
+    "count" : 3
+  }, {
+    "id" : "LAW_129",
+    "count" : 2
+  }, {
+    "id" : "LAW_133",
+    "count" : 3
+  }, {
+    "id" : "LAW_168",
+    "count" : 2
+  }, {
+    "id" : "LOF_057",
+    "count" : 3
+  }, {
+    "id" : "LOF_070",
+    "count" : 3
+  }, {
+    "id" : "LOF_093",
+    "count" : 3
+  }, {
+    "id" : "LOF_096",
+    "count" : 3
+  }, {
+    "id" : "LOF_100",
+    "count" : 3
+  }, {
+    "id" : "LOF_128",
+    "count" : 3
+  }, {
+    "id" : "LOF_246",
+    "count" : 2
+  }, {
+    "id" : "LOF_247",
+    "count" : 2
+  }, {
+    "id" : "SEC_046",
+    "count" : 2
+  }, {
+    "id" : "SEC_078",
+    "count" : 1
+  }, {
+    "id" : "SEC_094",
+    "count" : 3
+  }, {
+    "id" : "SEC_098",
+    "count" : 3
+  }, {
+    "id" : "SEC_101",
+    "count" : 2
+  }, {
+    "id" : "SEC_179",
+    "count" : 2
+  }, {
+    "id" : "SEC_256",
+    "count" : 2
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_096",
+    "count" : 1
+  }, {
+    "id" : "LAW_118",
+    "count" : 2
+  }, {
+    "id" : "LAW_149",
+    "count" : 2
+  }, {
+    "id" : "SEC_046",
+    "count" : 1
+  }, {
+    "id" : "SEC_077",
+    "count" : 2
+  }, {
+    "id" : "SEC_078",
+    "count" : 2
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-ff0677d0393fdfde78dc66ac72772ca3">
+      {
+  "metadata" : {
+    "name" : "Admiral Piett (JTL) - Blue",
+    "author" : "OTS_Patzner"
+  },
+  "leader" : {
+    "id" : "JTL_005",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "JTL_020",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_038",
+    "count" : 3
+  }, {
+    "id" : "JTL_040",
+    "count" : 2
+  }, {
+    "id" : "JTL_043",
+    "count" : 2
+  }, {
+    "id" : "JTL_069",
+    "count" : 3
+  }, {
+    "id" : "JTL_089",
+    "count" : 3
+  }, {
+    "id" : "JTL_118",
+    "count" : 3
+  }, {
+    "id" : "JTL_131",
+    "count" : 3
+  }, {
+    "id" : "LAW_075",
+    "count" : 3
+  }, {
+    "id" : "LAW_101",
+    "count" : 3
+  }, {
+    "id" : "LAW_118",
+    "count" : 3
+  }, {
+    "id" : "LAW_153",
+    "count" : 3
+  }, {
+    "id" : "LAW_168",
+    "count" : 2
+  }, {
+    "id" : "LOF_077",
+    "count" : 3
+  }, {
+    "id" : "LOF_091",
+    "count" : 3
+  }, {
+    "id" : "SEC_037",
+    "count" : 3
+  }, {
+    "id" : "SEC_038",
+    "count" : 3
+  }, {
+    "id" : "SEC_080",
+    "count" : 3
+  }, {
+    "id" : "SEC_110",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_041",
+    "count" : 2
+  }, {
+    "id" : "JTL_121",
+    "count" : 2
+  }, {
+    "id" : "LAW_039",
+    "count" : 2
+  }, {
+    "id" : "LAW_100",
+    "count" : 2
+  }, {
+    "id" : "LAW_132",
+    "count" : 2
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-0180a3b4450a40ab63f561b1b92b8852">
+      {
+  "metadata" : {
+    "name" : "Mother Talzin (LOF) - Green Force",
+    "author" : "PetM3"
+  },
+  "leader" : {
+    "id" : "LOF_002",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "LOF_023",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_043",
+    "count" : 2
+  }, {
+    "id" : "LAW_039",
+    "count" : 3
+  }, {
+    "id" : "LOF_031",
+    "count" : 3
+  }, {
+    "id" : "LOF_035",
+    "count" : 3
+  }, {
+    "id" : "LOF_059",
+    "count" : 3
+  }, {
+    "id" : "LOF_061",
+    "count" : 3
+  }, {
+    "id" : "LOF_062",
+    "count" : 3
+  }, {
+    "id" : "LOF_067",
+    "count" : 2
+  }, {
+    "id" : "LOF_087",
+    "count" : 2
+  }, {
+    "id" : "LOF_091",
+    "count" : 3
+  }, {
+    "id" : "LOF_111",
+    "count" : 3
+  }, {
+    "id" : "LOF_229",
+    "count" : 2
+  }, {
+    "id" : "LOF_231",
+    "count" : 3
+  }, {
+    "id" : "LOF_237",
+    "count" : 2
+  }, {
+    "id" : "LOF_261",
+    "count" : 3
+  }, {
+    "id" : "SEC_028",
+    "count" : 3
+  }, {
+    "id" : "SEC_037",
+    "count" : 2
+  }, {
+    "id" : "SEC_038",
+    "count" : 2
+  }, {
+    "id" : "SEC_040",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_043",
+    "count" : 1
+  }, {
+    "id" : "JTL_112",
+    "count" : 3
+  }, {
+    "id" : "LAW_149",
+    "count" : 2
+  }, {
+    "id" : "LOF_115",
+    "count" : 2
+  }, {
+    "id" : "SEC_038",
+    "count" : 1
+  }, {
+    "id" : "SEC_078",
+    "count" : 1
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-e40dbf02d36220eeb440619f4d771a65">
+      {
+  "metadata" : {
+    "name" : "Boba Fett (JTL) - Lake Country",
+    "author" : "MVP_sqUadi"
+  },
+  "leader" : {
+    "id" : "JTL_009",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "JTL_031",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_133",
+    "count" : 3
+  }, {
+    "id" : "JTL_140",
+    "count" : 3
+  }, {
+    "id" : "JTL_143",
+    "count" : 3
+  }, {
+    "id" : "JTL_162",
+    "count" : 3
+  }, {
+    "id" : "JTL_175",
+    "count" : 2
+  }, {
+    "id" : "JTL_181",
+    "count" : 2
+  }, {
+    "id" : "JTL_237",
+    "count" : 3
+  }, {
+    "id" : "JTL_240",
+    "count" : 3
+  }, {
+    "id" : "LAW_173",
+    "count" : 3
+  }, {
+    "id" : "LAW_174",
+    "count" : 3
+  }, {
+    "id" : "LAW_175",
+    "count" : 2
+  }, {
+    "id" : "LAW_191",
+    "count" : 1
+  }, {
+    "id" : "LAW_208",
+    "count" : 2
+  }, {
+    "id" : "SEC_133",
+    "count" : 3
+  }, {
+    "id" : "SEC_171",
+    "count" : 3
+  }, {
+    "id" : "SEC_172",
+    "count" : 3
+  }, {
+    "id" : "SEC_179",
+    "count" : 3
+  }, {
+    "id" : "SEC_182",
+    "count" : 2
+  }, {
+    "id" : "SEC_183",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_176",
+    "count" : 2
+  }, {
+    "id" : "JTL_181",
+    "count" : 1
+  }, {
+    "id" : "LAW_175",
+    "count" : 1
+  }, {
+    "id" : "LAW_191",
+    "count" : 1
+  }, {
+    "id" : "SEC_163",
+    "count" : 2
+  }, {
+    "id" : "SEC_170",
+    "count" : 3
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-8b8addf2c9e174259eb8528334d689a5">
+      {
+  "metadata" : {
+    "name" : "Mother Talzin (LOF) - Green Force",
+    "author" : "7LS_Spark_One"
+  },
+  "leader" : {
+    "id" : "LOF_002",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "LOF_023",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_043",
+    "count" : 3
+  }, {
+    "id" : "LAW_039",
+    "count" : 2
+  }, {
+    "id" : "LOF_031",
+    "count" : 3
+  }, {
+    "id" : "LOF_035",
+    "count" : 3
+  }, {
+    "id" : "LOF_059",
+    "count" : 3
+  }, {
+    "id" : "LOF_061",
+    "count" : 3
+  }, {
+    "id" : "LOF_067",
+    "count" : 3
+  }, {
+    "id" : "LOF_079",
+    "count" : 3
+  }, {
+    "id" : "LOF_084",
+    "count" : 2
+  }, {
+    "id" : "LOF_087",
+    "count" : 2
+  }, {
+    "id" : "LOF_091",
+    "count" : 3
+  }, {
+    "id" : "LOF_111",
+    "count" : 3
+  }, {
+    "id" : "LOF_231",
+    "count" : 3
+  }, {
+    "id" : "LOF_261",
+    "count" : 3
+  }, {
+    "id" : "SEC_028",
+    "count" : 3
+  }, {
+    "id" : "SEC_037",
+    "count" : 2
+  }, {
+    "id" : "SEC_038",
+    "count" : 2
+  }, {
+    "id" : "SEC_040",
+    "count" : 1
+  }, {
+    "id" : "SEC_111",
+    "count" : 2
+  }, {
+    "id" : "SEC_244",
+    "count" : 2
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_112",
+    "count" : 3
+  }, {
+    "id" : "LAW_132",
+    "count" : 2
+  }, {
+    "id" : "LOF_043",
+    "count" : 2
+  }, {
+    "id" : "LOF_070",
+    "count" : 2
+  }, {
+    "id" : "SEC_038",
+    "count" : 1
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-a4c1925cde7f3dc27403071c53128bc6">
+      {
+  "metadata" : {
+    "name" : "Chewbacca (LAW) - Alliance Outpost",
+    "author" : "Bobby802"
+  },
+  "leader" : {
+    "id" : "LAW_013",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "LAW_019",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_076",
+    "count" : 3
+  }, {
+    "id" : "JTL_147",
+    "count" : 3
+  }, {
+    "id" : "JTL_149",
+    "count" : 2
+  }, {
+    "id" : "JTL_151",
+    "count" : 3
+  }, {
+    "id" : "JTL_174",
+    "count" : 2
+  }, {
+    "id" : "JTL_175",
+    "count" : 2
+  }, {
+    "id" : "JTL_245",
+    "count" : 3
+  }, {
+    "id" : "LAW_105",
+    "count" : 3
+  }, {
+    "id" : "LAW_113",
+    "count" : 1
+  }, {
+    "id" : "LAW_129",
+    "count" : 3
+  }, {
+    "id" : "LAW_191",
+    "count" : 1
+  }, {
+    "id" : "LAW_202",
+    "count" : 3
+  }, {
+    "id" : "LOF_047",
+    "count" : 3
+  }, {
+    "id" : "LOF_061",
+    "count" : 3
+  }, {
+    "id" : "SEC_052",
+    "count" : 2
+  }, {
+    "id" : "SEC_069",
+    "count" : 2
+  }, {
+    "id" : "SEC_148",
+    "count" : 3
+  }, {
+    "id" : "SEC_163",
+    "count" : 1
+  }, {
+    "id" : "SEC_164",
+    "count" : 3
+  }, {
+    "id" : "SEC_179",
+    "count" : 3
+  }, {
+    "id" : "SEC_256",
+    "count" : 1
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_078",
+    "count" : 2
+  }, {
+    "id" : "JTL_174",
+    "count" : 1
+  }, {
+    "id" : "LAW_191",
+    "count" : 2
+  }, {
+    "id" : "LOF_160",
+    "count" : 2
+  }, {
+    "id" : "SEC_046",
+    "count" : 1
+  }, {
+    "id" : "SEC_163",
+    "count" : 1
+  }, {
+    "id" : "SEC_170",
+    "count" : 1
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-56eca9a9a529d39386c0be6ff0b6e256">
+      {
+  "metadata" : {
+    "name" : "Colonel Yularen (SEC) - Blue",
+    "author" : "K7_Forbishes"
+  },
+  "leader" : {
+    "id" : "SEC_006",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "JTL_020",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_032",
+    "count" : 3
+  }, {
+    "id" : "JTL_033",
+    "count" : 2
+  }, {
+    "id" : "JTL_036",
+    "count" : 2
+  }, {
+    "id" : "JTL_242",
+    "count" : 3
+  }, {
+    "id" : "LAW_031",
+    "count" : 2
+  }, {
+    "id" : "LAW_037",
+    "count" : 3
+  }, {
+    "id" : "LAW_039",
+    "count" : 3
+  }, {
+    "id" : "LAW_097",
+    "count" : 3
+  }, {
+    "id" : "LAW_168",
+    "count" : 3
+  }, {
+    "id" : "LOF_062",
+    "count" : 3
+  }, {
+    "id" : "LOF_084",
+    "count" : 2
+  }, {
+    "id" : "LOF_091",
+    "count" : 3
+  }, {
+    "id" : "SEC_034",
+    "count" : 2
+  }, {
+    "id" : "SEC_040",
+    "count" : 3
+  }, {
+    "id" : "SEC_079",
+    "count" : 2
+  }, {
+    "id" : "SEC_080",
+    "count" : 3
+  }, {
+    "id" : "SEC_082",
+    "count" : 2
+  }, {
+    "id" : "SEC_085",
+    "count" : 2
+  }, {
+    "id" : "SEC_087",
+    "count" : 2
+  }, {
+    "id" : "SEC_111",
+    "count" : 2
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_083",
+    "count" : 2
+  }, {
+    "id" : "LAW_040",
+    "count" : 2
+  }, {
+    "id" : "SEC_038",
+    "count" : 3
+  }, {
+    "id" : "SEC_082",
+    "count" : 1
+  }, {
+    "id" : "SEC_092",
+    "count" : 2
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-7d5534595430076c32c97afa23e9f06d">
+      {
+  "metadata" : {
+    "name" : "Aurra Sing (LAW) - Data Vault",
+    "author" : "Suardo_TCT"
+  },
+  "leader" : {
+    "id" : "LAW_004",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "JTL_024",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_032",
+    "count" : 3
+  }, {
+    "id" : "JTL_041",
+    "count" : 1
+  }, {
+    "id" : "JTL_043",
+    "count" : 3
+  }, {
+    "id" : "JTL_068",
+    "count" : 2
+  }, {
+    "id" : "JTL_112",
+    "count" : 3
+  }, {
+    "id" : "LAW_031",
+    "count" : 2
+  }, {
+    "id" : "LAW_037",
+    "count" : 2
+  }, {
+    "id" : "LAW_038",
+    "count" : 3
+  }, {
+    "id" : "LAW_039",
+    "count" : 3
+  }, {
+    "id" : "LAW_098",
+    "count" : 1
+  }, {
+    "id" : "LAW_101",
+    "count" : 2
+  }, {
+    "id" : "LAW_118",
+    "count" : 1
+  }, {
+    "id" : "LAW_132",
+    "count" : 2
+  }, {
+    "id" : "LAW_133",
+    "count" : 3
+  }, {
+    "id" : "LAW_159",
+    "count" : 3
+  }, {
+    "id" : "LOF_067",
+    "count" : 1
+  }, {
+    "id" : "LOF_084",
+    "count" : 2
+  }, {
+    "id" : "LOF_087",
+    "count" : 2
+  }, {
+    "id" : "LOF_091",
+    "count" : 3
+  }, {
+    "id" : "LOF_121",
+    "count" : 2
+  }, {
+    "id" : "SEC_037",
+    "count" : 3
+  }, {
+    "id" : "SEC_038",
+    "count" : 3
+  }, {
+    "id" : "SEC_068",
+    "count" : 2
+  }, {
+    "id" : "SEC_075",
+    "count" : 3
+  }, {
+    "id" : "SEC_080",
+    "count" : 3
+  }, {
+    "id" : "SEC_090",
+    "count" : 1
+  }, {
+    "id" : "SEC_110",
+    "count" : 2
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_041",
+    "count" : 1
+  }, {
+    "id" : "LAW_118",
+    "count" : 2
+  }, {
+    "id" : "LAW_135",
+    "count" : 2
+  }, {
+    "id" : "LAW_149",
+    "count" : 2
+  }, {
+    "id" : "LOF_043",
+    "count" : 1
+  }, {
+    "id" : "LOF_118",
+    "count" : 1
+  }, {
+    "id" : "SEC_078",
+    "count" : 1
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-529863ca39e9f7fd8b89a15470b2e28b">
+      {
+  "metadata" : {
+    "name" : "The Client (LAW) - Red",
+    "author" : "MVP_Fusselchen"
+  },
+  "leader" : {
+    "id" : "LAW_016",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "SEC_023",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_221",
+    "count" : 3
+  }, {
+    "id" : "JTL_242",
+    "count" : 2
+  }, {
+    "id" : "LAW_075",
+    "count" : 3
+  }, {
+    "id" : "LAW_077",
+    "count" : 2
+  }, {
+    "id" : "LAW_173",
+    "count" : 3
+  }, {
+    "id" : "LAW_174",
+    "count" : 3
+  }, {
+    "id" : "LAW_202",
+    "count" : 3
+  }, {
+    "id" : "LAW_211",
+    "count" : 3
+  }, {
+    "id" : "LAW_217",
+    "count" : 2
+  }, {
+    "id" : "LOF_139",
+    "count" : 3
+  }, {
+    "id" : "LOF_140",
+    "count" : 3
+  }, {
+    "id" : "LOF_179",
+    "count" : 3
+  }, {
+    "id" : "LOF_183",
+    "count" : 3
+  }, {
+    "id" : "LOF_215",
+    "count" : 3
+  }, {
+    "id" : "SEC_163",
+    "count" : 2
+  }, {
+    "id" : "SEC_164",
+    "count" : 3
+  }, {
+    "id" : "SEC_176",
+    "count" : 2
+  }, {
+    "id" : "SEC_179",
+    "count" : 2
+  }, {
+    "id" : "SEC_195",
+    "count" : 2
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_235",
+    "count" : 2
+  }, {
+    "id" : "LAW_081",
+    "count" : 3
+  }, {
+    "id" : "LAW_191",
+    "count" : 3
+  }, {
+    "id" : "LAW_217",
+    "count" : 1
+  }, {
+    "id" : "SEC_179",
+    "count" : 1
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-f0afc65629889cb03cce5282ae483333">
+      {
+  "metadata" : {
+    "name" : "Wedge Antilles (JTL) - Yellow",
+    "author" : "2Nerdy"
+  },
+  "leader" : {
+    "id" : "JTL_008",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "SOR_030",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_093",
+    "count" : 3
+  }, {
+    "id" : "JTL_094",
+    "count" : 3
+  }, {
+    "id" : "JTL_096",
+    "count" : 3
+  }, {
+    "id" : "JTL_101",
+    "count" : 3
+  }, {
+    "id" : "JTL_103",
+    "count" : 3
+  }, {
+    "id" : "JTL_203",
+    "count" : 3
+  }, {
+    "id" : "JTL_231",
+    "count" : 3
+  }, {
+    "id" : "JTL_245",
+    "count" : 3
+  }, {
+    "id" : "JTL_247",
+    "count" : 3
+  }, {
+    "id" : "JTL_249",
+    "count" : 3
+  }, {
+    "id" : "JTL_261",
+    "count" : 2
+  }, {
+    "id" : "LAW_228",
+    "count" : 2
+  }, {
+    "id" : "LAW_233",
+    "count" : 3
+  }, {
+    "id" : "LOF_192",
+    "count" : 3
+  }, {
+    "id" : "SEC_099",
+    "count" : 3
+  }, {
+    "id" : "SEC_204",
+    "count" : 2
+  }, {
+    "id" : "SEC_207",
+    "count" : 2
+  }, {
+    "id" : "SEC_213",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_175",
+    "count" : 2
+  }, {
+    "id" : "JTL_207",
+    "count" : 3
+  }, {
+    "id" : "LAW_219",
+    "count" : 3
+  }, {
+    "id" : "SEC_204",
+    "count" : 1
+  }, {
+    "id" : "SEC_207",
+    "count" : 1
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-65cbb2c0d3c33c6e6ece60dd6d525c54">
+      {
+  "metadata" : {
+    "name" : "Lando Calrissian (LAW) - Lake Country",
+    "author" : "TSF_Weyoun"
+  },
+  "leader" : {
+    "id" : "LAW_018",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "JTL_031",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "IBH_052",
+    "count" : 3
+  }, {
+    "id" : "JTL_203",
+    "count" : 3
+  }, {
+    "id" : "JTL_207",
+    "count" : 2
+  }, {
+    "id" : "JTL_218",
+    "count" : 3
+  }, {
+    "id" : "JTL_221",
+    "count" : 3
+  }, {
+    "id" : "LAW_223",
+    "count" : 3
+  }, {
+    "id" : "LAW_224",
+    "count" : 3
+  }, {
+    "id" : "LAW_228",
+    "count" : 2
+  }, {
+    "id" : "LAW_229",
+    "count" : 3
+  }, {
+    "id" : "LAW_236",
+    "count" : 2
+  }, {
+    "id" : "LAW_246",
+    "count" : 3
+  }, {
+    "id" : "LOF_192",
+    "count" : 3
+  }, {
+    "id" : "LOF_199",
+    "count" : 2
+  }, {
+    "id" : "LOF_200",
+    "count" : 3
+  }, {
+    "id" : "SEC_179",
+    "count" : 3
+  }, {
+    "id" : "SEC_198",
+    "count" : 2
+  }, {
+    "id" : "SEC_200",
+    "count" : 2
+  }, {
+    "id" : "SEC_209",
+    "count" : 2
+  }, {
+    "id" : "SEC_211",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_235",
+    "count" : 3
+  }, {
+    "id" : "LAW_219",
+    "count" : 2
+  }, {
+    "id" : "LAW_241",
+    "count" : 2
+  }, {
+    "id" : "SEC_204",
+    "count" : 2
+  }, {
+    "id" : "SEC_209",
+    "count" : 1
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-1fc499943c67c9b71b0e4d5fff6574a3">
+      {
+  "metadata" : {
+    "name" : "Leia Organa (SEC) - Data Vault",
+    "author" : "KNR_Boelkstoff"
+  },
+  "leader" : {
+    "id" : "SEC_004",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "JTL_024",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_096",
+    "count" : 3
+  }, {
+    "id" : "JTL_250",
+    "count" : 3
+  }, {
+    "id" : "LAW_037",
+    "count" : 3
+  }, {
+    "id" : "LAW_038",
+    "count" : 3
+  }, {
+    "id" : "LAW_039",
+    "count" : 3
+  }, {
+    "id" : "LAW_041",
+    "count" : 2
+  }, {
+    "id" : "LAW_111",
+    "count" : 3
+  }, {
+    "id" : "LAW_113",
+    "count" : 1
+  }, {
+    "id" : "LAW_129",
+    "count" : 2
+  }, {
+    "id" : "LAW_133",
+    "count" : 2
+  }, {
+    "id" : "LAW_168",
+    "count" : 2
+  }, {
+    "id" : "LOF_061",
+    "count" : 2
+  }, {
+    "id" : "LOF_100",
+    "count" : 3
+  }, {
+    "id" : "LOF_107",
+    "count" : 3
+  }, {
+    "id" : "LOF_128",
+    "count" : 3
+  }, {
+    "id" : "LOF_247",
+    "count" : 3
+  }, {
+    "id" : "SEC_046",
+    "count" : 3
+  }, {
+    "id" : "SEC_078",
+    "count" : 2
+  }, {
+    "id" : "SEC_094",
+    "count" : 3
+  }, {
+    "id" : "SEC_098",
+    "count" : 3
+  }, {
+    "id" : "SEC_101",
+    "count" : 2
+  }, {
+    "id" : "SEC_117",
+    "count" : 2
+  }, {
+    "id" : "SEC_179",
+    "count" : 1
+  }, {
+    "id" : "SEC_256",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_112",
+    "count" : 2
+  }, {
+    "id" : "LAW_149",
+    "count" : 2
+  }, {
+    "id" : "LOF_121",
+    "count" : 2
+  }, {
+    "id" : "SEC_073",
+    "count" : 1
+  }, {
+    "id" : "SEC_078",
+    "count" : 1
+  }, {
+    "id" : "SEC_163",
+    "count" : 2
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-87fd49bf2f6c31187a8b440bd78583a4">
+      {
+  "metadata" : {
+    "name" : "Admiral Piett (JTL) - Red",
+    "author" : "GlubShitto_BW"
+  },
+  "leader" : {
+    "id" : "JTL_005",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "JTL_027",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_089",
+    "count" : 3
+  }, {
+    "id" : "JTL_116",
+    "count" : 2
+  }, {
+    "id" : "JTL_118",
+    "count" : 3
+  }, {
+    "id" : "JTL_119",
+    "count" : 3
+  }, {
+    "id" : "JTL_123",
+    "count" : 2
+  }, {
+    "id" : "JTL_131",
+    "count" : 3
+  }, {
+    "id" : "JTL_143",
+    "count" : 3
+  }, {
+    "id" : "JTL_181",
+    "count" : 3
+  }, {
+    "id" : "LAW_053",
+    "count" : 3
+  }, {
+    "id" : "LAW_058",
+    "count" : 3
+  }, {
+    "id" : "LAW_075",
+    "count" : 3
+  }, {
+    "id" : "LAW_173",
+    "count" : 3
+  }, {
+    "id" : "LAW_178",
+    "count" : 1
+  }, {
+    "id" : "LOF_091",
+    "count" : 3
+  }, {
+    "id" : "LOF_130",
+    "count" : 2
+  }, {
+    "id" : "LOF_155",
+    "count" : 2
+  }, {
+    "id" : "SEC_080",
+    "count" : 2
+  }, {
+    "id" : "SEC_110",
+    "count" : 3
+  }, {
+    "id" : "SEC_142",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_112",
+    "count" : 2
+  }, {
+    "id" : "JTL_121",
+    "count" : 2
+  }, {
+    "id" : "LAW_191",
+    "count" : 2
+  }, {
+    "id" : "SEC_163",
+    "count" : 2
+  }, {
+    "id" : "SEC_180",
+    "count" : 2
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-67f90b5e50d26e953f8a3e58f497c95c">
+      {
+  "metadata" : {
+    "name" : "Mother Talzin (LOF) - Yellow Force",
+    "author" : "KNR_Merock"
+  },
+  "leader" : {
+    "id" : "LOF_002",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "LOF_029",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_235",
+    "count" : 3
+  }, {
+    "id" : "LAW_090",
+    "count" : 2
+  }, {
+    "id" : "LAW_132",
+    "count" : 1
+  }, {
+    "id" : "LAW_217",
+    "count" : 3
+  }, {
+    "id" : "LOF_031",
+    "count" : 3
+  }, {
+    "id" : "LOF_035",
+    "count" : 3
+  }, {
+    "id" : "LOF_037",
+    "count" : 2
+  }, {
+    "id" : "LOF_061",
+    "count" : 3
+  }, {
+    "id" : "LOF_070",
+    "count" : 2
+  }, {
+    "id" : "LOF_079",
+    "count" : 3
+  }, {
+    "id" : "LOF_183",
+    "count" : 3
+  }, {
+    "id" : "LOF_220",
+    "count" : 2
+  }, {
+    "id" : "LOF_231",
+    "count" : 3
+  }, {
+    "id" : "LOF_238",
+    "count" : 1
+  }, {
+    "id" : "LOF_261",
+    "count" : 3
+  }, {
+    "id" : "SEC_028",
+    "count" : 3
+  }, {
+    "id" : "SEC_078",
+    "count" : 1
+  }, {
+    "id" : "SEC_186",
+    "count" : 3
+  }, {
+    "id" : "SEC_192",
+    "count" : 2
+  }, {
+    "id" : "SEC_193",
+    "count" : 2
+  }, {
+    "id" : "SEC_220",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_079",
+    "count" : 2
+  }, {
+    "id" : "JTL_218",
+    "count" : 2
+  }, {
+    "id" : "LAW_132",
+    "count" : 1
+  }, {
+    "id" : "LOF_037",
+    "count" : 1
+  }, {
+    "id" : "LOF_067",
+    "count" : 2
+  }, {
+    "id" : "SEC_078",
+    "count" : 1
+  }, {
+    "id" : "SEC_193",
+    "count" : 1
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-9d6ce825c9c9be6080154e9427ad8519">
+      {
+  "metadata" : {
+    "name" : "Boba Fett (JTL) - Lake Country",
+    "author" : "Urlok"
+  },
+  "leader" : {
+    "id" : "JTL_009",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "JTL_031",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_133",
+    "count" : 3
+  }, {
+    "id" : "JTL_140",
+    "count" : 3
+  }, {
+    "id" : "JTL_143",
+    "count" : 3
+  }, {
+    "id" : "JTL_162",
+    "count" : 3
+  }, {
+    "id" : "JTL_175",
+    "count" : 2
+  }, {
+    "id" : "JTL_181",
+    "count" : 2
+  }, {
+    "id" : "JTL_237",
+    "count" : 3
+  }, {
+    "id" : "JTL_240",
+    "count" : 3
+  }, {
+    "id" : "LAW_173",
+    "count" : 3
+  }, {
+    "id" : "LAW_174",
+    "count" : 3
+  }, {
+    "id" : "LAW_175",
+    "count" : 3
+  }, {
+    "id" : "LAW_208",
+    "count" : 2
+  }, {
+    "id" : "SEC_133",
+    "count" : 3
+  }, {
+    "id" : "SEC_171",
+    "count" : 3
+  }, {
+    "id" : "SEC_172",
+    "count" : 3
+  }, {
+    "id" : "SEC_179",
+    "count" : 3
+  }, {
+    "id" : "SEC_182",
+    "count" : 2
+  }, {
+    "id" : "SEC_183",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_176",
+    "count" : 2
+  }, {
+    "id" : "JTL_181",
+    "count" : 1
+  }, {
+    "id" : "LAW_191",
+    "count" : 2
+  }, {
+    "id" : "SEC_163",
+    "count" : 2
+  }, {
+    "id" : "SEC_170",
+    "count" : 3
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-bb6f35976221c986b5f1394c1994259b">
+      {
+  "metadata" : {
+    "name" : "Obi-Wan Kenobi (LOF) - Blue Force",
+    "author" : "OTS_rohpex"
+  },
+  "leader" : {
+    "id" : "LOF_008",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "LOF_020",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_096",
+    "count" : 3
+  }, {
+    "id" : "LOF_045",
+    "count" : 3
+  }, {
+    "id" : "LOF_046",
+    "count" : 3
+  }, {
+    "id" : "LOF_048",
+    "count" : 3
+  }, {
+    "id" : "LOF_061",
+    "count" : 3
+  }, {
+    "id" : "LOF_067",
+    "count" : 3
+  }, {
+    "id" : "LOF_079",
+    "count" : 3
+  }, {
+    "id" : "LOF_093",
+    "count" : 3
+  }, {
+    "id" : "LOF_096",
+    "count" : 3
+  }, {
+    "id" : "LOF_100",
+    "count" : 3
+  }, {
+    "id" : "LOF_101",
+    "count" : 3
+  }, {
+    "id" : "LOF_102",
+    "count" : 3
+  }, {
+    "id" : "LOF_111",
+    "count" : 3
+  }, {
+    "id" : "LOF_128",
+    "count" : 3
+  }, {
+    "id" : "LOF_261",
+    "count" : 3
+  }, {
+    "id" : "SEC_048",
+    "count" : 2
+  }, {
+    "id" : "SEC_094",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
+    "id" : "LAW_106",
+    "count" : 2
+  }, {
+    "id" : "LAW_127",
+    "count" : 2
+  }, {
+    "id" : "LOF_070",
+    "count" : 1
+  }, {
+    "id" : "LOF_246",
+    "count" : 2
+  }, {
+    "id" : "SEC_046",
+    "count" : 2
+  }, {
+    "id" : "SEC_078",
+    "count" : 1
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-ee729c1a5674f528f477906f610e0a29">
+      {
+  "metadata" : {
+    "name" : "Boba Fett (JTL) - Blue",
+    "author" : "Erik_TCT"
+  },
+  "leader" : {
+    "id" : "JTL_009",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "SEC_020",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_133",
+    "count" : 3
+  }, {
+    "id" : "JTL_143",
+    "count" : 3
+  }, {
+    "id" : "JTL_162",
+    "count" : 3
+  }, {
+    "id" : "JTL_165",
+    "count" : 3
+  }, {
+    "id" : "JTL_237",
+    "count" : 3
+  }, {
+    "id" : "JTL_240",
+    "count" : 3
+  }, {
+    "id" : "LAW_044",
+    "count" : 3
+  }, {
+    "id" : "LAW_050",
+    "count" : 2
+  }, {
+    "id" : "LAW_099",
+    "count" : 2
+  }, {
+    "id" : "LAW_129",
+    "count" : 2
+  }, {
+    "id" : "LAW_173",
+    "count" : 2
+  }, {
+    "id" : "LAW_174",
+    "count" : 3
+  }, {
+    "id" : "LAW_191",
+    "count" : 1
+  }, {
+    "id" : "LOF_130",
+    "count" : 2
+  }, {
+    "id" : "SEC_133",
+    "count" : 3
+  }, {
+    "id" : "SEC_163",
+    "count" : 3
+  }, {
+    "id" : "SEC_171",
+    "count" : 2
+  }, {
+    "id" : "SEC_172",
+    "count" : 2
+  }, {
+    "id" : "SEC_179",
+    "count" : 2
+  }, {
+    "id" : "SEC_182",
+    "count" : 2
+  }, {
+    "id" : "SEC_183",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_043",
+    "count" : 2
+  }, {
+    "id" : "JTL_176",
+    "count" : 3
+  }, {
+    "id" : "JTL_181",
+    "count" : 3
+  }, {
+    "id" : "LAW_191",
+    "count" : 2
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-7dfd6cb13ad08df772b384fbff8e9640">
+      {
+  "metadata" : {
+    "name" : "Colonel Yularen (SEC) - Red",
+    "author" : "MVP_Carl2408"
+  },
+  "leader" : {
+    "id" : "SEC_006",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "SEC_023",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_089",
+    "count" : 3
+  }, {
+    "id" : "JTL_140",
+    "count" : 1
+  }, {
+    "id" : "JTL_143",
+    "count" : 2
+  }, {
+    "id" : "JTL_162",
+    "count" : 2
+  }, {
+    "id" : "LAW_053",
+    "count" : 2
+  }, {
+    "id" : "LAW_057",
+    "count" : 3
+  }, {
+    "id" : "LAW_059",
+    "count" : 2
+  }, {
+    "id" : "LAW_063",
+    "count" : 2
+  }, {
+    "id" : "LAW_075",
+    "count" : 3
+  }, {
+    "id" : "LAW_168",
+    "count" : 3
+  }, {
+    "id" : "LAW_173",
+    "count" : 3
+  }, {
+    "id" : "LAW_174",
+    "count" : 3
+  }, {
+    "id" : "LAW_191",
+    "count" : 1
+  }, {
+    "id" : "LOF_091",
+    "count" : 3
+  }, {
+    "id" : "LOF_130",
+    "count" : 3
+  }, {
+    "id" : "LOF_155",
+    "count" : 2
+  }, {
+    "id" : "SEC_080",
+    "count" : 3
+  }, {
+    "id" : "SEC_082",
+    "count" : 2
+  }, {
+    "id" : "SEC_168",
+    "count" : 3
+  }, {
+    "id" : "SEC_179",
+    "count" : 3
+  }, {
+    "id" : "SEC_182",
+    "count" : 1
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_112",
+    "count" : 2
+  }, {
+    "id" : "JTL_140",
+    "count" : 1
+  }, {
+    "id" : "JTL_175",
+    "count" : 2
+  }, {
+    "id" : "LAW_191",
+    "count" : 2
+  }, {
+    "id" : "SEC_170",
+    "count" : 2
+  }, {
+    "id" : "SEC_182",
+    "count" : 1
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-93982fdc683a9304eea87ec097d65319">
+      {
+  "metadata" : {
+    "name" : "Sabé (SEC) - Data Vault",
+    "author" : "KNR_Orbe"
+  },
+  "leader" : {
+    "id" : "SEC_017",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "JTL_024",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_095",
+    "count" : 3
+  }, {
+    "id" : "JTL_096",
+    "count" : 3
+  }, {
+    "id" : "JTL_103",
+    "count" : 3
+  }, {
+    "id" : "JTL_203",
+    "count" : 3
+  }, {
+    "id" : "JTL_221",
+    "count" : 2
+  }, {
+    "id" : "JTL_235",
+    "count" : 1
+  }, {
+    "id" : "JTL_249",
+    "count" : 3
+  }, {
+    "id" : "LAW_067",
+    "count" : 3
+  }, {
+    "id" : "LAW_068",
+    "count" : 2
+  }, {
+    "id" : "LAW_222",
+    "count" : 2
+  }, {
+    "id" : "LAW_223",
+    "count" : 2
+  }, {
+    "id" : "LAW_228",
+    "count" : 3
+  }, {
+    "id" : "LOF_191",
+    "count" : 2
+  }, {
+    "id" : "LOF_192",
+    "count" : 3
+  }, {
+    "id" : "LOF_215",
+    "count" : 2
+  }, {
+    "id" : "SEC_098",
+    "count" : 3
+  }, {
+    "id" : "SEC_101",
+    "count" : 2
+  }, {
+    "id" : "SEC_163",
+    "count" : 1
+  }, {
+    "id" : "SEC_179",
+    "count" : 2
+  }, {
+    "id" : "SEC_204",
+    "count" : 2
+  }, {
+    "id" : "SEC_207",
+    "count" : 2
+  }, {
+    "id" : "SEC_215",
+    "count" : 2
+  }, {
+    "id" : "SEC_219",
+    "count" : 2
+  }, {
+    "id" : "SEC_233",
+    "count" : 3
+  }, {
+    "id" : "SEC_234",
+    "count" : 2
+  }, {
+    "id" : "SEC_256",
+    "count" : 2
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_235",
+    "count" : 1
+  }, {
+    "id" : "LAW_170",
+    "count" : 2
+  }, {
+    "id" : "LAW_221",
+    "count" : 2
+  }, {
+    "id" : "LAW_224",
+    "count" : 1
+  }, {
+    "id" : "LOF_100",
+    "count" : 2
+  }, {
+    "id" : "SEC_163",
+    "count" : 1
+  }, {
+    "id" : "SEC_204",
+    "count" : 1
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-09a5e735fde62617e53d17ff5efc753d">
+      {
+  "metadata" : {
+    "name" : "Grand Admiral Thrawn (JTL) - Yellow Force",
+    "author" : "7LS_Cosmiq"
+  },
+  "leader" : {
+    "id" : "JTL_002",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "LOF_029",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_032",
+    "count" : 3
+  }, {
+    "id" : "JTL_039",
+    "count" : 3
+  }, {
+    "id" : "JTL_043",
+    "count" : 3
+  }, {
+    "id" : "LAW_086",
+    "count" : 3
+  }, {
+    "id" : "LAW_118",
+    "count" : 3
+  }, {
+    "id" : "LOF_031",
+    "count" : 3
+  }, {
+    "id" : "LOF_035",
+    "count" : 3
+  }, {
+    "id" : "LOF_037",
+    "count" : 3
+  }, {
+    "id" : "LOF_057",
+    "count" : 3
+  }, {
+    "id" : "LOF_059",
+    "count" : 3
+  }, {
+    "id" : "LOF_061",
+    "count" : 3
+  }, {
+    "id" : "LOF_067",
+    "count" : 3
+  }, {
+    "id" : "LOF_070",
+    "count" : 1
+  }, {
+    "id" : "LOF_079",
+    "count" : 3
+  }, {
+    "id" : "LOF_183",
+    "count" : 3
+  }, {
+    "id" : "LOF_213",
+    "count" : 3
+  }, {
+    "id" : "LOF_220",
+    "count" : 3
+  }, {
+    "id" : "SEC_193",
+    "count" : 2
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_184",
+    "count" : 2
+  }, {
+    "id" : "LAW_099",
+    "count" : 2
+  }, {
+    "id" : "LAW_132",
+    "count" : 2
+  }, {
+    "id" : "SEC_078",
+    "count" : 2
+  }, {
+    "id" : "SEC_179",
+    "count" : 2
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-5b597635a03c68d712b181f8a8c94daf">
+      {
+  "metadata" : {
+    "name" : "Poe Dameron (JTL) - Data Vault",
+    "author" : "Joloh93"
+  },
+  "leader" : {
+    "id" : "JTL_013",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "JTL_024",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_095",
+    "count" : 3
+  }, {
+    "id" : "JTL_096",
+    "count" : 3
+  }, {
+    "id" : "JTL_103",
+    "count" : 3
+  }, {
+    "id" : "JTL_104",
+    "count" : 3
+  }, {
+    "id" : "JTL_125",
+    "count" : 3
+  }, {
+    "id" : "JTL_145",
+    "count" : 1
+  }, {
+    "id" : "JTL_147",
+    "count" : 3
+  }, {
+    "id" : "JTL_151",
+    "count" : 3
+  }, {
+    "id" : "JTL_155",
+    "count" : 3
+  }, {
+    "id" : "JTL_158",
+    "count" : 2
+  }, {
+    "id" : "JTL_175",
+    "count" : 1
+  }, {
+    "id" : "JTL_179",
+    "count" : 2
+  }, {
+    "id" : "JTL_250",
+    "count" : 3
+  }, {
+    "id" : "LAW_149",
+    "count" : 2
+  }, {
+    "id" : "LAW_183",
+    "count" : 3
+  }, {
+    "id" : "LAW_191",
+    "count" : 2
+  }, {
+    "id" : "LAW_205",
+    "count" : 3
+  }, {
+    "id" : "SEC_094",
+    "count" : 2
+  }, {
+    "id" : "SEC_098",
+    "count" : 3
+  }, {
+    "id" : "SEC_101",
+    "count" : 2
+  }, {
+    "id" : "SEC_148",
+    "count" : 3
+  }, {
+    "id" : "SEC_153",
+    "count" : 2
+  }, {
+    "id" : "SEC_161",
+    "count" : 1
+  }, {
+    "id" : "SEC_163",
+    "count" : 2
+  }, {
+    "id" : "SEC_256",
+    "count" : 2
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_154",
+    "count" : 1
+  }, {
+    "id" : "JTL_175",
+    "count" : 1
+  }, {
+    "id" : "JTL_181",
+    "count" : 2
+  }, {
+    "id" : "LAW_191",
+    "count" : 1
+  }, {
+    "id" : "LAW_254",
+    "count" : 2
+  }, {
+    "id" : "LOF_147",
+    "count" : 1
+  }, {
+    "id" : "SEC_170",
+    "count" : 2
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-52e2b04836a30bc27d677f3b7ac475c1">
+      {
+  "metadata" : {
+    "name" : "Boba Fett (JTL) - Lake Country",
+    "author" : "VeniVidiViolini"
+  },
+  "leader" : {
+    "id" : "JTL_009",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "JTL_031",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_133",
+    "count" : 3
+  }, {
+    "id" : "JTL_138",
+    "count" : 3
+  }, {
+    "id" : "JTL_140",
+    "count" : 2
+  }, {
+    "id" : "JTL_143",
+    "count" : 3
+  }, {
+    "id" : "JTL_162",
+    "count" : 3
+  }, {
+    "id" : "JTL_237",
+    "count" : 3
+  }, {
+    "id" : "JTL_240",
+    "count" : 2
+  }, {
+    "id" : "JTL_242",
+    "count" : 2
+  }, {
+    "id" : "LAW_173",
+    "count" : 3
+  }, {
+    "id" : "LAW_174",
+    "count" : 3
+  }, {
+    "id" : "LAW_208",
+    "count" : 2
+  }, {
+    "id" : "LOF_130",
+    "count" : 3
+  }, {
+    "id" : "SEC_163",
+    "count" : 2
+  }, {
+    "id" : "SEC_171",
+    "count" : 3
+  }, {
+    "id" : "SEC_172",
+    "count" : 3
+  }, {
+    "id" : "SEC_176",
+    "count" : 2
+  }, {
+    "id" : "SEC_179",
+    "count" : 3
+  }, {
+    "id" : "SEC_182",
+    "count" : 2
+  }, {
+    "id" : "SEC_183",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_181",
+    "count" : 2
+  }, {
+    "id" : "LAW_191",
+    "count" : 2
+  }, {
+    "id" : "LAW_208",
+    "count" : 1
+  }, {
+    "id" : "SEC_142",
+    "count" : 2
+  }, {
+    "id" : "SEC_163",
+    "count" : 1
+  }, {
+    "id" : "SEC_176",
+    "count" : 1
+  }, {
+    "id" : "SEC_182",
+    "count" : 1
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-0a6fff0a07474c7ea3b2b0bd50015b26">
+      {
+  "metadata" : {
+    "name" : "Lando Calrissian (LAW) - Lake Country",
+    "author" : "Meeplepeat"
+  },
+  "leader" : {
+    "id" : "LAW_018",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "JTL_031",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "IBH_052",
+    "count" : 3
+  }, {
+    "id" : "JTL_203",
+    "count" : 2
+  }, {
+    "id" : "JTL_218",
+    "count" : 3
+  }, {
+    "id" : "JTL_221",
+    "count" : 2
+  }, {
+    "id" : "LAW_223",
+    "count" : 2
+  }, {
+    "id" : "LAW_224",
+    "count" : 3
+  }, {
+    "id" : "LAW_228",
+    "count" : 2
+  }, {
+    "id" : "LAW_229",
+    "count" : 3
+  }, {
+    "id" : "LAW_233",
+    "count" : 2
+  }, {
+    "id" : "LAW_236",
+    "count" : 2
+  }, {
+    "id" : "LAW_237",
+    "count" : 2
+  }, {
+    "id" : "LAW_246",
+    "count" : 3
+  }, {
+    "id" : "LOF_192",
+    "count" : 3
+  }, {
+    "id" : "LOF_200",
+    "count" : 2
+  }, {
+    "id" : "LOF_201",
+    "count" : 2
+  }, {
+    "id" : "LOF_226",
+    "count" : 2
+  }, {
+    "id" : "SEC_179",
+    "count" : 3
+  }, {
+    "id" : "SEC_198",
+    "count" : 2
+  }, {
+    "id" : "SEC_200",
+    "count" : 2
+  }, {
+    "id" : "SEC_209",
+    "count" : 2
+  }, {
+    "id" : "SEC_210",
+    "count" : 2
+  }, {
+    "id" : "SEC_211",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_235",
+    "count" : 2
+  }, {
+    "id" : "LAW_219",
+    "count" : 2
+  }, {
+    "id" : "LOF_199",
+    "count" : 2
+  }, {
+    "id" : "SEC_204",
+    "count" : 2
+  }, {
+    "id" : "SEC_233",
+    "count" : 2
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-46b44a0729aa545bc5e78fc05f19a608">
+      {
+  "metadata" : {
+    "name" : "Lando Calrissian (LAW) - Lake Country",
+    "author" : "HungrigerHenni"
+  },
+  "leader" : {
+    "id" : "LAW_018",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "JTL_031",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "IBH_052",
+    "count" : 2
+  }, {
+    "id" : "JTL_203",
+    "count" : 3
+  }, {
+    "id" : "JTL_218",
+    "count" : 2
+  }, {
+    "id" : "LAW_223",
+    "count" : 3
+  }, {
+    "id" : "LAW_224",
+    "count" : 3
+  }, {
+    "id" : "LAW_228",
+    "count" : 3
+  }, {
+    "id" : "LAW_229",
+    "count" : 3
+  }, {
+    "id" : "LAW_236",
+    "count" : 3
+  }, {
+    "id" : "LAW_246",
+    "count" : 3
+  }, {
+    "id" : "LOF_192",
+    "count" : 3
+  }, {
+    "id" : "LOF_199",
+    "count" : 1
+  }, {
+    "id" : "LOF_200",
+    "count" : 3
+  }, {
+    "id" : "SEC_179",
+    "count" : 3
+  }, {
+    "id" : "SEC_198",
+    "count" : 3
+  }, {
+    "id" : "SEC_204",
+    "count" : 2
+  }, {
+    "id" : "SEC_207",
+    "count" : 2
+  }, {
+    "id" : "SEC_209",
+    "count" : 2
+  }, {
+    "id" : "SEC_211",
+    "count" : 3
+  }, {
+    "id" : "SEC_219",
+    "count" : 2
+  }, {
+    "id" : "SEC_233",
+    "count" : 1
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_207",
+    "count" : 2
+  }, {
+    "id" : "JTL_235",
+    "count" : 2
+  }, {
+    "id" : "LAW_219",
+    "count" : 2
+  }, {
+    "id" : "SEC_204",
+    "count" : 1
+  }, {
+    "id" : "SEC_209",
+    "count" : 1
+  }, {
+    "id" : "SEC_233",
+    "count" : 2
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-86c155733b867d037eb0991cf9eac10f">
+      {
+  "metadata" : {
+    "name" : "Boba Fett (JTL) - Lake Country",
+    "author" : "Fetzi85"
+  },
+  "leader" : {
+    "id" : "JTL_009",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "JTL_031",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_135",
+    "count" : 2
+  }, {
+    "id" : "JTL_137",
+    "count" : 3
+  }, {
+    "id" : "JTL_140",
+    "count" : 3
+  }, {
+    "id" : "JTL_142",
+    "count" : 1
+  }, {
+    "id" : "JTL_143",
+    "count" : 3
+  }, {
+    "id" : "JTL_162",
+    "count" : 2
+  }, {
+    "id" : "JTL_175",
+    "count" : 2
+  }, {
+    "id" : "JTL_237",
+    "count" : 3
+  }, {
+    "id" : "JTL_240",
+    "count" : 3
+  }, {
+    "id" : "LAW_173",
+    "count" : 2
+  }, {
+    "id" : "LAW_174",
+    "count" : 2
+  }, {
+    "id" : "LAW_175",
+    "count" : 2
+  }, {
+    "id" : "LAW_191",
+    "count" : 1
+  }, {
+    "id" : "LAW_208",
+    "count" : 2
+  }, {
+    "id" : "LOF_130",
+    "count" : 3
+  }, {
+    "id" : "SEC_133",
+    "count" : 3
+  }, {
+    "id" : "SEC_163",
+    "count" : 1
+  }, {
+    "id" : "SEC_171",
+    "count" : 2
+  }, {
+    "id" : "SEC_172",
+    "count" : 3
+  }, {
+    "id" : "SEC_179",
+    "count" : 2
+  }, {
+    "id" : "SEC_182",
+    "count" : 2
+  }, {
+    "id" : "SEC_183",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_176",
+    "count" : 1
+  }, {
+    "id" : "JTL_181",
+    "count" : 2
+  }, {
+    "id" : "JTL_242",
+    "count" : 2
+  }, {
+    "id" : "LAW_191",
+    "count" : 1
+  }, {
+    "id" : "SEC_163",
+    "count" : 1
+  }, {
+    "id" : "SEC_179",
+    "count" : 1
+  }, {
+    "id" : "SEC_180",
+    "count" : 2
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-18635144855632e668a1bdb9f51987a1">
+      {
+  "metadata" : {
+    "name" : "Sabé (SEC) - Data Vault",
+    "author" : "marsta91"
+  },
+  "leader" : {
+    "id" : "SEC_017",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "JTL_024",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_095",
+    "count" : 3
+  }, {
+    "id" : "JTL_096",
+    "count" : 3
+  }, {
+    "id" : "JTL_103",
+    "count" : 3
+  }, {
+    "id" : "JTL_111",
+    "count" : 2
+  }, {
+    "id" : "JTL_203",
+    "count" : 3
+  }, {
+    "id" : "JTL_221",
+    "count" : 3
+  }, {
+    "id" : "JTL_249",
+    "count" : 3
+  }, {
+    "id" : "LAW_067",
+    "count" : 3
+  }, {
+    "id" : "LAW_068",
+    "count" : 3
+  }, {
+    "id" : "LAW_222",
+    "count" : 2
+  }, {
+    "id" : "LAW_223",
+    "count" : 2
+  }, {
+    "id" : "LOF_191",
+    "count" : 1
+  }, {
+    "id" : "LOF_192",
+    "count" : 3
+  }, {
+    "id" : "LOF_215",
+    "count" : 3
+  }, {
+    "id" : "SEC_098",
+    "count" : 3
+  }, {
+    "id" : "SEC_101",
+    "count" : 2
+  }, {
+    "id" : "SEC_123",
+    "count" : 1
+  }, {
+    "id" : "SEC_179",
+    "count" : 3
+  }, {
+    "id" : "SEC_207",
+    "count" : 2
+  }, {
+    "id" : "SEC_215",
+    "count" : 3
+  }, {
+    "id" : "SEC_219",
+    "count" : 1
+  }, {
+    "id" : "SEC_233",
+    "count" : 3
+  }, {
+    "id" : "SEC_234",
+    "count" : 3
+  }, {
+    "id" : "SEC_256",
+    "count" : 2
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_124",
+    "count" : 2
+  }, {
+    "id" : "JTL_235",
+    "count" : 1
+  }, {
+    "id" : "LAW_221",
+    "count" : 2
+  }, {
+    "id" : "LAW_246",
+    "count" : 1
+  }, {
+    "id" : "LOF_191",
+    "count" : 1
+  }, {
+    "id" : "SEC_200",
+    "count" : 2
+  }, {
+    "id" : "SEC_219",
+    "count" : 1
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-9b3193e87af72b56e7a3e4ac091d0dab">
+      {
+  "metadata" : {
+    "name" : "Colonel Yularen (SEC) - Red",
+    "author" : "MVP_Fluffelchen"
+  },
+  "leader" : {
+    "id" : "SEC_006",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "SEC_024",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_089",
+    "count" : 3
+  }, {
+    "id" : "JTL_143",
+    "count" : 1
+  }, {
+    "id" : "JTL_162",
+    "count" : 2
+  }, {
+    "id" : "JTL_242",
+    "count" : 2
+  }, {
+    "id" : "LAW_053",
+    "count" : 3
+  }, {
+    "id" : "LAW_057",
+    "count" : 3
+  }, {
+    "id" : "LAW_059",
+    "count" : 2
+  }, {
+    "id" : "LAW_063",
+    "count" : 2
+  }, {
+    "id" : "LAW_075",
+    "count" : 3
+  }, {
+    "id" : "LAW_168",
+    "count" : 3
+  }, {
+    "id" : "LAW_173",
+    "count" : 3
+  }, {
+    "id" : "LAW_174",
+    "count" : 3
+  }, {
+    "id" : "LAW_191",
+    "count" : 1
+  }, {
+    "id" : "LOF_091",
+    "count" : 3
+  }, {
+    "id" : "LOF_130",
+    "count" : 3
+  }, {
+    "id" : "LOF_155",
+    "count" : 2
+  }, {
+    "id" : "SEC_080",
+    "count" : 3
+  }, {
+    "id" : "SEC_082",
+    "count" : 2
+  }, {
+    "id" : "SEC_168",
+    "count" : 3
+  }, {
+    "id" : "SEC_179",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_112",
+    "count" : 2
+  }, {
+    "id" : "JTL_175",
+    "count" : 2
+  }, {
+    "id" : "LAW_191",
+    "count" : 2
+  }, {
+    "id" : "SEC_163",
+    "count" : 2
+  }, {
+    "id" : "SEC_170",
+    "count" : 2
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-11ac1d504a672e72801589f2307fd29f">
+      {
+  "metadata" : {
+    "name" : "Darth Vader (JTL) - Yellow",
+    "author" : "MVP_DrTammilie"
+  },
+  "leader" : {
+    "id" : "JTL_006",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "JTL_030",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_081",
+    "count" : 3
+  }, {
+    "id" : "JTL_085",
+    "count" : 3
+  }, {
+    "id" : "JTL_115",
+    "count" : 3
+  }, {
+    "id" : "JTL_212",
+    "count" : 3
+  }, {
+    "id" : "JTL_217",
+    "count" : 3
+  }, {
+    "id" : "JTL_221",
+    "count" : 3
+  }, {
+    "id" : "JTL_242",
+    "count" : 2
+  }, {
+    "id" : "LAW_211",
+    "count" : 3
+  }, {
+    "id" : "LAW_217",
+    "count" : 2
+  }, {
+    "id" : "LAW_233",
+    "count" : 2
+  }, {
+    "id" : "LAW_246",
+    "count" : 2
+  }, {
+    "id" : "LOF_091",
+    "count" : 2
+  }, {
+    "id" : "SEC_082",
+    "count" : 2
+  }, {
+    "id" : "SEC_185",
+    "count" : 3
+  }, {
+    "id" : "SEC_186",
+    "count" : 2
+  }, {
+    "id" : "SEC_189",
+    "count" : 3
+  }, {
+    "id" : "SEC_195",
+    "count" : 2
+  }, {
+    "id" : "SEC_213",
+    "count" : 3
+  }, {
+    "id" : "SEC_215",
+    "count" : 3
+  }, {
+    "id" : "SEC_233",
+    "count" : 2
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_112",
+    "count" : 2
+  }, {
+    "id" : "JTL_120",
+    "count" : 2
+  }, {
+    "id" : "JTL_235",
+    "count" : 2
+  }, {
+    "id" : "LOF_091",
+    "count" : 1
+  }, {
+    "id" : "SEC_082",
+    "count" : 1
+  }, {
+    "id" : "SEC_234",
+    "count" : 2
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-e589c5094daead1c2ef2eae1b7035c0a">
+      {
+  "metadata" : {
+    "name" : "Mother Talzin (LOF) - Yellow Force",
+    "author" : "MagicL89"
+  },
+  "leader" : {
+    "id" : "LOF_002",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "LOF_029",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_032",
+    "count" : 2
+  }, {
+    "id" : "JTL_043",
+    "count" : 3
+  }, {
+    "id" : "JTL_235",
+    "count" : 3
+  }, {
+    "id" : "LAW_086",
+    "count" : 3
+  }, {
+    "id" : "LOF_031",
+    "count" : 3
+  }, {
+    "id" : "LOF_035",
+    "count" : 3
+  }, {
+    "id" : "LOF_059",
+    "count" : 2
+  }, {
+    "id" : "LOF_061",
+    "count" : 3
+  }, {
+    "id" : "LOF_070",
+    "count" : 3
+  }, {
+    "id" : "LOF_079",
+    "count" : 2
+  }, {
+    "id" : "LOF_183",
+    "count" : 3
+  }, {
+    "id" : "LOF_221",
+    "count" : 2
+  }, {
+    "id" : "LOF_231",
+    "count" : 3
+  }, {
+    "id" : "LOF_261",
+    "count" : 3
+  }, {
+    "id" : "SEC_028",
+    "count" : 3
+  }, {
+    "id" : "SEC_037",
+    "count" : 2
+  }, {
+    "id" : "SEC_038",
+    "count" : 3
+  }, {
+    "id" : "SEC_179",
+    "count" : 1
+  }, {
+    "id" : "SEC_186",
+    "count" : 1
+  }, {
+    "id" : "SEC_188",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
+    "id" : "LAW_132",
+    "count" : 2
+  }, {
+    "id" : "LAW_217",
+    "count" : 2
+  }, {
+    "id" : "LOF_213",
+    "count" : 1
+  }, {
+    "id" : "SEC_078",
+    "count" : 2
+  }, {
+    "id" : "SEC_186",
+    "count" : 1
+  }, {
+    "id" : "SEC_193",
+    "count" : 2
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-edc2555aa9e593d2d442d3cce9d8d06b">
+      {
+  "metadata" : {
+    "name" : "Jyn Erso (LAW) - Red",
+    "author" : "Steffen"
+  },
+  "leader" : {
+    "id" : "LAW_005",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "LAW_027",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_151",
+    "count" : 3
+  }, {
+    "id" : "JTL_153",
+    "count" : 3
+  }, {
+    "id" : "JTL_250",
+    "count" : 3
+  }, {
+    "id" : "LAW_045",
+    "count" : 3
+  }, {
+    "id" : "LAW_046",
+    "count" : 2
+  }, {
+    "id" : "LAW_048",
+    "count" : 3
+  }, {
+    "id" : "LAW_050",
+    "count" : 2
+  }, {
+    "id" : "LAW_078",
+    "count" : 2
+  }, {
+    "id" : "LAW_089",
+    "count" : 3
+  }, {
+    "id" : "LAW_132",
+    "count" : 2
+  }, {
+    "id" : "LOF_046",
+    "count" : 2
+  }, {
+    "id" : "LOF_148",
+    "count" : 3
+  }, {
+    "id" : "SEC_046",
+    "count" : 1
+  }, {
+    "id" : "SEC_069",
+    "count" : 3
+  }, {
+    "id" : "SEC_148",
+    "count" : 3
+  }, {
+    "id" : "SEC_153",
+    "count" : 2
+  }, {
+    "id" : "SEC_163",
+    "count" : 2
+  }, {
+    "id" : "SEC_164",
+    "count" : 3
+  }, {
+    "id" : "SEC_176",
+    "count" : 2
+  }, {
+    "id" : "SEC_179",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_078",
+    "count" : 2
+  }, {
+    "id" : "JTL_181",
+    "count" : 2
+  }, {
+    "id" : "LAW_191",
+    "count" : 2
+  }, {
+    "id" : "SEC_046",
+    "count" : 1
+  }, {
+    "id" : "SEC_146",
+    "count" : 2
+  }, {
+    "id" : "SEC_163",
+    "count" : 1
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-2a5882eb3cd668d10e6829f60922250e">
+      {
+  "metadata" : {
+    "name" : "Avar Kriss (LOF) - Blue Force",
+    "author" : "501Legion"
+  },
+  "leader" : {
+    "id" : "LOF_007",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "LOF_021",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_096",
+    "count" : 3
+  }, {
+    "id" : "LAW_039",
+    "count" : 2
+  }, {
+    "id" : "LAW_148",
+    "count" : 2
+  }, {
+    "id" : "LOF_045",
+    "count" : 3
+  }, {
+    "id" : "LOF_048",
+    "count" : 3
+  }, {
+    "id" : "LOF_067",
+    "count" : 3
+  }, {
+    "id" : "LOF_079",
+    "count" : 3
+  }, {
+    "id" : "LOF_093",
+    "count" : 3
+  }, {
+    "id" : "LOF_094",
+    "count" : 3
+  }, {
+    "id" : "LOF_096",
+    "count" : 3
+  }, {
+    "id" : "LOF_100",
+    "count" : 3
+  }, {
+    "id" : "LOF_101",
+    "count" : 3
+  }, {
+    "id" : "LOF_102",
+    "count" : 2
+  }, {
+    "id" : "LOF_111",
+    "count" : 2
+  }, {
+    "id" : "LOF_128",
+    "count" : 2
+  }, {
+    "id" : "LOF_246",
+    "count" : 2
+  }, {
+    "id" : "LOF_252",
+    "count" : 3
+  }, {
+    "id" : "SEC_078",
+    "count" : 1
+  }, {
+    "id" : "SEC_094",
+    "count" : 3
+  }, {
+    "id" : "SEC_101",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_078",
+    "count" : 1
+  }, {
+    "id" : "JTL_112",
+    "count" : 2
+  }, {
+    "id" : "LAW_039",
+    "count" : 1
+  }, {
+    "id" : "LAW_149",
+    "count" : 1
+  }, {
+    "id" : "SEC_046",
+    "count" : 2
+  }, {
+    "id" : "SEC_051",
+    "count" : 1
+  }, {
+    "id" : "SEC_078",
+    "count" : 2
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-269024ec697540a4b86d58e3a4d59bd8">
+      {
+  "metadata" : {
+    "name" : "Leia Organa (SEC) - Data Vault",
+    "author" : "OTS_Chimerafly"
+  },
+  "leader" : {
+    "id" : "SEC_004",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "JTL_024",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_096",
+    "count" : 3
+  }, {
+    "id" : "JTL_112",
+    "count" : 3
+  }, {
+    "id" : "LAW_035",
+    "count" : 2
+  }, {
+    "id" : "LAW_037",
+    "count" : 3
+  }, {
+    "id" : "LAW_039",
+    "count" : 2
+  }, {
+    "id" : "LAW_041",
+    "count" : 2
+  }, {
+    "id" : "LAW_108",
+    "count" : 2
+  }, {
+    "id" : "LAW_111",
+    "count" : 2
+  }, {
+    "id" : "LAW_129",
+    "count" : 2
+  }, {
+    "id" : "LAW_133",
+    "count" : 2
+  }, {
+    "id" : "LAW_168",
+    "count" : 2
+  }, {
+    "id" : "LOF_045",
+    "count" : 3
+  }, {
+    "id" : "LOF_061",
+    "count" : 3
+  }, {
+    "id" : "LOF_062",
+    "count" : 2
+  }, {
+    "id" : "LOF_093",
+    "count" : 2
+  }, {
+    "id" : "LOF_100",
+    "count" : 2
+  }, {
+    "id" : "LOF_111",
+    "count" : 2
+  }, {
+    "id" : "LOF_128",
+    "count" : 2
+  }, {
+    "id" : "LOF_246",
+    "count" : 2
+  }, {
+    "id" : "LOF_247",
+    "count" : 3
+  }, {
+    "id" : "SEC_046",
+    "count" : 2
+  }, {
+    "id" : "SEC_078",
+    "count" : 2
+  }, {
+    "id" : "SEC_094",
+    "count" : 3
+  }, {
+    "id" : "SEC_098",
+    "count" : 2
+  }, {
+    "id" : "SEC_101",
+    "count" : 2
+  }, {
+    "id" : "SEC_163",
+    "count" : 2
+  }, {
+    "id" : "SEC_256",
+    "count" : 2
+  } ],
+  "sideboard" : [ {
+    "id" : "LAW_133",
+    "count" : 1
+  }, {
+    "id" : "LAW_149",
+    "count" : 2
+  }, {
+    "id" : "LAW_168",
+    "count" : 1
+  }, {
+    "id" : "LOF_096",
+    "count" : 2
+  }, {
+    "id" : "LOF_100",
+    "count" : 1
+  }, {
+    "id" : "LOF_128",
+    "count" : 1
+  }, {
+    "id" : "SEC_046",
+    "count" : 1
+  }, {
+    "id" : "SEC_078",
+    "count" : 1
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-0005043f3229a20a358d6f8df3402fc2">
+      {
+  "metadata" : {
+    "name" : "Darth Vader (JTL) - Yellow",
+    "author" : "Mailman1980"
+  },
+  "leader" : {
+    "id" : "JTL_006",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "JTL_030",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_081",
+    "count" : 3
+  }, {
+    "id" : "JTL_085",
+    "count" : 3
+  }, {
+    "id" : "JTL_115",
+    "count" : 3
+  }, {
+    "id" : "JTL_212",
+    "count" : 3
+  }, {
+    "id" : "JTL_217",
+    "count" : 3
+  }, {
+    "id" : "JTL_221",
+    "count" : 3
+  }, {
+    "id" : "JTL_242",
+    "count" : 2
+  }, {
+    "id" : "LAW_135",
+    "count" : 2
+  }, {
+    "id" : "LAW_211",
+    "count" : 3
+  }, {
+    "id" : "LAW_217",
+    "count" : 2
+  }, {
+    "id" : "LAW_233",
+    "count" : 2
+  }, {
+    "id" : "LOF_091",
+    "count" : 2
+  }, {
+    "id" : "SEC_082",
+    "count" : 2
+  }, {
+    "id" : "SEC_185",
+    "count" : 3
+  }, {
+    "id" : "SEC_186",
+    "count" : 3
+  }, {
+    "id" : "SEC_189",
+    "count" : 3
+  }, {
+    "id" : "SEC_213",
+    "count" : 3
+  }, {
+    "id" : "SEC_215",
+    "count" : 3
+  }, {
+    "id" : "SEC_233",
+    "count" : 2
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_112",
+    "count" : 2
+  }, {
+    "id" : "JTL_120",
+    "count" : 2
+  }, {
+    "id" : "JTL_214",
+    "count" : 2
+  }, {
+    "id" : "JTL_235",
+    "count" : 2
+  }, {
+    "id" : "LOF_091",
+    "count" : 1
+  }, {
+    "id" : "SEC_082",
+    "count" : 1
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-763d90cd4f77daf0b6ee525f0d406e6b">
+      {
+  "metadata" : {
+    "name" : "Leia Organa (LAW) - Blue",
+    "author" : "KNR_Vagabond"
+  },
+  "leader" : {
+    "id" : "LAW_010",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "LAW_020",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_078",
+    "count" : 1
+  }, {
+    "id" : "JTL_095",
+    "count" : 3
+  }, {
+    "id" : "JTL_096",
+    "count" : 3
+  }, {
+    "id" : "JTL_103",
+    "count" : 2
+  }, {
+    "id" : "JTL_250",
+    "count" : 2
+  }, {
+    "id" : "LAW_037",
+    "count" : 3
+  }, {
+    "id" : "LAW_038",
+    "count" : 2
+  }, {
+    "id" : "LAW_039",
+    "count" : 3
+  }, {
+    "id" : "LAW_041",
+    "count" : 2
+  }, {
+    "id" : "LAW_089",
+    "count" : 3
+  }, {
+    "id" : "LAW_111",
+    "count" : 3
+  }, {
+    "id" : "LAW_168",
+    "count" : 3
+  }, {
+    "id" : "LOF_045",
+    "count" : 1
+  }, {
+    "id" : "LOF_070",
+    "count" : 2
+  }, {
+    "id" : "LOF_093",
+    "count" : 3
+  }, {
+    "id" : "LOF_096",
+    "count" : 2
+  }, {
+    "id" : "LOF_100",
+    "count" : 1
+  }, {
+    "id" : "SEC_046",
+    "count" : 3
+  }, {
+    "id" : "SEC_082",
+    "count" : 3
+  }, {
+    "id" : "SEC_094",
+    "count" : 3
+  }, {
+    "id" : "SEC_104",
+    "count" : 1
+  }, {
+    "id" : "SEC_179",
+    "count" : 1
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_112",
+    "count" : 2
+  }, {
+    "id" : "LAW_132",
+    "count" : 2
+  }, {
+    "id" : "LAW_133",
+    "count" : 1
+  }, {
+    "id" : "LAW_149",
+    "count" : 1
+  }, {
+    "id" : "SEC_101",
+    "count" : 2
+  }, {
+    "id" : "SEC_256",
+    "count" : 2
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-a5cb673f183a789d97adaa8e8a08137d">
+      {
+  "metadata" : {
+    "name" : "Obi-Wan Kenobi (LOF) - Blue Force",
+    "author" : "KillerKuchen"
+  },
+  "leader" : {
+    "id" : "LOF_008",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "LOF_021",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_096",
+    "count" : 3
+  }, {
+    "id" : "LOF_045",
+    "count" : 3
+  }, {
+    "id" : "LOF_046",
+    "count" : 2
+  }, {
+    "id" : "LOF_048",
+    "count" : 3
+  }, {
+    "id" : "LOF_061",
+    "count" : 3
+  }, {
+    "id" : "LOF_067",
+    "count" : 3
+  }, {
+    "id" : "LOF_079",
+    "count" : 3
+  }, {
+    "id" : "LOF_093",
+    "count" : 3
+  }, {
+    "id" : "LOF_096",
+    "count" : 2
+  }, {
+    "id" : "LOF_100",
+    "count" : 3
+  }, {
+    "id" : "LOF_101",
+    "count" : 3
+  }, {
+    "id" : "LOF_102",
+    "count" : 3
+  }, {
+    "id" : "LOF_111",
+    "count" : 3
+  }, {
+    "id" : "LOF_128",
+    "count" : 3
+  }, {
+    "id" : "LOF_246",
+    "count" : 2
+  }, {
+    "id" : "LOF_261",
+    "count" : 3
+  }, {
+    "id" : "SEC_048",
+    "count" : 2
+  }, {
+    "id" : "SEC_094",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_053",
+    "count" : 2
+  }, {
+    "id" : "LAW_040",
+    "count" : 2
+  }, {
+    "id" : "LAW_127",
+    "count" : 2
+  }, {
+    "id" : "LAW_149",
+    "count" : 1
+  }, {
+    "id" : "LOF_053",
+    "count" : 1
+  }, {
+    "id" : "SEC_046",
+    "count" : 2
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-52afea7c6c6f04c23994e93716fe4fef">
+      {
+  "metadata" : {
+    "name" : "Hera Syndulla (LAW) - Blue",
+    "author" : "TGCAO"
+  },
+  "leader" : {
+    "id" : "LAW_009",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "LAW_020",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_096",
+    "count" : 3
+  }, {
+    "id" : "JTL_111",
+    "count" : 3
+  }, {
+    "id" : "LAW_034",
+    "count" : 3
+  }, {
+    "id" : "LAW_035",
+    "count" : 3
+  }, {
+    "id" : "LAW_037",
+    "count" : 3
+  }, {
+    "id" : "LAW_039",
+    "count" : 2
+  }, {
+    "id" : "LAW_045",
+    "count" : 3
+  }, {
+    "id" : "LAW_069",
+    "count" : 2
+  }, {
+    "id" : "LAW_089",
+    "count" : 3
+  }, {
+    "id" : "LAW_104",
+    "count" : 3
+  }, {
+    "id" : "LAW_105",
+    "count" : 3
+  }, {
+    "id" : "LAW_149",
+    "count" : 1
+  }, {
+    "id" : "LAW_152",
+    "count" : 3
+  }, {
+    "id" : "LOF_046",
+    "count" : 3
+  }, {
+    "id" : "LOF_055",
+    "count" : 2
+  }, {
+    "id" : "LOF_100",
+    "count" : 1
+  }, {
+    "id" : "LOF_128",
+    "count" : 3
+  }, {
+    "id" : "SEC_103",
+    "count" : 1
+  }, {
+    "id" : "SEC_252",
+    "count" : 2
+  }, {
+    "id" : "SEC_256",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_112",
+    "count" : 3
+  }, {
+    "id" : "LAW_133",
+    "count" : 2
+  }, {
+    "id" : "LOF_147",
+    "count" : 2
+  }, {
+    "id" : "SEC_046",
+    "count" : 2
+  }, {
+    "id" : "SEC_103",
+    "count" : 1
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-07d54d66fd13d59be395bea3117678b3">
+      {
+  "metadata" : {
+    "name" : "Admiral Piett (JTL) - Red",
+    "author" : "7LS_Konfitzius"
+  },
+  "leader" : {
+    "id" : "JTL_005",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "SEC_023",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_089",
+    "count" : 3
+  }, {
+    "id" : "JTL_116",
+    "count" : 3
+  }, {
+    "id" : "JTL_118",
+    "count" : 3
+  }, {
+    "id" : "JTL_119",
+    "count" : 2
+  }, {
+    "id" : "JTL_131",
+    "count" : 3
+  }, {
+    "id" : "JTL_143",
+    "count" : 3
+  }, {
+    "id" : "JTL_181",
+    "count" : 3
+  }, {
+    "id" : "LAW_053",
+    "count" : 3
+  }, {
+    "id" : "LAW_075",
+    "count" : 3
+  }, {
+    "id" : "LAW_173",
+    "count" : 3
+  }, {
+    "id" : "LAW_174",
+    "count" : 3
+  }, {
+    "id" : "LOF_091",
+    "count" : 3
+  }, {
+    "id" : "LOF_130",
+    "count" : 3
+  }, {
+    "id" : "LOF_155",
+    "count" : 2
+  }, {
+    "id" : "SEC_080",
+    "count" : 2
+  }, {
+    "id" : "SEC_110",
+    "count" : 3
+  }, {
+    "id" : "SEC_133",
+    "count" : 2
+  }, {
+    "id" : "SEC_142",
+    "count" : 3
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_112",
+    "count" : 2
+  }, {
+    "id" : "JTL_121",
+    "count" : 2
+  }, {
+    "id" : "LAW_191",
+    "count" : 2
+  }, {
+    "id" : "LAW_208",
+    "count" : 2
+  }, {
+    "id" : "SEC_163",
+    "count" : 2
+  } ]
+}
+    </pre>
+    <pre class="d-none" id="swudb-deck-62e57326816e9db73eb8cbe967d649f2">
+      {
+  "metadata" : {
+    "name" : "Admiral Ackbar (JTL) - Data Vault",
+    "author" : "KNR_Chironimo"
+  },
+  "leader" : {
+    "id" : "JTL_016",
+    "count" : 1
+  },
+  "base" : {
+    "id" : "JTL_024",
+    "count" : 1
+  },
+  "deck" : [ {
+    "id" : "JTL_096",
+    "count" : 3
+  }, {
+    "id" : "JTL_131",
+    "count" : 1
+  }, {
+    "id" : "JTL_201",
+    "count" : 2
+  }, {
+    "id" : "LAW_067",
+    "count" : 3
+  }, {
+    "id" : "LAW_071",
+    "count" : 3
+  }, {
+    "id" : "LAW_133",
+    "count" : 3
+  }, {
+    "id" : "LAW_145",
+    "count" : 3
+  }, {
+    "id" : "LAW_224",
+    "count" : 2
+  }, {
+    "id" : "LAW_246",
+    "count" : 3
+  }, {
+    "id" : "LOF_093",
+    "count" : 3
+  }, {
+    "id" : "LOF_096",
+    "count" : 3
+  }, {
+    "id" : "LOF_100",
+    "count" : 2
+  }, {
+    "id" : "LOF_128",
+    "count" : 3
+  }, {
+    "id" : "LOF_200",
+    "count" : 2
+  }, {
+    "id" : "SEC_094",
+    "count" : 3
+  }, {
+    "id" : "SEC_098",
+    "count" : 3
+  }, {
+    "id" : "SEC_101",
+    "count" : 3
+  }, {
+    "id" : "SEC_102",
+    "count" : 2
+  }, {
+    "id" : "SEC_103",
+    "count" : 2
+  }, {
+    "id" : "SEC_119",
+    "count" : 2
+  }, {
+    "id" : "SEC_198",
+    "count" : 3
+  }, {
+    "id" : "SEC_204",
+    "count" : 3
+  }, {
+    "id" : "SEC_209",
+    "count" : 2
+  }, {
+    "id" : "SEC_233",
+    "count" : 2
+  } ],
+  "sideboard" : [ {
+    "id" : "JTL_078",
+    "count" : 2
+  }, {
+    "id" : "JTL_201",
+    "count" : 1
+  }, {
+    "id" : "JTL_207",
+    "count" : 2
+  }, {
+    "id" : "JTL_235",
+    "count" : 3
+  }, {
+    "id" : "LOF_200",
+    "count" : 1
+  }, {
+    "id" : "SEC_209",
+    "count" : 1
+  } ]
+}
+    </pre>
 
 <div class="toast-container position-fixed bottom-0 end-0 p-3">
   <div id="copy-toast" class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true"
