@@ -26,6 +26,13 @@ EVENT_TYPES = {
     "planetary-qualifier": ("pq", "planetary-qualifier", "Planetary Qualifier"),
     "sector-qualifier": ("sq", "sector-qualifier", "Sector Qualifier"),
     "regional-championship": ("rq", "regional-qualifier", "Regional Qualifier"),
+    "galactic-championship": ("gc", "galactic-championship", "Galactic Championship"),
+    "galactic-championship-q": (
+        "gc-lcq",
+        "galactic-championship",
+        "Galactic Championship Last Chance Qualifier",
+    ),
+    "galactic-open": ("major-galactic-open", "major", "Galactic Open"),
 }
 
 
@@ -41,7 +48,9 @@ def find_event_links(html, dates):
     Returns a list of (url, event_type_key) tuples, where event_type_key is a
     key in EVENT_TYPES.
     """
-    slugs = "|".join(re.escape(s) for s in EVENT_TYPES)
+    # Longest slug first so "galactic-championship-q" isn't shadowed by
+    # "galactic-championship".
+    slugs = "|".join(re.escape(s) for s in sorted(EVENT_TYPES, key=len, reverse=True))
     date_re = "|".join(re.escape(d) for d in dates)
     # Require the date to follow the event slug directly, which excludes
     # variants like "planetary-qualifier-limited-...".
