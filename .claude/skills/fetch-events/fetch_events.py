@@ -19,6 +19,7 @@ COUNTRY_MAP = {
     "Wales": "United Kingdom",
     "Northern Ireland": "United Kingdom",
     "Czech Republic": "Czechia",
+    "Phillippines": "Philippines",
 }
 
 # Supported event types: URL slug -> (filename prefix, YAML type, display label)
