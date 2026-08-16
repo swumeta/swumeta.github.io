@@ -97,10 +97,15 @@ def parse_event_page(html):
         city = re.sub(r"\s*-\s*[A-Z]{2}$", "", city)
         info["city"] = city
 
-    # Melee link (Tournament/View for PQs, Hub/View for SQs)
-    m = re.search(r'href="(https://melee\.gg/(?:Tournament|Hub)/View/\d+)"', html)
+    # Melee link (Tournament/View for PQs, Hub/View for SQs). The site is
+    # inconsistent about casing, so match case-insensitively and normalize to
+    # the canonical form used in the database (dedup compares URLs verbatim).
+    m = re.search(
+        r'href="https://melee\.gg/(Tournament|Hub)/View/(\d+)"', html, re.IGNORECASE
+    )
     if m:
-        info["melee"] = m.group(1)
+        kind = "Tournament" if m.group(1).lower() == "tournament" else "Hub"
+        info["melee"] = f"https://melee.gg/{kind}/View/{m.group(2)}"
 
     # Livestream (YouTube embed)
     m = re.search(r'<iframe[^>]+src="https://www\.youtube\.com/embed/([^"?]+)', html)
