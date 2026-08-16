@@ -34,6 +34,7 @@ EVENT_TYPES = {
         "Galactic Championship Last Chance Qualifier",
     ),
     "galactic-open": ("major-galactic-open", "major", "Galactic Open"),
+    "sector-open": ("major-sector-open", "major", "Sector Open"),
 }
 
 
