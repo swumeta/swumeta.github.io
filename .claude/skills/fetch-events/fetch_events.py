@@ -108,12 +108,44 @@ def parse_event_page(html):
         kind = "Tournament" if m.group(1).lower() == "tournament" else "Hub"
         info["melee"] = f"https://melee.gg/{kind}/View/{m.group(2)}"
 
-    # Livestream (YouTube embed)
-    m = re.search(r'<iframe[^>]+src="https://www\.youtube\.com/embed/([^"?]+)', html)
-    if m:
-        info["livestream"] = f"https://www.youtube.com/watch?v={m.group(1)}"
+    # Livestreams (YouTube embeds). A page can carry several: one per day for
+    # multi-day events, plus alternate-language coverage ("Spanish Livestream").
+    # Keep them all, each tagged with the heading that introduces it.
+    seen = set()
+    livestreams = []
+    for m in re.finditer(
+        r'<iframe[^>]+src="https://www\.youtube\.com/embed/([^"?]+)', html
+    ):
+        url = f"https://www.youtube.com/watch?v={m.group(1)}"
+        if url not in seen:
+            seen.add(url)
+            livestreams.append((url, livestream_title(html[: m.start()])))
+    if livestreams:
+        info["livestreams"] = livestreams
 
     return info
+
+
+def livestream_title(html_before):
+    """Title for an embed, taken from the heading that precedes it.
+
+    Headings that group several videos ("Livestream Day 2 / Day1") describe the
+    set rather than any one video, so they collapse to a plain "Livestream": the
+    page orders days inconsistently and guessing which is which writes bad data.
+    """
+    for text in reversed(re.findall(r">([^<>]{2,80})<", html_before)):
+        label = " ".join(text.split())
+        # Skip inline CSS/JS fragments that also sit between tags.
+        if not label or "px" in label or label[0] in ".{/":
+            continue
+        if not re.search(r"livestream|stream|coverage", label, re.IGNORECASE):
+            break
+        # Drop day enumerations, keeping any qualifier ("Official", "Spanish").
+        label = re.sub(r"\bday\s*\d+\b", "", label, flags=re.IGNORECASE)
+        label = re.sub(r"[/,]", " ", label)
+        label = " ".join(label.split())
+        return label or "Livestream"
+    return "Livestream"
 
 
 # Characters that don't decompose via NFKD and need explicit mapping
@@ -188,10 +220,12 @@ def write_event_yaml(date_str, info, event_type):
     lines.append("contributors:")
     lines.append('- "NotAlex"')
 
-    if "livestream" in info:
+    livestreams = info.get("livestreams") or []
+    if livestreams:
         lines.append("links:")
-        lines.append(f'- url: "{info["livestream"]}"')
-        lines.append('  title: "Livestream"')
+        for url, title in livestreams:
+            lines.append(f'- url: "{url}"')
+            lines.append(f'  title: "{title}"')
 
     with open(filepath, "w") as f:
         f.write("\n".join(lines) + "\n")
@@ -272,8 +306,14 @@ def main():
             city = info.get("city", "?")
             country = info.get("country", "?")
             players = info.get("players", 0)
-            livestream = " + livestream" if "livestream" in info else ""
+            streams = info.get("livestreams") or []
+            livestream = f" + {len(streams)} livestream(s)" if streams else ""
             print(f"    Created: {basename} ({city}, {country}, {players} players{livestream})")
+            if len(streams) > 1:
+                print(
+                    "    NOTE: several livestreams — the hub does not order days"
+                    " reliably, so label them by hand (Livestream Day 1/Day 2)."
+                )
         else:
             skipped += 1
             print(f"    Skipped (already exists): {basename}")
