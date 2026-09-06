@@ -75,12 +75,12 @@ def main(argv):
                 continue
             with open(path, "w", encoding="utf-8") as f:
                 f.write(new_text)
-        locked.append((name, players, len(decks)))
+        locked.append((name, players, sum(1 for url in decks.values() if url)))
 
     verb = "Locked" if apply_changes else "Would lock"
     print(f"{verb} {len(locked)} event(s):")
-    for name, players, ndecks in locked:
-        print(f"  {name}  ({players} players, {ndecks} decklists)")
+    for name, players, ndecklists in locked:
+        print(f"  {name}  ({players} players, {ndecklists} decklists)")
 
     if skipped:
         print(f"\nSkipped {len(skipped)} event(s) without a complete top {TOP_N}:")

@@ -51,6 +51,23 @@ the GitHub Actions "Build website" job, which commits them back as
 *Generated site content*. So the usual sequence is: fetch events → let the
 workflow run → `git pull -r` → lock.
 
+## When the build finds no decklists
+
+The build reads decklists from melee.gg. Some organisers never publish them
+there, which leaves a bare `- rank:` list. **swu-competitivehub.com often has
+the top 8 anyway** — its results table links straight to the melee decklists.
+When an event is stuck without decklists, check the hub page before assuming
+the result is unknown:
+
+```
+https://www.swu-competitivehub.com/event/<event-slug>/
+```
+
+Scrape the `<tr>` rows of the *Results* table: the first `<td>` is the rank and
+the row's `href` is the decklist URL. Insert a `url:` line under the matching
+`- rank:` entries, verify the URLs return HTTP 200, then lock the event — the
+`locked: true` flag is what stops the build from overwriting the file.
+
 ## Judgment call: a partial top 8
 
 An event where a single top-8 player never submitted a decklist (e.g. rank 8
