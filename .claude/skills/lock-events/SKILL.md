@@ -65,8 +65,13 @@ https://www.swu-competitivehub.com/event/<event-slug>/
 
 Scrape the `<tr>` rows of the *Results* table: the first `<td>` is the rank and
 the row's `href` is the decklist URL. Insert a `url:` line under the matching
-`- rank:` entries, verify the URLs return HTTP 200, then lock the event — the
-`locked: true` flag is what stops the build from overwriting the file.
+`- rank:` entries, verify the URLs return HTTP 200, then lock the event.
+
+The build merges rather than overwrites: after Edmonton was filled in by hand
+and pushed, the next *Generated site content* commit kept the eight manual
+URLs and added the rest of the field. Hand-written decklist URLs are safe, but
+`locked: true` is not a freeze — do not assume the build leaves a locked file
+alone.
 
 ## Judgment call: a partial top 8
 
