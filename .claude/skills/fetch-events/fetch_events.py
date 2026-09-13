@@ -22,6 +22,23 @@ COUNTRY_MAP = {
     "Phillippines": "Philippines",
 }
 
+# Two-letter subdivision codes the site sometimes appends to a city name
+# ("Indianapolis IN", "Atlanta - GA"). Only stripped for these countries, so a
+# genuine city name ending in two capitals elsewhere is left alone.
+SUBDIVISION_CODES = {
+    "USA": {
+        "AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID",
+        "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MA", "MI", "MN", "MS",
+        "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK",
+        "OR", "PA", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV",
+        "WI", "WY", "DC", "PR", "GU", "VI", "AS", "MP",
+    },
+    "Canada": {
+        "AB", "BC", "MB", "NB", "NL", "NS", "NT", "NU", "ON", "PE", "QC", "SK",
+        "YT",
+    },
+}
+
 # Supported event types: URL slug -> (filename prefix, YAML type, display label)
 EVENT_TYPES = {
     "planetary-qualifier": ("pq", "planetary-qualifier", "Planetary Qualifier"),
@@ -71,6 +88,22 @@ def find_event_links(html, dates):
     return results
 
 
+def normalize_city(city, country):
+    """Strip a trailing state/province code from a city name.
+
+    "Indianapolis IN" -> "Indianapolis", "Atlanta - GA" -> "Atlanta".
+
+    Grouping a small town under its nearest larger city is deliberately not
+    done here: it needs geographic judgment the script has no way to make, so
+    SKILL.md has the agent review each created event instead.
+    """
+    codes = SUBDIVISION_CODES.get(country, ())
+    m = re.match(r"^(.*?)[\s,-]+([A-Z]{2})$", city)
+    if m and m.group(2) in codes:
+        city = m.group(1).strip()
+    return city
+
+
 def parse_event_page(html):
     """Extract event details from an event page."""
     info = {}
@@ -91,12 +124,15 @@ def parse_event_page(html):
     if m:
         info["players"] = int(m.group(1))
 
-    # City — strip trailing US state code (e.g. "Atlanta - GA" → "Atlanta")
+    # City — as printed by the site, minus any trailing state code. The page's
+    # h1 embeds the raw city, so keep the two in sync.
     m = re.search(r'id="span-231-135"[^>]*>\s*(.+?)\s*</span>', html)
     if m:
-        city = m.group(1).strip()
-        city = re.sub(r"\s*-\s*[A-Z]{2}$", "", city)
+        raw_city = m.group(1).strip()
+        city = normalize_city(raw_city, info.get("country"))
         info["city"] = city
+        if city != raw_city and "name" in info:
+            info["name"] = info["name"].replace(raw_city, city)
 
     # Melee link (Tournament/View for PQs, Hub/View for SQs). The site is
     # inconsistent about casing, so match case-insensitively and normalize to
