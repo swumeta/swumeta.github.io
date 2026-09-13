@@ -64,8 +64,7 @@ Known cases, as illustration of the intended granularity:
 | Portici, Italy | Naples |
 | Appingedam, Netherlands | Groningen |
 | Arona, Spain | Santa Cruz de Tenerife |
-| Aubagne, France | Marseille |
 | Wasquehal, France | Lille |
 
-Cities that already stand on their own — Lima, Osnabrück, Tampere, Indianapolis
-— are left alone.
+Cities that already stand on their own — Lima, Osnabrück, Tampere, Indianapolis,
+Aubagne — are left alone.
