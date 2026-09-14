@@ -99,7 +99,7 @@ Each `NEEDS A DECISION` line is a card the script would have had to guess at.
 
 | Line | What it means |
 |---|---|
-| `the site only prints a generic "Blue" base` | The organiser recorded the aspect, not the card. Only the user can supply the base code. |
+| `the site only prints a generic "Blue" base` | The organiser recorded the aspect, not the card. The script lists every plain common base of that aspect — the site groups them all under the one colour, so the choice changes the database, not the site's numbers. It is still the user's to make. |
 | `no leader named 'X' in the card database` | The set is missing from `database/cards/` — fetch it first with the `fetch-cards` skill. |
 | `'X' is ambiguous (JTL-021, LOF-012)` | Same card name in several sets and the page gave no set hint. |
 

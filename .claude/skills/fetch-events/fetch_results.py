@@ -22,9 +22,20 @@ CARDS_DIR = os.path.join(DATABASE_DIR, "cards")
 
 TOP_N = 8
 
-# Bases the site prints as a bare colour when it only knows the aspect. The
-# actual card is unknowable from the page, so these are reported, never guessed.
+# The site prints a bare colour when the organiser recorded the aspect and not
+# the card. Which plain common base it was is unknowable from the page, so it is
+# reported, never guessed — but the choice is narrower than it looks: the site
+# groups every plain common base of an aspect under that one colour, so any of
+# them renders the same. LOF's commons are the exception, labelled "Blue Force"
+# and friends, and are not interchangeable with the plain ones.
 GENERIC_BASES = {"blue", "red", "green", "yellow", "white", "black"}
+COLOUR_ASPECTS = {
+    "blue": "vigilance",
+    "green": "command",
+    "red": "aggression",
+    "yellow": "cunning",
+}
+FORCE_SET = "LOF"
 
 
 def fetch_html(url):
@@ -41,8 +52,14 @@ def normalize(name):
 
 
 def load_cards():
-    """Return {('leader'|'base', normalized name): [(code, set), ...]}."""
-    index = {}
+    """Index the card database.
+
+    Returns (by_name, plain_commons):
+      by_name       {('leader'|'base', normalized name): [(code, set), ...]}
+      plain_commons {aspect: [code, ...]} — common single-aspect bases outside
+                    LOF, the ones the site lumps together under a bare colour.
+    """
+    by_name, plain_commons = {}, {}
     for path in sorted(glob.glob(os.path.join(CARDS_DIR, "*", "*.yaml"))):
         with open(path, encoding="utf-8") as f:
             text = f.read()
@@ -55,16 +72,26 @@ def load_cards():
         if not name or not card_set:
             continue
         code = os.path.basename(path)[: -len(".yaml")]
-        index.setdefault((card_type, normalize(name.group(1))), []).append(
+        by_name.setdefault((card_type, normalize(name.group(1))), []).append(
             (code, card_set.group(1))
         )
-    return index
+        aspects = re.findall(r'^- "(\w+)"', text, re.MULTILINE)
+        rarity = re.search(r'^rarity: "([^"]*)"', text, re.MULTILINE)
+        if (
+            card_type == "base"
+            and rarity
+            and rarity.group(1) == "common"
+            and len(aspects) == 1
+            and card_set.group(1) != FORCE_SET
+        ):
+            plain_commons.setdefault(aspects[0], []).append(code)
+    return by_name, plain_commons
 
 
-def resolve(cards, card_type, name, set_hint):
+def resolve(cards, plain_commons, card_type, name, set_hint):
     """Resolve a card name to its code. Returns (code, error)."""
     if card_type == "base" and normalize(name) in GENERIC_BASES:
-        return None, f'the site only prints a generic "{name}" base'
+        return None, generic_base_error(name, plain_commons)
     matches = cards.get((card_type, normalize(name)), [])
     if not matches:
         return None, f"no {card_type} named {name!r} in the card database"
@@ -75,6 +102,21 @@ def resolve(cards, card_type, name, set_hint):
         return narrowed[0], None
     codes = ", ".join(code for code, _ in matches)
     return None, f"{name!r} is ambiguous ({codes})"
+
+
+def generic_base_error(colour, plain_commons):
+    """Explain what a bare colour on the site leaves undecided, and how narrow
+    the choice really is."""
+    aspect = COLOUR_ASPECTS.get(normalize(colour))
+    codes = plain_commons.get(aspect, []) if aspect else []
+    if not codes:
+        return f'the site only prints a generic "{colour}" base'
+    return (
+        f'the site only prints a generic "{colour}" base — any plain common '
+        f"{aspect} base renders under that one name, so pick whichever the user "
+        f"wants recorded: {', '.join(codes)} (not {FORCE_SET}'s commons, which "
+        f'the site labels "{colour} Force")'
+    )
 
 
 _ROW_RE = re.compile(r"<tr>(.*?)</tr>", re.DOTALL)
@@ -136,7 +178,7 @@ _DATE_RE = re.compile(r'^date:\s*"(\d{4})-(\d{2})-(\d{2})"', re.MULTILINE)
 _RANK_RE = re.compile(r"^- rank: (\d+)\n((?:^  \w+:.*\n)*)", re.MULTILINE)
 
 
-def backfill(path, cards, apply_changes):
+def backfill(path, cards, plain_commons, apply_changes):
     name = os.path.basename(path)
     with open(path, encoding="utf-8") as f:
         text = f.read()
@@ -167,7 +209,9 @@ def backfill(path, cards, apply_changes):
             if kind not in entry:
                 problems.append(f"rank {rank}: no {kind} on the hub page")
                 continue
-            code, error = resolve(cards, kind, entry[kind], entry.get(f"{kind}_set"))
+            code, error = resolve(
+                cards, plain_commons, kind, entry[kind], entry.get(f"{kind}_set")
+            )
             if code:
                 fields.append(f"  {kind}: {code}")
             else:
@@ -212,10 +256,10 @@ def main(argv):
         print("No event file matches the given argument(s).")
         return 1
 
-    cards = load_cards()
+    cards, plain_commons = load_cards()
     failed = 0
     for path in paths:
-        report, ok = backfill(path, cards, apply_changes)
+        report, ok = backfill(path, cards, plain_commons, apply_changes)
         print(report)
         failed += not ok
     if apply_changes:
