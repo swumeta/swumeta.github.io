@@ -67,6 +67,12 @@ Scrape the `<tr>` rows of the *Results* table: the first `<td>` is the rank and
 the row's `href` is the decklist URL. Insert a `url:` line under the matching
 `- rank:` entries, verify the URLs return HTTP 200, then lock the event.
 
+When the hub's results table carries no decklist link either — only a leader,
+a base and a player name per row — the top 8 can still be recorded, in the
+`player` / `leader` / `base` form. That is the `fetch-events` skill's
+"Filling in a top 8 melee never published" fallback, and it runs only when the
+user explicitly asks for it.
+
 The build merges rather than overwrites: after Edmonton was filled in by hand
 and pushed, the next *Generated site content* commit kept the eight manual
 URLs and added the rest of the field. Hand-written decklist URLs are safe, but

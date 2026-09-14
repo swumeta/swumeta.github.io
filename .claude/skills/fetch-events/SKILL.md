@@ -1,6 +1,6 @@
 ---
 name: fetch-events
-description: Fetch Planetary Qualifier, Sector Qualifier, and Regional Qualifier (Regional Championship) events from swu-competitivehub.com for given dates and create YAML event files. Use when the user asks to fetch, import, download, or add PQ/SQ/RQ events for specific dates (e.g. "fetch events for 20260411 20260412").
+description: Fetch Planetary Qualifier, Sector Qualifier, and Regional Qualifier (Regional Championship) events from swu-competitivehub.com for given dates and create YAML event files. Use when the user asks to fetch, import, download, or add PQ/SQ/RQ events for specific dates (e.g. "fetch events for 20260411 20260412"). Also use when the user explicitly asks to fill in the top 8 of an event whose decklists were never published on melee.gg.
 argument-hint: <DATE> [DATE ...] (e.g. 20260411, 20260412)
 allowed-tools: Bash Read Write Glob Grep
 ---
@@ -68,3 +68,46 @@ Known cases, as illustration of the intended granularity:
 
 Cities that already stand on their own — Lima, Osnabrück, Tampere, Indianapolis,
 Aubagne — are left alone.
+
+## Filling in a top 8 melee never published — on explicit request only
+
+Some organisers never upload decklists to melee.gg. The build then leaves the
+event with a bare `- rank:` list, no decklist ever arrives, and the event can
+never be locked. The hub's *Results* table still carries the top 8 as player
+plus leader/base, which the database records with the `player` / `leader` /
+`base` form instead of a `url:` — see `20250614-pq-strasbourg.yaml`.
+
+**Run this only when the user explicitly asks for it.** It is not part of
+fetching events, and not something to do on your own initiative to "finish" an
+event: decklists are added by the *Build website* job hours to days after the
+event, so a fresh event with no decklists is waiting for the build, not
+missing its results. Backfilling it early writes leader/base entries where the
+build would have written real decklist URLs.
+
+```bash
+python3 ${CLAUDE_SKILL_DIR}/fetch_results.py <event.yaml|date-prefix> [--dry-run]
+```
+
+The script finds the hub page by the event's melee id, fills ranks 1 to 8 only,
+and never touches a rank that already carries fields. It refuses an event that
+already has top-8 decklists.
+
+### What it will not decide for you
+
+Each `NEEDS A DECISION` line is a card the script would have had to guess at.
+**Ask the user; never pick one yourself.**
+
+| Line | What it means |
+|---|---|
+| `the site only prints a generic "Blue" base` | The organiser recorded the aspect, not the card. Only the user can supply the base code. |
+| `no leader named 'X' in the card database` | The set is missing from `database/cards/` — fetch it first with the `fetch-cards` skill. |
+| `'X' is ambiguous (JTL-021, LOF-012)` | Same card name in several sets and the page gave no set hint. |
+
+Fill the missing field in by hand once the user answers.
+
+### Locking
+
+Locking stays a separate, manual decision — the `lock-events` script counts
+decklist URLs, so it will never lock an event filled in this way, and reports
+it as an incomplete top 8. A top 8 complete in leader/base form is a known
+result: lock it, as the 64 events already using the leader/base form all are.
