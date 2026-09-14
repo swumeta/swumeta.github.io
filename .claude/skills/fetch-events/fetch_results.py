@@ -26,8 +26,7 @@ TOP_N = 8
 # the card. Which plain common base it was is unknowable from the page, so it is
 # reported, never guessed — but the choice is narrower than it looks: the site
 # groups every plain common base of an aspect under that one colour, so any of
-# them renders the same. LOF's commons are the exception, labelled "Blue Force"
-# and friends, and are not interchangeable with the plain ones.
+# them renders the same.
 GENERIC_BASES = {"blue", "red", "green", "yellow", "white", "black"}
 COLOUR_ASPECTS = {
     "blue": "vigilance",
@@ -35,7 +34,14 @@ COLOUR_ASPECTS = {
     "red": "aggression",
     "yellow": "cunning",
 }
-FORCE_SET = "LOF"
+
+# Two sets break the common-base symmetry, so their commons are never offered as
+# a stand-in for a bare colour. Nothing in the card database distinguishes them —
+# it records neither HP nor card text — so the exception lives here.
+SPECIAL_COMMONS = {
+    "LOF": "the site labels them {colour} Force",
+    "LAW": "they carry an ability and 27 HP",
+}
 
 
 def fetch_html(url):
@@ -56,8 +62,9 @@ def load_cards():
 
     Returns (by_name, plain_commons):
       by_name       {('leader'|'base', normalized name): [(code, set), ...]}
-      plain_commons {aspect: [code, ...]} — common single-aspect bases outside
-                    LOF, the ones the site lumps together under a bare colour.
+      plain_commons {aspect: [code, ...]} — the common single-aspect bases the
+                    site lumps together under a bare colour, SPECIAL_COMMONS
+                    aside.
     """
     by_name, plain_commons = {}, {}
     for path in sorted(glob.glob(os.path.join(CARDS_DIR, "*", "*.yaml"))):
@@ -82,7 +89,7 @@ def load_cards():
             and rarity
             and rarity.group(1) == "common"
             and len(aspects) == 1
-            and card_set.group(1) != FORCE_SET
+            and card_set.group(1) not in SPECIAL_COMMONS
         ):
             plain_commons.setdefault(aspects[0], []).append(code)
     return by_name, plain_commons
@@ -111,11 +118,14 @@ def generic_base_error(colour, plain_commons):
     codes = plain_commons.get(aspect, []) if aspect else []
     if not codes:
         return f'the site only prints a generic "{colour}" base'
+    excluded = "; ".join(
+        f"{card_set}'s are out, {reason.format(colour=colour)}"
+        for card_set, reason in sorted(SPECIAL_COMMONS.items())
+    )
     return (
         f'the site only prints a generic "{colour}" base — any plain common '
         f"{aspect} base renders under that one name, so pick whichever the user "
-        f"wants recorded: {', '.join(codes)} (not {FORCE_SET}'s commons, which "
-        f'the site labels "{colour} Force")'
+        f"wants recorded: {', '.join(codes)} ({excluded})"
     )
 
 
