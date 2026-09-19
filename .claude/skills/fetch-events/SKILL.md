@@ -85,12 +85,31 @@ missing its results. Backfilling it early writes leader/base entries where the
 build would have written real decklist URLs.
 
 ```bash
-python3 ${CLAUDE_SKILL_DIR}/fetch_results.py <event.yaml|date-prefix> [--dry-run]
+python3 ${CLAUDE_SKILL_DIR}/fetch_results.py <event.yaml|date-prefix> [--conventional-bases] [--dry-run]
 ```
 
-The script finds the hub page by the event's melee id, fills ranks 1 to 8 only,
-and never touches a rank that already carries fields. It refuses an event that
-already has top-8 decklists.
+The script finds the hub page by the event's melee id — falling back to the date
+plus the city in the slug for the few events that carry no melee link, and
+saying so in its report — and fills ranks 1 to 8 only. It fills a rank that
+holds nothing (an empty entry, `url: null`, or no entry at all, which it
+inserts in rank order), never one that already carries a result, and refuses an
+event whose top 8 is already complete. Where the hub links the melee decklist
+the build never saw, it records that `url:` rather than leader/base.
+
+A rank the hub prints as "Unknow Leader" is left empty: a player name alone is
+not a result. An unknown field is left out of the entry entirely — never
+written as `null`.
+
+It refuses an event outright when the hub's ranking disagrees with the
+database's: where both name a decklist for a rank they must name the same one,
+and a decklist the hub places in the top 8 must not already sit at another rank
+in the file. Melee and the hub break ties differently often enough that a row
+copied across a disagreement lands on the wrong player.
+
+`--conventional-bases` answers the bare-colour question below with the code the
+database already uses for that aspect — SOR-020, SOR-023, SOR-026, SOR-029, and
+LOF-020, LOF-023, LOF-026, LOF-029 for a "{colour} Force". Without the flag a
+bare colour stays a question for the user.
 
 ### What it will not decide for you
 
@@ -107,7 +126,8 @@ Fill the missing field in by hand once the user answers.
 
 ### Locking
 
-Locking stays a separate, manual decision — the `lock-events` script counts
-decklist URLs, so it will never lock an event filled in this way, and reports
-it as an incomplete top 8. A top 8 complete in leader/base form is a known
-result: lock it, as the 64 events already using the leader/base form all are.
+An event that gains a leader/base entry is locked by the script itself. Nothing
+will ever add a decklist to such a rank, and the *Build website* job merges into
+whatever it finds, so leaving it unlocked invites the build to write over the
+hub's result. `lock-events` would never do it: that script counts decklist URLs
+and reports a leader/base top 8 as incomplete.
