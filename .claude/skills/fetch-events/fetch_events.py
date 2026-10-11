@@ -1,10 +1,17 @@
 #!/usr/bin/env python3
-"""Fetch Planetary/Sector/Regional Qualifier events from swu-competitivehub.com and create YAML event files."""
+"""Fetch events from swu-competitivehub.com and create YAML event files.
 
+Covers the official tiers (Planetary/Sector/Regional Qualifiers, Galactic
+Championships, Galactic/Sector Opens) plus the community events the hub lists
+as Open, Minor Tournament or Special Tournament.
+"""
+
+import html
 import os
 import re
 import sys
 import unicodedata
+import urllib.parse
 import urllib.request
 
 BASE_URL = "https://www.swu-competitivehub.com"
@@ -54,6 +61,12 @@ EVENT_TYPES = {
     "sector-open": ("major-sector-open", "major", "Sector Open"),
 }
 
+# Community events with no official tier. The hub's own category says nothing
+# about their size, so they are filed by attendance instead: "major" from
+# MAJOR_MIN_PLAYERS players up, "minor" below.
+COMMUNITY_EVENT_TYPES = {"open", "minor-tournament", "special-tournament"}
+MAJOR_MIN_PLAYERS = 32
+
 
 def fetch_html(url):
     req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
@@ -65,22 +78,24 @@ def find_event_links(html, dates):
     """Find all supported event links matching the given dates (YYYY-MM-DD format).
 
     Returns a list of (url, event_type_key) tuples, where event_type_key is a
-    key in EVENT_TYPES.
+    key in EVENT_TYPES or COMMUNITY_EVENT_TYPES. URLs are always absolute.
     """
     # Longest slug first so "galactic-championship-q" isn't shadowed by
     # "galactic-championship".
-    slugs = "|".join(re.escape(s) for s in sorted(EVENT_TYPES, key=len, reverse=True))
+    all_types = set(EVENT_TYPES) | COMMUNITY_EVENT_TYPES
+    slugs = "|".join(re.escape(s) for s in sorted(all_types, key=len, reverse=True))
     date_re = "|".join(re.escape(d) for d in dates)
-    # Require the date to follow the event slug directly, which excludes
-    # variants like "planetary-qualifier-limited-...".
+    # The site links events relatively ("/event/..."), but accept absolute
+    # links too. Require the date to follow the event slug directly, which
+    # excludes variants like "planetary-qualifier-limited-...".
     pattern = re.compile(
-        r'href="(' + re.escape(BASE_URL) + r'/event/(' + slugs
+        r'href="((?:' + re.escape(BASE_URL) + r')?/event/(' + slugs
         + r')-(?:' + date_re + r')-[^"]+/)"'
     )
     seen = set()
     results = []
     for match in pattern.finditer(html):
-        url = match.group(1)
+        url = urllib.parse.urljoin(BASE_URL, match.group(1))
         event_type = match.group(2)
         if url not in seen:
             seen.add(url)
@@ -104,33 +119,72 @@ def normalize_city(city, country):
     return city
 
 
+def html_text(fragment):
+    """Plain text of an HTML fragment, with tags dropped and entities decoded."""
+    return html.unescape(re.sub(r"<[^>]+>", "", fragment)).strip()
+
+
+def header_values(header, label):
+    """Text values listed under a <dt> label of the event header.
+
+    Each value sits in its own "EnteteEvent-module__<hash>__valeur" span. Links
+    (the melee one) are left out: they are not text values. The hash part of
+    the class names changes with every site build, so only the stable prefix
+    and suffix are matched.
+    """
+    m = re.search(
+        r"<dt>" + re.escape(label) + r"</dt>\s*<dd>(.*?)</dd>", header, re.DOTALL
+    )
+    if not m:
+        return []
+    dd = re.sub(
+        r'<span class="EnteteEvent-module__\w+__separateur"[^>]*>.*?</span>',
+        "",
+        m.group(1),
+    )
+    chunks = re.split(r'<span class="EnteteEvent-module__\w+__valeur">', dd)[1:]
+    return [html_text(chunk) for chunk in chunks if "<a " not in chunk]
+
+
 def parse_event_page(html):
     """Extract event details from an event page."""
     info = {}
 
-    # Tournament name from h1 > span
-    m = re.search(r'id="span-4-135"[^>]*>\s*(.+?)\s*</span>', html)
-    if m:
-        info["name"] = m.group(1).strip()
+    # Name, country, players and city all come from the event header. Scoping
+    # the search to it keeps the results tables further down from matching.
+    m = re.search(
+        r'<header class="EnteteEvent-module__\w+__entete">(.*?)</header>',
+        html,
+        re.DOTALL,
+    )
+    header = m.group(1) if m else ""
 
-    # Country from flag alt text
-    m = re.search(r'alt="([^"]+)"[^>]*height="60"', html)
+    m = re.search(r"<h1>(.*?)</h1>", header, re.DOTALL)
     if m:
-        raw_country = m.group(1).strip()
+        info["name"] = html_text(m.group(1))
+
+    # Country from the alt text of the flag next to the title
+    m = re.search(r'<img [^>]*alt="([^"]+)"[^>]*class="Flag-module__', header)
+    if m:
+        raw_country = html_text(m.group(1))
         info["country"] = COUNTRY_MAP.get(raw_country, raw_country)
 
-    # Players count
-    m = re.search(r'id="span-219-135"[^>]*>\s*(\d+)\s*</span>\s*players', html)
-    if m:
-        info["players"] = int(m.group(1))
+    # Players count, one of the "Type" values ("65 players"). Some community
+    # events never get one.
+    for value in header_values(header, "Type"):
+        m = re.fullmatch(r"(\d+)\s+players?", value)
+        if m:
+            info["players"] = int(m.group(1))
 
-    # City — as printed by the site, minus any trailing state code. The page's
-    # h1 embeds the raw city, so keep the two in sync.
-    m = re.search(r'id="span-231-135"[^>]*>\s*(.+?)\s*</span>', html)
-    if m:
-        raw_city = m.group(1).strip()
+    # City — as printed by the site, minus any trailing state code. The
+    # "Location" values are the venue then "City, Country"; the venue is
+    # optional, so take the last value written that way.
+    locations = [v for v in header_values(header, "Location") if "," in v]
+    if locations:
+        raw_city = locations[-1].rsplit(",", 1)[0].strip()
         city = normalize_city(raw_city, info.get("country"))
         info["city"] = city
+        # The h1 embeds the raw city, so keep the two in sync.
         if city != raw_city and "name" in info:
             info["name"] = info["name"].replace(raw_city, city)
 
@@ -232,9 +286,19 @@ def load_existing_melee_index():
 
 def write_event_yaml(date_str, info, event_type):
     """Write a YAML event file. Returns (filepath, created) tuple."""
-    file_prefix, yaml_type, label = EVENT_TYPES[event_type]
     city = info.get("city", "unknown")
-    slug = slugify_city(city)
+    if event_type in COMMUNITY_EVENT_TYPES:
+        players = info.get("players", 0)
+        yaml_type = "major" if players >= MAJOR_MIN_PLAYERS else "minor"
+        file_prefix = yaml_type
+        # A city often hosts several of these on one weekend, so the event's
+        # own name keeps their filenames apart.
+        name = info.get("name", city)
+        slug = slugify_city(name)
+    else:
+        file_prefix, yaml_type, label = EVENT_TYPES[event_type]
+        name = info.get("name", label + " " + city)
+        slug = slugify_city(city)
     filename = f"{date_str}-{file_prefix}-{slug}.yaml"
     filepath = os.path.join(EVENTS_DIR, filename)
 
@@ -242,7 +306,7 @@ def write_event_yaml(date_str, info, event_type):
         return filepath, False
 
     lines = ["---"]
-    lines.append(f'name: "{info.get("name", label + " " + city)}"')
+    lines.append(f'name: "{name}"')
     lines.append(f'type: "{yaml_type}"')
     lines.append(f"players: {info.get('players', 0)}")
     lines.append(f'date: "{date_str[:4]}-{date_str[4:6]}-{date_str[6:8]}"')
@@ -286,7 +350,7 @@ def main():
         dates.append(d)
 
     iso_dates = [f"{d[:4]}-{d[4:6]}-{d[6:8]}" for d in dates]
-    print(f"Fetching Planetary/Sector Qualifiers for: {', '.join(iso_dates)}")
+    print(f"Fetching events for: {', '.join(iso_dates)}")
 
     # Fetch listing page
     print(f"\nFetching tournament listing from {LISTING_URL}...")
@@ -345,6 +409,11 @@ def main():
             streams = info.get("livestreams") or []
             livestream = f" + {len(streams)} livestream(s)" if streams else ""
             print(f"    Created: {basename} ({city}, {country}, {players} players{livestream})")
+            if event_type in COMMUNITY_EVENT_TYPES and "players" not in info:
+                print(
+                    "    NOTE: the hub gives no player count, so it was filed as"
+                    " minor — check the attendance on melee."
+                )
             if len(streams) > 1:
                 print(
                     "    NOTE: several livestreams — the hub does not order days"

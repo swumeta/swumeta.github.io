@@ -1,13 +1,13 @@
 ---
 name: fetch-events
-description: Fetch Planetary Qualifier, Sector Qualifier, and Regional Qualifier (Regional Championship) events from swu-competitivehub.com for given dates and create YAML event files. Use when the user asks to fetch, import, download, or add PQ/SQ/RQ events for specific dates (e.g. "fetch events for 20260411 20260412"). Also use when the user explicitly asks to fill in the top 8 of an event whose decklists were never published on melee.gg.
+description: Fetch Planetary Qualifier, Sector Qualifier, Regional Qualifier (Regional Championship), and community Open / Minor Tournament / Special Tournament events from swu-competitivehub.com for given dates and create YAML event files. Use when the user asks to fetch, import, download, or add PQ/SQ/RQ, major or minor events for specific dates (e.g. "fetch events for 20260411 20260412"). Also use when the user explicitly asks to fill in the top 8 of an event whose decklists were never published on melee.gg.
 argument-hint: <DATE> [DATE ...] (e.g. 20260411, 20260412)
 allowed-tools: Bash Read Write Glob Grep
 ---
 
-# Fetch Planetary/Sector Qualifier Events
+# Fetch Events
 
-Download Planetary Qualifier and Sector Qualifier tournament data from swu-competitivehub.com for the given dates and create YAML event files in the database.
+Download tournament data from swu-competitivehub.com for the given dates and create YAML event files in the database: Planetary, Sector and Regional Qualifiers, Galactic Championships, Galactic/Sector Opens, and the community events the hub lists as Open, Minor Tournament or Special Tournament.
 
 ## Input
 
@@ -30,6 +30,22 @@ Dates must be in YYYYMMDD format (e.g. 20260411 20260412). Multiple dates can be
 python3 ${CLAUDE_SKILL_DIR}/fetch_events.py $ARGUMENTS
 ```
 
+## Open, Minor Tournament and Special Tournament events
+
+The hub's category says nothing about a community event's size, so the script
+files it by attendance: **32 players or more is `type: "major"`, fewer is
+`type: "minor"`**, and the filename prefix follows (`<date>-major-…` or
+`<date>-minor-…`). The `name` is the event title the hub prints ("Nexus Open"),
+and the filename slug comes from that name rather than the city, since one city
+often hosts several of these on the same weekend.
+
+The hub sometimes prints no player count for these. The script then writes
+`players: 0`, files the event as minor and prints a `NOTE` — check the
+attendance on melee and fix the type and filename if it reaches 32.
+
+An event already in the database under another name or filename (a renamed
+major, say) is still skipped: the script matches existing events by melee link.
+
 ## City grouping rule
 
 An event is filed under the nearest larger or better-known city, not the small
@@ -46,6 +62,9 @@ city on a map. If not, find the nearest major city and rewrite three things:
 - the `city` field,
 - the `name` field, which repeats the city,
 - the filename, whose slug must match the new city.
+
+For an Open, Minor Tournament or Special Tournament event only the `city` field
+changes: its name and filename come from the event title, not the city.
 
 Ignore what the database already contains. Older events were not always grouped
 this way, so a town appearing there as its own city is not a precedent — and
