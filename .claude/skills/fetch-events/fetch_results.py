@@ -171,9 +171,23 @@ def generic_base_error(printed, colour, commons, group):
     )
 
 
-_ROW_RE = re.compile(r"<tr>(.*?)</tr>", re.DOTALL)
-_IMG_RE = re.compile(r'<img src="([^"]+)" alt="([^"]*)"[^>]*class="icon-(leader|base)')
+_ROW_RE = re.compile(r"<tr(?:\s[^>]*)?>(.*?)</tr>", re.DOTALL)
+_IMG_RE = re.compile(r"<img\s[^>]*>")
+_ATTR_RE = re.compile(r'\s([a-z]+)="([^"]*)"')
 _SET_HINT_RE = re.compile(r"-([A-Z0-9]{3})\.[a-z]+$")
+
+
+def card_images(row):
+    """Yield (src, alt, kind) for the leader and base icons of a results row.
+
+    Only the leader icon carries a marker class ("LeaderBase-module__<hash>__leader",
+    the hash changing with every site build); the base is the other icon of the
+    pair.
+    """
+    for tag in _IMG_RE.findall(row):
+        attrs = dict(_ATTR_RE.findall(tag))
+        kind = "leader" if re.search(r"__leader\b", attrs.get("class", "")) else "base"
+        yield attrs.get("src", ""), attrs.get("alt", ""), kind
 
 
 def parse_results(page):
@@ -184,10 +198,11 @@ def parse_results(page):
     <img> alt text, player in the last cell. A row often also links the melee
     decklist the build never saw, which is better data than leader/base.
     """
-    start = page.find('id="tableResults"')
+    # The table has no id; its caption is the stable marker.
+    start = page.find(">Results</caption>")
     if start < 0:
         return {}
-    body = page[page.find("<tbody>", start) : page.find("</tbody>", start)]
+    body = page[page.find("<tbody", start) : page.find("</tbody>", start)]
     results = {}
     for row in _ROW_RE.findall(body):
         cells = re.findall(r"<td[^>]*>(.*?)</td>", row, re.DOTALL)
@@ -200,7 +215,7 @@ def parse_results(page):
         link = _DECKLIST_RE.search(row)
         if link:
             entry["decklist"] = link.group(1)
-        for src, alt, kind in _IMG_RE.findall(row):
+        for src, alt, kind in card_images(row):
             entry[kind] = re.sub(r"\s*\([A-Z0-9]{3}\)\s*$", "", html.unescape(alt))
             hint = _SET_HINT_RE.search(src)
             in_alt = re.search(r"\(([A-Z0-9]{3})\)\s*$", alt)
