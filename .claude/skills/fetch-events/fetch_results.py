@@ -41,6 +41,7 @@ COLOUR_ASPECTS = {
 SITE_ALIASES = {
     ("leader", "sabine"): "Sabine Wren",
     ("leader", "anakin"): "Anakin Skywalker",
+    ("leader", "hemlock"): "Doctor Hemlock",
     ("base", "ecl"): "Energy Conversion Lab",
 }
 
