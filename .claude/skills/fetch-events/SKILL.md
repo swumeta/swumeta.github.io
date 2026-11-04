@@ -7,7 +7,7 @@ allowed-tools: Bash Read Write Glob Grep
 
 # Fetch Events
 
-Download tournament data from swu-competitivehub.com for the given dates and create YAML event files in the database: Planetary, Sector and Regional Qualifiers, Galactic Championships, Galactic/Sector Opens, and the community events the hub lists as Open, Minor Tournament or Special Tournament.
+Download tournament data from swu-competitivehub.com for the given dates and create YAML event files in the database: Planetary, Sector and Regional Qualifiers, Galactic Championships, Galactic/Sector/Regional Opens, and the community events the hub lists as Open, Minor Tournament or Special Tournament.
 
 ## Input
 

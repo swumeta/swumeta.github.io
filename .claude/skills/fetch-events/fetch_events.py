@@ -59,6 +59,7 @@ EVENT_TYPES = {
     ),
     "galactic-open": ("major-galactic-open", "major", "Galactic Open"),
     "sector-open": ("major-sector-open", "major", "Sector Open"),
+    "regional-open": ("major-regional-open", "major", "Regional Open"),
 }
 
 # Community events with no official tier. The hub's own category says nothing
